@@ -1,5 +1,5 @@
-const APP = getApp()
-import UTILS from '../../utils/util.js'
+const app = getApp()
+import utils from '../../utils/util.js'
 
 
 Page({

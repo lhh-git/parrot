@@ -1,3 +1,5 @@
 {
-  
+	"navigationBarTitleText": "鹦鹉听书",
+	"navigationBarTextStyle": "black",
+	"enablePullDownRefresh": true
 }

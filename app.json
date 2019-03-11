@@ -10,9 +10,6 @@
 	"window": {
 		"backgroundTextStyle": "dark",
 		"navigationBarBackgroundColor": "#fff",
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "鹦鹉听书",
-		"enablePullDownRefresh": true,
 		"onReachBottomDistance": 50
 	},
 	"networkTimeout": {

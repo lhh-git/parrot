@@ -1,16 +1,28 @@
-
 //获取应用实例
-const APP = getApp()
-import UTILS from '../../utils/util.js'
+const app = getApp()
+import utils from '../../utils/util.js'
 
 Page({
-  onLoad() {
-	  
-	  
-
+    onLoad() {
+		utils.pullUpRefresh('show');
+		setTimeout(function () {
+			utils.pullUpRefresh('hide');
+		}, 2000)
+		console.log(1)
+    },
+	onPullDownRefresh() {
+		utils.pullUpRefresh('show');
+		setTimeout(function () {
+			utils.pullUpRefresh('hide');
+		}, 2000)
+		console.log(1)
 	},
-	
-	
-	
-	
+	handleNavigateIndex() {
+		wx.switchTab({
+			url: '/pages/listenStory/listenStory'
+		})
+	}
+
+
+
 })
