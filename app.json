@@ -1,44 +1,44 @@
 {
-	"pages": [
-		"pages/index/index",
-		"pages/listenStory/listenStory",
-		
-		
-		"pages/speakStory/speakStory",
-		"pages/personalInfo/personalInfo"
-	],
-	"window": {
-		"backgroundTextStyle": "dark",
-		"navigationBarBackgroundColor": "#fff",
-		"onReachBottomDistance": 50
-	},
-	"networkTimeout": {
-		"request": 6000
-	},
-	"tabBar": {
-		"color": "#858585",
-		"selectedColor": "#e96987",
-		"backgroundColor": "#ffffff",
-		"borderStyle": "black",
-		"list": [
-			{
-				"pagePath": "pages/listenStory/listenStory",
-				"text": "听故事",
-				"iconPath": "images/s_startMaking_mine_unselected.png",
-				"selectedIconPath": "images/s_startMaking_mine_selected.png"
-			},
-			{
-				"pagePath": "pages/speakStory/speakStory",
-				"text": "讲故事",
-				"iconPath": "images/s_startMaking_mine_unselected.png",
-				"selectedIconPath": "images/s_startMaking_mine_selected.png"
-			}, 
-			{
-				"pagePath": "pages/personalInfo/personalInfo",
-				"text": "个人中心",
-				"iconPath": "images/s_startMaking_mine_unselected.png",
-				"selectedIconPath": "images/s_startMaking_mine_selected.png"
-			}
-		]
-	}
+  "pages": [
+    "pages/speakDetail/speakDetail",
+    "pages/index/index",
+    "pages/listenStory/listenStory",
+    "pages/speakStory/speakStory",
+    "pages/personalInfo/personalInfo"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "onReachBottomDistance": 50,
+    "navigationBarTextStyle": "black"
+  },
+  "networkTimeout": {
+    "request": 6000
+  },
+  "tabBar": {
+    "color": "#858585",
+    "selectedColor": "#e96987",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/listenStory/listenStory",
+        "text": "听故事",
+        "iconPath": "images/s_startMaking_mine_unselected.png",
+        "selectedIconPath": "images/s_startMaking_mine_selected.png"
+      },
+      {
+        "pagePath": "pages/speakStory/speakStory",
+        "text": "讲故事",
+        "iconPath": "images/s_startMaking_mine_unselected.png",
+        "selectedIconPath": "images/s_startMaking_mine_selected.png"
+      },
+      {
+        "pagePath": "pages/personalInfo/personalInfo",
+        "text": "个人中心",
+        "iconPath": "images/s_startMaking_mine_unselected.png",
+        "selectedIconPath": "images/s_startMaking_mine_selected.png"
+      }
+    ]
+  }
 }

@@ -62,5 +62,10 @@ Page({
 	 */
 	onShareAppMessage: function () {
 
-	}
+	},
+  handleSpeakDetail() {
+    wx.navigateTo({
+      url: '../speakDetail/speakDetail'
+    })
+  }
 })

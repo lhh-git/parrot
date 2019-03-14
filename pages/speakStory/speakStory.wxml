@@ -1,2 +1,3 @@
 <!--pages/speakStory/speakStory.wxml-->
 <text>pages/speakStory/speakStory.wxml</text>
+<button bindtap="handleSpeakDetail">详情页</button>
