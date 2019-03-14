@@ -1,6 +1,8 @@
 //获取应用实例
 const app = getApp()
 import utils from '../../utils/util.js'
+const innerAudioContext1 = wx.createInnerAudioContext();
+const innerAudioContext2 = wx.createInnerAudioContext();
 
 Page({
     onLoad() {
@@ -8,19 +10,30 @@ Page({
 		setTimeout(function () {
 			utils.pullUpRefresh('hide');
 		}, 2000)
-		console.log(1)
+		this.handlePlayMusic();
     },
 	onPullDownRefresh() {
 		utils.pullUpRefresh('show');
 		setTimeout(function () {
 			utils.pullUpRefresh('hide');
 		}, 2000)
-		console.log(1)
+		
 	},
 	handleNavigateIndex() {
 		wx.switchTab({
 			url: '/pages/listenStory/listenStory'
 		})
+	},
+	handlePlayMusic() {
+		innerAudioContext1.src = "http://win.web.re01.sycdn.kuwo.cn/b00a12d6288c3e67b521464c4eb497bd/5c872666/resource/n3/78/63/1089932193.mp3";
+		innerAudioContext1.play();
+
+		innerAudioContext2.src = "http://www.ytmp3.cn/down/58975.mp3";
+		innerAudioContext2.play();
+
+		
+	
+	
 	}
 
 
