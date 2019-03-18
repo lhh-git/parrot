@@ -1,4 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-	<button bindtap="handleNavigateIndex">首页</button>
+    <button bindtap="handleNavigateIndex">首页</button>
+
+
 </view>
