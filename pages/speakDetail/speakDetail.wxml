@@ -2,7 +2,7 @@
 <view class="contain">
     <!-- 上半部分 -->
     <view class="detail_top">
-        <image src='../../images/spkD_bg.png'></image>
+        <image src='../../images/spkD_bg.jpg'></image>
         <view class='detail_story'>
             <view class='detail_story_name'>《海的女儿》</view>
             <view class='detail_story_from'>安徒生<view class="span">365字</view ></view>
@@ -20,17 +20,17 @@
          <!-- 前三名 -->
          <view class="detail_bottom_sort">
              <view class="bottom_sort">
-                <image class='sort_photo_second'  src='../../images/spkD_bg.png'></image>
+                <image class='sort_photo_second'  src='../../images/spkD_bg.jpg'></image>
                 <image class="bottom_sort_second" src='../../images/spkD_second.png'></image>
                 <view class="sort_second_name">作者</view>
             </view>
             <view class="bottom_sort">
-                <image class='sort_photo_first' src='../../images/spkD_bg.png'></image>
+                <image class='sort_photo_first' src='../../images/spkD_bg.jpg'></image>
                 <image class="bottom_sort_first" src='../../images/spkD_first.png'></image>
                 <view class="sort_first_name">易烊千玺</view>
             </view>
             <view class="bottom_sort">
-                <image class='sort_photo_three' src='../../images/spkD_bg.png'></image>
+                <image class='sort_photo_three' src='../../images/spkD_bg.jpg'></image>
                 <image class='bottom_sort_three' src='../../images/spkD_three.png'></image>
                  <view class="sort_three_name">黑猫</view>
             </view>
@@ -40,7 +40,7 @@
     <view class='list'>
         <view class='bottom_list'>
             <view class='bottom_list_photo'>
-                <image src='../../images/spkD_bg.png'></image>
+                <image src='../../images/spkD_bg.jpg'></image>
                 <view class="icon">4</view>
             </view>
             <view class='bottom_list_msg'>
@@ -63,7 +63,7 @@
             </view>
             <view class='bottom_list'>
                 <view class='bottom_list_photo'>
-                    <image src='../../images/spkD_bg.png'></image>
+                    <image src='../../images/spkD_bg.jpg'></image>
                     <view class="icon">4</view>
                 </view>
                 <view class='bottom_list_msg'>
