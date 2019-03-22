@@ -1,0 +1,85 @@
+page{
+	background:rgba(243,243,243,1);
+}
+
+.header {
+	display: flex;
+	padding: 58rpx 65rpx 0;
+	height: 133rpx;
+	background:rgba(255,255,255,1);
+}
+.header .photo {
+	width: 133rpx;
+	background: white;
+}
+.header .photo image {
+	width: 133rpx;
+	height: 133rpx;
+}
+.header .main {
+	width: 400rpx;
+}
+.header .main .title {
+	margin-left: 40rpx;
+	margin-top: 13rpx;
+	font-size: 43rpx;
+	color: #4E4E4E;
+}
+.header .main .update_time {
+	margin-left: 40rpx;
+	margin-top: 18rpx;
+	font-size: 23rpx;
+	color: #4E4E4E;
+}
+.header .chat {
+	flex: 1;
+	margin-top: 14rpx;
+}
+.header .chat image {
+	width: 89rpx;
+	height: 81rpx;
+}
+
+.activity {
+	padding: 0 65rpx;
+	background:rgba(255,255,255,1);
+}
+.activity image {
+	width: 100%;
+	height: 141rpx;
+}
+
+.section {
+	background:rgba(255,255,255,1);
+}
+.section view {
+	display: flex;
+	align-items: center;
+	margin: 0 30rpx;
+	height: 103rpx;
+	font-size: 30rpx;
+	color: #4E4E4E;
+	border-bottom: 1px solid #EEEEEB;
+}
+.section view:last-child {
+	border: none;
+}
+.section view .icon {
+	margin-right: 4rpx;
+	width: 26rpx;
+	height: 27rpx;
+}
+.section view .main {
+	flex: 1;
+}
+.section view .open {
+	width: 11rpx;
+	height: 19rpx;
+}
+
+.select {
+	margin-top: 14rpx;
+}
+.select view .icon {
+	margin-right: 30rpx;
+}

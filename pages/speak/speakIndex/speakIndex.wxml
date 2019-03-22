@@ -1,0 +1,6 @@
+<view class="contain">
+	<navigator url="/pages/speak/speakDetail/speakDetail">
+		录制作品
+	</navigator>
+	
+</view>

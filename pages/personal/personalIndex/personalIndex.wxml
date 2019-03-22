@@ -1,0 +1,56 @@
+<view class="contain">
+	<view class="header">
+		<view class="photo">
+			<image src='../../../images/my_photo.png'></image>
+		</view>
+		<view class="main">
+			<view class="title">亢奋的蜗牛</view>
+			<view class="update_time">最近登陆：2019-03-15</view>
+		</view>
+		<view class="chat">
+			<image src="../../../images/my_chat.png"></image>
+		</view>
+	</view>
+
+	<view class="activity">
+		<image src='../../../images/my_activity.png'></image>
+	</view>
+
+	<view class="section">
+		<view>
+			<image class="icon" src='../../../images/my_section1.png'></image>
+			<view class="main">我的收入</view>
+			<image class="open" src="../../../images/my_open.png"></image>
+		</view>
+		<view>
+			<image class="icon" src='../../../images/my_section2.png'></image>
+			<view class="main">我的作品</view>
+			<image class="open" src="../../../images/my_open.png"></image>
+		</view>
+		<view>
+			<image class="icon" src='../../../images/my_section3.png'></image>
+			<view class="main">我的收藏</view>
+			<image class="open" src="../../../images/my_open.png"></image>
+		</view>
+		<view>
+			<image class="icon" src='../../../images/my_section4.png'></image>
+			<view class="main">浏览记录</view>
+			<image class="open" src="../../../images/my_open.png"></image>
+		</view>
+	</view>
+
+	<view class="section select">
+		<view>
+			<image class="icon" src='../../../images/my_section5.png'></image>
+			我的邀请
+		</view>
+		<view>
+			<image class="icon" src='../../../images/my_section6.png'></image>
+			我的消息
+		</view>
+	</view>
+
+
+	
+	
+</view>

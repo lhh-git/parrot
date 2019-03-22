@@ -1,4 +1,4 @@
-const formatTime = date => {
+  const formatTime = date => {
 	const year = date.getFullYear()
 	const month = date.getMonth() + 1
 	const day = date.getDate()
@@ -12,6 +12,14 @@ const formatTime = date => {
 const formatNumber = n => {
 	n = n.toString()
 	return n[1] ? n : '0' + n
+}
+
+const json2Form = (json) => {
+	var str = [];
+	for (var p in json) {
+		str.push(encodeURIComponent(p) + "=" + encodeURIComponent(json[p]));
+	}
+	return str.join("&");
 }
 
 
@@ -79,6 +87,7 @@ const onShareAppMessage = (title, url) => {
 
 module.exports = {
 	formatTime: formatTime,
+	json2Form,
 	getFormId: getFormId,
 	pullUpRefresh: pullUpRefresh,
 	loadingData: loadingData,

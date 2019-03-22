@@ -1,0 +1,8 @@
+<view class="contain">
+	<navigator url="/pages/listen/collectMoney/collectMoney">
+		精品榜
+	</navigator>
+
+		
+	
+</view>

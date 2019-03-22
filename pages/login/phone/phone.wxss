@@ -1,0 +1,13 @@
+image {
+	width: 100%;
+}
+
+button {
+	width: 619rpx;
+	height: 96rpx;
+	font-size: 39rpx;
+	color: #fff;
+	letter-spacing: 5rpx;
+	background: #FF9A37;
+	border-radius: 6rpx;
+}

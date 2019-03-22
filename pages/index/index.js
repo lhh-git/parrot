@@ -1,46 +1,72 @@
 //获取应用实例
-const app = getApp()
-import utils from '../../utils/util.js'
-const innerAudioContext1 = wx.createInnerAudioContext();
-const innerAudioContext2 = wx.createInnerAudioContext();
+const APP = getApp()
+import Utils from '../../utils/util.js'
+import Require from '../../utils/require.js'
+
 
 Page({
     onLoad() {
-		utils.pullUpRefresh('show');
-		setTimeout(function () {
-			utils.pullUpRefresh('hide');
-		}, 2000)
-		this.handlePlayMusic();
+
     },
-	onPullDownRefresh() {
-		utils.pullUpRefresh('show');
-		setTimeout(function () {
-			utils.pullUpRefresh('hide');
-		}, 2000)
-		
+    handleGetUserInfo(e) {
+        var userInfo = e.detail.userInfo;
+        if (userInfo) {
+            this.handleGetToken(userInfo)
+			console.log(userInfo)
+        } else {
+            console.log('err')
+        }
+    },
+	//获取用户信息和手机号
+	getPhoneNumber(e) {
+		console.log(e)
 	},
-	handleNavigateIndex() {
-		wx.switchTab({
-			url: '/pages/listenStory/listenStory'
+    //获取token
+    handleGetToken(userInfo) {
+        var APP_URL = APP.globalData.Url
+		var openId = wx.getStorageSync("openid");
+		userInfo.openID = openId;
+		
+
+        wx.request({
+            url: APP_URL + '/api/User/wxLogin',
+            method: "POST",
+            data: {
+				userInfo: JSON.stringify(userInfo)
+            },
+            header: {
+                "content-type": "application/x-www-form-urlencoded"
+            },
+            success(res) {
+                if (res.data.code === 200) {
+					APP.globalData.Token = res.data.Token;
+                }
+            },
+            fail(err) {
+                console.log(err)
+            }
+        })
+    },
+
+
+
+
+	login() {
+		Require.ajax({
+			//loading: "1",   //是否开启loading
+			url: "api/getBanner",
+			method: 'GET',
+			param: {
+
+			},
+			success(res) {
+				console.log(res)
+			}
 		})
-		
-	},
-	handlePlayMusic() {
-		innerAudioContext1.src = "http://win.web.re01.sycdn.kuwo.cn/b00a12d6288c3e67b521464c4eb497bd/5c872666/resource/n3/78/63/1089932193.mp3";
-		innerAudioContext1.volume = 0.3;
-		innerAudioContext1.play();
-
-		innerAudioContext2.src = "http://www.ytmp3.cn/down/58975.mp3";
-		innerAudioContext2.volume = 0.1;
-		innerAudioContext2.play();
-
-		
-	
-	
 	}
 
 
-	
+
 
 
 

@@ -1,0 +1,4 @@
+<view class="contain">
+	<image src='../../../images/login_phone.jpg'></image>
+	<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信手机号快捷登录</button>
+</view>

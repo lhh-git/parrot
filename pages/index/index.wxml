@@ -1,6 +1,13 @@
 <!--index.wxml-->
 <view class="container">
-    <button bindtap="handleNavigateIndex">首页</button>
+	<!-- <image class="bg" src="../../images/login_bg.jpg"></image> -->
+
+
+	<button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo='handleGetUserInfo'>获取用户信息</button>
+
+	<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button>
+
+	<button bindtap='login'>登录</button>
 
 
 </view>

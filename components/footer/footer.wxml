@@ -1,0 +1,6 @@
+<view class="footer">
+	<view wx:for="{{list}}" wx:key="{{item.id}}" data-index="{{index}}" bindtap='handleToggleFooter'>
+		<image src="{{index == footerIndex ? item.icon_sel : item.icon}}"></image>
+		<view class="{{index == footerIndex ? 'selected' : ''}}">{{item.title}}</view>
+	</view>
+</view>
