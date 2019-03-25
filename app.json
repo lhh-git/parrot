@@ -1,21 +1,14 @@
 {
 	"pages": [
+		"pages/speak/upload/upload",
+		"pages/music/music",
 		"pages/login/index/index",
 		"pages/login/phone/phone",
-		
-		
-		"pages/index/index",
-		
-		
-		
-		
-		
 		"pages/listen/listenIndex/listenIndex",
 		"pages/listen/collectMoney/collectMoney",
 		"pages/speak/speakIndex/speakIndex",
 		"pages/speak/speakDetail/speakDetail",
-		"pages/personal/personalIndex/personalIndex",
-		"pages/music/music"
+		"pages/personal/personalIndex/personalIndex"
 		
 	],
 	"window": {
@@ -25,7 +18,7 @@
 		"navigationBarTextStyle": "black"
 	},
 	"networkTimeout": {
-		"request": 6000
+		"request": 10000
 	},
 	"tabBar": {
 		"color": "#C9C9C9",

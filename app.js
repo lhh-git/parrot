@@ -1,11 +1,12 @@
 import Require from './utils/require.js'
+import Token from './utils/token.js'
+
 App({
     onLaunch: function() {
-		var APP_Url = this.globalData.Url;
-
+		var _this = this;
 		wx.login({
 			success(res) {
-				console.log('code-------'+res)
+				console.log(res)
 				Require.ajax({
 					//loading: "1",   //是否开启loading
 					url: "api/user/getOpenID",
@@ -14,15 +15,15 @@ App({
 						code: res.code
 					},
 					success(res) {
-						console.log('openID-------' +res)
+						console.log(res)
 						wx.setStorageSync("openid", res.openID);
 					}
 				})
 			}
 		})
+		
     },
     globalData: {
-		Url: 'http://192.168.0.198',
-		Token: ''
-    }
+		
+    },
 })

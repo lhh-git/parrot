@@ -13,7 +13,8 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-
+		
+		
 	},
 	getPhoneNumber(e) {
 		// console.log(e)
@@ -28,6 +29,8 @@ Page({
 				openID: openId,
 			},
 			success(res) {
+				console.log( res)
+				wx.setStorageSync("phone", res.data);
 				wx.switchTab({
 					url: '/pages/listen/listenIndex/listenIndex'
 				})

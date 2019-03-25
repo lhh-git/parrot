@@ -1,5 +1,4 @@
 <view class="contain">
-	<image src="../../../images/login_bg.svg"></image>
 	<view class="login">
 		<view class="title">
 			开启鹦鹉听书完整体验需要您的微信授权
