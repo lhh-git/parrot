@@ -1,6 +1,83 @@
 <view class="contain">
 	<view class="dubbing">
-	
+        <view class='dubbing_title'>
+            <view class='close_btn'>
+                <image class='close_img' src='../../../images/close_btn.png'></image>
+            </view>
+            选择音乐
+        </view>
+
+        <view class='dubbing_search'>
+            <image class='search_img' src='../../../images/icon_search.png'></image>
+            <input type='text' placeholder='请输入关键字搜索'></input>
+        </view>
+
+        <view class='dubbing_content'>
+            <block>
+                <view class='style_title_list'>
+                    <view class='style_title' wx:for="{{styleTitleList}}" wx:key="{{index}}" data-index="{{index}}">
+                        {{item}}
+                        <view class='underline'></view>
+                    </view>
+                </view>
+            </block>
+            <view class='style_content_list'>
+                <view class='style_content'>
+                    <image class='play_switch_img' src='../../../images/start_play.png'></image>
+                    <view class='song'>
+                        <view class='song_name'>小星星变奏曲</view>
+                        <view class='singer'>莫扎特</view>
+                    </view>
+                    <view class='style_content_right'>
+                        <image class='favorite-img' src='../../../images/favorite-black.png'></image>
+                        <image class='use_btn_img' src='../../../images/use_btn.png'></image>
+                    </view>
+                </view>
+                <view class='style_content'>
+                    <image class='play_switch_img' src='../../../images/start_play.png'></image>
+                    <view class='song'>
+                        <view class='song_name'>小星星变奏曲</view>
+                        <view class='singer'>莫扎特</view>
+                    </view>
+                    <view class='style_content_right'>
+                        <image class='favorite-img' src='../../../images/favorite-black.png'></image>
+                    </view>
+                </view>
+                <view class='style_content'>
+                    <image class='play_switch_img' src='../../../images/start_play.png'></image>
+                    <view class='song'>
+                        <view class='song_name'>小星星变奏曲</view>
+                        <view class='singer'>莫扎特</view>
+                    </view>
+                    <view class='style_content_right'>
+                        <image class='favorite-img' src='../../../images/favorite-black.png'></image>
+                    </view>
+                </view>
+                <view class='style_content'>
+                    <image class='play_switch_img' src='../../../images/start_play.png'></image>
+                    <view class='song'>
+                        <view class='song_name'>小星星变奏曲</view>
+                        <view class='singer'>莫扎特</view>
+                    </view>
+                    <view class='style_content_right'>
+                        <image class='favorite-img' src='../../../images/favorite-black.png'></image>
+                    </view>
+                </view>
+                <view class='style_content'>
+                    <image class='play_switch_img' src='../../../images/start_play.png'></image>
+                    <view class='song'>
+                        <view class='song_name'>小星星变奏曲</view>
+                        <view class='singer'>莫扎特</view>
+                    </view>
+                    <view class='style_content_right'>
+                        <image class='favorite-img' src='../../../images/favorite-black.png'></image>
+                    </view>
+                </view>  
+            </view>
+            <view class='more_btn'>
+                <view class='more_btn_text'>查看更多</view>
+                <image class='more_img' src='../../../images/spkD_more.png'></image>
+            </view>
+        </view>
 	</view>
-	
 </view>
