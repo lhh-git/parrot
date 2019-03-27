@@ -3,4 +3,7 @@
 		录制作品
 	</navigator>
 	
+	<navigator url="/pages/speak/record/record">
+		录音
+	</navigator>
 </view>

@@ -1,0 +1,112 @@
+.contain {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.section {
+	flex: 1;
+	position: relative;
+}
+.section .bgImg {
+	width: 100%;
+	height: 100%;
+}
+.section .content {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+}
+.section .content .title {
+	margin-top: 83rpx;
+	text-align: center;
+	font-size: 45rpx;
+	font-weight: bold;
+	color: #4E4E4E;
+}
+.section .content .info {
+	display: flex;
+	justify-content: center;
+	margin-top: 37rpx;
+	font-size: 30rpx;
+	color: #4E4E4E;
+}
+.section .content .info .count {
+	margin-left: 6rpx;
+	color: #AEAEAE;
+}
+.section .content .words {
+	margin: 40rpx 34rpx 33rpx 28rpx;
+	line-height: 75rpx;
+	font-size: 45rpx;
+	color: #989898;
+	text-indent: 2em;
+}
+
+
+
+.command {
+	height: 416rpx;
+	/* background: red; */
+}
+.command .progress {
+	position: relative;
+	margin: 60rpx 50rpx 0;
+	height: 2rpx;
+	background: #989898;
+}
+.command .progress .start {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1%;
+	height: 2rpx;
+	background: #FF5B36;
+}
+.command .progress .start .loco {
+	position: absolute;
+	right: 0;
+	top: -5rpx;
+	width: 12rpx;
+	height: 12rpx;
+	background:rgba(255,91,54,1);
+	border-radius: 50%;
+}
+
+.command .time {
+	width: 167rpx;
+	height: 42rpx;
+	float: right;
+	margin-right: 50rpx;
+	margin-top: 44rpx;
+	text-align: center;
+	line-height: 42rpx;
+	font-size: 23rpx;
+	color: #898989;
+	background:rgba(249,249,249,1);
+	border-radius: 21rpx;
+}
+
+.command .tool {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 112rpx 75rpx 0 69rpx;
+}
+.command .tool .audition {
+	width: 150rpx;
+	height: 90rpx;
+}
+.command .tool .control {
+	width: 184rpx;
+	height: 184rpx;
+}
+.command .tool .next {
+	width: 150rpx;
+	height: 90rpx;
+}
