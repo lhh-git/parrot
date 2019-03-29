@@ -1,7 +1,42 @@
 <view class="contain">
-	<navigator url="/pages/listen/collectMoney/collectMoney">
-		精品榜
-	</navigator>
+	<view class="search">
+		<view class="content">
+			<image class="icon" src='../../../images/icon_search.png'></image>
+			<view class="words">请输入关键字搜索</view>
+		</view>
+	</view>
+
+	<view class="slider">
+		<swiper
+			indicator-dots="{{indicatorDots}}"
+			autoplay="{{autoplay}}"
+			interval="{{interval}}"
+			duration="{{duration}}"
+			circular="{{circular}}"
+			indicator-color="#93a2b5"
+			indicator-active-color="#fff"
+		>
+			<block wx:for="{{imgUrls}}">
+				<swiper-item>
+					<image src="{{item}}" class="slide-image"/>
+				</swiper-item>
+			</block>
+		</swiper>		
+	</view>
+
+	<view class="nav">
+		<image src='../../../images/icon_fiery.png'></image>
+		<image src='../../../images/icon_good.png'></image>
+		<image src='../../../images/icon_new.png'></image>
+	</view>
+
+	<view class="icon-slider">
+	</view>
+
+
+
+
+
 
 		
 	

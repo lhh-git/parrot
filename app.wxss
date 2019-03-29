@@ -10,3 +10,10 @@ button {
 button::after {
   border: none;
 }
+
+/* 溢出裁切 */
+.overhide {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

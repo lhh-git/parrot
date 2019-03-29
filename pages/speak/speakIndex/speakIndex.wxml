@@ -6,4 +6,8 @@
 	<navigator url="/pages/speak/record/record">
 		录音
 	</navigator>
+
+	<navigator url="/pages/speak/collectMoney/collectMoney">
+		榜单
+	</navigator>
 </view>

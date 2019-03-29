@@ -4,8 +4,8 @@
 			<image src='../../../images/my_photo.png'></image>
 		</view>
 		<view class="main">
-			<view class="title">亢奋的蜗牛</view>
-			<view class="update_time">最近登陆：2019-03-15</view>
+			<view class="title overhide">{{userInfo.nickName}}</view>
+			<view class="update_time">最近登陆：{{userInfo.lastTime}}</view>
 		</view>
 		<view class="chat">
 			<image src="../../../images/my_chat.png"></image>

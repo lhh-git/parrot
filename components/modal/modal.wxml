@@ -1,9 +1,77 @@
 
-<view>
-	<view class="modals modals-bottom-dialog" hidden="{{hideModal}}">
-    <view class="modals-cancel" bindtap="hideModal"></view>
-    <view class="bottom-dialog-body bottom-pos" animation="{{animationData}}"></view>
-</view>
 
-<button bindtap="showModal">点我</button>
+<view class="modals" hidden="{{hideModal}}">
+	<!-- 遮罩  -->
+	<view class="modals-cancel" bindtap="hideModal"></view>
+	<!-- 内容 -->
+	<view class="bottom-dialog-body bottom-pos" animation="{{animationData}}">
+		<view class="dubbing">
+			<view class='dubbing_title'>
+				<view class='close_btn' bindtap='handleCloseModel'>
+					<image class='close_img' src='../../images/dubbing_close.png'></image>
+				</view>
+				选择音乐
+			</view>
+
+			<view class='dubbing_search'>
+				<image class='search_img' src='../../images/icon_search.png'></image>
+				<input type='text' placeholder='请输入关键字搜索' bindinput='handleGetSearch'>{{inputValue}}</input>
+			</view>
+			
+			<block>
+				<view class='style_title_list'>
+					<view class='style_title' 
+						wx:for="{{list}}" 
+						wx:key="{{item.id}}" 
+						data-index="{{index}}" 
+						bindtap='handleToggleDubbingType'
+					>
+						{{item.mcategory_name}}
+						<view class="{{index == id ? 'underline' : ''}}"></view>
+					</view>
+				</view>
+			</block>
+
+			<view class='dubbing_content'>
+				<view class='style_content_list'>
+					<view class='style_content' wx:for="{{list[id].bgm}}" wx:key="{{item.id}}" bindtap='handleGetIndex'>
+						<image class='play_switch_img' 
+							src="{{play && playId == item.id ? '../../images/dubbing_start_play_sel.png' : '../../images/dubbing_start_play.png'}}"
+							data-id="{{item.id}}"
+							data-music="{{item.bgm_url}}"
+							bindtap='handlePlayMusic'
+						>
+						</image>
+						<view class='song'>
+							<view class='song_name'>{{item.bgm_title}}</view>
+							<view class='singer'>{{item.bgm_author}}</view>
+						</view>
+						<view class='style_content_right'>
+							<image class='favorite-img' 
+								src="{{item.is_like == 1 ? '../../images/dubbing_collect_sel.png' : '../../images/dubbing_collect.png'}}"
+								data-id="{{item.id}}"
+								data-like="{{item.is_like}}"
+								bindtap='handleCollect'
+							>
+							</image>
+							<image class='use_btn_img' 
+								src='../../images/dubbing_use_btn.png'
+								wx:if="{{play && playId == item.id}}"
+								data-id="{{item.id}}"
+								bindtap='handleConfirmUse'
+							>
+							</image>
+						</view>
+					</view>
+				</view>
+
+				<view class='more_btn'>
+					<view class='more_btn_text'>查看更多</view>
+					<image class='more_img' src='../../images/spkD_more.png'></image>
+				</view>
+			</view>
+		</view>
+		
+	</view>
+
 </view>

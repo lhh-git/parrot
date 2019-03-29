@@ -1,0 +1,6 @@
+{
+	"navigationBarTitleText": "精品榜",
+	"usingComponents": {
+		"footer": "/components/footer/footer"
+	}
+}

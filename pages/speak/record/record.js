@@ -136,7 +136,7 @@ Page({
 	handleNext() {
 		if (this.data.recordStart) {
 			wx.navigateTo({
-				url: '/pages/speak/dubbing/dubbing?recordInfo=' + JSON.stringify(this.data.recordInfo)
+				url: '/pages/speak/dubbing/dubbing?recordInfo=' + encodeURIComponent(JSON.stringify(this.data.recordInfo))
 			})
 		}
 	}

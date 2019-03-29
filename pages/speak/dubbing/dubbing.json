@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "录制作品"
+	"navigationBarTitleText": "录制作品",
+	"usingComponents": {
+		"modal": "/components/modal/modal"
+	}
 }

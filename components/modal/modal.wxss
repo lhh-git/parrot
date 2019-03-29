@@ -1,6 +1,207 @@
 /*模态框*/
-.modals{position:fixed; z-index: 999; top:0; left: 0; right:0; bottom: 0;}
-.modals-cancel{position:absolute; z-index:1000; top:0; left: 0; right:0; bottom: 0; background-color: rgba(0,0,0,.5);}
-.bottom-dialog-body{position:absolute; z-index:10001; bottom:0; left:0; right:0; padding:30rpx; height:300rpx; background-color: #fff;}
+.modals {
+	position:fixed; 
+	z-index: 11000; 
+	top:0; 
+	left: 0; 
+	right:0; 
+	bottom: 0;
+}
+/* 遮罩 */
+.modals-cancel {
+	position: absolute; 
+	z-index: 10000; 
+	top: 0; 
+	left: 0; 
+	right: 0; 
+	bottom: 0; 
+	background-color: rgba(0,0,0,.5);
+}
+/* 内容 */
+.bottom-dialog-body {
+	position: absolute; 
+	z-index: 11000; 
+	bottom: 0; 
+	left: 0; 
+	right: 0; 
+	/* padding: 30rpx;  */
+	height: 1000rpx; 
+	background-color: #fff;
+}
 /*动画前初始位置*/
-.bottom-pos{-webkit-transform:translateY(100%);transform:translateY(100%);}
+.bottom-pos {
+	-webkit-transform: translateY(100%);
+	transform: translateY(100%);
+}
+
+
+/* 列表 */
+/* 配音 */
+.dubbing {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+    border-radius:20rpx 20rpx 0 0;
+	display: flex;
+	flex-direction: column;
+}
+
+/* 标题栏 */
+.dubbing_title{
+    width: 100%;
+    height: 77rpx;
+    text-align: center;
+    border-bottom: 1rpx solid #D1D1D1;
+    color: #4E4E4E;
+    font-size: 38rpx;
+    font-family: HYSongYunLangHeiW;
+    font-weight: 400;
+    line-height: 77rpx;
+    position: relative;
+}
+.dubbing_title .close_btn{
+    height: 100%;
+    width: 88rpx;
+    line-height: 77rpx;
+    position: absolute;
+    top: 0;
+    left:0;
+}
+.dubbing_title .close_btn .close_img{
+    width: 30rpx;
+    height: 30rpx;
+}
+
+/* 搜索 */
+.dubbing_search{
+    width: 92.4%;
+    height: 90rpx;
+    margin: 28rpx auto 75rpx auto;
+    border-radius:45px;
+    background: #F4F4F4;
+    color: #C9C9C9;
+    position: relative;
+}
+.search_img{
+    width: 48rpx;
+    height: 48rpx;
+    position: absolute;
+    top: 50%;
+    left: 30rpx;
+    margin-top: -24rpx;
+}
+.dubbing_search input{
+    height: 100%;
+    font-size:25rpx;
+    font-family:HYSongYunLangHeiW;
+    font-weight:400;
+    margin-left: 106rpx;
+}
+
+/* 内容 */
+.dubbing_content{
+    width: 100%;
+	flex:1;
+	overflow: auto;
+}
+.style_title_list{
+    width: 84%;
+    overflow-y: hidden;
+    padding: 0 5rpx;
+    margin: 0 auto 30rpx auto; 
+    box-sizing: border-box;
+    display: -webkit-box;
+    white-space: nowrap;
+    overflow: hidden;
+    perspective: 1000;
+    text-align: justify;
+    overflow-x: initial;
+}
+.style_title{
+    font-size:28rpx;
+    font-family:HYSongYunLangHeiW;
+    font-weight:400;
+    color:#4E4E4E;
+    line-height:38rpx;
+    margin-right: 58rpx;
+}
+.style_title.active{
+    color: #FF6A1F;
+}
+.style_title .underline{
+    border-bottom: 4rpx solid #FF6A1F;
+    border-radius: 4rpx;
+}
+.style_content_list{
+	overflow: auto;
+    margin: 0 auto;
+    width: 84%;
+    padding: 0 3rpx;
+}
+.style_content{
+    width: 100%;
+    height: 153rpx;
+    border-bottom: 1rpx solid #D1D1D1;
+    background: #fff;
+    line-height: 153rpx;
+}
+.play_switch_img{
+    width: 38rpx;
+    height: 43rpx;
+}
+.song{
+    display: inline-block;
+    margin-left: 16rpx;
+    vertical-align: middle;
+}
+.song .song_name{
+    font-size: 30rpx;
+    font-family: HYSongYunLangHeiW;
+    font-weight: 400;
+    color: #4E4E4E;
+    margin-bottom: 19rpx;
+    width: 200rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.song .singer{
+    font-size:25rpx;
+    font-family:HYSongYunLangHeiW;
+    font-weight:400;
+    color:#8E8D8D;
+    width: 200rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.style_content_right{
+    height: 100%;
+    display: inline-block;
+    line-height: 153rpx;
+    float: right;
+}
+.favorite-img{
+    width: 40rpx;
+    height: 34rpx;
+    margin-right: 55rpx;
+}
+.use_btn_img{
+    width: 144rpx;
+    height: 70rpx;
+    margin-left: -20rpx;
+}
+.more_btn{
+    margin-top: 38rpx;
+	margin-bottom:26rpx;
+    color: #8E8D8D;
+    font-size: 25rpx;
+    font-family: HYSongYunLangHeiW;
+    font-weight: 400;
+    text-align: center;
+}
+.more_img{
+    margin-top: 20rpx;
+    width: 40rpx;
+    height: 27rpx;
+}

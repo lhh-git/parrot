@@ -1,18 +1,29 @@
 {
 	"pages": [
-		"pages/speak/record/record",
-		"pages/speak/dubbing/dubbing",
 		
+
 		"pages/login/index/index",
-		"pages/listen/listenIndex/listenIndex",
 		"pages/login/phone/phone",
+
+
+		"pages/listen/listenIndex/listenIndex",
 		"pages/listen/collectMoney/collectMoney",
+		
+		
 		"pages/speak/speakIndex/speakIndex",
 		"pages/speak/speakDetail/speakDetail",
-		"pages/personal/personalIndex/personalIndex",
+		"pages/speak/collectMoney/collectMoney",
 		"pages/speak/upload/upload",
-		"pages/music/music"
+		"pages/speak/dubbing/dubbing",
+		"pages/speak/record/record",
+		"pages/speak/worksPlay/worksPlay",
 		
+		
+		
+		"pages/personal/personalIndex/personalIndex",
+		
+		
+		"pages/music/music"
 	],
 	"window": {
 		"backgroundTextStyle": "dark",
@@ -21,7 +32,7 @@
 		"navigationBarTextStyle": "black"
 	},
 	"networkTimeout": {
-		"request": 10000
+		"request": 30000
 	},
 	"tabBar": {
 		"color": "#C9C9C9",

@@ -1,6 +1,9 @@
 import Token from './token.js'
 
-var webUrl = "http://books.icpnt.com/";
+// var webUrl = "http://books.icpnt.com/";
+
+var webUrl = "http://192.168.0.198/";
+
 //网络请求方法
 function ajax(model) {
 
@@ -44,7 +47,7 @@ function ajax(model) {
 				return;
 			}
 
-			if(res.data.code != 200) {
+			if (res.data.code != 200 && res.data.code != 0) {
 				wx.hideLoading()
 				wx.showToast({
 					title: res.data.msg,

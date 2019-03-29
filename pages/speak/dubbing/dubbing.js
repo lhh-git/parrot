@@ -10,19 +10,82 @@ var timer = null;
 
 Page({
 	data: {
-		control: false,		//开关
+		control: true,		//开关
 		recordInfo: {},     //录音信息
-		time: 0,            //录制时长
+		duratio: '',        //总时长
+		time: '',			//播放进度
+		dbId: '',           //背景音乐id
+	},
+	onReady: function () { //获得popup组件
+		this.modal = this.selectComponent("#modal");
 	},
 	onLoad: function (options) {
-		console.log(options.recordInfo)
-		// let recordInfo = JSON.parse(options.recordInfo);
-		// this.setData({
-		// 	recordInfo: recordInfo
-		// }, () => {
-		// 	console.log(this.data.recordInfo)
-		// })
+		let recordInfo = JSON.parse(decodeURIComponent(options.recordInfo));
+		let duration = Math.ceil(recordInfo.duration / 1000);
+		this.setData({
+			recordInfo: recordInfo,
+			duration: duration
+		}, () => {
+			this.handlePlayMusic();
+		})	
 	},
+	//播放录音
+	handlePlayMusic() {
+		// duration:1630
+		// fileSize:28816
+		innerAudioContext.src = this.data.recordInfo.tempFilePath;
+		innerAudioContext.play();
+		
+		//监听播放进度
+		innerAudioContext.onTimeUpdate(() => {
+			let time = Math.ceil(innerAudioContext.currentTime);
+			this.setData({
+				time: time
+			})
+		})
+
+		//自然播放至结束
+		innerAudioContext.onEnded(() => {
+			this.setData({
+				control: false
+			})
+		})
+			
+	},
+	//切换播放状态
+	handleTogglePlay() {
+		let control = !this.data.control;
+		this.setData({
+			control: control
+		}, () => {
+			if (control) {
+				innerAudioContext.play();
+			}else {
+				innerAudioContext.pause()
+			}
+		})
+	},
+
+
+
+	//打开配乐列表
+	handleOpenDubbing() {
+		this.modal.showModal();
+	},
+	//获取子组件传过来的配乐id
+	getDubbingIndex: function (e) {
+		this.setData({
+			dbId: e.detail.id
+		})
+
+	},
+
+
+	//点击录制完成
+	handleOpenUpload() {
+		console.log(1)
+	}
+	
 	
 
 

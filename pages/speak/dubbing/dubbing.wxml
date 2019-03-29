@@ -8,33 +8,39 @@
 				<view class="count">365字</view>
 			</view>
 			<view class="words">
-				   在海的远处，水是那么蓝，像 最美丽的矢车菊花瓣，同时又是那 么清，像最明亮的玻璃。然而它是 很深很深，深得任何锚链都达不
-                            最美丽的矢车菊花瓣，同时又是那
-					么清，像最明亮的玻璃。然而它是
-					很深很深，深得任何锚链都达不到
-					底。要想从海底一直达到水面，必
-					须有许多许多教堂尖塔一个接着一
-					个地联起来才成。海底的人就住在
-					这下面。
-						不过人们千万不要以为那儿只
+				在海的远程
                         
 			</view>
 		</view>
 	</view>
 	<view class="command">
 		<view class="progress">
-			<view class="start" style="width: {{time / 60 * 100}}%">
+			<view class="start" style="width: {{time / duration * 100}}%">
 				<view class="loco"></view>
 			</view>
 		</view>
 		<view class="play">
-			<image src="../../../images/dubbing_play_sel.png"></image>
+			<image src="{{control ? '../../../images/dubbing_play_sel.png' : '../../../images/dubbing_play.png'}}"
+				bindtap='handleTogglePlay'
+			>
+			</image>
 		</view>
-		<view class="time">{{time < 10 ? '0'+time : time}}:00 /60:00</view>
+		<view class="time">{{time < 10 ? '0' + time : time}}:00 /{{duration < 10 ? '0' + duration : duration}}:00</view>
 		
 		<view class="tool">
-			<image src='../../../images/dubbing_button.png'></image>
+			<image src='../../../images/dubbing_button.png'
+				bindtap='handleOpenDubbing'
+			>
+			</image>
+			<image 
+				src='../../../images/dubbing_button2.png'
+				bindtap='handleOpenUpload'
+			>
+			</image>
 		</view>
 	</view>
+
+	<!-- 配乐列表 -->
+	<modal id="modal" bind:myevent="getDubbingIndex"></modal>
 </view>
 
