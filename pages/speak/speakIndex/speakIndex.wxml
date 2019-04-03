@@ -1,13 +1,33 @@
 <view class="contain">
-	<navigator url="/pages/speak/speakDetail/speakDetail">
-		录制作品
-	</navigator>
-	
-	<navigator url="/pages/speak/record/record">
-		录音
-	</navigator>
-
-	<navigator url="/pages/speak/collectMoney/collectMoney">
-		榜单
-	</navigator>
+    <view class='album_main'>
+        <view class='album'>
+            <image class='album_img' src='../../../images/spkI_album.png'></image>
+            <view class='album_name'>默认专辑</view>
+            <view class='album_num'>作品数:0个</view>
+        </view>
+        <view class='album'>
+            <image class='album_img' src='../../../images/spkI_album.png'></image>
+            <view class='album_name'>默认专辑</view>
+            <view class='album_num'>作品数:0个</view>
+        </view>
+         <view class='album'>
+            <image class='album_img' src='../../../images/spkI_album.png'></image>
+            <view class='album_name'>默认专辑</view>
+            <view class='album_num'>作品数:0个</view>
+        </view>
+        <view class='album'>
+            <image class='album_img' src='../../../images/spkI_album.png'></image>
+            <view class='album_name'>默认专辑</view>
+            <view class='album_num'>作品数:0个</view>
+        </view>
+        <view class='album'>
+            <image class='album_img' src='../../../images/spkI_album.png'></image>
+            <view class='album_name'>默认专辑</view>
+            <view class='album_num'>作品数:0个</view>
+        </view>
+        <view class='album'>
+            <image class='album_img' src='../../../images/spkI_newAblum.png'></image>
+            <view class='album_name'>创建新专辑</view>
+        </view>
+    </view>
 </view>

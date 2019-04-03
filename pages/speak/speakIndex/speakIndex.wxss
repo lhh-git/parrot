@@ -1,1 +1,28 @@
-/* pages/speak/speakIndex/speakIndex.wxss */
+.album_main {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.album {
+    margin-top: 50rpx;
+    width: 138rpx;
+    text-align: center;
+    padding-left: 119rpx;
+   
+}
+.album .album_img {
+    width: 138rpx;
+    height: 138rpx;
+}
+.album_name{
+    font-size: 28rpx;
+    margin-top: 12rpx;
+}
+.album_num{
+    font-size: 23rpx;
+    color: #AEAEAE;
+}
+.album:nth-child(3n+1) {
+    margin-left: 50rpx;
+    padding-left: 0;
+}

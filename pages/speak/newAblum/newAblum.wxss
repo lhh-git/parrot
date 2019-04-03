@@ -1,0 +1,73 @@
+page{
+    background: #EFEFF4;
+}
+.new_main{
+    background: #fff;
+}
+.upload_img{
+    width: 100%; 
+}
+.new_title{
+    display: flex;
+    margin-left: 32rpx;
+    margin-right: 32rpx;
+    font-size: 28rpx;
+    margin-top: 46rpx;
+    border-bottom: 1rpx solid #D1D1D1;
+    padding-bottom: 32rpx;
+    position: relative;
+}
+.clear_border{
+    border: 0;
+}
+.title_name{
+    display: flex;
+}
+.title_name .span{
+    color: red;
+}
+.new_title input{
+    width: 584rpx;
+    margin-top: -9rpx;
+    padding-left: 28rpx;
+    color:#AEAEAE;
+}
+.new_title .classify{
+    margin-left: 28rpx;
+}
+.classify_img{
+   position: absolute;
+   right: 0;
+   
+}
+.classify_top{
+    top: -20rpx;
+}
+.classify_img image{
+    width: 11rpx;
+    height: 19rpx;
+}
+.new_synopsis{
+    border-top: 15rpx solid #EFEFF4;
+}
+.synopsis_name{
+    margin: 44rpx 30rpx 0;
+    font-size: 28rpx;
+    border-bottom: 1rpx solid #D1D1D1;
+    padding-bottom: 43rpx;
+    padding-left: 19rpx;
+}
+.new_synopsis textarea{
+    margin: 46rpx 51rpx; 
+    font-size: 28rpx;
+}
+.new_button{
+    background: #EFEFF4;
+    height:100%;
+    display: flex;
+    justify-content: center;  
+}
+.new_button image{
+    margin-top: 26rpx;
+    margin-bottom: 26rpx;
+}

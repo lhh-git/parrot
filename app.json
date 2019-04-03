@@ -1,63 +1,54 @@
 {
-	"pages": [
-		
-
-		"pages/login/index/index",
-		"pages/login/phone/phone",
-
-
-		"pages/listen/listenIndex/listenIndex",
-		"pages/listen/collectMoney/collectMoney",
-		
-		
-		"pages/speak/speakIndex/speakIndex",
-		"pages/speak/speakDetail/speakDetail",
-		"pages/speak/collectMoney/collectMoney",
-		"pages/speak/upload/upload",
-		"pages/speak/dubbing/dubbing",
-		"pages/speak/record/record",
-		"pages/speak/worksPlay/worksPlay",
-		
-		
-		
-		"pages/personal/personalIndex/personalIndex",
-		
-		
-		"pages/music/music"
-	],
-	"window": {
-		"backgroundTextStyle": "dark",
-		"navigationBarBackgroundColor": "#fff",
-		"onReachBottomDistance": 50,
-		"navigationBarTextStyle": "black"
-	},
-	"networkTimeout": {
-		"request": 30000
-	},
-	"tabBar": {
-		"color": "#C9C9C9",
-		"selectedColor": "#FF6D23",
-		"backgroundColor": "#ffffff",
-		"borderStyle": "black",
-		"list": [
-			{
-				"pagePath": "pages/listen/listenIndex/listenIndex",
-				"text": "听故事",
-				"iconPath": "./images/icon_listen.png",
-				"selectedIconPath": "./images/icon_listen_sel.png"
-			},
-			{
-				"pagePath": "pages/speak/speakIndex/speakIndex",
-				"text": "讲故事",
-				"iconPath": "./images/icon_speak.png",
-				"selectedIconPath": "./images/icon_speak_sel.png"
-			},
-			{
-				"pagePath": "pages/personal/personalIndex/personalIndex",
-				"text": "我的",
-				"iconPath": "./images/icon_personalInfo.png",
-				"selectedIconPath": "./images/icon_personalInfo_sel.png"
-			}
-		]
-	}
+    "pages": [
+        "pages/speak/storedWorks/storedWorks",
+        "pages/speak/newAblum/newAblum",
+        "pages/speak/speakIndex/speakIndex",
+        "pages/login/index/index",
+        "pages/login/phone/phone",
+        "pages/listen/listenIndex/listenIndex",
+        "pages/listen/collectMoney/collectMoney",
+        "pages/speak/speakDetail/speakDetail",
+        "pages/speak/collectMoney/collectMoney",
+        "pages/speak/upload/upload",
+        "pages/speak/dubbing/dubbing",
+        "pages/speak/record/record",
+        "pages/speak/worksPlay/worksPlay",
+        "pages/personal/personalIndex/personalIndex",
+        "pages/music/music"
+    ],
+    "window": {
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#fff",
+        "onReachBottomDistance": 50,
+        "navigationBarTextStyle": "black"
+    },
+    "networkTimeout": {
+        "request": 30000
+    },
+    "tabBar": {
+        "color": "#C9C9C9",
+        "selectedColor": "#FF6D23",
+        "backgroundColor": "#ffffff",
+        "borderStyle": "black",
+        "list": [
+            {
+                "pagePath": "pages/listen/listenIndex/listenIndex",
+                "text": "听故事",
+                "iconPath": "./images/icon_listen.png",
+                "selectedIconPath": "./images/icon_listen_sel.png"
+            },
+            {
+                "pagePath": "pages/speak/speakIndex/speakIndex",
+                "text": "讲故事",
+                "iconPath": "./images/icon_speak.png",
+                "selectedIconPath": "./images/icon_speak_sel.png"
+            },
+            {
+                "pagePath": "pages/personal/personalIndex/personalIndex",
+                "text": "我的",
+                "iconPath": "./images/icon_personalInfo.png",
+                "selectedIconPath": "./images/icon_personalInfo_sel.png"
+            }
+        ]
+    }
 }
