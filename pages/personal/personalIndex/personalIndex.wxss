@@ -10,11 +10,12 @@ page{
 }
 .header .photo {
 	width: 133rpx;
-	background: white;
+	height: 133rpx;	
 }
 .header .photo image {
 	width: 133rpx;
 	height: 133rpx;
+	border-radius: 50%;
 }
 .header .main {
 	width: 400rpx;

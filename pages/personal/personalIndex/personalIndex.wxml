@@ -1,7 +1,7 @@
 <view class="contain">
 	<view class="header">
 		<view class="photo">
-			<image src='../../../images/my_photo.png'></image>
+			<image src="{{userInfo.avatarUrl}}"></image>
 		</view>
 		<view class="main">
 			<view class="title overhide">{{userInfo.nickName}}</view>

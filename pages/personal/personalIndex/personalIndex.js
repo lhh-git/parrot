@@ -19,6 +19,7 @@ Page({
 			method: 'POST',
 			param: {},
 			success(res) {
+				console.log(res)
 				_this.setData({
 					userInfo: res.data
 				})
