@@ -1,0 +1,44 @@
+<view class="contain">
+
+    <view class='new_main'>
+
+        <view class='new_title'>
+            <view class='title_name'>
+                <view class='span'>*</view>
+                标题
+            </view>
+            <input placeholder='老奶奶和小花猫'></input>
+        </view>
+
+        <view class='new_title clear_border'>
+            <view class='title_name essential'>
+                简介
+            </view>
+            <input placeholder='谈谈你的创作感想,可吸引更多听众'></input>
+            <view class='classify_img'><image src='../../../images/my_open.png'></image></view>
+        </view>
+
+        <view class='checked_ablum'>
+            <view class='title_name'>
+                <view class='span'>*</view>
+                选择专辑
+            </view>
+            <view class='classify_img'>
+                <text>默认专辑</text>
+                <image src='../../../images/my_open.png'></image>
+            </view>
+        </view>
+        
+        <view class='stored_checked'>
+            <checkbox-group>
+                <label class="checkbox">
+                    <view class='checked_text'>
+                        <checkbox value="" checked=""/>
+                        我已阅读并同意<text>《知识产权承诺》</text>
+                    </view>
+                </label>
+            </checkbox-group>
+        </view>
+        <view class='new_button'><image src='../../../images/newA_button.png' mode='widthFix'></image></view>
+    </view>
+</view>

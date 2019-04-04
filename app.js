@@ -8,7 +8,7 @@ App({
 			success(res) {
 				console.log(res)
 				Require.ajax({
-					//loading: "1",   //是否开启loading
+					// loading: "1",   //是否开启loading
 					url: "api/user/getOpenID",
 					method: 'POST',
 					param: {
