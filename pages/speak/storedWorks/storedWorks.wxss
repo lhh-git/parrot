@@ -69,10 +69,18 @@ page{
 
 .new_button{
     position: fixed;
-    background: #EFEFF4; 
-    bottom:68rpx;
-    margin-left: 50%;
-    transform: translate(-50%)
+	left: 50%;
+	bottom:68rpx;
+	transform: translateX(-50%);
+	width: 652rpx;
+	height: 90rpx;
+	text-align: center;
+	line-height: 90rpx;
+	font-size: 34rpx;
+	color: #fff;
+	letter-spacing: 8rpx;
+	background: #f86442;
+	border-radius: 90rpx;
 }
 .essential{
     margin-left: 15rpx;

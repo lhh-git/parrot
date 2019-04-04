@@ -1,11 +1,10 @@
-// pages/speak/upload/upload.js
+// pages/personal/listAlbum/listAlbum.js
 Page({
 
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
-        styleTitleList: ['可爱', '恬静', '欢快', '治愈', '佛音', '舒缓']
 
 	},
 

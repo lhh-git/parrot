@@ -1,0 +1,30 @@
+<view class="contain">
+	<image class="bg" src="../../../images/details_album_bg.png"></image>
+	<view class="section">
+		<view class="info">
+			<view class="head">
+				<view class="details">
+					<image class="photo" src="../../../images/my_photo.png"></image>
+					<view class="user">亢奋的蜗牛</view>
+					<view class="count">订阅人数 0 人</view>
+				</view>
+				<button>已订阅</button>
+			</view>
+			<view class="main">
+				<view class="nav">
+					<view>简介</view>
+					<view>已上传</view>
+				</view>
+				<view class="describe">
+					做为一名传统的中国大学生，我具备了中国人诚实不屈的 传统品格，同样的我也具有能被社会所认可的诚信。为了 生存我有着奋发向上的追
+				</view>
+			</view>
+		</view>
+
+		<view class="classify">
+		</view>
+
+		<view class="labels">
+		</view>
+	</view>
+</view>

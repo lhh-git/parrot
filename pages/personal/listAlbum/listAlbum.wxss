@@ -1,0 +1,44 @@
+.album_main {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 51rpx 0 47rpx;
+}
+.album_main .album {
+	position: relative;
+	text-align: center;
+}
+.album_main .album:nth-child(3n-1) {
+	margin: 0 119rpx;
+}
+.album_main .album:nth-child(n+4) {
+	margin-top: 30rpx;
+}
+
+
+.album_main .album image {
+	width: 138rpx;
+	height: 138rpx;
+	border-radius: 3rpx;
+}
+.album_main .album view:nth-child(2) {
+	margin-top: 12rpx;
+	font-size: 28rpx;
+	color: #4E4E4E;
+}
+.album_main .album view:nth-child(3) {
+	margin-top: 7rpx;
+	font-size: 23rpx;
+	color: #AEAEAE;
+}
+.album_main .album view:nth-child(4) {
+	position: absolute;
+	left: 0;
+	top: 113rpx;
+	width: 45rpx;
+	height: 25rpx;
+	line-height: 25rpx;
+	text-align: center;
+	font-size: 18rpx;
+	color: #fff;
+	background: #f86442;
+}

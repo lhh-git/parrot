@@ -1,0 +1,26 @@
+<view class="contain">
+    <view class='album_main'>
+		<view class="album">
+			<image src='../../../images/list_album_photo.png'></image>
+			<view>草稿箱</view>
+			<view>作品数:5个</view>
+			<view>私密</view>
+		</view>
+		<view class="album">
+			<image src='../../../images/list_album_photo.png'></image>
+			<view>默认专辑</view>
+			<view>作品数:5个</view>
+			<view>公开</view>
+		</view>
+		
+		
+
+
+		<view class="album">
+			<navigator url="/pages/personal/createAlbum/createAlbum">
+				<image src='../../../images/list_ablum_create.png'></image>
+				<view>创建新专辑</view>
+			</navigator>
+		</view>
+    </view>
+</view>

@@ -48,6 +48,11 @@
 			<image class="icon" src='../../../images/my_section6.png'></image>
 			我的消息
 		</view>
+		<view>
+			<navigator url="/pages/personal/listAlbum/listAlbum">
+				专辑列表
+			</navigator>
+		</view>
 	</view>
 
 

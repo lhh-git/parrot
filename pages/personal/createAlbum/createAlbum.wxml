@@ -14,7 +14,7 @@
             <input placeholder='例如:蜗牛的朗读专辑'></input>
         </view>
 
-        <view class='new_title'>
+        <view class='new_title' bindtap='handleGetClassify'>
             <view class='title_name'>
                 <view class='span'>*</view>
                 分类
@@ -22,6 +22,29 @@
            <view class='classify'>英文读物</view> 
            <view class='classify_img'><image src='../../../images/my_open.png'></image></view>          
         </view>
+
+		<view class="labels">
+			<view class="add">
+				<view class="title">标签</view>
+				<input class="inputValue" placeholder='最多可添加10个标签'></input>
+				<view class="button">添加标签</view>
+			</view>
+			<view class="main">
+				<view>最多可添加</view>
+				<view>1sdsddss</view>
+				<view>1dsdsd</view>
+				<view>1gffg</view>
+				<view>最多可添加</view>
+				<view>1sdsddss</view>
+				<view>1dsdsd</view>
+				<view>1gffg</view>
+				<view>最多可添加</view>
+				<view>1sdsddss</view>
+				<view>1dsdsd</view>
+				<view>1gffg</view>
+			</view>
+		</view>
+
 
         <view class='new_title clear_border'>
             <view class='title_name'>

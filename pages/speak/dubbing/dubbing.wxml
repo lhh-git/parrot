@@ -42,5 +42,9 @@
 
 	<!-- 配乐列表 -->
 	<modal id="modal" bind:myevent="getDubbingIndex"></modal>
+
+	<!-- 录制完成弹窗 -->
+	<keep id="keep" ></keep>	
+
 </view>
 

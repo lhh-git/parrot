@@ -19,14 +19,16 @@
         </view>
 
         <view class='checked_ablum'>
-            <view class='title_name'>
-                <view class='span'>*</view>
-                选择专辑
-            </view>
-            <view class='classify_img'>
-                <text>默认专辑</text>
-                <image src='../../../images/my_open.png'></image>
-            </view>
+			<view class='title_name'>
+				<view class='span'>*</view>
+				选择专辑
+			</view>
+			<navigator url="/pages/personal/listAlbum/listAlbum">
+				<view class='classify_img'>
+					<text>默认专辑</text>
+					<image src='../../../images/my_open.png'></image>
+				</view>
+			</navigator>	
         </view>
         
         <view class='stored_checked'>
@@ -39,6 +41,8 @@
                 </label>
             </checkbox-group>
         </view>
-        <view class='new_button'><image src='../../../images/newA_button.png' mode='widthFix'></image></view>
+        <view class='new_button'>确定</view>
+			
+		
     </view>
 </view>

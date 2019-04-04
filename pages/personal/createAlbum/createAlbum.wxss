@@ -71,3 +71,51 @@ page{
     margin-top: 26rpx;
     margin-bottom: 26rpx;
 }
+
+
+.labels {
+	margin: 0 32rpx 0 32rpx;
+}
+.labels .add {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 120rpx;
+	border-bottom: 1rpx solid #d1d1d1;
+}
+.labels .add .title {
+	margin-left: 18rpx;
+	font-size: 28rpx;
+	color: #4E4E4E;
+
+}
+.labels .add .inputValue {
+	margin-left: -63rpx;
+	font-size: 28rpx;
+}
+.labels .add .button {
+	width: 184rpx;
+	height: 72rpx;
+	text-align: center;
+	line-height: 72rpx;
+	font-size: 24rpx;
+	color: #f86442;
+	border: 1rpx solid #f86442;
+	border-radius: 30rpx;
+}
+
+.labels .main {
+	display: flex;
+	flex-wrap: wrap;
+	padding-bottom: 16rpx;
+	border-bottom: 1rpx solid #d1d1d1;
+}
+.labels .main view {
+	margin-left: 35rpx;
+	margin-top: 16rpx;
+	padding: 10rpx 16rpx;
+	font-size: 20rpx;
+	color: #aeaeae;
+	border: 1rpx solid #d2d2d2;
+	border-radius: 22rpx;
+}

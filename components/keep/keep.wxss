@@ -1,0 +1,60 @@
+/*模态框*/
+.modals {
+	position:fixed; 
+	z-index: 11000; 
+	top:0; 
+	left: 0; 
+	right:0; 
+	bottom: 0;
+}
+/* 遮罩 */
+.modals-cancel {
+	position: absolute; 
+	z-index: 10000; 
+	top: 0; 
+	left: 0; 
+	right: 0; 
+	bottom: 0; 
+	background-color: rgba(0,0,0,.5);
+}
+/* 内容 */
+.bottom-dialog-body {
+	position: absolute; 
+	z-index: 11000; 
+	bottom: 0; 
+	left: 0; 
+	right: 0; 
+	/* padding: 30rpx;  */
+	height: 352rpx; 
+	background-color: #fff;
+}
+/*动画前初始位置*/
+.bottom-pos {
+	-webkit-transform: translateY(100%);
+	transform: translateY(100%);
+}
+
+
+
+
+/* 保存 */
+.upload {
+	width: 625rpx;
+	margin: 74rpx auto;
+}
+.upload view {
+	height: 90rpx;
+	text-align: center;
+	line-height: 90rpx;
+	font-size: 35rpx;
+	color: #fff;
+	letter-spacing: 8rpx;
+	background: #f86442;
+	border-radius: 90rpx;
+	
+}
+.upload view:nth-child(2) {
+	margin-top: 30rpx;
+}
+
+ 

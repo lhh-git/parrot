@@ -18,6 +18,7 @@ Page({
 	},
 	onReady: function () { //获得popup组件
 		this.modal = this.selectComponent("#modal");
+		this.keep = this.selectComponent("#keep");
 	},
 	onLoad: function (options) {
 		let recordInfo = JSON.parse(decodeURIComponent(options.recordInfo));
@@ -83,7 +84,7 @@ Page({
 
 	//点击录制完成
 	handleOpenUpload() {
-		console.log(1)
+		this.keep.showModal();
 	}
 	
 	
