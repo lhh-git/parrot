@@ -1,7 +1,10 @@
 <view class="container">
 	<view class="list_box">
 		<view class="list">
-			<view class="sort">01</view>
+			<view class="sort">
+				<!-- <view >01</view> -->
+				<image class="three" src="../../../images/icon_sort1.png"></image>
+			</view>
 			<view class="main">
 				<view class="photo">
 				
@@ -25,31 +28,10 @@
 			</view>
 		</view>
 		<view class="list">
-			<view class="sort">01</view>
-			<view class="main">
-				<view class="photo">
-				
-				</view>
-				<view class="info">
-					<view class="title overstep">亢奋的蜗牛—进击的开发商诱惑ddddddddddd</view>
-					<view class="user overstep">刘纯燕</view>
-					<view class="describe overstep">专辑名称-简介简介简介简介简介简…</view>
-					<view class="tool">
-						<view class="status" style="display:none;">已完结</view>
-						<view class="browse">
-							<image src='../../../images/icon_browse.png'></image>
-							3581
-						</view>
-						<view class="collect">
-							<image src='../../../images/icon_collect.png'></image>
-							3.5万
-						</view>
-					</view>
-				</view>
+			<view class="sort">
+				<!-- <view >01</view> -->
+				<image class="three" src="../../../images/icon_sort2.png"></image>
 			</view>
-		</view>
-		<view class="list">
-			<view class="sort">01</view>
 			<view class="main">
 				<view class="photo">
 				
@@ -73,7 +55,10 @@
 			</view>
 		</view>
 		<view class="list">
-			<view class="sort">01</view>
+			<view class="sort">
+				<!-- <view >01</view> -->
+				<image class="three" src="../../../images/icon_sort3.png"></image>
+			</view>
 			<view class="main">
 				<view class="photo">
 				
@@ -97,7 +82,10 @@
 			</view>
 		</view>
 		<view class="list">
-			<view class="sort">01</view>
+			<view class="sort">
+				<view >04</view>
+				<!-- <image class="three" src="../../../images/icon_sort1.png"></image> -->
+			</view>
 			<view class="main">
 				<view class="photo">
 				
@@ -120,103 +108,11 @@
 				</view>
 			</view>
 		</view>
-		<view class="list">
-			<view class="sort">01</view>
-			<view class="main">
-				<view class="photo">
-				
-				</view>
-				<view class="info">
-					<view class="title overstep">亢奋的蜗牛—进击的开发商诱惑ddddddddddd</view>
-					<view class="user overstep">刘纯燕</view>
-					<view class="describe overstep">专辑名称-简介简介简介简介简介简…</view>
-					<view class="tool">
-						<view class="status">已完结</view>
-						<view class="browse">
-							<image src='../../../images/icon_browse.png'></image>
-							3581
-						</view>
-						<view class="collect">
-							<image src='../../../images/icon_collect.png'></image>
-							3.5万
-						</view>
-					</view>
-				</view>
-			</view>
-		</view>
-		<view class="list">
-			<view class="sort">01</view>
-			<view class="main">
-				<view class="photo">
-				
-				</view>
-				<view class="info">
-					<view class="title overstep">亢奋的蜗牛—进击的开发商诱惑ddddddddddd</view>
-					<view class="user overstep">刘纯燕</view>
-					<view class="describe overstep">专辑名称-简介简介简介简介简介简…</view>
-					<view class="tool">
-						<view class="status">已完结</view>
-						<view class="browse">
-							<image src='../../../images/icon_browse.png'></image>
-							3581
-						</view>
-						<view class="collect">
-							<image src='../../../images/icon_collect.png'></image>
-							3.5万
-						</view>
-					</view>
-				</view>
-			</view>
-		</view>
-		<view class="list">
-			<view class="sort">01</view>
-			<view class="main">
-				<view class="photo">
-				
-				</view>
-				<view class="info">
-					<view class="title overstep">亢奋的蜗牛—进击的开发商诱惑ddddddddddd</view>
-					<view class="user overstep">刘纯燕</view>
-					<view class="describe overstep">专辑名称-简介简介简介简介简介简…</view>
-					<view class="tool">
-						<view class="status">已完结</view>
-						<view class="browse">
-							<image src='../../../images/icon_browse.png'></image>
-							3581
-						</view>
-						<view class="collect">
-							<image src='../../../images/icon_collect.png'></image>
-							3.5万
-						</view>
-					</view>
-				</view>
-			</view>
-		</view>
-		<view class="list">
-			<view class="sort">01</view>
-			<view class="main">
-				<view class="photo">
-				
-				</view>
-				<view class="info">
-					<view class="title overstep">亢奋的蜗牛—进击的开发商诱惑ddddddddddd</view>
-					<view class="user overstep">刘纯燕</view>
-					<view class="describe overstep">专辑名称-简介简介简介简介简介简…</view>
-					<view class="tool">
-						<view class="status">已完结</view>
-						<view class="browse">
-							<image src='../../../images/icon_browse.png'></image>
-							3581
-						</view>
-						<view class="collect">
-							<image src='../../../images/icon_collect.png'></image>
-							3.5万
-						</view>
-					</view>
-				</view>
-			</view>
-		</view>
+
+
+		
 	</view>
+
 	<footer id="footer"></footer>
 
 

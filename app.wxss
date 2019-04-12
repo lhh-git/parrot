@@ -6,6 +6,7 @@ image {
 }
 button {
 	border-radius:0;
+	background: #fff;
 }
 button::after {
   border: none;

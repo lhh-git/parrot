@@ -1,3 +1,6 @@
 {
-	"navigationBarTitleText": "听故事"
+	"navigationBarTitleText": "听故事",
+	"usingComponents": {
+		"filter": "/components/filter/filter"
+	}
 }

@@ -1,5 +1,3 @@
-
-
 .list_box {
 	margin-bottom: 100rpx;
 }
@@ -17,6 +15,10 @@
 	width: 112rpx;
 	font-size: 25rpx;
 	color: #4E4E4E;
+}
+.list .sort .three {
+	width: 34rpx;
+	height: 22rpx;
 }
 .list .main {
 	display: flex;	

@@ -1,8 +1,8 @@
 import Token from './token.js'
 
-var webUrl = "http://books.icpnt.com/";
+// var webUrl = "http://books.icpnt.com/";
 
-// var webUrl = "http://192.168.0.198/";
+var webUrl = "http://192.168.0.198/";
 
 //网络请求方法
 function ajax(model) {

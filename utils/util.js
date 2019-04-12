@@ -1,3 +1,5 @@
+import Require from './require.js'
+  
   const formatTime = date => {
 	const year = date.getFullYear()
 	const month = date.getMonth() + 1
@@ -22,10 +24,33 @@ const json2Form = (json) => {
 	return str.join("&");
 }
 
+//Toast提示
+const showToast = (title, icon, duration) => {
+	wx.showToast({
+		title: title, 	//文本最多显示 7个汉字长度
+		icon: icon == 'success' ? icon : 'none',
+		duration: duration || 2000,
+		image: icon == 'err' ? '/images/toast_err.png' : icon == 'warn' ? '/images/toast_warn.png' : ''
+	})
+}
+	
+
 
 //获取formId
-const getFormId = (obj) => {
-	console.log(obj)
+const getFormId = (e) => {
+	console.log(e.detail.formId)
+	Require.ajax({
+		//loading: "1",   //是否开启loading
+		url: "api/collectFormID",
+		method: 'POST',
+		param: {
+			formID: e.detail.formId
+		},
+		success(res) {
+			console.log(res)
+		}
+
+	})
 }
 
 //上拉刷新状态
@@ -86,11 +111,12 @@ const onShareAppMessage = (title, url) => {
 	
 
 module.exports = {
-	formatTime: formatTime,
+	showToast,
+	formatTime,
 	json2Form,
-	getFormId: getFormId,
-	pullUpRefresh: pullUpRefresh,
-	loadingData: loadingData,
-	onShareAppMessage: onShareAppMessage
+	getFormId,
+	pullUpRefresh,
+	loadingData,
+	onShareAppMessage
 
 }

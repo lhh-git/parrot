@@ -4,8 +4,13 @@ page{
 .new_main{
     background: #fff;
 }
-.upload_img{
-    width: 100%; 
+.new_upload {
+	width: 100%;
+	height: 348rpx;
+}
+.new_upload .upload_img {
+    width: 100%;
+	height: 100%;
 }
 .new_title{
     display: flex;

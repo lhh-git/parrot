@@ -1,66 +1,66 @@
-// pages/speak/speakIndex/speakIndex.js
+//获取应用实例
+const APP = getApp()
+import Utils from '../../../utils/util.js'
+import Require from '../../../utils/require.js'
+
 Page({
-
-	/**
-	 * 页面的初始数据
-	 */
 	data: {
-
+		imgUrls: [],   //轮播图
+		icons: [],     //分类
+		indicatorDots: true,
+		autoplay: true,
+		circular: true,
+		interval: 5000,
+		duration: 1000
 	},
-
-	/**
-	 * 生命周期函数--监听页面加载
-	 */
-	onLoad: function (options) {
-
+	onLoad() {
+		this.getTellingBanner()	//获取轮播图
+		this.getTellingScategory()	//获取分类
 	},
-
-	/**
-	 * 生命周期函数--监听页面初次渲染完成
-	 */
-	onReady: function () {
-
+	handleOpenCollectMoney() {
+		wx.navigateTo({
+			url: '/pages/speak/collectMoney/collectMoney',
+		})
 	},
-
-	/**
-	 * 生命周期函数--监听页面显示
-	 */
-	onShow: function () {
-
+	//获取轮播图
+	getTellingBanner() {
+		let _this = this;
+		Require.ajax({
+			//loading: "1",   //是否开启loading
+			url: "api/getTellingBanner",
+			method: 'GET',
+			param: {},
+			success(res) {
+				_this.setData({
+					imgUrls: res.data
+				})
+			}
+		})
 	},
-
-	/**
-	 * 生命周期函数--监听页面隐藏
-	 */
-	onHide: function () {
-
-	},
-
-	/**
-	 * 生命周期函数--监听页面卸载
-	 */
-	onUnload: function () {
-
-	},
-
-	/**
-	 * 页面相关事件处理函数--监听用户下拉动作
-	 */
-	onPullDownRefresh: function () {
-
-	},
-
-	/**
-	 * 页面上拉触底事件的处理函数
-	 */
-	onReachBottom: function () {
-
-	},
-
-	/**
-	 * 用户点击右上角分享
-	 */
-	onShareAppMessage: function () {
-
+	//获取分类
+	getTellingScategory() {
+		let _this = this;
+		Require.ajax({
+			//loading: "1",   //是否开启loading
+			url: "api/Scategory/getTellingScategory",
+			method: 'GET',
+			param: {},
+			success(res) {
+				let icons = res.data
+				const pages = [];
+				icons.forEach((value, index) => {
+					const page = Math.floor(index / 6)
+					console.log(page)
+					if (!pages[page]) {
+						pages[page] = []
+					}
+					pages[page].push(value)
+				})
+				_this.setData({
+					icons: pages
+				})
+			}
+		})
 	}
+
 })

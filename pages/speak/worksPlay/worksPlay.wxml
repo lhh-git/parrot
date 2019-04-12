@@ -33,7 +33,9 @@
 		<view class="time">{{time < 10 ? '0'+time : time}}:00 /60:00</view>
 		
 		<view class="tool">
-			<image src='../../../images/workPlay_button.png'></image>
+			<navigator url="/pages/speak/record/record">
+				<image src='../../../images/workPlay_button.png'></image>
+			</navigator>
 		</view>
 	</view>
 </view>

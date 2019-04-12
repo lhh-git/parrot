@@ -7,10 +7,12 @@
 			<view>私密</view>
 		</view>
 		<view class="album">
-			<image src='../../../images/list_album_photo.png'></image>
-			<view>默认专辑</view>
-			<view>作品数:5个</view>
-			<view>公开</view>
+			<navigator url="/pages/personal/detailsAlbum/detailsAlbum">
+				<image src='../../../images/list_album_photo.png'></image>
+				<view>默认专辑</view>
+				<view>作品数:5个</view>
+				<view>公开</view>
+			</navigator>
 		</view>
 		
 		

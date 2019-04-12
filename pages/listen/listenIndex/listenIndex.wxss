@@ -63,3 +63,158 @@ page {
 	margin-top: 5rpx;
 	background: #fff;
 }
+.icon-slider .item-box {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 28rpx 53rpx 52rpx 60rpx;
+}
+.icon-slider .item-box .icons_item {
+	overflow: hidden;
+	position: relative;
+	width: 168rpx;
+	height: 100rpx;
+	border-radius: 20rpx;
+}
+.icon-slider .item-box .icons_item .title {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	text-align: center;
+	line-height: 28rpx;
+	width: 168rpx;
+	height: 28rpx;
+	font-size: 25rpx;
+	color: white;
+	background: rgba(248,171,82, .7);
+}
+.icon-slider .item-box .icons_item:nth-child(3n-1) {
+	margin: 0 66rpx 0 69rpx;
+}
+.icon-slider .item-box .icons_item:nth-child(n+4) {
+	margin-top: 34rpx;
+}
+.icon-slider image {
+	width: 168rpx;
+	height: 100rpx;
+}
+
+
+.section {
+	margin-top: 5rpx;
+	background: #fff;
+}
+.section>.title {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 106rpx;
+	font-size: 30rpx;
+	color: #4E4E4E;
+	border-bottom: 1rpx solid #F3F3F3;
+}
+.section>.title view:last-child {
+	text-align: center;
+	line-height: 80rpx;
+	width: 142rpx;
+	height: 80rpx;
+	font-size: 30rpx;
+	color: #F9992C;
+	border: 2rpx solid #F9992C;
+	border-radius: 27rpx;
+}
+.section>.title .new,.play_count {
+	position: relative;
+}
+.section>.title .new::after {
+	position: absolute;
+	left: 65rpx;
+	top: 5rpx;
+	content: "";
+	width: 0;
+	height: 0;
+	border-left: 7rpx solid transparent;
+	border-right: 7rpx solid transparent;
+	border-bottom: 9rpx solid #4E4E4E;
+}
+.section>.title .new::before {
+	position: absolute;
+	left: 65rpx;
+	top: 19rpx;
+	content: "";
+	width: 0;
+	height: 0;
+	border-left: 7rpx solid transparent;
+	border-right: 7rpx solid transparent;
+	border-top: 9rpx solid #4E4E4E;
+}
+.section>.title .play_count::after {
+	position: absolute;
+	left: 95rpx;
+	top: 5rpx;
+	content: "";
+	width: 0;
+	height: 0;
+	border-left: 7rpx solid transparent;
+	border-right: 7rpx solid transparent;
+	border-bottom: 9rpx solid #4E4E4E;
+}
+.section>.title .play_count::before {
+	position: absolute;
+	left: 95rpx;
+	top: 19rpx;
+	content: "";
+	width: 0;
+	height: 0;
+	border-left: 7rpx solid transparent;
+	border-right: 7rpx solid transparent;
+	border-top: 9rpx solid #4E4E4E;
+}
+
+.section .main {
+
+}
+.section .main .alone {
+	display: flex;
+	height: 152rpx;
+	padding: 0 40rpx 0 60rpx;
+	border-bottom: 1rpx solid #F3F3F3;
+}
+.section .main .alone:last-child {
+	border-bottom: none;
+}
+.section .main .alone .left {
+	margin-top: 22rpx;
+}
+.section .main .alone .left image {
+	width: 98rpx;
+	height: 98rpx;
+	border-radius: 1prx;
+}
+.section .main .alone .right {
+	margin-left: 23rpx;
+	width: 529rpx;
+}
+.section .main .alone .right .title {
+	margin-top: 22rpx;
+	font-size: 30rpx;
+	color: #4E4E4E;
+}
+.section .main .alone .right .tool {
+	display: flex;
+	align-items: center;
+	margin-top: 17rpx;
+	height: 25rpx;
+	font-size: 25rpx;
+	color: #C9C9C9;
+}
+.section .main .alone .right .tool .browse {
+	margin-right: 18rpx;
+	width: 18rpx;
+	height: 19rpx;
+}
+.section .main .alone .right .tool .collect {
+	margin-left: 44rpx;
+	margin-right: 15rpx;
+	width: 21rpx;
+	height: 19rpx;
+}

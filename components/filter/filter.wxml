@@ -1,0 +1,12 @@
+
+<view class="modals" hidden="{{hideModal}}">
+	<!-- 遮罩  -->
+	<view class="modals-cancel" bindtap="hideModal"></view>
+	<!-- 内容 -->
+	<view class="bottom-dialog-body bottom-pos" animation="{{animationData}}">
+		<view class="upload">
+			
+		</view>
+	</view>
+
+</view>
