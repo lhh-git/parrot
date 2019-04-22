@@ -110,7 +110,6 @@ page {
 	height: 106rpx;
 	font-size: 30rpx;
 	color: #4E4E4E;
-	border-bottom: 1rpx solid #F3F3F3;
 }
 
 .section>.title .new,.play_count {
@@ -166,25 +165,36 @@ page {
 }
 .section .main .alone {
 	display: flex;
-	height: 152rpx;
-	margin-left: 29rpx;
+	height: 236rpx;
+	margin: 0 29rpx;
 	border-bottom: 1rpx solid #F3F3F3;
+}
+.section .main .alone:first-child {
+	height: 194rpx;
 }
 .section .main .alone:last-child {
 	border-bottom: none;
 }
 .section .main .alone .left {
-	margin-top: 22rpx;
+	width: 391rpx;
 }
 .section .main .alone .left image {
 	width: 98rpx;
 	height: 98rpx;
-	border-radius: 1prx;
+	border-radius: 1rpx;
 }
 .section .main .alone .left .title {
-	margin-top: 22rpx;
+	margin-top: 42rpx;
 	font-size: 30rpx;
 	color: #4E4E4E;
+}
+.section .main .alone:first-child .left .title {
+	margin-top: 0;
+}
+.section .main .alone .left .words {
+	margin-top: 22rpx;
+	font-size: 25rpx;
+	color: #C9C9C9;
 }
 .section .main .alone .left .tool {
 	display: flex;
@@ -204,4 +214,20 @@ page {
 	margin-right: 15rpx;
 	width: 21rpx;
 	height: 19rpx;
+}
+
+.section .main .alone .right {
+	flex: 1;
+}
+.section .main .alone .right button {
+	margin-left: 130rpx;
+	margin-top: 79rpx;
+	text-align: center;
+	line-height: 70rpx;
+	width: 148rpx;
+	height: 70rpx;
+	font-size: 30rpx;
+	color: #FF6A1F;
+	border: 1rpx solid #FF6A1F;
+	border-radius: 35rpx;
 }

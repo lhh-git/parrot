@@ -48,16 +48,16 @@
             <view class='title_name'>
                 是否公开
             </view>
-			<form bindsubmit="formSubmit"  report-submit='true' class='classify_img classify_top'>
-				<switch name="switch" form-type="switch" color="#F86442"/> 
-		   	</form>        
+			<switch name="switch"  color="#F86442" bindchange='handleSwitch' class='classify_img classify_top'/>      
         </view>
 
         <view class='new_synopsis'>
             <view class='synopsis_name'>简介</view>
-            <textarea placeholder='写下你创作时的心得与感受,可吸引更多听众'></textarea>
+            <textarea placeholder='写下你创作时的心得与感受,可吸引更多听众' bindinput='handleTextareaChange'></textarea>
         </view>
 
-        <view class='new_button'><image src='../../../images/newA_button.png' mode='widthFix'></image></view>
+        <view class='new_button'>
+			<image bindtap='handleAlbumCreate' src='../../../images/newA_button.png' mode='widthFix'></image>
+		</view>
     </view>
 </view>

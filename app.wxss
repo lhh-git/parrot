@@ -2,7 +2,7 @@ view {
 	line-height:1;
 }
 image {
-	vertical-align:middle;
+	vertical-align: middle;
 }
 button {
 	border-radius:0;
@@ -11,6 +11,10 @@ button {
 button::after {
   border: none;
 }
+.button-hover {
+	background: none;
+}
+
 
 /* 溢出裁切 */
 .overhide {

@@ -7,8 +7,10 @@ Page({
 	data: {
 		photo: '',   		//封面
 		title: '',	 		//标题
-		classify: '',		//分类
+		classify_arr: [],   //分类数据
+		classify: '',		//渲染分类数据
 		classify_sel: '',	//选中分类
+		classify_selid: '', //选择分类id
 		tabs: [],			//标签
 		tab: '',			//标签input
 		is: false,			//是否公开
@@ -30,6 +32,7 @@ Page({
 			sourceType: ['album', 'camera'],
 			success(res) {
 				const tempFilePaths = res.tempFilePaths;
+				// this.handleChoosImage(tempFilePaths);
 				_this.setData({
 					photo: tempFilePaths
 				})
@@ -50,7 +53,9 @@ Page({
 					arr.push(item.scategory_name);
 				})
 				_this.setData({
-					classify: arr
+					classify_arr: res.data,
+					classify: arr,
+					classify_selid: res.data[0].id
 				})
 			}
 		})
@@ -61,8 +66,16 @@ Page({
 		wx.showActionSheet({
 			itemList: this.data.classify,
 			success(res) {
-				_this.setData({
-					classify_sel: _this.data.classify[res.tapIndex]
+				let classify = _this.data.classify_arr;
+				let classify_sel = _this.data.classify[res.tapIndex];
+				classify.forEach((val, index) => {
+					if (val.scategory_name == classify_sel) {
+						_this.setData({
+							classify_sel: classify_sel,
+							classify_selid: val.id
+						})
+
+					}
 				})
 			}
 		})	
@@ -72,10 +85,10 @@ Page({
 		let val = e.detail.value;
 		if (val.length > 14) {
 			Utils.showToast('最大长度为14', 'err');
-			this.setData({
-				title: val
-			})
 		}
+		this.setData({
+			title: val
+		})
 	},
 	//监听标签input框数据改变
 	handleChangeTabs (e) {
@@ -87,6 +100,10 @@ Page({
 	//添加标签
 	handleCreateTabs () {
 		let tabs = this.data.tabs;
+		if (this.data.tab == '') {
+			Utils.showToast('内容不能为空', 'err');
+			return;
+		}
 		if (this.data.tab.length > 6) {
 			Utils.showToast('最大长度为6', 'err');
 			return;
@@ -99,11 +116,56 @@ Page({
 		this.setData({
 			tab: '',
 			tabs: tabs
-		}, () => {
-			console.log(this.data.tabs)
 		})
 		
-	}
+	},
+	//是否公开
+	handleSwitch (e) {
+		this.setData({
+			is: e.detail.value
+		})
+	},
+	//简介
+	handleTextareaChange (e) {
+		this.setData({
+			describe: e.detail.value
+		})
+	},
+	//创建
+	handleAlbumCreate () {
+		if (this.data.photo == '') {
+			Utils.showToast("封面不能为空", "err");
+			return;
+		}
+		if (this.data.title == '') {
+			Utils.showToast("标题不能为空", "err");
+			return;
+		}
+		if (this.data.title.length > 14) {
+			Utils.showToast("标题格式错误", "err");
+			return;
+		}
+		Require.ajax({
+			//loading: "1",   //是否开启loading
+			url: 'api/Tellingstory/createUserAlbum',
+			method: 'POST',
+			param: {
+				file: this.data.photo,
+				arrayStoryLabel: this.data.tabs,
+				user_album_title: this.data.title,
+				user_album_authority: this.data.is == true ? 0 : 1,
+				user_album_describe: this.data.describe,
+				scategory_id: this.data.classify_selid
+			},
+			success: function (res) {
+				console.log(res)
+			}
+		})
+		
+	},
+	
+	
+	
 	
 
 

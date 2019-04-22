@@ -1,0 +1,59 @@
+<view class="draw">
+	<view class="classify">
+		<view>选择分类</view>
+		<view class="surplus">
+			<view>余额：{{surplus}}</view>
+			<view>鹦鹉蛋</view>
+		</view>
+	</view>
+
+	<view class="account">	
+		<view>选择账户</view>
+		<view class="list">
+			<view class="item"
+				wx:for="{{account}}"
+				wx:key="{{index}}"
+				data-index="{{index}}"
+				bindtap='handleToggleAccount'
+			>
+				<image wx:if="{{account_id == index}}" class="item_img_sel" src="../../../../images/exchange_draw_sel1.png"></image>
+				<image class="item_img" src="{{'../../../../images/' + item}}"></image>
+			</view>
+		</view>
+	</view>
+
+	<view class="money">	
+		<view>选择金额</view>
+		<view class="list">
+			<view class="item"
+				wx:for="{{money}}"
+				wx:key="{{index}}"
+				data-index="{{index}}"
+				bindtap='handleToggleMoney'
+			>
+				<image wx:if="{{money_id == index && surplus-item >= 0}}" 
+					class="item_img_sel" 
+					src="../../../../images/exchange_draw_sel2.png"
+				>
+				</image>
+				<view class="{{surplus-item >= 0 ? 'optional item_word' : 'item_word'}}">{{item}}</view>
+			</view>
+		
+			
+		</view>
+	</view>
+
+	<view class="draw_button">
+		<view>提现申请需要1-7个工作日，感谢你的耐心等待</view>
+		<view>
+			<image src='../../../../images/exchange_button2.png'></image>
+		</view>
+	</view>
+
+	<view class="describe">
+			<view class="title">兑换规则说明：</view>
+			<view class="content">
+				鹦鹉蛋*当日收益系数=可提现金额，收益与平台运营收益有关，因平台每天的运营收益不一样，系数也受影响而上下浮动。
+			</view>
+	</view>
+</view>

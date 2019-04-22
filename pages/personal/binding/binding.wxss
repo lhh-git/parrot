@@ -1,0 +1,142 @@
+.menu {
+	margin: 72rpx 51rpx 0;
+	display: flex;
+	flex-direction: column;
+}
+.menu .title {
+	font-size: 30rpx;
+	color: #4E4E4E;
+}
+.menu .list {
+	margin-top: 23rpx;
+	display: flex;
+	justify-content: space-between;
+}
+.menu .item {
+	position: relative;
+}
+.menu .item .item_img {
+	width: 197rpx;
+	height: 126rpx;
+}
+.menu .item .item_img_sel {
+	position: absolute;
+	width: 197rpx;
+	height: 126rpx;
+}
+
+
+/*	账号绑定信息  */
+.user_info {
+
+}
+.user_info .list {
+	margin: 95rpx 53rpx 0 52rpx;
+}
+.user_info .list .item {
+	display: flex;
+	align-items: center;
+	padding: 76rpx 0 19rpx 0;
+	font-size: 30rpx;
+	color: #4E4E4E;
+	border-bottom: 1rpx solid #EEEEEB;
+}
+.user_info .list .item view {
+	width: 243rpx;
+}
+.user_info .list .item input {
+	flex: 1;
+}
+.user_info .button {
+	margin: 156rpx 53rpx 0 45rpx;
+	position: relative;
+	width: 652rpx;
+	height: 90rpx;
+}
+.user_info .button image {
+	width: 652rpx;
+	height: 90rpx;
+}
+.user_info .button .form_id {
+	opacity: 0;
+	position: absolute;
+	width: 652rpx;
+	height: 90rpx;
+	background: red;
+	border-radius: 90rpx;
+
+}
+
+
+/* 	二维码 	*/
+.user_code {
+	margin-top: 139rpx;
+}
+.user_code .title {
+	margin: 0 52rpx;
+	display: flex;
+	justify-content: space-between;
+	padding: 3rpx 3rpx 3rpx 0;
+	font-size: 30rpx;
+	color: #4E4E4E;
+}
+.user_code .title .left {
+	display: flex;
+}
+.user_code .title .upload {
+	display: flex;
+	padding-top: 5rpx;
+	font-size: 25rpx;
+	color: #F86442;
+}
+.user_code .courses {
+	display: flex;
+	align-items: center;
+	padding: 6rpx 3rpx;
+	height: 100%;
+	font-size: 24rpx;
+	color: #909090;
+}
+.user_code .courses image {
+	padding-left: 16rpx;
+	width: 11rpx;
+	height: 19rpx;
+}
+
+.user_code .upload_code {
+	margin: 46rpx 99rpx 0 99rpx;
+	display: flex;
+	justify-content: space-between;
+}
+.user_code .upload_code .item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 30rpx;
+	color: #4E4E4E;
+}
+.user_code .upload_code .item image {
+	margin-bottom: 44rpx;
+	width: 201rpx;
+	height: 201rpx;
+}
+
+.user_code .button {
+	margin: 137rpx 53rpx 0 45rpx;
+	position: relative;
+	width: 652rpx;
+	height: 90rpx;
+}
+.user_code .button image {
+	width: 652rpx;
+	height: 90rpx;
+}
+.user_code .button .form_id {
+	opacity: 0;
+	position: absolute;
+	width: 652rpx;
+	height: 90rpx;
+	background: red;
+	border-radius: 90rpx;
+
+}

@@ -20,6 +20,10 @@ Page({
 	onReady: function () { //获得popup组件
 		this.filter = this.selectComponent("#filter");
 	},
+	//获取fromId
+	formSubmit(e) {
+		Utils.getFormId(e);
+	},
 	handleOpenCollectMoney() {
 		wx.navigateTo({
 			url: '/pages/listen/collectMoney/collectMoney',
@@ -68,9 +72,6 @@ Page({
 	handleOpenFilter() {
 		this.filter.showModal();
 	},
-	//获取fromId
-	formSubmit(e) {
-		Utils.getFormId(e);
-	},
+	
 	
 })

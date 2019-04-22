@@ -1,0 +1,6 @@
+{
+	"navigationBarTitleText": "提现/兑换",
+	"usingComponents": {
+		"drawMoney": "/pages/personal/exchange/drawMoney/drawMoney"	
+	}
+}

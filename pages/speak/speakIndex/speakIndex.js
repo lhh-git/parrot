@@ -17,6 +17,10 @@ Page({
 		this.getTellingBanner()	//获取轮播图
 		this.getTellingScategory()	//获取分类
 	},
+	//获取fromId
+	formSubmit(e) {
+		Utils.getFormId(e);
+	},
 	handleOpenCollectMoney() {
 		wx.navigateTo({
 			url: '/pages/speak/collectMoney/collectMoney',
@@ -60,6 +64,12 @@ Page({
 					icons: pages
 				})
 			}
+		})
+	},
+	//阅读
+	openSpeakDetail () {
+		wx.navigateTo({
+			url: '/pages/speak/speakDetail/speakDetail',
 		})
 	}
 

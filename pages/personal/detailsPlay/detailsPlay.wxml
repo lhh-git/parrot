@@ -1,0 +1,58 @@
+<view>
+	<view class="contain">
+		<view class="query">
+			<image src="../../../images/icon_query.png"></image>
+		</view>
+
+		<view class="money">
+			<view>-¥ 5.00</view>
+			<view class="surplus">钱包余额：¥2.31</view>
+		</view>
+
+		<view class="list">
+			<view class="item">
+				<view class="title">交易渠道</view>
+				<view class="content">微信账号：189****6375</view>
+			</view>
+			<view class="item">
+				<view class="title">申请时间</view>
+				<view class="content">2019-04-10  15:00:50</view>
+			</view>
+			<view class="item">
+				<view class="title">交易类别</view>
+				<view class="content">奖金提现</view>
+			</view>
+			<view class="item">
+				<view class="title">申请状态</view>
+				<view class="content orange">申请失败</view>
+			</view>
+
+			<view class="serve">
+				可能申请条件不符或其他问题，请仔细阅读申请规则后重新申请或
+				<view class="serve_help">点此求助客服</view>。
+			</view>
+		</view>
+	</view>
+
+	<view class="apply">
+		<image src="../../../images/details_play_apply.png"></image>
+		<form class="button_box" bindsubmit="formSubmit"  report-submit='true' >
+			<button form-type="submit"></button>
+		</form >
+	</view>
+
+	<view class="describe">
+		<view class="title">提现申请规则说明：</view>
+		<view class="content">
+			鹦鹉蛋*当日收益系数=可提现金额，收益与平台运营收益有关，因平台每天的运营收益不一样，系数也受影响而上下浮动。
+		</view>
+	</view>
+
+	<view class="describe">
+		<view class="title">兑换申请规则说明：</view>
+		<view class="content">
+			鹦鹉蛋*当日收益系数=可提现金额，收益与平台运营收益有关，因平台每天的运营收益不一样，系数也受影响而上下浮动。
+		</view>
+	</view>
+	
+</view>

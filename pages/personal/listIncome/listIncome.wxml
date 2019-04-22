@@ -1,0 +1,31 @@
+<view class="contain">
+	<view class="menu">
+		<view wx:for="{{menu}}" 
+			wx:key="{{index}}"
+			class="{{menu_id == index ? 'active' : ''}}"
+			data-index="{{index}}"
+			bindtap='handleToggleMenu'
+		>
+			{{item}}
+		</view>
+	</view>
+	<view class="section">
+		<view class="item" bindtap='handleOpenDetailsIncome'>
+			<view class="income">
+				<view>收入</view>
+				<view class="blue">+¥ 2.31</view>
+			</view>
+			<view class="time">
+				<view class="time_show">2019-04-10  15:00:50</view>
+				<view class="money">佣金余额：¥2.31</view>
+			</view>
+		</view>
+		
+	</view>
+	<view class="footer">
+		<view>点击获取更早记录</view>
+		<image src="../../../images/spkD_more.png"></image>
+	</view>
+	
+</view>
+

@@ -6,7 +6,12 @@
         <view class='detail_story'>
             <view class='detail_story_name'>《海的女儿》</view>
             <view class='detail_story_from'>安徒生<view class="span">365字</view ></view>
-            <image src='../../../images/spkD_read.png'></image>
+				<form bindsubmit = "formSubmit"  report - submit='true' >
+					<button form-type="submit" bindtap='handleOpenRecord'></button>
+					<image src='../../../images/spkD_read.png'></image>
+				</form >
+            	
+
             <view class="detail_story_info">       在海的远处，水是那么蓝，像最美丽的矢车菊花瓣，同时又是那么清，像最明亮的玻璃。然而它是很深很深，深得任何锚链都达不到底。要想从海底一直达到水面，必须有许多许多教堂尖塔一个接着一个地联起来才成。海底的人就住在这下面。
        不过人们千万不要以为那儿只是一片铺满了白砂的海底。
             </view>
@@ -16,25 +21,27 @@
     </view>
     <!-- 下半部分 排名 -->
     <view class="detail_bottom">
-         <image class='detail_bottom_good' src='../../../images/spkD_good.png'></image>
-         <!-- 前三名 -->
-         <view class="detail_bottom_sort">
-             <view class="bottom_sort">
-                <image class='sort_photo_second'  src='../../../images/spkD_bg.jpg'></image>
-                <image class="bottom_sort_second" src='../../../images/spkD_second.png'></image>
-                <view class="sort_second_name">作者</view>
-            </view>
-            <view class="bottom_sort">
-                <image class='sort_photo_first' src='../../../images/spkD_bg.jpg'></image>
-                <image class="bottom_sort_first" src='../../../images/spkD_first.png'></image>
-                <view class="sort_first_name">易烊千玺</view>
-            </view>
-            <view class="bottom_sort">
-                <image class='sort_photo_three' src='../../../images/spkD_bg.jpg'></image>
-                <image class='bottom_sort_three' src='../../../images/spkD_three.png'></image>
-                 <view class="sort_three_name">黑猫</view>
-            </view>
-         </view>
+		<view class="sort_banner">
+			<image src="../../../images/spkD_good.png"></image>
+			<image src="../../../images/spkD_help.png"></image>
+		</view>
+		<view class="sort_list">
+			<view class="sort_alone sort_alone_2">
+				<image src="../../../images/list_album_photo.png" class="photo"></image>
+				<image src="../../../images/spkD_second.png" class="sort_photo"></image>
+				<view class="title">未知作者</view>
+			</view>
+			<view class="sort_alone">
+				<image src="../../../images/list_album_photo.png" class="photo"></image>
+				<image src="../../../images/spkD_first.png" class="sort_photo"></image>
+				<view class="title">易烊千玺</view>
+			</view>
+			<view class="sort_alone sort_alone_2">
+				<image src="../../../images/list_album_photo.png" class="photo"></image>
+				<image src="../../../images/spkD_three.png" class="sort_photo"></image>
+				<view class="title">黑猫</view>
+			</view>
+		</view>
     </view>
     <!-- 列表 -->
     <view class='list'>
@@ -64,7 +71,7 @@
             <view class='bottom_list'>
                 <view class='bottom_list_photo'>
                     <image src='../../../images/spkD_bg.jpg'></image>
-                    <view class="icon">4</view>
+                    <view class="icon_sel">42</view>
                 </view>
                 <view class='bottom_list_msg'>
                     <view>
@@ -88,7 +95,7 @@
         </view>
     </view>
     <view class="bottom_more">
-        查看更多
+        <view>查看更多</view>
         <image src='../../../images/spkD_more.png'></image>
     </view>
 </view>

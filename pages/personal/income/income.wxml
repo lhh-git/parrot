@@ -1,0 +1,50 @@
+<view class="contain">
+	<view class="income">
+		<image src='../../../images/income.png'></image>
+		<view class="menu">
+			<view wx:for="{{menu}}" 
+				wx:key="{{index}}"
+				class="{{menu_id == index ? 'active item' : 'item'}}"
+				data-index="{{index}}"
+				bindtap='handleToggleMenu'
+			>
+				{{item}}
+				<view class="item_border" wx:if="{{menu_id == index}}"></view>
+			</view>
+		</view>
+		<view class="money">
+			￥ 3000.<view class="decimal">00</view>
+		</view>
+		<form class="form" bindsubmit="formSubmit"  report-submit='true' >
+			<navigator url="/pages/personal/listIncome/listIncome">
+				<button form-type="submit" class="button1"></button>
+			</navigator>
+			<navigator url="/pages/personal/exchange/index/index">
+				<button form-type="submit" class="button2"></button>
+			</navigator>
+		</form >
+	</view>
+
+	<view class="list">
+		<navigator url="/pages/personal/listPlay/listPlay">
+			<view class="item">
+				<view class="content">支出记录</view>
+				<image src='../../../images/my_open.png'></image>
+			</view>
+		</navigator>	
+		<view class="item">
+			<view class="new"></view>
+			<view class="content">我的邀请</view>	
+			<image src='../../../images/my_open.png'></image>
+		</view>
+		<view class="item">
+			<view class="content">账户绑定</view>
+			<navigator url='/pages/personal/binding/binding'>
+				<view class="binding">未绑定</view>
+			</navigator>
+			
+			<image src='../../../images/my_open.png'></image>
+		</view>
+	</view>
+</view>
+

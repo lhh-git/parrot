@@ -1,0 +1,70 @@
+page {
+	background: #F3F3F3;
+}
+.menu {
+	display: flex;
+	justify-content: space-around;
+	padding-top: 10rpx;
+	background: #fff;
+}
+.menu>view {
+	padding: 14rpx 0;
+	font-size: 30rpx;
+	color: #909090;
+	
+}
+.menu>view.active {
+	font-size: 37rpx;
+	color:#4E4E4E;
+	border-bottom: 2rpx solid #FF6A1F;
+}
+
+.section {
+
+}
+.section .item {
+	padding: 21rpx 30rpx;
+	background: #fff;
+}
+.section .item:nth-child(2n) {
+	background: #F3F3F3;
+}
+.section .item .income {
+	display: flex;
+	justify-content: space-between;
+	font-size: 30rpx;
+	color: #4E4E4E;
+}
+.section .item .time {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20rpx;
+	height: 25rpx;
+	color: #909090;
+}
+.section .item .time .time_show {
+	margin-top: 4rpx;
+	height: 23rpx;
+	font-size: 23rpx;
+}
+.section .item .time .money {
+	font-size: 25rpx;
+}
+.section .item .blue {
+	color: #4DBD44;
+}
+
+.footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 56rpx;
+	font-size: 25rpx;
+	color: #909090;
+}
+.footer image {
+	margin-top: 26rpx;
+	width: 40rpx;
+	height: 27rpx;
+}
+

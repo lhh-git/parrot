@@ -62,9 +62,6 @@ page{
 	color: #4E4E4E;
 	border-bottom: 1px solid #EEEEEB;
 }
-.section view:last-child {
-	border: none;
-}
 .section view .icon {
 	margin-right: 4rpx;
 	width: 26rpx;

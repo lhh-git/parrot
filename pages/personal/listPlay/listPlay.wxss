@@ -1,0 +1,77 @@
+page {
+	background: #F3F3F3;
+}
+.menu {
+	display: flex;
+	justify-content: space-around;
+	padding-top: 10rpx;
+	background: #fff;
+}
+.menu>view {
+	padding: 14rpx 0;
+	font-size: 30rpx;
+	color: #909090;
+	
+}
+.menu>view.active {
+	font-size: 37rpx;
+	color:#4E4E4E;
+	border-bottom: 2rpx solid #FF6A1F;
+}
+
+.section_item {
+
+}
+.section_item .title {
+	margin-left: 30rpx;
+	line-height: 43rpx;
+	font-size: 27rpx;
+	color: #4E4E4E;
+}
+.section_item .list {
+	
+}
+.section_item .list .list_alone_box {
+	margin-top: 8rpx;
+	background: #fff;
+}
+.section_item .list .list_alone_box:first-child {
+	margin-top: 0;
+}
+.section_item .list .list_alone {
+	overflow: hidden;
+	margin: 0 30rpx;
+}
+.section_item .list .list_alone:frist-child {
+	margin-top: 0;
+}
+.section_item .list .list_alone .alone_title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 52rpx;
+	font-size: 30rpx;
+	color: #4E4E4E;
+	border-bottom: 1rpx solid #EEEEEB;
+}
+.section_item .list .list_alone .alone_status {
+	margin-top: 15rpx;
+	font-size: 25rpx;
+	color: #909090;
+}
+.section_item .list .list_alone .alone_data {
+	display: flex;
+	justify-content: space-between;
+	margin: 18rpx 0 14rpx 0;
+	font-size: 23rpx;
+	color: #909090;
+}
+.section_item .list .list_alone .alone_data .money {
+	font-size: 25rpx;
+}
+.orange {
+	color: #FF6A1F !important;
+}
+.blue {
+	color: #4DBD44  !important;
+}

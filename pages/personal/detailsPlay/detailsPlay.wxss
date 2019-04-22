@@ -1,0 +1,109 @@
+page {
+	background: #F3F3F3;
+}
+.contain {
+	overflow: hidden;
+	padding: 0 31rpx 0 25rpx;
+	background: #fff;
+}
+.query {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	margin-top: 26rpx;
+	padding: 0 4rpx;
+	font-size: 23rpx;
+	color: #B7B7B7;
+}
+.query image {
+	width: 66rpx;
+	height: 78rpx;
+}
+
+.money {
+	margin-top: 8rpx;
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+	font-size: 50rpx;
+	color: #4E4E4E;
+}
+.money .surplus {
+	margin-top: 32rpx;
+	font-size: 20rpx;
+	color: #909090;
+}
+
+.list {
+	margin-top: 48rpx;
+	padding-bottom: 25rpx;
+}
+.list .item {
+	display: flex;
+	justify-content: space-between;
+	padding: 25rpx 0;
+}
+.list .item .title {
+	font-size: 28rpx;
+	color: #909090;
+}
+.list .item .content {
+	font-size: 25rpx;
+	color: #4E4E4E;
+}
+/* 状态颜色 */
+.list .item .content.orange {
+	color: #F86442;
+}
+.list .item .content.blur{
+	color: #4DBD44;
+}
+
+
+/* 申请失败显示 */
+.list .serve {
+	display: flex;
+	font-size: 20rpx;
+	color: #909090;
+	width: 1000rpx; 
+}
+.list .serve .serve_help {
+	padding-bottom: 2rpx;
+	color: #6042F8;
+	border-bottom: 1rpx solid #6042F8;
+}
+
+.apply {
+	margin-top: 46rpx;
+	position: relative;
+	display: flex;
+	justify-content: center;
+}
+.apply image {
+	width: 652rpx;
+	height: 90rpx;
+}
+.apply .button_box {
+	position: absolute;
+}
+.apply .button_box button {
+	opacity: 0;
+	width: 652rpx;
+	height: 90rpx;
+	background: pink;
+	border-radius: 90rpx;
+} 
+
+.describe {
+	margin-top: 60rpx; 
+}
+.describe .title {
+	margin: 0 31rpx;
+	font-size: 25rpx;
+	color: #F86442;
+}
+.describe .content {
+	margin: 20rpx 31rpx;
+	line-height: 35rpx;
+	font-size: 25rpx;
+}

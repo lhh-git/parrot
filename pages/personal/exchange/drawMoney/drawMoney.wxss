@@ -1,0 +1,133 @@
+.classify {
+	margin-top: 66rpx;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 30rpx;
+	color: #4E4E4E;
+}
+.classify .surplus {
+	margin-top: 25rpx;
+	display: flex;
+	align-items: center;
+	width: 443rpx;
+	height: 70rpx;
+	border: 1rpx solid #C9C9C9;
+	border-radius: 10rpx;
+}
+.classify .surplus view:nth-child(1) {
+	padding-left: 27rpx;
+	width: 275rpx;
+	color: #C1C1C6;
+}
+.classify .surplus view:nth-child(2) {
+	flex: 1;
+}
+.classify .surplus view:nth-child(2)::after {
+	/* content: '';
+	width: 19rpx;
+    height: 11rpx;
+    border-top: 1rpx solid red;
+    border-right: 1rpx solid red;
+    transform: rotate(90deg); */
+}
+
+.account {
+	margin-top: 60rpx;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 30rpx;
+	color: #4E4E4E;
+}
+.account .list {
+	margin-top: 25rpx;
+	display: flex;
+}
+.account .list .item {
+	position: relative;
+	width: 191rpx;
+	height: 70rpx;
+}
+.account .list .item:first-child {
+	margin-right: 45rpx;
+}
+.account .list .item .item_img_sel {
+	position: absolute;
+	width: 191rpx;
+	height: 70rpx;
+}
+.account .list .item .item_img {
+	width: 191rpx;
+	height: 70rpx;
+}
+
+.money {
+	margin: 60rpx 161rpx 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 30rpx;
+	color: #4E4E4E;
+}
+.money .list {
+	margin-top: 25rpx;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.money .list .item {
+	margin-bottom: 39rpx;
+	position: relative;
+	width: 122rpx;
+	height: 70rpx;
+}
+.money .list .item .item_img_sel {
+	position: absolute;
+	width: 122rpx;
+	height: 70rpx;
+}
+.money .list .item .item_word {
+	text-align: center;
+	line-height: 70rpx;
+	box-sizing: border-box;
+	width: 122rpx;
+	height: 70rpx;
+	font-size: 30rpx;
+	color: #C1C1C6;
+	border: 1rpx solid #C9C9C9;
+	border-radius: 10rpx;
+}
+/* 可选择黑字 */
+.money .list .item .optional {
+	color: #4E4E4E;
+}
+
+.draw_button {
+	margin-top: 83rpx;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 20rpx;
+	color: #F86442;
+}
+.draw_button image {
+	margin-top: 11rpx;
+	width: 652rpx;
+	height: 80rpx;
+}
+
+.describe {
+	margin-top: 54rpx; 
+}
+.describe .title {
+	margin: 0 82rpx;
+	font-size: 25rpx;
+	color: #F86442;
+}
+.describe .content {
+	margin: 20rpx 82rpx;
+	line-height: 35rpx;
+	font-size: 25rpx;
+}
+

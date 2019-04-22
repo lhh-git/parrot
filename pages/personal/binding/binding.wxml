@@ -1,0 +1,75 @@
+<view class="contain">
+	<view class="menu">
+		<view class="title">绑定</view>
+		<view class="list">
+			<view class="item" 
+				wx:for="{{menu}}" 
+				wx:key="{{index}}"
+				data-index="{{index}}"
+				bindtap='handleToggleMenu'
+			>
+				<image class="item_img_sel" 
+					src="{{'../../../images/binding_sel.png'}}"
+					wx:if="{{menu_id == index}}"
+				>
+				</image>
+				<image class="item_img" src="{{'../../../images/' + item}}"></image>
+			</view>
+		</view>
+	</view>
+
+	<!-- 账号记录 -->
+	<view class="user_info" wx:if="{{menu_id != 2}}">
+		<view class="list">
+			<view class="item">
+				<view>支付宝账号</view>
+				<input placeholder='请输入支付宝账号'></input>
+			</view>
+			<view class="item">
+				<view>提现人姓名</view>
+				<input placeholder='请输入账号持有人姓名'></input>
+			</view>
+			<view class="item">
+				<view>联系人手机号</view>
+				<input placeholder='请输入有效联系号码'></input>
+			</view>
+		</view>
+		<view class="button">
+			<form bindsubmit="formSubmit" report-submit='true' >
+				<button form-type="submit" class="form_id">233223</button>
+			</form >
+			<image src="../../../images/binding_button_bind.png"></image>
+		</view>
+		
+	</view>
+
+	<!-- 二维码 -->
+	<view class="user_code" wx:if="{{menu_id == 2}}">
+		<view class="title">
+			<view class="left">
+				<view>二维码上传</view>
+				<view class="upload">(请上传收款二维码）</view>
+			</view>
+			<view class="courses">
+				<view>查看上传教程</view>
+				<image src="../../../images/my_open.png"></image>
+			</view>
+		</view>
+		<view class="upload_code">
+			<view class="item" data-index="0" bindtap='handleGetImages'>
+				<image src="{{weChat_url != '' ? weChat_url : '../../../images/binding_upload.png'}}"></image>
+				<view>微信收款二维码</view>
+			</view>
+			<view class="item" data-index="1" bindtap='handleGetImages'>
+				<image src="{{play_url != '' ? play_url : '../../../images/binding_upload.png'}}"></image>
+				<view>支付宝收款二维码</view>
+			</view>
+		</view>
+		<view class="button">
+			<form bindsubmit="formSubmit" report-submit='true' >
+				<button form-type="submit" class="form_id">233223</button>
+			</form >
+			<image src="../../../images/binding_button_bind.png"></image>
+		</view>
+	</view>
+</view>

@@ -14,6 +14,7 @@
 			duration="{{duration}}"
 			indicator-color="#93a2b5"
 			indicator-active-color="#fff"
+			circular="{{circular}}"
 		>
 			<block wx:for="{{imgUrls}}" wx:key="{{item.id}}">
 				<swiper-item>
@@ -59,36 +60,55 @@
 		<view class="main">
 			<view class="alone">
 				<view class="left">
-					<view class="title">萨穆尔的熊—雾沙森林的新生命雾沙森林 的新生命</view>
+					<view class="title">萨穆尔的熊</view>
+					<view class="words">萨穆尔的熊—雾沙森林的新生命雾沙森林 的新生命</view>
 					<view class="tool">
 						<image class="browse" src='../../../images/icon_browse.png'></image>
 						<view>3581</view>
 						<image class="collect" src='../../../images/icon_collect.png'></image>
 						<view>3.5万</view>
-				</view>
-				<view class="right">
-					
 					</view>
 				</view>
-			</view>
-
+				<view class="right">
+					<form bindsubmit="formSubmit"  report-submit='true'>
+						<button form-type="submit" bindtap='openSpeakDetail'>阅读</button>
+					</form >
+				</view>
+			</view>	
 			<view class="alone">
 				<view class="left">
-					<view class="title">萨穆尔的熊—雾沙森林的新生命雾沙森林 的新生命</view>
+					<view class="title">萨穆尔的熊</view>
+					<view class="words">萨穆尔的熊—雾沙森林的新生命雾沙森林 的新生命</view>
 					<view class="tool">
 						<image class="browse" src='../../../images/icon_browse.png'></image>
 						<view>3581</view>
 						<image class="collect" src='../../../images/icon_collect.png'></image>
 						<view>3.5万</view>
-				</view>
-				<view class="right">
-					
 					</view>
 				</view>
-			</view>
-			
-			
-			
+				<view class="right">
+					<form bindsubmit="formSubmit"  report-submit='true'>
+						<button form-type="submit" bindtap='openSpeakDetail'>阅读</button>
+					</form >
+				</view>
+			</view>	
+			<view class="alone">
+				<view class="left">
+					<view class="title">萨穆尔的熊</view>
+					<view class="words">萨穆尔的熊—雾沙森林的新生命雾沙森林 的新生命</view>
+					<view class="tool">
+						<image class="browse" src='../../../images/icon_browse.png'></image>
+						<view>3581</view>
+						<image class="collect" src='../../../images/icon_collect.png'></image>
+						<view>3.5万</view>
+					</view>
+				</view>
+				<view class="right">
+					<form bindsubmit="formSubmit"  report-submit='true'>
+						<button form-type="submit" bindtap='openSpeakDetail'>阅读</button>
+					</form >
+				</view>
+			</view>	
 		</view>
 	</view>
 

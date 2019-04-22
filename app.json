@@ -1,32 +1,29 @@
 {
 	"pages": [
-
-		"pages/personal/createAlbum/createAlbum",
+		"pages/speak/record/record",
 		"pages/login/index/index",
-		
-
-		
 		"pages/login/phone/phone",
-		
-		
 		"pages/listen/listenIndex/listenIndex",
 		"pages/listen/collectMoney/collectMoney",
-		
-		
 		"pages/speak/speakIndex/speakIndex",
+		"pages/speak/speakDetail/speakDetail",
 		"pages/speak/collectMoney/collectMoney",
 		"pages/speak/worksPlay/worksPlay",
-		"pages/speak/record/record",
-		"pages/speak/dubbing/dubbing",
-		"pages/speak/speakDetail/speakDetail",
-		"pages/speak/storedWorks/storedWorks",
-
-
-		"pages/personal/personalIndex/personalIndex",
 		
+		"pages/speak/dubbing/dubbing",
+		"pages/speak/storedWorks/storedWorks",
+		"pages/personal/personalIndex/personalIndex",
+		"pages/personal/createAlbum/createAlbum",
 		"pages/personal/listAlbum/listAlbum",
 		"pages/personal/detailsAlbum/detailsAlbum",
+		"pages/personal/listPlay/listPlay",
+		"pages/personal/listIncome/listIncome",
+		"pages/personal/exchange/index/index",
+		"pages/personal/income/income",
+		"pages/personal/detailsPlay/detailsPlay",
+		"pages/personal/detailsIncome/detailsIncome",
 		"pages/music/music"
+		
 	],
 	"window": {
 		"backgroundTextStyle": "dark",

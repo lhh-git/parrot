@@ -1,0 +1,90 @@
+<view class="contain">
+	<view class="menu">
+		<view wx:for="{{menu}}" 
+			wx:key="{{index}}"
+			class="{{menu_id == index ? 'active' : ''}}"
+			data-index="{{index}}"
+			bindtap='handleToggleMenu'
+		>
+			{{item}}
+		</view>
+	</view>
+	<view class="section">
+		<view class="section_item">
+			<view class="title">今天</view>
+			<view class="list">
+				<view class="list_alone_box" bindtap='handleOpenDetailsPlay'>
+					<view class="list_alone">
+						<view class="alone_title">
+							<view>提现</view>
+							<view class="orange">-¥ 5.00</view>
+						</view>
+						<view class="alone_status">
+							申请中…
+						</view>
+						<view class="alone_data">
+							<view>10/4/2019 15:00:50</view>
+							<view class="money">钱包余额：¥2.31</view>
+						</view>
+					</view>
+				</view>
+
+				<view class="list_alone_box">
+					<view class="list_alone">
+						<view class="alone_title">
+							<view class="orange">兑换</view>
+							<view class="orange">-¥ 5.00</view>
+						</view>
+						<view class="alone_status blue">
+							兑换成功
+						</view>
+						<view class="alone_data">
+							<view>10/4/2019 15:00:50</view>
+							<view>钱包余额：¥2.31</view>
+						</view>
+					</view>
+				</view>
+				
+			</view>
+		</view>
+
+		<view class="section_item">
+			<view class="title">今天</view>
+			<view class="list">
+				<view class="list_alone_box">
+					<view class="list_alone">
+						<view class="alone_title">
+							<view>提现</view>
+							<view class="orange">-¥ 5.00</view>
+						</view>
+						<view class="alone_status">
+							申请中…
+						</view>
+						<view class="alone_data">
+							<view>10/4/2019 15:00:50</view>
+							<view class="money">钱包余额：¥2.31</view>
+						</view>
+					</view>
+				</view>
+
+				<view class="list_alone_box">
+					<view class="list_alone">
+						<view class="alone_title">
+							<view class="orange">兑换</view>
+							<view class="orange">-¥ 5.00</view>
+						</view>
+						<view class="alone_status blue">
+							兑换成功
+						</view>
+						<view class="alone_data">
+							<view>10/4/2019 15:00:50</view>
+							<view>钱包余额：¥2.31</view>
+						</view>
+					</view>
+				</view>
+				
+			</view>
+		</view>
+	</view>
+	
+</view>

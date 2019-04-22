@@ -39,18 +39,23 @@ const showToast = (title, icon, duration) => {
 //获取formId
 const getFormId = (e) => {
 	console.log(e.detail.formId)
-	Require.ajax({
-		//loading: "1",   //是否开启loading
-		url: "api/collectFormID",
-		method: 'POST',
-		param: {
-			formID: e.detail.formId
-		},
-		success(res) {
-			console.log(res)
-		}
 
-	})
+	// <form bindsubmit = "formSubmit"  report - submit='true' >
+	// 	<button form-type="submit">233223</button>
+	// </form >
+	
+	// Require.ajax({
+	// 	//loading: "1",   //是否开启loading
+	// 	url: "api/collectFormID",
+	// 	method: 'POST',
+	// 	param: {
+	// 		formID: e.detail.formId
+	// 	},
+	// 	success(res) {
+	// 		console.log(res)
+	// 	}
+
+	// })
 }
 
 //上拉刷新状态

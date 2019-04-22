@@ -1,0 +1,34 @@
+<view>
+	<view class="contain">
+		<view class="query">
+			<image src="../../../images/icon_query.png"></image>
+		</view>
+
+		<view class="money">
+			<view>-¥ 5.00</view>
+			<view class="surplus">钱包余额：¥2.31</view>
+		</view>
+
+		<view class="list">
+			<view class="item">
+				<view class="title">获取方式</view>
+				<view class="content">成功邀请用户</view>
+			</view>
+			<view class="item">
+				<view class="title">获取类别</view>
+				<view class="content">奖金</view>
+			</view>
+			<view class="item">
+				<view class="title">到账时间</view>
+				<view class="content">2019-04-10 15:00:50</view>
+			</view>
+		</view>
+	</view>
+
+	<view class="describe">
+		<view class="title">奖金获取规则说明：</view>
+		<view class="content">
+			鹦鹉蛋*当日收益系数=可提现金额，收益与平台运营收益有关，因平台每天的运营收益不一样，系数也受影响而上下浮动。
+		</view>
+	</view>
+</view>

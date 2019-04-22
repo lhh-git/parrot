@@ -72,18 +72,19 @@ Page({
 		recorderManager.start(options);
 		recorderManager.onStart(() => {
 			clearInterval(timer);
-			this.setData({
-				time: 1
-			})
-			let time = 1;
+			let time = this.data.time;
 			timer = setInterval(() => {
 				time++;
 				if(time >= 60) {
 					clearInterval(timer);
+					this.setData({
+						recordStart: true
+					})
 				}
 				console.log(time)
 				this.setData({
-					time: time
+					time: time,
+					recordStart: true
 				})
 			}, 1000)
 		});
@@ -99,17 +100,12 @@ Page({
 	handleRecordPause() {
 		recorderManager.pause()
 		clearInterval(timer);
-		this.handleRecordStop()
-		this.setData({
-			recordStart: true
-		})
-		
+		this.handleRecordStop()	
 	},
 	//结束录音
 	handleRecordStop() {
 		recorderManager.stop();
 		recorderManager.onStop((res) => {
-			console.log(res)
 			this.setData({
 				recordInfo: res
 			})
