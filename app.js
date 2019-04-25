@@ -21,6 +21,18 @@ App({
 				})
 			}
 		})
+
+		wx.getSystemInfo({
+			success: function (res) {
+				if (/iOS/ig.test(res.system)) {
+					wx.setStorageSync("system", 'ios');
+				}
+				if (/Android/ig.test(res.system)) {
+					wx.setStorageSync("system", 'andion');
+				}
+				
+			}
+		})
 		
     },
     globalData: {

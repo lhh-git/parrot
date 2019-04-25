@@ -1,0 +1,85 @@
+page {
+	background: #F3F3F3;
+}
+.menu {
+	padding-top: 40rpx;
+	display: flex;
+	justify-content: space-around;
+	font-size: 28rpx;
+	color: #909090;
+	background: white;
+}
+.menu .item {
+	position: relative;
+	padding-bottom: 14rpx;
+}
+.menu .active {
+	font-size: 35rpx;
+	color: #4E4E4E;
+}
+.menu .border_bottom {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 4rpx;
+	background: #FF6A1F;
+	border-radius: 4rpx;
+}
+
+
+.section {
+
+	
+}
+.section .title {
+	padding-right: 31rpx;
+	text-align: right;
+	line-height: 41rpx;
+	font-size: 25rpx;
+	color: #909090;
+}
+.section .list {
+	background: #fff;
+}
+.section .list .item {
+	margin: 0 30rpx 0 28rpx;
+	display: flex;
+	height: 124rpx;
+	border-bottom: 1rpx solid #E9E9E9;
+}
+.section .list .item:last-child {
+	border-bottom: none;
+}
+.section .list .item .photo {
+	margin-left: 29rpx;
+	margin-top: 17rpx;
+	width: 93rpx;
+	height: 93rpx;
+	border-radius: 15rpx;
+	background: pink;
+}
+.section .list .item .photo image {
+	width: 93rpx;
+	height: 93rpx;
+	border-radius: 15rpx;
+}
+.section .list .item .content {
+	flex: 1;
+	margin-left: 15rpx;
+}
+.section .list .item .content .user {
+	margin-top: 19rpx;
+	font-size: 25rpx;
+	color: #4E4E4E;
+}
+.section .list .item .content .name {
+	margin-top: 40rpx;
+	font-size: 23rpx;
+	color: #909090;
+}
+
+.section .list .item .time {
+	margin-top: 19rpx;
+	font-size: 23rpx;
+	color: #909090;
+}

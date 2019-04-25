@@ -1,0 +1,49 @@
+<view class="contain">
+	<view class="menu">
+		<view wx:for="{{menu}}"
+			wx:key="{{index}}"
+			class="{{menu_id == index ? 'item active' : 'item'}}"
+			data-index="{{index}}"
+			bindtap='handleToggleMenu'
+		>
+			{{item}}
+			<view wx:if="{{menu_id == index}}" class="border_bottom"></view>
+		</view>
+	</view>
+
+	<view class="section">
+		<view>
+			<view class="title">今天</view>
+			<view class="list">
+				<view class="item">
+					<view class="photo">
+						<image src="../../../images/details_album_bg.png"></image>
+					</view>
+					<view class="content">
+						<view class="user">狂奔的蜗牛</view>
+						<view class="name">刘纯燕</view>
+					</view>
+					<view class="time">
+						15:30:50
+					</view>
+				</view>
+				<view class="item">
+					<view class="photo">
+						12
+					</view>
+					<view class="content">
+						<view class="user">狂奔的蜗牛</view>
+						<view class="name">刘纯燕</view>
+					</view>
+					<view class="time">
+						15:30:50
+					</view>
+				</view>
+			</view>
+		</view>
+
+	
+		
+
+	</view>
+</view>

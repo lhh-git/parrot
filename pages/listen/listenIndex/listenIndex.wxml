@@ -59,12 +59,12 @@
 			<view bindtap='handleOpenFilter'>筛选</view>
 		</view>
 		<view class="main">
-			<view class="alone">
+			<view class="alone" wx:for="{{list}}" wx:key="{{item.id}}">
 				<view class="left">
-					<image src='../../../images/newA_upload.png'></image>
+					<image src="{{item.salbum_headimg}}"></image>
 				</view>
 				<view class="right">
-					<view class="title">萨穆尔的熊—雾沙森林的新生命雾沙森林 的新生命</view>
+					<view class="title">{{item.salbum_name}}</view>
 					<view class="tool">
 						<image class="browse" src='../../../images/icon_browse.png'></image>
 						<view>3581</view>
@@ -72,24 +72,7 @@
 						<view>3.5万</view>
 					</view>
 				</view>
-			</view>
-			<view class="alone">
-				<view class="left">
-					<image src='../../../images/newA_upload.png'></image>
-				</view>
-				<view class="right">
-					<view class="title">萨穆尔的熊—雾沙森林的新生命雾沙森林 的新生命</view>
-					<view class="tool">
-						<image class="browse" src='../../../images/icon_browse.png'></image>
-						<view>3581</view>
-						<image class="collect" src='../../../images/icon_collect.png'></image>
-						<view>3.5万</view>
-					</view>
-				</view>
-			</view>
-			 
-			 
-			
+			</view>	
 		</view>
 	</view>
 

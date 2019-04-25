@@ -1,0 +1,71 @@
+<view class="contain">
+	<view class="section">
+		<view>
+			<view class="title">今天</view>
+			<view class="list">
+				<view class="item">
+					<view class="photo">
+						<image src='../../../images/list_ablum_create.png'></image>
+					</view>
+					<view class="content">
+						<view class="user">狂奔的蜗牛</view>
+						<view class="name">刘纯燕</view>
+					</view>
+					<view class="time">
+						<view class="hour">15:30:50</view>
+						<view class="status">邀请成功</view>
+					</view>
+				</view>
+				<view class="item">
+					<view class="photo">
+						<image src='../../../images/list_ablum_create.png'></image>
+					</view>
+					<view class="content">
+						<view class="user">狂奔的蜗牛</view>
+						<view class="name">刘纯燕</view>
+					</view>
+					<view class="time">
+						<view class="hour">15:30:50</view>
+						<view class="status">邀请成功</view>
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<view>
+			<view class="title">今天</view>
+			<view class="list">
+				<view class="item">
+					<view class="photo">
+						<image src='../../../images/list_ablum_create.png'></image>
+					</view>
+					<view class="content">
+						<view class="user">狂奔的蜗牛</view>
+						<view class="name">刘纯燕</view>
+					</view>
+					<view class="time">
+						<view class="hour">15:30:50</view>
+						<view class="status">邀请成功</view>
+					</view>
+				</view>
+				<view class="item">
+					<view class="photo">
+						<image src='../../../images/list_ablum_create.png'></image>
+					</view>
+					<view class="content">
+						<view class="user">狂奔的蜗牛</view>
+						<view class="name">刘纯燕</view>
+					</view>
+					<view class="time">
+						<view class="hour">15:30:50</view>
+						<view class="status">邀请成功</view>
+					</view>
+				</view>
+			</view>
+		</view>
+
+	
+		
+
+	</view>
+</view>

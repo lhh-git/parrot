@@ -23,11 +23,13 @@
 	</view>
 	<view class="command">
 		<view class="progress">
-			<view class="start" style="width: {{time / 60 * 100}}%">
+			<view class="start" style="width: {{time / 600 * 100}}%">
 				<view class="loco"></view>
 			</view>
 		</view>
-		<view class="time">{{time < 10 ? '0'+time : time}}:00 /60:00</view>
+		<view class="time">
+			{{minute < 10 ? '0' + minute : minute}}:{{(time % 60) < 10 ? '0'+time % 60 : time % 60}} / 10:00
+		</view>
 		
 		<view class="tool">
 			<image class="audition" 

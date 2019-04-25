@@ -13,6 +13,8 @@ Page({
 		control: true,		//开关
 		recordInfo: {},     //录音信息
 		duratio: '',        //总时长
+		minute: 0,          //录制分钟数
+		minute_play: 0,     //播放分钟数
 		time: '',			//播放进度
 		dbId: '',           //背景音乐id
 	},
@@ -25,7 +27,8 @@ Page({
 		let duration = Math.ceil(recordInfo.duration / 1000);
 		this.setData({
 			recordInfo: recordInfo,
-			duration: duration
+			duration: duration,
+			minute: Math.floor(duration / 60)
 		}, () => {
 			this.handlePlayMusic();
 		})	
@@ -41,7 +44,8 @@ Page({
 		innerAudioContext.onTimeUpdate(() => {
 			let time = Math.ceil(innerAudioContext.currentTime);
 			this.setData({
-				time: time
+				time: time,
+				minute_play: Math.floor(time / 60)
 			})
 		})
 

@@ -24,37 +24,38 @@
 				<image class="open" src="../../../images/my_open.png"></image>
 			</view>
 		</navigator>
-		<view>
-			<image class="icon" src='../../../images/my_section2.png'></image>
-			<view class="main">我的作品</view>
-			<image class="open" src="../../../images/my_open.png"></image>
-		</view>
-		<view>
-			<image class="icon" src='../../../images/my_section3.png'></image>
-			<view class="main">我的收藏</view>
-			<image class="open" src="../../../images/my_open.png"></image>
-		</view>
-		<view>
-			<image class="icon" src='../../../images/my_section4.png'></image>
-			<view class="main">浏览记录</view>
-			<image class="open" src="../../../images/my_open.png"></image>
-		</view>
+		<navigator url="/pages/personal/listAlbum/listAlbum">
+			<view>
+				<image class="icon" src='../../../images/my_section2.png'></image>
+				<view class="main">我的作品</view>
+				<image class="open" src="../../../images/my_open.png"></image>
+			</view>
+		</navigator>
+		<navigator url="/pages/personal/collect/collect">
+			<view>
+				<image class="icon" src='../../../images/my_section3.png'></image>
+				<view class="main">我的收藏</view>
+				<image class="open" src="../../../images/my_open.png"></image>
+			</view>
+		</navigator>
+		<navigator url="/pages/personal/history/history">
+			<view>
+				<image class="icon" src='../../../images/my_section4.png'></image>
+				<view class="main">浏览记录</view>
+				<image class="open" src="../../../images/my_open.png"></image>
+			</view>
+		</navigator>
 	</view>
 
 	<view class="section select">
-		<view>
-			<image class="icon" src='../../../images/my_section5.png'></image>
-			我的邀请
-		</view>
-		<view>
-			<image class="icon" src='../../../images/my_section6.png'></image>
-			我的消息
-		</view>
-		<view>
-			<navigator url="/pages/personal/listAlbum/listAlbum">
-				专辑列表
-			</navigator>
-		</view>
+		<navigator url="/pages/personal/news/news">
+			<view class="news">
+				<image class="icon" src='../../../images/my_section6.png'></image>
+				我的消息
+				<view class="new"></view>
+			</view>
+		</navigator>
+		
 	</view>
 
 

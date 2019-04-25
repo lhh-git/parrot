@@ -25,7 +25,10 @@
 			>
 			</image>
 		</view>
-		<view class="time">{{time < 10 ? '0' + time : time}}:00 /{{duration < 10 ? '0' + duration : duration}}:00</view>
+		<view class="time">
+			{{minute_play < 10 ? '0' + minute_play : minute_play}}:{{(time % 60) < 10 ? '0'+time % 60 : time % 60}} /
+			{{minute < 10 ? '0' + minute : minute}}:{{duration % 60 < 10 ? '0' + duration % 60 : duration % 60}}
+		</view>
 		
 		<view class="tool">
 			<image src='../../../images/dubbing_button.png'

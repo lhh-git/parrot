@@ -1,0 +1,18 @@
+<view class="contain">
+	<view class="list">
+		<view class="head">2019-2-10</view>
+		<view class="item">
+			<view class="title">
+				<view class="new"></view>
+				<view class="words">新年到送好礼！鹦鹉听书祝您新年快乐！ 拷贝</view>
+				<view class="time">15:30:50</view>
+			</view>
+			<view class="main">
+				{{txt}}
+				<view class="show" wx:if="{{txt.length > 39}}">点击阅读全文</view>
+			</view>
+		</view>
+	</view>
+
+
+</view>

@@ -1,0 +1,65 @@
+page {
+	background: #F3F3F3;
+}
+
+.section {
+
+	
+}
+.section .title {
+	padding-left: 30rpx;
+	line-height: 41rpx;
+	font-size: 25rpx;
+	color: #909090;
+}
+.section .list {
+	background: #fff;
+}
+.section .list .item {
+	margin: 0 30rpx 0 28rpx;
+	display: flex;
+	height: 124rpx;
+	border-bottom: 1rpx solid #E9E9E9;
+}
+.section .list .item:last-child {
+	border-bottom: none;
+}
+.section .list .item .photo {
+	margin-left: 29rpx;
+	margin-top: 17rpx;
+	width: 93rpx;
+	height: 93rpx;
+	border-radius: 15rpx;
+}
+.section .list .item .photo image {
+	width: 93rpx;
+	height: 93rpx;
+	border-radius: 15rpx;
+}
+.section .list .item .content {
+	flex: 1;
+	margin-left: 15rpx;
+}
+.section .list .item .content .user {
+	margin-top: 37rpx;
+	font-size: 23rpx;
+	color: #909090;
+}
+.section .list .item .content .name {
+	margin-top: 20rpx;
+	font-size: 25rpx;
+	color: #4E4E4E;
+}
+.section .list .item .time {
+	text-align: right;
+}
+.section .list .item .time .hour {
+	margin-top: 31rpx;
+	font-size: 23rpx;
+	color: #909090;
+}
+.section .list .item .time .status {
+	margin-top: 27rpx;
+	font-size: 25rpx;
+	color: #909090;
+ }

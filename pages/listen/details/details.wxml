@@ -1,0 +1,87 @@
+<view class="container">
+	<view class="header">
+		<view class="photo">
+			<image src="../../../images/income.png"></image>
+		</view>
+		<view class="play">
+			<image src="../../../images/listen_details_prev.png"></image>
+			<image src="../../../images/listen_details_play.png"></image>
+			<image src="../../../images/listen_details_next.png"></image>
+			<image src="../../../images/listen_details_collect.png"></image>
+		</view>
+		<view class="progress">
+			<view class="all_show">
+				<view class="show" style="width: 10%;">
+					<view class="icon"></view>
+				</view>
+			</view>
+			<view class="time">
+				<view class="now_time">00:01:38 </view>
+				<view class="all_time">00:15:00</view>
+			</view>
+		</view>
+		<view class="subscribe">
+			<view class="photo">
+				<image src="../../../images/listen_details_play.png"></image>
+			</view>
+			<view class="main">
+				<view>刘纯燕</view>
+				<view>365.9万人订阅</view>
+			</view>
+			<view class="button">
+				<form bindsubmit="formSubmit" report-ubmit='true'>
+					<button form-type="submit" class="form_id"></button>
+				</form >
+				<image src="../../../images/listen_details_subscribe.png"></image>
+			</view>
+		</view>
+	</view>
+
+	<view class="section">
+		<view class="synopsis">
+			<view class="title">简介</view>
+			<view class="{{show ? 'active' : 'content'}}">刘纯燕，1966年8月20日出生于北京，毕业于中国传媒大
+学，中国中央电视台主持人、配音演员。刘纯燕从1991年起主持《大风车》节目，塑造了小脚丫、
+刘纯燕，1966年8月20日出生于北京，毕业于中国传媒大
+学，中国中央电视台主持人、配音演员。刘纯燕从1991年起主持《大风车》节目，塑造了小脚丫、
+刘纯燕，1966年8月20日出生于北京，毕业于中国传媒大
+学，中国中央电视台主持人、配音演员。刘纯燕从1991年起主持《大风车》节目，塑造了小脚丫、
+			</view>
+			<view class="show" bindtap='handleSunopsisShow'>
+				<view>展示</view>
+				<image src="../../../images/listen_details_show.png"></image>
+			</view>
+		</view>
+
+		<view class="drama">
+			<view>剧集</view>
+		</view>
+
+		<view class="recommend">
+			<view class="title">听过本节目的人也在听…</view>
+			<view class="list">
+				<view class="item">
+					<image src="../../../images/list_ablum_create.png"></image>
+					<view class="words">安东尼先生 与安东尼…安东尼先生 与安东尼…</view>
+				</view>
+				<view class="item">
+					<image src="../../../images/list_ablum_create.png"></image>
+					<view class="words">安东尼先生 与安东尼…安东尼先生 与安东尼…</view>
+				</view>
+				<view class="item">
+					<image src="../../../images/list_ablum_create.png"></image>
+					<view class="words">安东尼先生 与安东尼…安东尼先生 与安东尼…</view>
+				</view>
+				<view class="item">
+					<image src="../../../images/list_ablum_create.png"></image>
+					<view class="words">安东尼先生 与安东尼…安东尼先生 与安东尼…</view>
+				</view>
+				<view class="item">
+					<image src="../../../images/list_ablum_create.png"></image>
+					<view class="words">安东尼先生 与安东尼…安东尼先生 与安东尼…</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+</view>

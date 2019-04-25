@@ -81,3 +81,15 @@ page{
 .select view .icon {
 	margin-right: 30rpx;
 }
+.select .news {
+	position: relative;
+}
+.select .news .new {
+	position: absolute;
+	left: 150rpx;
+	top: 30rpx;
+	width: 15rpx;
+	height: 15rpx;
+	border-radius: 50%;
+	background: #F86442;
+}

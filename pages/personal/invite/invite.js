@@ -8,16 +8,25 @@ Page({
 
 	},
 	onLoad: function (options) {
-		
+
 	},
-	//打开听故事详情页
-	handleOpenDetails () {
-		wx.navigateTo({
-			url: '/pages/listen/details/details',
-		})
+	//收集formId
+	formSubmit(e) {
+		Utils.getFormId(e); //获取formId	
+	},
+
+	// 上拉加载更多
+	onReachBottom: function () {
+		console.log(1)
 	}
-	
-	
-	
+
+
+
+
+
+
+
+
 
 })
+

@@ -31,20 +31,21 @@
 				<view class="content">支出记录</view>
 				<image src='../../../images/my_open.png'></image>
 			</view>
-		</navigator>	
-		<view class="item">
-			<view class="new"></view>
-			<view class="content">我的邀请</view>	
-			<image src='../../../images/my_open.png'></image>
-		</view>
-		<view class="item">
-			<view class="content">账户绑定</view>
-			<navigator url='/pages/personal/binding/binding'>
+		</navigator>
+		<navigator url="/pages/personal/invite/invite">
+			<view class="item">
+				<view class="new"></view>
+				<view class="content">我的邀请</view>	
+				<image src='../../../images/my_open.png'></image>
+			</view>
+		</navigator>
+		<navigator url='/pages/personal/binding/binding'>
+			<view class="item">
+				<view class="content">账户绑定</view>
 				<view class="binding">未绑定</view>
-			</navigator>
-			
-			<image src='../../../images/my_open.png'></image>
-		</view>
+				<image src='../../../images/my_open.png'></image>
+			</view>
+		</navigator>
 	</view>
 </view>
 

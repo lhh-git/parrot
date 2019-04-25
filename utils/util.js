@@ -33,6 +33,36 @@ const showToast = (title, icon, duration) => {
 		image: icon == 'err' ? '/images/toast_err.png' : icon == 'warn' ? '/images/toast_warn.png' : ''
 	})
 }
+
+//modal弹窗
+const showModal = (model) => {
+	wx.showModal({
+		content: model.content,
+		cancelText: model.cancelText ? model.cancelText : '取消',
+		cancelColor: '#000000',
+		confirmText: model.confirmText ? model.confirmText : '确认',
+		confirmColor: '#000000',
+		success(res) {
+			if (res.confirm) {
+				model.confirm()
+			} else if (res.cancel) {
+				model.cancel()
+			}
+		}
+	})
+}
+
+//退出页面关闭当前播放音乐
+const closeMusic = () => {
+	let system = wx.getStorageSync("system")
+	if (system == 'ios') {
+		innerAudioContext.stop()
+	}
+	if (system == 'andion') {
+		innerAudioContext.destroy()
+	}
+}
+
 	
 
 
@@ -88,10 +118,11 @@ const loadingData = (status, title) => {
 }
 
 //右上角分享页面
-const onShareAppMessage = (title, url) => {
+const onShareAppMessage = (title, path, url) => {
 	return {
-		title: title,
-		path: url,
+		title: title,   //标题
+		path: path,		//路径
+		imageUrl: url,  //图片
 		success: function (res) {
 			wx.showToast({
 				title: '成功',
@@ -101,7 +132,7 @@ const onShareAppMessage = (title, url) => {
 		},
 		fail: function (res) {
 			wx.showToast({
-				title: '成功',
+				title: '失败',
 				icon: 'success',
 				duration: 2000
 			})
@@ -117,11 +148,13 @@ const onShareAppMessage = (title, url) => {
 
 module.exports = {
 	showToast,
+	showModal,
 	formatTime,
 	json2Form,
 	getFormId,
 	pullUpRefresh,
 	loadingData,
-	onShareAppMessage
+	onShareAppMessage,
+	closeMusic
 
 }

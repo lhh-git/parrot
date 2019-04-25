@@ -12,9 +12,10 @@ Page({
 	data: {
 		control: false,		//开关
 		recordStart: false, //开启试听和下一步
-		recordInfo: {},     //录音信息
+		recordInfo: null,     //录音信息
 		audition: false,    //试听
 		time: 0,            //录制时长
+		minute: 0,          //录制分钟数
 	},
 	onLoad: function (options) {
 		//获取录音权限
@@ -31,12 +32,7 @@ Page({
 					_this.openConfirm()
 					return;
 				}else {
-					let control = !this.data.control;
-					this.setData({
-						control: control
-					}, () => {
-						this.data.control ? this.handleRecordStart() : this.handleRecordPause()
-					})
+					_this.handleJudegRecord();
 				}
 			}
 		})
@@ -54,14 +50,46 @@ Page({
 			}
 		});
 	},
+	//判断第一次录音还是多次录音
+	handleJudegRecord () {
+		let _this = this;
+		let control = !this.data.control;
+
+		if (this.data.recordInfo && this.data.control == false) {
+			Utils.showModal({
+				content: '重新录制会覆盖已录制的音频',
+				cancelText: '取消',
+				confirmText: '确认',
+				confirm () {
+					_this.setData({
+						control: control
+					}, () => {
+						_this.data.control ? _this.handleRecordStart() : _this.handleRecordPause()
+					})
+				},
+				cancel () {
+					console.log('用户点击取消')
+				}
+			})
+			return;
+		}
+
+		this.setData({
+			control: control
+		}, () => {
+			this.data.control ? this.handleRecordStart() : this.handleRecordPause()
+		})
+		
+	},
 	//开始录音
 	handleRecordStart() {
+		const _this = this;
 		innerAudioContext.stop()
 		this.setData({
 			recordStart: false
 		})
 		const options = {
-			duration: 60000,//指定录音的时长，单位 ms
+			duration: 600000,//指定录音的时长，单位 ms
 			sampleRate: 16000,//采样率
 			numberOfChannels: 1,//录音通道数
 			encodeBitRate: 96000,//编码码率
@@ -72,10 +100,13 @@ Page({
 		recorderManager.start(options);
 		recorderManager.onStart(() => {
 			clearInterval(timer);
-			let time = this.data.time;
+			this.setData({
+				time: 1
+			})
+			let time = 1;
 			timer = setInterval(() => {
 				time++;
-				if(time >= 60) {
+				if (time >= 600) {
 					clearInterval(timer);
 					this.setData({
 						recordStart: true
@@ -84,7 +115,7 @@ Page({
 				console.log(time)
 				this.setData({
 					time: time,
-					recordStart: true
+					minute: Math.floor(time / 60)
 				})
 			}, 1000)
 		});
@@ -95,6 +126,7 @@ Page({
 			// 	duration: 2000
 			// })
 		});	
+		
 	},
 	//暂停录音
 	handleRecordPause() {
@@ -106,8 +138,10 @@ Page({
 	handleRecordStop() {
 		recorderManager.stop();
 		recorderManager.onStop((res) => {
+			console.log(res)
 			this.setData({
-				recordInfo: res
+				recordInfo: res,
+				recordStart: true
 			})
 		})
 	},
@@ -127,15 +161,32 @@ Page({
 				}
 			}
 		})
+		innerAudioContext.onEnded((res) => {
+			this.setData({
+				audition: false
+			})
+		})
 	},
 	//下一步
-	handleNext() {
+	handleNext () {
 		if (this.data.recordStart) {
 			wx.navigateTo({
 				url: '/pages/speak/dubbing/dubbing?recordInfo=' + encodeURIComponent(JSON.stringify(this.data.recordInfo))
 			})
 		}
+	},
+	onUnload () {
+		let system = wx.getStorageSync("system")
+		if (system == 'ios') {
+			innerAudioContext.stop()
+		}
+		if (system == 'andion') {
+			innerAudioContext.destroy()
+		}
+
+		recorderManager.stop();
 	}
+	
 
 
 })

@@ -1,6 +1,7 @@
 <view class="container">
 	<view class="list_box">
-		<view class="list">
+		
+		<view class="list" bindtap='handleOpenDetails'>
 			<view class="sort">
 				<!-- <view >01</view> -->
 				<image class="three" src="../../../images/icon_sort1.png"></image>
@@ -27,6 +28,7 @@
 				</view>
 			</view>
 		</view>
+		
 		<view class="list">
 			<view class="sort">
 				<!-- <view >01</view> -->
