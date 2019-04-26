@@ -8,18 +8,16 @@ Page({
 
 	},
 	onLoad: function (options) {
-		wx.setNavigationBarTitle({
-			title: '趣味表情'
-		})
+
 	},
 	//打开听故事详情页
-	handleOpenDetails () {
+	handleOpenDetails() {
 		wx.navigateTo({
 			url: '/pages/listen/details/details',
 		})
 	}
-	
-	
-	
+
+
+
 
 })

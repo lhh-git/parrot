@@ -14,6 +14,16 @@ Page({
 	formSubmit(e) {
 		Utils.getFormId(e);
 	},
+	//跳转到人气主播
+	handleOpenPopularity () {
+		wx.navigateTo({
+			url: '/pages/listen/popularity/popularity',
+		})
+	},
+	//订阅
+	handleSubscribe () {
+		console.log(2)
+	},
 	//点击展示简介
 	handleSunopsisShow () {
 		let show = !this.data.show;

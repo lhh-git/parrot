@@ -31,11 +31,23 @@ Page({
 	onShareAppMessage () {
 		return Utils.onShareAppMessage('21', '/pages/personal/history/history', '../../../images/my_section1.png')
 	},
-
-
-	handleOpenCollectMoney () {
+	//跳转到搜索页
+	hanldOpenSearch () {
+		wx.navigateTo({
+			url: '/pages/common/search/search',
+		})
+	},
+	//跳转到专辑列表页
+	handleOpenCollectMoney (e) {
+		console.log(e.target.dataset.title)
 		wx.navigateTo({
 			url: '/pages/listen/collectMoney/collectMoney',
+		})
+	},
+	// 跳转到分类列表页
+	handleOpenClassifyList () {
+		wx.navigateTo({
+			url: '/pages/listen/classifyList/classifyList',
 		})
 	},
 	//获取轮播图

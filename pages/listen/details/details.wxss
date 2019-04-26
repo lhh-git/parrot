@@ -162,6 +162,64 @@
 	height: 14rpx;
 }
 
+/* 剧集 */
+.section .drama {
+	margin-top: 36rpx; 
+}
+.section .drama .title {
+	display: flex;
+	margin: 0 74rpx 0 55rpx;
+	font-size: 30rpx;
+	font-weight: bold;
+	color: #4E4E4E;
+}
+.section .drama .title .status {
+	margin-left: 10rpx;
+	line-height: 34rpx;
+	padding: 0 6rpx;
+	font-size: 24rpx;
+	color: #fff;
+	background: #f86442;
+	border-radius: 7rpx;
+}
+.section .drama .title image {
+	margin-left: 378rpx;
+	width: 39rpx;
+	height: 36rpx;
+}
+.section .drama .drama_list {
+	overflow: hidden;
+	overflow-x: auto;
+	display: flex;
+	margin: 24rpx 35rpx 0 29rpx;
+}
+.section .drama .drama_list .item {
+	float: left;
+	margin-right: 23rpx;
+	width: 142rpx;
+}
+.section .drama .drama_list .item image {
+	width: 142rpx;
+	height: 142rpx;
+	border-radius: 15rpx;
+}
+.section .drama .drama_list .item .words {
+	z-index: 99rpx;
+	display: flex;
+	justify-content: space-between;
+	margin-left: 11rpx;
+	margin-top: 8rpx;
+	font-size: 25rpx;
+	color: #4E4E4E;
+}
+.section .drama .drama_list .item .words view:nth-child(2) {
+	margin-top: 1rpx;
+	font-size: 23rpx;
+	color: #C9C9C9;
+}
+
+
+
 
 
 
@@ -177,10 +235,11 @@
 .section .recommend .list {
 	display: flex;
 	flex-wrap: wrap;
-	margin: 35rpx 86rpx 0 85rpx;
+	margin: 35rpx 86rpx 100rpx 85rpx;
 }
 .section .recommend .list .item {
 	width: 142rpx;
+	margin-bottom: 22rpx;
 }
 .section .recommend .list .item:nth-child(3n-1) {
 	margin: 0 77rpx 0 76rpx;
@@ -191,10 +250,14 @@
 	border-radius: 15rpx;
 }
 .section .recommend .list .item .words {
+	margin: 0 10rpx;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	line-height: 35rpx;
+	
 	font-size: 25rpx;
 	color: #4E4E4E;
-
-	
-
 
 }

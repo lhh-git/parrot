@@ -8,7 +8,7 @@
 				<view class="time">15:30:50</view>
 			</view>
 			<view class="main">
-				{{txt}}
+				{{txt}}  
 				<view class="show" wx:if="{{txt.length > 39}}">点击阅读全文</view>
 			</view>
 		</view>

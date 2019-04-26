@@ -1,0 +1,151 @@
+.head {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 82rpx 53rpx 63rpx;
+	height: 115rpx;
+}
+.head .info {
+	display: flex;
+}
+.head .info .photo {
+	width: 115rpx;
+	height: 115rpx;
+	border-radius: 50%;
+}
+.head .info .info_user {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-left: 21rpx;
+}
+.head .info .info_user view:nth-child(1) {
+	font-size: 25rpx;
+	color: #4E4E4E;
+}
+.head .info .info_user view:nth-child(2) {
+	margin-top: 6rpx;
+	font-size: 20rpx;
+	color: #8E8D8D;
+}
+.head .status {
+	width: 196rpx;
+	height: 90rpx;
+}
+
+
+.section {
+	margin: 71rpx 33rpx 0 37rpx;
+	border-top: 1rpx solid #D1D1D1;
+}
+.section .menu {
+	display: flex;
+	justify-content: space-around;
+}
+.section .menu .item {
+	padding-top: 18rpx;
+	font-size: 28rpx;
+	color: #8E8D8D;
+}
+.section .menu .item.active {
+	padding-top: 0;
+	font-size: 35rpx;
+	color: #4E4E4E;
+}
+.section .menu .item .icon {
+	margin-bottom: 5rpx;
+	height: 6rpx;
+	background: #ff6a1f;
+	border-radius: 3rpx;
+}
+
+
+/* 简介 */
+.synopsis {
+	margin-top: 20rpx;
+	margin-bottom: 100rpx;
+}
+.synopsis .words {
+	margin-left: 21rpx;
+	margin-right: 23rpx;
+	line-height: 34rpx;
+	font-size: 25rpx;
+	color: #8E8D8D;
+}
+.synopsis .tabs {
+	margin: 60rpx 72rpx 0 52rpx;
+}
+.synopsis .tabs .title {
+	margin-bottom: 20rpx;
+	font-size: 28rpx;
+	color: #8E8D8D;
+}
+
+.synopsis .tabs .item {
+	display: inline-block;
+	margin-bottom: 15rpx;
+	margin-right: 36rpx;
+	padding: 10rpx 20rpx;
+	font-size: 23rpx;
+	color: #8E8D8D;
+	border: 1rpx  solid #8E8D8D;
+	border-radius: 21rpx;
+}
+
+
+/* ta的声音 */
+.list_wrapper {
+	margin-top: 53rpx;
+	margin-bottom: 100rpx;
+}
+.list_wrapper .item {
+	display: flex;
+	padding: 31rpx 0;
+	border-bottom: 1rpx solid #D1D1D1;
+}
+.list_wrapper .item:first-child {
+	margin-top: 16rpx;
+}
+.list_wrapper .item:last-child {
+	border-bottom: none;
+}
+.list_wrapper .item .photo {
+	width: 142rpx;
+	height: 142rpx;
+	border-radius: 15rpx;
+}
+.list_wrapper .item .main {
+	flex: 1;
+}
+.list_wrapper .item .title {
+	margin-left: 21rpx;
+	font-size: 30rpx;
+	color: #4E4E4E;
+}
+.list_wrapper .item .status {
+	margin-left: 41rpx;
+	margin-top: 18rpx;
+	font-size: 25rpx;
+	color: #AEAEAE;
+}
+.list_wrapper .item .main .tool {
+	display: flex;
+	align-items: center;
+	margin-top: 51rpx;
+	margin-left: 21rpx;
+	height: 25rpx;
+	font-size: 25rpx;
+	color: #C9C9C9;
+}
+.list_wrapper .item .main .tool .browse {
+	width: 18rpx;
+	height: 19rpx;
+}
+.list_wrapper .item .main .tool .collect {
+	width: 21rpx;
+	height: 19rpx;
+}
+.list_wrapper .item .time {
+	font-size: 23rpx;
+	color: #AEAEAE;
+}

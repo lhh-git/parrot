@@ -1,10 +1,11 @@
 {
 	"pages": [
-		
 		"pages/login/index/index",
 		"pages/login/phone/phone",
 		"pages/listen/listenIndex/listenIndex",
 		"pages/listen/collectMoney/collectMoney",
+		"pages/listen/popularity/popularity",
+		"pages/listen/details/details",
 		"pages/speak/speakIndex/speakIndex",
 		"pages/speak/speakDetail/speakDetail",
 		"pages/speak/collectMoney/collectMoney",
@@ -25,12 +26,12 @@
 		"pages/personal/binding/binding",
 		"pages/personal/collect/collect",
 		"pages/personal/history/history",
-		"pages/ceshi/ceshi",
-		"pages/listen/details/details",
 		"pages/personal/invite/invite",
 		"pages/personal/news/news",
-		"pages/music/music"
-		
+		"pages/common/search/search",
+		"pages/ceshi/ceshi",
+		"pages/music/music",
+		"pages/listen/classifyList/classifyList"
 	],
 	"window": {
 		"backgroundTextStyle": "dark",

@@ -1,6 +1,6 @@
 <view class="contain">
 	<view class="search">
-		<view class="content">
+		<view class="content" bindtap='hanldOpenSearch'>
 			<image class="icon" src='../../../images/icon_search.png'></image>
 			<view class="words">请输入关键字搜索</view>
 		</view>
@@ -25,9 +25,9 @@
 	</view>
 
 	<view class="nav">
-		<image src='../../../images/icon_fiery.png' bindtap='handleOpenCollectMoney'></image>
-		<image src='../../../images/icon_good.png' bindtap='handleOpenCollectMoney'></image>
-		<image src='../../../images/icon_new.png' bindtap='handleOpenCollectMoney'></image>
+		<image src='../../../images/icon_fiery.png' data-title="人气榜" bindtap='handleOpenCollectMoney'></image>
+		<image src='../../../images/icon_good.png' data-title="精品榜" bindtap='handleOpenCollectMoney'></image>
+		<image src='../../../images/icon_new.png' data-title="新品榜" bindtap='handleOpenCollectMoney'></image>
 	</view>
 
 	<view class="icon-slider">
@@ -41,7 +41,11 @@
 			<block wx:for="{{icons}}" wx:key="{{item.id}}">
 				<swiper-item class="swiper-item">
 					<view class="item-box">
-						<view wx:for="{{item}}" class="icons_item" wx:key="{{item.id}}">
+						<view wx:for="{{item}}" 
+							class="icons_item" 
+							wx:key="{{item.id}}"
+							bindtap='handleOpenClassifyList'
+						>
 							<image src="{{item.scategory_headimg}}" class="slide-image"/>
 							<view class="title">{{item.scategory_name}}</view>
 						</view>

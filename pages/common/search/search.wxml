@@ -1,0 +1,40 @@
+<view class="contain">
+	<view class="search">
+		<view class="search_words">
+			<image src="../../../images/icon_search.png"></image>
+			<input placeholder='请输入关键字搜索' bindinput='handleGetInputVal'></input>
+		</view>
+	</view>
+
+
+	<view class="section">
+		<view class="history" wx:if="{{!search_val}}">
+			<view class="title">
+				<view>搜索记录</view>
+				<view class="delete">
+					<view>清空记录</view>
+					<image src="../../../images/icon_delete.png"></image>
+				</view>
+			</view>
+			<view class="list">
+				<view class="item">刘纯燕</view>
+				<view class="item">海的女儿</view>
+				<view class="item">刘纯燕</view>
+				<view class="item">海的女儿</view>
+				<view class="item">刘纯燕</view>
+				<view class="item">海的女</view>
+				<view class="item">刘</view>
+				<view class="item">海的女儿</view>
+				<view class="item">刘纯燕</view>
+				<view class="item">海的女儿</view>
+				<view class="item">刘</view>
+				<view class="item">海的女儿</view>
+			</view>
+		</view>
+
+		<view class="list_box" wx:if="{{search_val}}">
+				werewr
+		</view>
+	</view>
+
+</view>

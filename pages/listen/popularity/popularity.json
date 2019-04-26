@@ -1,4 +1,5 @@
 {
+	"navigationBarTitleText": "人气主播",
 	"usingComponents": {
 		"footer": "/components/footer/footer"
 	}

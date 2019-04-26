@@ -1,0 +1,130 @@
+<view class="contain">
+	<view class="head">
+		<view class="info">
+			<image class="photo" src="../../../images/my_photo.png"></image>
+			<view class="info_user">
+				<view>刘纯燕</view>
+				<view>365.9万人订阅</view>
+			</view>
+		</view>
+		<image class="status" src="../../../images/listen_popularity_subscribe_sel.png"></image>
+	</view>
+
+	<view class="section">
+		<view class="menu">
+			<view wx:for="{{menu}}"
+				wx:key="{{index}}" 
+				class="{{menu_id == index ? 'item active' : 'item'}}"
+				data-index="{{index}}"
+				bindtap='handleToggleMenu'
+			>
+				<view class="icon" wx:if="{{menu_id == index}}"></view>
+				{{item}}
+			</view>
+		</view>
+
+		<!-- 简介 -->
+		<view class="synopsis" wx:if="{{menu_id == 0}}">
+			<view class="words">
+				 做为一名传统的中国大学生，我具备了中国人诚实不屈的
+传统品格，同样的我也具有能被社会所认可的诚信。为了
+生存我有着奋发向上的追求生活的信念。
+简介最多支持100字。      
+			</view>
+			<view class="tabs">
+				<view class="title">标签</view>
+				<view class="item">
+					金龟子
+				</view>
+				<view class="item">
+					金
+				</view>
+				<view class="item">
+					金龟子
+				</view>
+				<view class="item">
+					金龟子
+				</view>
+				<view class="item">
+					金龟子asasasasas
+				</view>
+				<view class="item">
+					金龟子
+				</view><view class="item">
+					金龟子
+				</view>
+				<view class="item">
+					金龟子sddds
+				</view><view class="item">
+					金龟子
+				</view>
+				<view class="item">
+					金龟子
+				</view>
+			</view>
+		</view>
+
+		<!-- ta的声音 -->
+		<view class="list_wrapper" wx:if="{{menu_id == 1}}">
+			<view class="item">
+				<image class="photo" src='../../../images/list_ablum_create.png'></image>
+				<view class="main">
+					<view class="title">勇敢传说勇敢传说</view>
+					<view class="status">已更新至7/12</view>
+					<view class="tool">
+						<image class="browse" src='../../../images/icon_browse.png'></image>
+						<view>3581</view>
+						<image class="collect" src='../../../images/icon_collect.png'></image>
+						<view>3.5万</view>
+					</view>
+				</view>
+				<view class="time">2019-02-14</view>
+			</view>
+			<view class="item">
+				<image class="photo" src='../../../images/list_ablum_create.png'></image>
+				<view class="main">
+					<view class="title">勇敢传说勇敢传说</view>
+					<view class="status">已更新至7/12</view>
+					<view class="tool">
+						<image class="browse" src='../../../images/icon_browse.png'></image>
+						<view>3581</view>
+						<image class="collect" src='../../../images/icon_collect.png'></image>
+						<view>3.5万</view>
+					</view>
+				</view>
+				<view class="time">2019-02-14</view>
+			</view>
+			<view class="item">
+				<image class="photo" src='../../../images/list_ablum_create.png'></image>
+				<view class="main">
+					<view class="title">勇敢传说勇敢传说</view>
+					<view class="status">已更新至7/12</view>
+					<view class="tool">
+						<image class="browse" src='../../../images/icon_browse.png'></image>
+						<view>3581</view>
+						<image class="collect" src='../../../images/icon_collect.png'></image>
+						<view>3.5万</view>
+					</view>
+				</view>
+				<view class="time">2019-02-14</view>
+			</view>
+			<view class="item">
+				<image class="photo" src='../../../images/list_ablum_create.png'></image>
+				<view class="main">
+					<view class="title">勇敢传说勇敢传说</view>
+					<view class="status">已更新至7/12</view>
+					<view class="tool">
+						<image class="browse" src='../../../images/icon_browse.png'></image>
+						<view>3581</view>
+						<image class="collect" src='../../../images/icon_collect.png'></image>
+						<view>3.5万</view>
+					</view>
+				</view>
+				<view class="time">2019-02-14</view>
+			</view>
+		</view>
+	
+	</view>
+
+	<footer id="footer"></footer>
+</view>

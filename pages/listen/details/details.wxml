@@ -9,6 +9,7 @@
 			<image src="../../../images/listen_details_next.png"></image>
 			<image src="../../../images/listen_details_collect.png"></image>
 		</view>
+		<!-- 进度条 -->
 		<view class="progress">
 			<view class="all_show">
 				<view class="show" style="width: 10%;">
@@ -20,15 +21,16 @@
 				<view class="all_time">00:15:00</view>
 			</view>
 		</view>
+		<!-- 订阅 -->
 		<view class="subscribe">
 			<view class="photo">
-				<image src="../../../images/listen_details_play.png"></image>
+				<image src="../../../images/listen_details_play.png" bindtap='handleOpenPopularity'></image>
 			</view>
-			<view class="main">
+			<view class="main" bindtap='handleOpenPopularity'>
 				<view>刘纯燕</view>
 				<view>365.9万人订阅</view>
 			</view>
-			<view class="button">
+			<view class="button" bindtap='handleSubscribe'>
 				<form bindsubmit="formSubmit" report-ubmit='true'>
 					<button form-type="submit" class="form_id"></button>
 				</form >
@@ -53,8 +55,50 @@
 			</view>
 		</view>
 
+		<!-- 剧集 -->
 		<view class="drama">
-			<view>剧集</view>
+			<view class="title">
+				<view>剧集（4集）</view>	
+				<view class="status">完</view>
+				<image src="../../../images/listen_details_collect.png"></image>
+			</view>
+			<view class="drama_list">
+				<view class="item">
+					<image src="../../../images/list_ablum_create.png"></image>
+					<view class="words">
+						<view>02</view>
+						<view>19-04-20</view>
+					</view>
+				</view>
+				<view class="item">
+					<image src="../../../images/list_ablum_create.png"></image>
+					<view class="words">
+						<view>02</view>
+						<view>19-04-20</view>
+					</view>
+				</view>
+				<view class="item">
+					<image src="../../../images/list_ablum_create.png"></image>
+					<view class="words">
+						<view>02</view>
+						<view>19-04-20</view>
+					</view>
+				</view>
+				<view class="item">
+					<image src="../../../images/list_ablum_create.png"></image>
+					<view class="words">
+						<view>02</view>
+						<view>19-04-20</view>
+					</view>
+				</view>
+				<view class="item">
+					<image src="../../../images/list_ablum_create.png"></image>
+					<view class="words">
+						<view>02</view>
+						<view>19-04-20</view>
+					</view>
+				</view>
+			</view>
 		</view>
 
 		<view class="recommend">
@@ -83,5 +127,9 @@
 			</view>
 		</view>
 	</view>
+
+
+
+	<footer id="footer"></footer>
 
 </view>

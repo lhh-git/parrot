@@ -1,0 +1,63 @@
+.search {
+	display: flex;
+	margin-top: 29rpx;
+	margin-left: 50rpx;
+}
+.search .search_words {
+	display: flex;
+	align-items: center;
+	width: 600rpx;
+	height: 80rpx;
+	background: #F4F4F4;
+	border-radius: 40rpx;
+}
+.search .search_words image {
+	margin-left: 40rpx;
+	margin-right: 22rpx;
+	width: 48rpx;
+	height: 48rpx;
+}
+.search .search_words input {
+	width: 450rpx;
+	font-size: 30rpx;
+}
+
+
+/* 搜索记录与列表 */
+.section {
+	margin-top: 49rpx;
+}
+
+.history {
+	margin: 0 73rpx 0 51rpx;
+}
+.history .title {
+	display: flex;
+	justify-content: space-between;
+	font-size: 28rpx;
+	color: #909090;
+}
+.history .title .delete {
+	display: flex;
+	font-size: 28rpx;
+	color: #C9C9C9;
+}
+.history .title .delete image {
+	margin-left: 15rpx;
+	width: 24rpx;
+	height: 26rpx;
+}
+.history .list {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 51rpx;
+}
+.history .list .item {
+	margin-right: 20rpx;
+	margin-bottom: 20rpx;
+	padding: 26rpx 21rpx 28rpx 22rpx; 
+	font-size: 28rpx;
+	color: #909090;
+	background: #F3F3F3;
+	border-radius: 10rpx;
+}
