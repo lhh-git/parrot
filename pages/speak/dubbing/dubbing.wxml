@@ -47,7 +47,7 @@
 	<modal id="modal" bind:myevent="getDubbingIndex"></modal>
 
 	<!-- 录制完成弹窗 -->
-	<keep id="keep" ></keep>	
+	<keep id="keep" storyId="{{id}}" dbId="{{dbId}}"  url="{{recordInfo.tempFilePath}}"></keep>	
 
 </view>
 

@@ -162,58 +162,82 @@
 	height: 14rpx;
 }
 
-/* 剧集 */
-.section .drama {
-	margin-top: 36rpx; 
+
+
+/* 专辑 */
+.complete {
+	margin: 46rpx 53rpx 0 55rpx;
 }
-.section .drama .title {
+.complete .tool {
 	display: flex;
-	margin: 0 74rpx 0 55rpx;
+	justify-content: space-between;
+	align-items: center;
+	height: 63rpx;
+}
+.complete .tool .tool_info {
+	display: flex;
 	font-size: 30rpx;
 	font-weight: bold;
 	color: #4E4E4E;
 }
-.section .drama .title .status {
-	margin-left: 10rpx;
-	line-height: 34rpx;
-	padding: 0 6rpx;
-	font-size: 24rpx;
-	color: #fff;
+.complete .tool .tool_info .status {
+	text-align: center;
+	line-height: 31rpx;
+	width: 31rpx;
+	height: 31rpx;
+	font-size: 22rpx;
+	color: white;
 	background: #f86442;
-	border-radius: 7rpx;
+	border-radius: 6rpx;
 }
-.section .drama .title image {
-	margin-left: 378rpx;
-	width: 39rpx;
-	height: 36rpx;
+.complete .button image {
+	width: 196rpx;
+	height: 63rpx;
 }
-.section .drama .drama_list {
+
+.complete .list {
 	overflow: hidden;
 	overflow-x: auto;
 	display: flex;
-	margin: 24rpx 35rpx 0 29rpx;
+	margin-top: 15rpx; 
 }
-.section .drama .drama_list .item {
-	float: left;
-	margin-right: 23rpx;
+.complete .list .item {
+	margin-left: 21rpx;
 	width: 142rpx;
 }
-.section .drama .drama_list .item image {
+.complete .list .item:first-child {
+	margin-left: 0;
+}
+.complete .list .item .photo {
+	position: relative;
+	width: 142rpx;
+	height: 142rpx;
+}
+.complete .list .item .photo image {
 	width: 142rpx;
 	height: 142rpx;
 	border-radius: 15rpx;
 }
-.section .drama .drama_list .item .words {
-	z-index: 99rpx;
+.complete .list .item .photo .photo_sel {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.complete .list .item .item_info {
 	display: flex;
 	justify-content: space-between;
 	margin-left: 11rpx;
-	margin-top: 8rpx;
+	margin-top: 10rpx;
+}
+.complete .list .item .item_info .sort {
 	font-size: 25rpx;
 	color: #4E4E4E;
 }
-.section .drama .drama_list .item .words view:nth-child(2) {
-	margin-top: 1rpx;
+.complete .list .item .item_info .sort.active{
+	color: #F86442;
+}
+.complete .list .item .item_info .time {
+	margin-top: 6rpx;
 	font-size: 23rpx;
 	color: #C9C9C9;
 }
@@ -222,10 +246,9 @@
 
 
 
-
-
+/* 相关推荐 */
 .section .recommend {
-	margin-top: 54rpx;
+	margin-top: 58rpx;
 }
 .section .recommend .title {
 	margin-left: 57rpx;
@@ -235,7 +258,8 @@
 .section .recommend .list {
 	display: flex;
 	flex-wrap: wrap;
-	margin: 35rpx 86rpx 100rpx 85rpx;
+	margin: 35rpx 86rpx 0 85rpx;
+	padding-bottom: 100rpx;
 }
 .section .recommend .list .item {
 	width: 142rpx;

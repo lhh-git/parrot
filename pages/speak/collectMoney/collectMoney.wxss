@@ -1,5 +1,5 @@
 .list_box {
-	margin-bottom: 100rpx;
+	padding-bottom: 100rpx;
 }
 .list_box .list:last-child .main {
 	border-bottom: none;
@@ -31,6 +31,11 @@
 	height: 142rpx;
 	border-radius: 15rpx;
 	background: red;
+}
+.list .main .photo image {
+	margin: 7rpx;
+	width: 128rpx;
+	height: 128rpx;
 }
 .list .main .info{
 	flex: 1;

@@ -10,6 +10,7 @@ var timer = null;
 
 Page({
 	data: {
+		id: '',				//故事id
 		control: true,		//开关
 		recordInfo: {},     //录音信息
 		duratio: '',        //总时长
@@ -26,6 +27,7 @@ Page({
 		let recordInfo = JSON.parse(decodeURIComponent(options.recordInfo));
 		let duration = Math.ceil(recordInfo.duration / 1000);
 		this.setData({
+			id: options.id,
 			recordInfo: recordInfo,
 			duration: duration,
 			minute: Math.floor(duration / 60)
@@ -73,6 +75,12 @@ Page({
 
 
 
+
+	// 
+	// 
+	// 
+	// 
+	//配乐
 	//打开配乐列表
 	handleOpenDubbing() {
 		this.modal.showModal();
@@ -90,6 +98,7 @@ Page({
 	handleOpenUpload() {
 		this.keep.showModal();
 	}
+
 	
 	
 

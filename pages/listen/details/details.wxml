@@ -40,6 +40,7 @@
 	</view>
 
 	<view class="section">
+		<!-- 简介 -->
 		<view class="synopsis">
 			<view class="title">简介</view>
 			<view class="{{show ? 'active' : 'content'}}">刘纯燕，1966年8月20日出生于北京，毕业于中国传媒大
@@ -55,52 +56,77 @@
 			</view>
 		</view>
 
-		<!-- 剧集 -->
-		<view class="drama">
-			<view class="title">
-				<view>剧集（4集）</view>	
-				<view class="status">完</view>
-				<image src="../../../images/listen_details_collect.png"></image>
+		<!-- 专辑 -->
+		<view class="complete">
+			<view class="tool">
+				<view class="tool_info">
+					专辑（4集）
+					<view class="status">完</view>
+				</view>
+				<view class="button">
+					<image src="../../../images/word_play_collect.png"></image>
+				</view>
 			</view>
-			<view class="drama_list">
+			<view class="list">
 				<view class="item">
-					<image src="../../../images/list_ablum_create.png"></image>
-					<view class="words">
-						<view>02</view>
-						<view>19-04-20</view>
+					<view class="photo">
+						<image src="../../../images/list_ablum_create.png"></image>
+						<image class="photo_sel" src="../../../images/listen_details_sel.png"></image>
+					</view>
+					<view class="item_info">
+						<view class="sort active">01</view>
+						<view class="time">19-04-20</view>
 					</view>
 				</view>
 				<view class="item">
-					<image src="../../../images/list_ablum_create.png"></image>
-					<view class="words">
-						<view>02</view>
-						<view>19-04-20</view>
+					<view class="photo">
+						<image src="../../../images/list_ablum_create.png"></image>
+					</view>
+					<view class="item_info">
+						<view class="sort">01</view>
+						<view class="time">19-04-20</view>
 					</view>
 				</view>
 				<view class="item">
-					<image src="../../../images/list_ablum_create.png"></image>
-					<view class="words">
-						<view>02</view>
-						<view>19-04-20</view>
+					<view class="photo">
+						<image src="../../../images/list_ablum_create.png"></image>
+					</view>
+					<view class="item_info">
+						<view class="sort">01</view>
+						<view class="time">19-04-20</view>
 					</view>
 				</view>
 				<view class="item">
-					<image src="../../../images/list_ablum_create.png"></image>
-					<view class="words">
-						<view>02</view>
-						<view>19-04-20</view>
+					<view class="photo">
+						<image src="../../../images/list_ablum_create.png"></image>
+					</view>
+					<view class="item_info">
+						<view class="sort">01</view>
+						<view class="time">19-04-20</view>
 					</view>
 				</view>
 				<view class="item">
-					<image src="../../../images/list_ablum_create.png"></image>
-					<view class="words">
-						<view>02</view>
-						<view>19-04-20</view>
+					<view class="photo">
+						<image src="../../../images/list_ablum_create.png"></image>
+					</view>
+					<view class="item_info">
+						<view class="sort">01</view>
+						<view class="time">19-04-20</view>
+					</view>
+				</view>
+				<view class="item">
+					<view class="photo">
+						<image src="../../../images/list_ablum_create.png"></image>
+					</view>
+					<view class="item_info">
+						<view class="sort">01</view>
+						<view class="time">19-04-20</view>
 					</view>
 				</view>
 			</view>
 		</view>
-
+		
+		<!-- 相关推荐 -->
 		<view class="recommend">
 			<view class="title">听过本节目的人也在听…</view>
 			<view class="list">
@@ -130,6 +156,6 @@
 
 
 
-	<footer id="footer"></footer>
+	<footer id="footer" footerIndex="{{footerIndex}}"></footer>
 
 </view>

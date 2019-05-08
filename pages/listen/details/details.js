@@ -6,9 +6,13 @@ import Require from '../../../utils/require.js'
 Page({
 	data: {
 		show: false,   //简介
+		footerIndex: '',	//底部菜单下标
 	},
 	onLoad: function (options) {
-
+		console.log(options.id)
+		this.setData({
+			footerIndex: options.footerIndex
+		})
 	},
 	//获取fromId
 	formSubmit(e) {

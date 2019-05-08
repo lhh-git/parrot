@@ -7,7 +7,7 @@
                 <view class='span'>*</view>
                 标题
             </view>
-            <input placeholder='老奶奶和小花猫'></input>
+            <input value="{{name}}"></input>
         </view>
 
         <view class='new_title clear_border'>

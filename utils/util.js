@@ -70,9 +70,9 @@ const closeMusic = () => {
 const getFormId = (e) => {
 	console.log(e.detail.formId)
 
-	// <form bindsubmit = "formSubmit"  report - submit='true' >
-	// 	<button form-type="submit">233223</button>
-	// </form >
+		// < form bindsubmit="formSubmit" report-submit='true' >
+		// 		<button class="formId" form-type="submit">添加标签</button>
+		// </form>
 	
 	// Require.ajax({
 	// 	//loading: "1",   //是否开启loading

@@ -10,6 +10,7 @@ var timer = null;
 
 Page({
 	data: {
+		id: '',				//故事id
 		control: false,		//开关
 		recordStart: false, //开启试听和下一步
 		recordInfo: null,     //录音信息
@@ -18,6 +19,9 @@ Page({
 		minute: 0,          //录制分钟数
 	},
 	onLoad: function (options) {
+		this.setData({
+			id: options.id
+		})
 		//获取录音权限
 		wx.authorize({
 			scope: 'scope.record'
@@ -171,7 +175,8 @@ Page({
 	handleNext () {
 		if (this.data.recordStart) {
 			wx.navigateTo({
-				url: '/pages/speak/dubbing/dubbing?recordInfo=' + encodeURIComponent(JSON.stringify(this.data.recordInfo))
+				url: '/pages/speak/dubbing/dubbing?recordInfo=' + encodeURIComponent(JSON.stringify(this.data.recordInfo)) 
+				+ '&id=' + this.data.id
 			})
 		}
 	},

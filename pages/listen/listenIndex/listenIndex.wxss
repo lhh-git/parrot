@@ -35,6 +35,10 @@ page {
 	width: 100%;
 	height: 300rpx;
 }
+.slider swiper {
+	width: 100%;
+	height: 100%;
+}
 .slider .slide-image {
 	width: 100%;
 	height: 100%;
@@ -190,15 +194,19 @@ page {
 	border-radius: 10rpx;
 }
 .section .main .alone .right {
+	position: relative;
 	margin-left: 23rpx;
 	width: 529rpx;
 }
 .section .main .alone .right .title {
 	margin-top: 22rpx;
+	line-height: 33rpx;
 	font-size: 30rpx;
 	color: #4E4E4E;
 }
 .section .main .alone .right .tool {
+	position: absolute;
+	bottom: 30rpx;
 	display: flex;
 	align-items: center;
 	margin-top: 17rpx;

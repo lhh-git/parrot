@@ -15,15 +15,15 @@
     left: 0;
     overflow: hidden;
 }
-.detail_story_name{
+.detail_story_name {
     margin-top: 51rpx;
-    margin-left: 250rpx;
+	text-align: center;
     font-size: 45rpx;
     color:#4E4E4E;
 }
 .detail_story_from{
-   margin-left: 281rpx;
    margin-top: 31rpx;
+   text-align: center;
    font-size: 30rpx;
    color: #4E4E4E;
 }
@@ -181,28 +181,15 @@
     height: 73rpx;
     border-radius: 50%;
 }
-.bottom_list_photo .icon{
-    position: absolute;
-    height: 23rpx;
-    min-width: 23rpx;
-    border-radius: 50%;
-    background: #FFAA04;
-    bottom: -5rpx;
-    left: 26rpx;
-    font-size: 23rpx;
-    text-align: center;
-    line-height: 23rpx;
-    color: #FFFFFF;
-}
 .bottom_list_photo .icon_sel {
 	position: absolute;
+	bottom: -5rpx;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 0 7rpx;
     height: 23rpx;
     border-radius: 12rpx;
     background: #FFAA04;
-    bottom: -5rpx;
-    left: 50%;
-	transform: translateX(-50%);
-	padding: 0 7rpx;
     font-size: 23rpx;
     text-align: center;
     line-height: 23rpx;
@@ -212,6 +199,7 @@
 .bottom_list_msg{
     display: inline-block;
     vertical-align: top;
+	width: 80%;
     font-size: 25rpx;
     margin-left: 13rpx;
     color:#8E8D8D;
@@ -246,8 +234,8 @@
 }
 
 .list_msg_time{
-    display: inline-block;
-    padding-left: 155rpx;
+    float: right;
+	margin-top:24rpx;
 }
 
 /* 加载更多 */

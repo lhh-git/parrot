@@ -1,66 +1,43 @@
-// pages/speak/storedWorks/storedWorks.js
+//获取应用实例
+const APP = getApp()
+import Utils from '../../../utils/util.js'
+import Require from '../../../utils/require.js'
+
+
 Page({
+	data: {
+		storyId: '',		//故事id
+		dbId: '',			//背景音乐id
+		url: '',			//录音路径
+		name: '',           //标题
+	},
+	onLoad: function (options) {
+		console.log(options)
+		this.setData({
+			storyId: options.storyId,		
+			dbId: options.dbId,			
+			url: options.url
+		})
+		this.handleGetStoryInfo()	//获取故事信息
+	},
+	//获取故事信息
+	handleGetStoryInfo () {
+		let _this = this;
+		Require.ajax({
+			//loading: "1",   //是否开启loading
+			url: "api/Tellingstory/showUploadWorks",
+			method: 'POST',
+			param: {
+				id: this.data.storyId
+			},
+			success(res) {
+				_this.setData({
+					name: res.data.telling_story_name
+				})
+			}
+		})
+	}
+	
 
-    /**
-     * 页面的初始数据
-     */
-    data: {
 
-    },
-
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    }
 })

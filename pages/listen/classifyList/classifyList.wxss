@@ -91,7 +91,11 @@
 	width: 142rpx;
 	height: 142rpx;
 	border-radius: 15rpx;
-	background: red;
+}
+.list .main .photo image {
+	margin: 7rpx;
+	width: 128rpx;
+	height: 128rpx;
 }
 .list .main .info{
 	flex: 1;

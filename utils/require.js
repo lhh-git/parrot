@@ -1,21 +1,21 @@
-import Token from './token.js'
+import Util from './util.js'
 
 var webUrl = "https://books.icpnt.com/";
-
 // var webUrl = "http://192.168.0.198/";
+
 
 //网络请求方法
 function ajax(model) {
-
-	// Token.judgeGetSetting()
-
+	//获取token
 	var Token = wx.getStorageSync("Token");
+	// 开启loading
 	if (model.loading) {
 		wx.showLoading({
 			title: '加载中',
 			mask: true
 		})
 	}
+
 	wx.request({
 		url: webUrl + model.url,
 		data: model.param,
@@ -25,51 +25,76 @@ function ajax(model) {
 		},
 		method: model.method,
 		success: function (res) {
-			// console.log(res)
+			wx.hideLoading()
+			// 状态码报错
 			if (res.statusCode != 200) {
-				wx.hideLoading()
 				var title = res.statusCode.toString() 
-				wx.showToast({
-					title: title,
-					icon: 'none',
-					image: '/images/警告.svg',
-					duration: 2000
-				})
+				Util.showToast(title, 'err')
 				return;
 			}
-
+			
+			//token过期
 			if (res.data.code === 80000) {
-				wx.showToast({
-					title: res.data.msg,
-					icon: 'none',
-					duration: 2000
+				Util.showModal({
+					content: 'token已过期',
+					cancelText: '取消',
+					confirmText: '重新获取',
+					confirm () {
+						wx.navigateTo({
+							url: '/pages/login/index/index',
+						})
+					},
+					cancel () {
+
+					}		
 				})
 				return;
 			}
 
-			if (res.data.code != 200 && res.data.code != 0) {
-				wx.hideLoading()
-				wx.showToast({
-					title: res.data.msg,
-					icon: 'none',
-					duration: 2000
-				})
-			}else {
-				wx.hideLoading()
-				model.success(res.data)
-			}
+			wx.hideLoading()
+			model.success(res.data)
+			
 		},
 		fail: function (err) {
-			console.log(err)
-			wx.showToast({
-				title: JSON.stringify(err),
-				icon: 'none',
-				duration: 2000
-			})
+			wx.hideLoading()
+			let title = JSON.stringify(err)
+			Util.showToast(title, 'err')
 		}
 	})
 }
+
+// 文件上传
+function uploadFile(model) {
+	var Token = wx.getStorageSync("Token");
+	if (model.loading) {
+		wx.showLoading({
+			title: model.loading,
+			mask: true
+		})
+	}
+	wx.uploadFile({
+		header: {
+			"content-type": "application/x-www-form-urlencoded",
+			"token": Token
+		},
+		url: webUrl + model.url,
+		filePath: model.filePath,
+		name: 'file',
+		formData: model.param,
+		success(res) {
+			wx.hideLoading()
+			model.success(res.data)
+		},
+		fail: function (err) {
+			wx.hideLoading()
+			console.log(err)
+		}
+	})
+}
+	
+
 // 导出模块
 module.exports = {
-	ajax: ajax
+	ajax: ajax,
+	uploadFile: uploadFile
 }

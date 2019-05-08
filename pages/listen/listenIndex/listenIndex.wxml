@@ -44,6 +44,7 @@
 						<view wx:for="{{item}}" 
 							class="icons_item" 
 							wx:key="{{item.id}}"
+							data-title="{{item.scategory_name}}"
 							bindtap='handleOpenClassifyList'
 						>
 							<image src="{{item.scategory_headimg}}" class="slide-image"/>
@@ -58,29 +59,35 @@
 
 	<view class="section">
 		<view class="title">
-			<view class="new">最新</view>
-			<view class="play_count">播放量</view>
+			<view class="new" data-index="3" bindtap='handleToggleOrderType'>最新</view>
+			<view class="play_count" data-index="1" bindtap='handleToggleOrderType'>播放量</view>
 			<view bindtap='handleOpenFilter'>筛选</view>
 		</view>
 		<view class="main">
-			<view class="alone" wx:for="{{list}}" wx:key="{{item.id}}">
+			<view class="alone" 
+				wx:for="{{list}}" 
+				wx:key="{{item.id}}" 
+				data-index="{{item.id}}"
+				bindtap='handleOpenDetails'
+			>
 				<view class="left">
 					<image src="{{item.salbum_headimg}}"></image>
 				</view>
 				<view class="right">
-					<view class="title">{{item.salbum_name}}</view>
+					<view class="title overhide_two">{{item.salbum_name}}</view>
 					<view class="tool">
 						<image class="browse" src='../../../images/icon_browse.png'></image>
-						<view>3581</view>
+						<view>{{item.salbum_play}}</view>
 						<image class="collect" src='../../../images/icon_collect.png'></image>
-						<view>3.5万</view>
+						<view>{{item.salbum_like}}</view>
 					</view>
 				</view>
 			</view>	
 		</view>
 	</view>
 
-	<filter id="filter"/>
+	<!-- 筛选 -->
+	<filter id="filter" bind:myevent="getFilterInfo"/>
 
 		
 	

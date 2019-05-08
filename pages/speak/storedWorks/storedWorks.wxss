@@ -12,7 +12,7 @@ page{
     font-size: 28rpx;
     padding-top: 46rpx;
     padding-bottom: 32rpx;
-     border-bottom: 1rpx solid #D1D1D1;
+    border-bottom: 1rpx solid #D1D1D1;
     position: relative;
 }
 .clear_border{

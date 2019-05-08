@@ -32,9 +32,8 @@ Page({
 			sourceType: ['album', 'camera'],
 			success(res) {
 				const tempFilePaths = res.tempFilePaths;
-				// this.handleChoosImage(tempFilePaths);
 				_this.setData({
-					photo: tempFilePaths
+					photo: tempFilePaths.join()
 				})
 			}
 		})
@@ -100,6 +99,7 @@ Page({
 	//添加标签
 	handleCreateTabs () {
 		let tabs = this.data.tabs;
+	
 		if (this.data.tab == '') {
 			Utils.showToast('内容不能为空', 'err');
 			return;
@@ -112,10 +112,15 @@ Page({
 			Utils.showToast('最多可添加10个', 'err');
 			return;
 		}
-		tabs.push(this.data.tab);
+
+		let arr = [];
+		arr.push(this.data.tab)
+		tabs.push(arr)
 		this.setData({
 			tab: '',
 			tabs: tabs
+		}, () => {
+			console.log(this.data.tabs)
 		})
 		
 	},
@@ -145,22 +150,31 @@ Page({
 			Utils.showToast("标题格式错误", "err");
 			return;
 		}
-		Require.ajax({
-			//loading: "1",   //是否开启loading
+
+
+		Require.uploadFile({
+			loading: "正在上传",   //是否开启loading
 			url: 'api/Tellingstory/createUserAlbum',
-			method: 'POST',
+			filePath: this.data.photo,
+			name: 'file',
 			param: {
-				file: this.data.photo,
-				arrayStoryLabel: this.data.tabs,
+				arrayStoryLabel: JSON.stringify(this.data.tabs),
 				user_album_title: this.data.title,
 				user_album_authority: this.data.is == true ? 0 : 1,
 				user_album_describe: this.data.describe,
-				scategory_id: this.data.classify_selid
+				scategory_id: this.data.classify_selid	
 			},
-			success: function (res) {
-				console.log(res)
+			success(res) {
+				let ret = JSON.parse(res);
+				if (ret.code == 0) {
+					Utils.showToast('创建成功', 'success')
+				}else {
+					Utils.showToast('创建失败', 'err')
+				}
 			}
 		})
+
+		
 		
 	},
 	

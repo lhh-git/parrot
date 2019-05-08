@@ -6,7 +6,7 @@
 .search .search_words {
 	display: flex;
 	align-items: center;
-	width: 600rpx;
+	width: 630rpx;
 	height: 80rpx;
 	background: #F4F4F4;
 	border-radius: 40rpx;
@@ -23,7 +23,7 @@
 }
 
 
-/* 搜索记录与列表 */
+/* 搜索记录 */
 .section {
 	margin-top: 49rpx;
 }
@@ -60,4 +60,48 @@
 	color: #909090;
 	background: #F3F3F3;
 	border-radius: 10rpx;
+}
+
+
+/* 搜索列表 */
+.list_box {
+
+}
+.list_box .list_item {
+	display: flex;
+	margin: 0 30rpx 0 28rpx;
+	height: 127rpx;
+	border-bottom: 1rpx solid #E9E9E9;
+}
+.list_box .list_item .left {
+	margin: 20rpx 0 17rpx 29rpx;
+}
+.list_box .list_item .left image {
+	width: 93rpx;
+	height: 93rpx;
+	border-radius: 15rpx;
+}
+.list_box .list_item .center {
+	flex: 1;
+	margin-left: 14rpx;
+	font-size: 25rpx;
+}
+.list_box .list_item .center .user {
+	margin-top: 20rpx;
+	color: #4E4E4E;
+}
+.list_box .list_item .center .name {
+	margin-top: 35rpx;
+	color: #909090;
+}
+.list_box .list_item .right {
+	margin-top: 23rpx;
+	text-align: right;
+	width: 200rpx;
+	font-size: 23rpx;
+	color: #909090;
+}
+.list_box .list_item .right image {
+	width: 21rpx;
+	height: 19rpx;
 }

@@ -2,11 +2,7 @@ import Require from './require.js'
 
 function judgeGetSetting() {
 	console.log(1)
-	// wx.getSetting({
-	// 	success(res) {
-	// 		console.log(res.authSetting)
-	// 	}
-	// })
+
 }
 
 

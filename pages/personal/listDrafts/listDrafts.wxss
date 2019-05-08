@@ -1,0 +1,90 @@
+.list {
+	margin-top: 20rpx;
+}
+.item {
+	overflow: hidden;
+	display: flex;
+	margin: 0 33rpx 0 37rpx;
+	height: 160rpx;
+}
+.wrapper {
+	display: flex;
+	margin-top: 47rpx;
+	width: 100%;
+	border-bottom: 1rpx solid #D1D1D1;
+
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+    -webkit-transform: translateX(366rpx);
+    transform: translateX(366rpx);
+    margin-left: -366rpx;	
+}
+.wrapper:last-child {
+	border-bottom: none;
+}
+.wrapper .photo {
+	margin-left: 28rpx;
+	width: 64rpx;
+	height: 64rpx;
+}
+.wrapper .content {
+	margin-left: 41rpx;
+}
+.wrapper .content .title {
+	font-size: 30rpx;
+	color: #4E4E4E;
+}
+.wrapper .content .tool {
+	display: flex;
+	align-items: center;
+	margin-top: 13rpx;
+	height: 25rpx;
+	font-size: 25rpx;
+	color: #C9C9C9;
+}
+.wrapper .content .tool .browse {
+	margin-right:16rpx;
+	width:18rpx;
+	height:19rpx;
+}
+.wrapper .content .tool .collect {
+	margin-left:58rpx;
+	margin-right:12rpx;
+	width:21rpx;
+	height:19rpx;
+}
+
+.formId {
+	display: inline-block;
+	line-height: 160rpx;
+	text-align: center;
+	width: 122rpx;
+	height: 160rpx;
+	font-size: 30rpx;
+	color: white;
+}
+.formId:nth-child(1) {
+	background: #f27154;
+}
+.formId:nth-child(2) {
+	background: #f9c746;
+}
+.formId:nth-child(3) {
+	background: #73b76e;
+}
+
+
+
+/* 左滑删除 */
+.form_box {
+	display: inline-block;
+	-webkit-transform: translateX(366rpx);
+    transform: translateX(366rpx);
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.touch-move-active .wrapper, .touch-move-active .form_box {
+    -webkit-transform: translateX(0) !important;
+    transform: translateX(0) !important;
+}

@@ -1,28 +1,104 @@
 <view class="contain">
-    <view class='album_main'>
-		<view class="album">
-			<image src='../../../images/list_album_photo.png'></image>
-			<view>草稿箱</view>
-			<view>作品数:5个</view>
-			<view>私密</view>
+	<view class="head">
+		<view class="bg">
+			<image src="../../../images/details_album_bg.png"></image>
 		</view>
-		<view class="album">
-			<navigator url="/pages/personal/detailsAlbum/detailsAlbum">
-				<image src='../../../images/list_album_photo.png'></image>
-				<view>默认专辑</view>
-				<view>作品数:5个</view>
-				<view>公开</view>
-			</navigator>
+		<view class="user_info">
+			<image class="photo" src="../../../images/my_photo.png"></image>
+			<view class="name">亢奋的蜗牛</view>
+			<view class="count">订阅人数0人</view>
 		</view>
-		
-		
+	</view>
 
-
-		<view class="album">
-			<navigator url="/pages/personal/createAlbum/createAlbum">
-				<image src='../../../images/list_ablum_create.png'></image>
-				<view>创建新专辑</view>
-			</navigator>
+	<view class="section">
+		<view class="menu">
+			<view wx:for="{{menu}}"
+				wx:key="{{index}}" 
+				class="{{menu_id == index ? 'item active' : 'item'}}"
+				data-index="{{index}}"
+				bindtap='handleToggleMenu'
+			>
+				<view class="icon" wx:if="{{menu_id == index}}"></view>
+				{{item}}
+			</view>
 		</view>
-    </view>
+
+		<!-- 简介 -->
+		<view class="synopsis" wx:if="{{menu_id == 0}}">
+			<textarea class="words" 
+				placeholder='写下你创作时的心得与感受,可吸引更多听众'
+				bindinput='handleTextarea'
+			>
+			</textarea>
+			<view class="tabs">
+				<view class="title">
+					标签
+					<input bindinput='handleTabInput' placeholder="填写标签可增加曝光量" value="{{tab_input}}"></input>
+					<form bindsubmit="formSubmit" report-submit='true' >
+						<button class="formId" form-type="submit" bindtap='handleAddTabs'>添加标签</button>
+					</form >
+
+				</view>
+				<view class="list"> 
+					<view class="item" wx:for="{{tabs}}" wx:key="{{index}}">
+						{{item}}
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<!-- ta的声音 -->
+		<view class="list_wrapper" wx:if="{{menu_id == 1}}">
+			<navigator url="/pages/personal/listDrafts/listDrafts">
+				<view class="item">
+					<image class="photo" src='../../../images/list_ablum_drafts.png'></image>
+					<view class="main">
+						<view class="title">
+							草稿箱
+							<view class="count">（6）</view>
+						</view>
+					</view>
+					<view class="time">私密</view>
+				</view>
+			</navigator>
+			
+			<view class="item {{item.isTouchMove ? 'touch-move-active' : ''}}" 
+				wx:for="{{items}}" 
+				wx:key="{{index}}"
+				data-index="{{index}}" 
+				bindtouchstart="touchstart" 
+				bindtouchmove="touchmove" 
+			>
+				<view class="wrapper">
+					<image class="photo" src='../../../images/list_ablum_create.png'></image>
+					<view class="main">
+						<view class="title">
+							勇敢传说勇敢传说
+							<view class="count">（6）</view>
+						</view>
+						<view class="status">已完结</view>
+						<view class="tool">
+							<image class="browse" src='../../../images/icon_browse.png'></image>
+							<view>3581</view>
+							<image class="collect" src='../../../images/icon_collect.png'></image>
+							<view>3.5万</view>
+						</view>
+					</view>
+					<view class="time">公开</view>
+				</view>
+				<view class="del" catchtap="del" data-index="{{index}}">删除</view>
+			</view>
+
+			<navigator url='/pages/personal/createAlbum/createAlbum'>
+				<view class="item created">
+					<image class="photo" src='../../../images/list_ablum_create.png'></image>
+					<view class="main">创建新专辑</view>
+				</view>
+			</navigator>
+			
+		</view>
+	</view>
+
+	<!-- 底部导航 -->
+	<footer id="footer" footerIndex="2"></footer>
 </view>

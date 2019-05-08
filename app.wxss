@@ -1,5 +1,6 @@
 view {
 	line-height:1;
+	word-break: break-all;
 }
 image {
 	vertical-align: middle;
@@ -21,4 +22,16 @@ button::after {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+}
+
+
+/* 两行溢出裁切 */
+.overhide_two {
+	display: -webkit-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+	white-space: normal;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
 }

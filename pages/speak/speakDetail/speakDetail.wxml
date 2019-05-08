@@ -4,22 +4,21 @@
     <view class="detail_top">
         <image src='../../../images/spkD_bg.jpg'></image>
         <view class='detail_story'>
-            <view class='detail_story_name'>《海的女儿》</view>
-            <view class='detail_story_from'>安徒生<view class="span">365字</view ></view>
-				<form bindsubmit = "formSubmit"  report - submit='true' >
+            <view class='detail_story_name'>{{'《' + story.telling_story_name + '》'}}</view>
+            <view class='detail_story_from'>{{story.telling_story_author}}
+			<view class="span">{{story.telling_story_content.length}}字</view ></view>
+				<form bindsubmit="formSubmit"  report-submit='true' >
 					<button form-type="submit" bindtap='handleOpenRecord'></button>
 					<image src='../../../images/spkD_read.png'></image>
 				</form >
             	
 
-            <view class="detail_story_info">       在海的远处，水是那么蓝，像最美丽的矢车菊花瓣，同时又是那么清，像最明亮的玻璃。然而它是很深很深，深得任何锚链都达不到底。要想从海底一直达到水面，必须有许多许多教堂尖塔一个接着一个地联起来才成。海底的人就住在这下面。
-       不过人们千万不要以为那儿只是一片铺满了白砂的海底。
-            </view>
+            <view class="detail_story_info">{{story.telling_story_content}}</view>
             <!-- 上半部分 底部遮罩 -->
             <view class="detail_story_mark"></view>
         </view>
     </view>
-    <!-- 下半部分 排名 -->
+    <!-- 下半部分 前三 -->
     <view class="detail_bottom">
 		<view class="sort_banner">
 			<image src="../../../images/spkD_good.png"></image>
@@ -27,68 +26,48 @@
 		</view>
 		<view class="sort_list">
 			<view class="sort_alone sort_alone_2">
-				<image src="../../../images/list_album_photo.png" class="photo"></image>
+				<image src="{{three[1].User.avatarUrl}}" class="photo"></image>
 				<image src="../../../images/spkD_second.png" class="sort_photo"></image>
-				<view class="title">未知作者</view>
+				<view class="title">{{three[1].User.nickName}}</view>
 			</view>
 			<view class="sort_alone">
-				<image src="../../../images/list_album_photo.png" class="photo"></image>
+				<image src="{{three[0].User.avatarUrl}}" class="photo"></image>
 				<image src="../../../images/spkD_first.png" class="sort_photo"></image>
-				<view class="title">易烊千玺</view>
+				<view class="title">{{three[0].User.nickName}}</view>
 			</view>
 			<view class="sort_alone sort_alone_2">
-				<image src="../../../images/list_album_photo.png" class="photo"></image>
+				<image src="{{three[2].User.avatarUrl}}" class="photo"></image>
 				<image src="../../../images/spkD_three.png" class="sort_photo"></image>
-				<view class="title">黑猫</view>
+				<view class="title">{{three[2].User.nickName}}</view>
 			</view>
 		</view>
     </view>
+
     <!-- 列表 -->
     <view class='list'>
-        <view class='bottom_list'>
+        <view class='bottom_list'
+			wx:for="{{excellent}}"
+			wx:key="{{item.id}}"
+		>
             <view class='bottom_list_photo'>
-                <image src='../../../images/spkD_bg.jpg'></image>
-                <view class="icon">4</view>
+                <image src='{{item.User.avatarUrl}}'></image>
+                <view class="icon_sel">{{index+4+10}}</view>
             </view>
             <view class='bottom_list_msg'>
                 <view>
-                    未知作者
+                    {{item.User.nickName}}
                     <view class="icon">|</view>
-                    <view class='opus'>《踩面包的姑娘》</view>
+                    <view class='opus'>{{'《' + item.TellingStory.telling_story_name + '》'}}</view>
                     <view class="list_msg_border">
                         <view class='list_msg_bottom'>
                             <image class='like' src='../../../images/spkD_like.png'></image>
-                            <view class='money'>9.5万</view>
+                            <view class='money'>{{item.userAlbumLikeCount}}</view>
                         </view>
                         <view class='list_msg_bottom ml'>
                             <image class='like' src='../../../images/spkD_ear.png'></image>
-                            <view class='money'>5067</view>
+                            <view class='money'>{{item.user_story_play}}</view>
                         </view>
-                        <view class="list_msg_time">2018-09-13 18:35</view>
-                    </view>
-                </view>
-            </view>
-            <view class='bottom_list'>
-                <view class='bottom_list_photo'>
-                    <image src='../../../images/spkD_bg.jpg'></image>
-                    <view class="icon_sel">42</view>
-                </view>
-                <view class='bottom_list_msg'>
-                    <view>
-                        未知作者
-                        <view class="icon">|</view>
-                        <view class='opus'>《踩面包的姑娘》</view>
-                        <view class="list_msg_border">
-                            <view class='list_msg_bottom'>
-                                <image class='like' src='../../../images/spkD_like.png'></image>
-                                <view class='money'>9.5万</view>
-                            </view>
-                            <view class='list_msg_bottom ml'>
-                                <image class='like' src='../../../images/spkD_ear.png'></image>
-                                <view class='money'>5067</view>
-                            </view>
-                            <view class="list_msg_time">2018-09-13 18:35</view>
-                        </view>
+                        <view class="list_msg_time">{{item.user_story_addtime}}</view>
                     </view>
                 </view>
             </view>

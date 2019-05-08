@@ -4,8 +4,59 @@
 	<view class="modals-cancel" bindtap="hideModal"></view>
 	<!-- 内容 -->
 	<view class="bottom-dialog-body bottom-pos" animation="{{animationData}}">
-		<view class="upload">
+		<view class="filter">
+			<view class="wrapper">
+				<view class="common age">
+					<view class="title">选择年龄</view>
+					<view class="list">
+						<view wx:for="{{age}}" 
+							wx:key="{{item.is_age}}" 
+							class="{{age_id == index ? 'active' : ''}}"
+							data-index="{{index}}"
+							bindtap='handleToggleAge'
+						>
+							{{item.name}}
+						</view>
+					</view>
+				</view>
+
+				<view class="common sex">
+					<view class="title">选择性别</view>
+					<view class="list">
+						<view wx:for="{{sex}}" 
+							wx:key="{{item.is_sex}}" 
+							class="{{sex_id == index ? 'active' : ''}}
+							data-index="{{index}}"
+							bindtap='handleToggleSex' 
+						>
+							{{item.name}}
+						</view>
+					</view>
+				</view>
+
+				<view class="common classify">
+					<view class="title">故事分类</view>
+					<view class="list">
+						<view wx:for="{{classify}}" 
+							wx:key="{{item.id}}"
+							class="{{classify_id == index ? 'active' : ''}}"
+							data-index="{{index}}"
+							bindtap='handleToggleClassify' 
+						>
+							{{item.scategory_name}}
+						</view>
+					</view>
+				</view>
+
 			
+				
+
+			</view>
+
+			<form class="formId" bindsubmi="formSubmit"  report-submit='true' >
+				<button form-type="submit" bindtap='handleReset'>重置</button>
+				<button form-type="submit" bindtap='handleConfirm'>确定</button>
+			</form >
 		</view>
 	</view>
 

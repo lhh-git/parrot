@@ -1,6 +1,6 @@
 <view class="contain">
 	<view class="search">
-		<view class="content">
+		<view class="content" bindtap='hanldOpenSearch'>
 			<image class="icon" src='../../../images/icon_search.png'></image>
 			<view class="words">请输入关键字搜索</view>
 		</view>
@@ -52,63 +52,32 @@
 	</view>
 
 
+	<!-- 列表 -->
 	<view class="section">
 		<view class="title">
 			<view class="new">最新</view>
 			<view class="play_count">播放量</view>
 		</view>
 		<view class="main">
-			<view class="alone">
+			<view class="alone" wx:for="{{list}}" wx:key="{{item.id}}">
 				<view class="left">
-					<view class="title">萨穆尔的熊</view>
-					<view class="words">萨穆尔的熊—雾沙森林的新生命雾沙森林 的新生命</view>
+					<view class="title">{{item.telling_story_name}}</view>
+					<view class="words overhide_two">{{item.telling_story_content}}</view>
 					<view class="tool">
 						<image class="browse" src='../../../images/icon_browse.png'></image>
-						<view>3581</view>
+						<view>{{item.telliing_story_play}}</view>
 						<image class="collect" src='../../../images/icon_collect.png'></image>
-						<view>3.5万</view>
+						<view>{{item.telliing_story_like}}</view>
 					</view>
 				</view>
 				<view class="right">
 					<form bindsubmit="formSubmit"  report-submit='true'>
-						<button form-type="submit" bindtap='openSpeakDetail'>阅读</button>
+						<button form-type="submit" data-id="{{item.id}}" bindtap='openSpeakDetail'>阅读</button>
 					</form >
 				</view>
 			</view>	
-			<view class="alone">
-				<view class="left">
-					<view class="title">萨穆尔的熊</view>
-					<view class="words">萨穆尔的熊—雾沙森林的新生命雾沙森林 的新生命</view>
-					<view class="tool">
-						<image class="browse" src='../../../images/icon_browse.png'></image>
-						<view>3581</view>
-						<image class="collect" src='../../../images/icon_collect.png'></image>
-						<view>3.5万</view>
-					</view>
-				</view>
-				<view class="right">
-					<form bindsubmit="formSubmit"  report-submit='true'>
-						<button form-type="submit" bindtap='openSpeakDetail'>阅读</button>
-					</form >
-				</view>
-			</view>	
-			<view class="alone">
-				<view class="left">
-					<view class="title">萨穆尔的熊</view>
-					<view class="words">萨穆尔的熊—雾沙森林的新生命雾沙森林 的新生命</view>
-					<view class="tool">
-						<image class="browse" src='../../../images/icon_browse.png'></image>
-						<view>3581</view>
-						<image class="collect" src='../../../images/icon_collect.png'></image>
-						<view>3.5万</view>
-					</view>
-				</view>
-				<view class="right">
-					<form bindsubmit="formSubmit"  report-submit='true'>
-						<button form-type="submit" bindtap='openSpeakDetail'>阅读</button>
-					</form >
-				</view>
-			</view>	
+				
+				
 		</view>
 	</view>
 

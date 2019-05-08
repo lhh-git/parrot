@@ -37,24 +37,92 @@
 
 
 
-/* 保存 */
-.upload {
-	width: 625rpx;
-	margin: 74rpx auto;
+/* 筛选*/
+.filter {
+	display: flex;
+	flex-direction: column;
+	width: 648rpx;
+	height: 100%;
 }
-.upload view {
-	height: 90rpx;
-	text-align: center;
-	line-height: 90rpx;
-	font-size: 35rpx;
-	color: #fff;
-	letter-spacing: 8rpx;
-	background: #f86442;
-	border-radius: 90rpx;
+.filter .wrapper {
+	flex: 1;
+	overflow-y: auto;
+	margin-left: 31rpx;
+	margin-right: 30rpx;
+	padding-bottom: 30rpx;
+}
+.filter .wrapper .common {
 	
 }
-.upload view:nth-child(2) {
-	margin-top: 30rpx;
+.filter .wrapper .common .title {
+	font-size: 33rpx;
+	color: #4E4E4E;
+	font-weight: bold;
 }
+.filter .wrapper .common .list {
+	display: flex;
+	flex-wrap: wrap;
+}
+.filter .wrapper .common .list view {
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 35rpx !important;
+	width: 175rpx;
+	height: 62rpx;
+	font-size: 28rpx;
+	color: #4E4E4E;
+	border-radius: 30px;
+	background: #F6F6F6;
+}
+.filter .wrapper .common .list view:nth-child(3n-1) {
+	margin: 0 30rpx;
+}
+
+.filter .wrapper .age {
+	margin-top: 60rpx;
+}
+.filter .wrapper .sex {
+	margin-top: 86rpx;
+}
+.filter .wrapper .sex .list {
+	justify-content: space-between;
+}
+.filter .wrapper .sex .list view {
+	width: 259rpx;
+	height: 62rpx;
+}
+.filter .wrapper .classify {
+	margin-top: 86rpx;
+}
+
+/* 选中 */
+.filter .wrapper .common .list view.active {
+	color: #F86442;
+	background: #fff;
+	border: 2rpx solid #F86442;
+}
+
+
+
+
+
+/* button按钮 */
+.filter .formId {
+	width: 100%;
+	height: 90rpx;
+	background: #ffffff;
+}
+.filter .formId button {
+	display: inline-block;
+	width: 50%;
+	height: 100%;
+}
+.filter .formId button:nth-child(2) {
+	background: #f86442;
+	color: #fff;
+}
+
 
  

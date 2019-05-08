@@ -5,15 +5,6 @@ import Require from '../../../utils/require.js'
 
 Page({
 	data: {
-		menu: ["简介", "我的专辑"],
-		menu_id: 1,
-		describe: '',		//简介
-		tab_input: '',		//标签input
-		tab: '',			//标签
-		tabs: [],			//标签集合
-
-
-
 		//侧滑删除
 		items: [],
 		startX: 0, //开始坐标
@@ -33,39 +24,11 @@ Page({
 		});
 	},
 	//收集formId
-	formSubmit (e) {
+	formSubmit(e) {
 		Utils.getFormId(e); //获取formId	
 	},
-	//菜单切换
-	handleToggleMenu (e) {
-		const index = e.currentTarget.dataset.index;
-		this.setData({
-			menu_id: index
-		})
-	},
-	//简介
-	handleTextarea (e) {
-		this.setData({
-			describe: e.detail.value
-		})
-	},
-	//监听标签input输入
-	handleTabInput (e) {
-		let val = e.detail.value;
-		this.setData({
-			tab_input: val
-		})
-	},
-	//添加标签
-	handleAddTabs () {
-		let val = this.data.tab_input;
-		let tabs = this.data.tabs;
-		tabs.push(val);
-		this.setData({
-			tabs: tabs,
-			tab_input: ''
-		})
-	},
+
+	
 
 
 

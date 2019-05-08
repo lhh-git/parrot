@@ -13,7 +13,7 @@ Page({
 		interval: 5000,
 		duration: 1000,
 		list: [],  			//列表
-		order_type: 1,       //	1：倒序 2：正序
+		order_type: 1,       //	1：播放量高到低 2：播放量低到高 3：时间正序 4：时间倒序
 	},
 	onLoad () {
 		this.getListenBanner()	//获取轮播图
@@ -37,21 +37,8 @@ Page({
 			url: '/pages/common/search/search',
 		})
 	},
-	//跳转到专辑列表页
-	handleOpenCollectMoney (e) {
-		console.log(e.target.dataset.title)
-		wx.navigateTo({
-			url: '/pages/listen/collectMoney/collectMoney',
-		})
-	},
-	// 跳转到分类列表页
-	handleOpenClassifyList () {
-		wx.navigateTo({
-			url: '/pages/listen/classifyList/classifyList',
-		})
-	},
 	//获取轮播图
-	getListenBanner () {
+	getListenBanner() {
 		let _this = this;
 		Require.ajax({
 			//loading: "1",   //是否开启loading
@@ -65,8 +52,15 @@ Page({
 			}
 		})
 	},
+	//人气榜  精品榜  新品榜
+	handleOpenCollectMoney(e) {
+		let title = e.target.dataset.title;
+		wx.navigateTo({
+			url: '/pages/listen/collectMoney/collectMoney?title=' + title + '&footerIndex=' + 0,
+		})
+	},
 	//获取分类
-	getListenScategory () {
+	getListenScategory() {
 		let _this = this;
 		Require.ajax({
 			//loading: "1",   //是否开启loading
@@ -89,16 +83,24 @@ Page({
 			}
 		})
 	},
-	//弹出筛选
-	handleOpenFilter () {
-		this.filter.showModal();
+	// 跳转到分类列表页
+	handleOpenClassifyList(e) {
+		let title = e.currentTarget.dataset.title;
+		wx.navigateTo({
+			url: '/pages/listen/classifyList/classifyList?footerIndex=' + 0 + '&title=' + title,
+		})
 	},
+	
+	
+	
+	
+	
 	//获取列表数据
 	getListInfo () {
 		const _this = this;
 		Require.ajax({
-			//loading: "1",   //是否开启loading
-			url: "api/Salbum/listenIDSort",
+			loading: "1",   //是否开启loading
+			url: "api/Salbum/listenPageStory",
 			method: 'POST',
 			param: {
 				order_type: this.data.order_type
@@ -110,6 +112,34 @@ Page({
 				})
 			}
 		})
+	},
+	//切换最新播放量
+	handleToggleOrderType (e) {
+		let type = this.data.order_type;
+		let index = e.currentTarget.dataset.index;
+		switch (index) {
+			case '1': this.setData({ order_type: type == 1 ? 2 : 1});break;
+			case '1': this.setData({ order_type: type == 2 ? 1 : 1 }); break;
+			case '3': this.setData({ order_type: type == 3 ? 4 : 3 }); break;
+			case '3': this.setData({ order_type: type == 4 ? 3 : 3 }); break;
+		}
+		this.getListInfo()	  //获取列表数据
+	},
+	//跳转到播放页
+	handleOpenDetails (e) {
+		let index = e.currentTarget.dataset.index;
+		wx.navigateTo({
+			url: '/pages/listen/details/details?id=' + index + '&footerIndex=' + '0'
+		})
+	},
+
+	//弹出筛选
+	handleOpenFilter() {
+		this.filter.showModal();
+	},
+	//接收筛选信息
+	getFilterInfo (e) {
+		console.log(e.detail)
 	}
 	
 	

@@ -1,4 +1,7 @@
 <view class="contain">
+	<form bindsubmit="formSubmit"  report-submit='true' >
+		<button class="formId" form-type="submit">点此邀请赚奖金</button>
+	</form >
 	<view class="section">
 		<view>
 			<view class="title">今天</view>

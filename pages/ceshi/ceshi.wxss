@@ -1,48 +1,48 @@
-/* 向左滑动实现删除操作 */
-view{
-    box-sizing: border-box;
+page {
+    background-color: white;
 }
-.item-box{
-    width: 700rpx;
-    margin: 0 auto;
-    padding:40rpx 0;
+
+.container {
+    min-height: 100%;
+    padding: 20rpx 0rpx;
 }
-.items{
+
+.touch-item {
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
     width: 100%;
-}
-.item{
-    position: relative;
-    border-top: 2rpx solid #eee;
-    height: 120rpx;
-    line-height: 120rpx;
     overflow: hidden;
 }
-.item:last-child{
-    border-bottom: 2rpx solid #eee;
-}
-.inner{
-    position: absolute;
-    top:0;
-}
-.inner.txt{
+
+.content {
     width: 100%;
-    z-index: 5;
-    padding: 0 10rpx;
-    transition: left 0.2s ease-in-out;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    padding: 10px;
+    line-height: 22px;
+    margin-right: 0;
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+    -webkit-transform: translateX(90px);
+    transform: translateX(90px);
+    margin-left: -90px;
 }
-.inner.del{
-    width: 180rpx;
-    text-align: center;
-    z-index: 4;
-    right: 0;
-    color: #fff
+
+.del {
+    background-color: orangered;
+    width: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    -webkit-transform: translateX(90px);
+    transform: translateX(90px);
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
 }
-.item-icon{
-    width: 64rpx;
-    height: 120rpx;
-    vertical-align: middle;
-    margin-right: 16rpx
+
+.touch-move-active .content, .touch-move-active .del {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
 }

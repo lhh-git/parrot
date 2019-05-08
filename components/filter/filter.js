@@ -16,11 +16,17 @@ Component({
 	data: {
 		hideModal: true, //模态框的状态  true-隐藏  false-显示
 		animationData: {},//
+		age: [],		//年龄
+		age_id: 0,
+		sex: [],		//性别
+		sex_id: 0,
+		classify: [],	//分类
+		classify_id: 0,
 
 	},
 	lifetimes: {
 		attached() {	// 在组件实例进入页面节点树时执行
-
+			this.handleGetFilterInfo()   
 		},
 	},
 	methods: {
@@ -57,31 +63,82 @@ Component({
 		},
 		//动画集
 		fadeIn: function () {
-			this.animation.translateX(56).step()
+			this.animation.translateX(62).step()
 			this.setData({
 				animationData: this.animation.export()//动画实例的export方法导出动画数据传递给组件的animation属性
 			})
 		},
 		fadeDown: function () {
-			this.animation.translateX(352).step()
+			this.animation.translateX(700).step()
 			this.setData({
 				animationData: this.animation.export(),
 			})
 		},
 
 
-		//存草稿
-		handleKeepDraft() {
-			this.hideModal()
-			console.log('存草稿')
 
+		//获取fromId
+		formSubmit (e) {
+			Utils.getFormId(e);
 		},
-		//上传作品
-		handleOpenStoredWorks() {
-			wx.navigateTo({
-				url: '/pages/speak/storedWorks/storedWorks',
+		// 获取数据
+		handleGetFilterInfo () {
+			let _this = this;
+			Require.ajax({
+				//loading: "1",   //是否开启loading
+				url: "api/Listenstory/getShowPageSearch",
+				method: 'GET',
+				param: {},
+				success(res) {
+					console.log(res)
+					_this.setData({
+						age: res.data.salbum_age,
+						sex: res.data.salbum_sex,
+						classify: res.data.salbum_category
+					})
+				}
 			})
-		}
+		},
+		// 切换年龄
+		handleToggleAge (e) {
+			let index = e.currentTarget.dataset.index;
+			this.setData({
+				age_id: index
+			})
+		},
+		// 切换性别
+		handleToggleSex (e) {
+			let index = e.currentTarget.dataset.index;
+			this.setData({
+				sex_id: index
+			})
+		},
+		// 切换分类
+		handleToggleClassify (e) {
+			let index = e.currentTarget.dataset.index;
+			this.setData({
+				classify_id: index
+			})
+		},
+		//重置
+		handleReset () {
+			this.setData({
+				age_id: 0,
+				sex_id: 0,
+				classify_id: 0
+			})
+		},
+		//
+		//确定   给父组件传值
+		handleConfirm() {
+			this.hideModal()
+			this.triggerEvent('myevent', { 
+				age_id: this.data.age_id,
+				sex_id: this.data.sex_id,
+				classify_id: this.data.classify_id
+			});
+		},
+
 
 
 	}

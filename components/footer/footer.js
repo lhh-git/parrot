@@ -1,7 +1,10 @@
 Component({
-
+	properties: {
+		footerIndex: {
+			type: [Number, String]
+		},
+	},
     data: {
-        footerIndex: 0,
         list: [{
             id: '1',
 			icon: '../../images/icon_listen.png',

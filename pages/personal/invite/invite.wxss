@@ -2,6 +2,13 @@ page {
 	background: #F3F3F3;
 }
 
+.formId {
+	margin: 43rpx 59rpx 30rpx 63rpx;
+	height: 80rpx;
+	color: white;
+	background: #4dbd44;
+	border-radius: 15rpx;
+}
 .section {
 
 	

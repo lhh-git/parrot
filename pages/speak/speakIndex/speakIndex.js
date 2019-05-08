@@ -11,16 +11,26 @@ Page({
 		autoplay: true,
 		circular: true,
 		interval: 5000,
-		duration: 1000
+		duration: 1000,
+		list: [],			//列表页
+		order_type: 1,		//1：播放量高 2：播放量低 3：时间正序 4：时间倒序
 	},
 	onLoad() {
 		this.getTellingBanner()	//获取轮播图
 		this.getTellingScategory()	//获取分类
+		this.handleGetListInfo()	//获取列表数据
 	},
 	//获取fromId
 	formSubmit(e) {
 		Utils.getFormId(e);
 	},
+	//搜索
+	hanldOpenSearch () {
+		wx.navigateTo({
+			url: '/pages/common/search/search',
+		})
+	},
+	//人气榜  精品榜  新品榜
 	handleOpenCollectMoney() {
 		wx.navigateTo({
 			url: '/pages/speak/collectMoney/collectMoney',
@@ -54,7 +64,6 @@ Page({
 				const pages = [];
 				icons.forEach((value, index) => {
 					const page = Math.floor(index / 6)
-					console.log(page)
 					if (!pages[page]) {
 						pages[page] = []
 					}
@@ -66,10 +75,29 @@ Page({
 			}
 		})
 	},
+	// 列表数据
+	handleGetListInfo () {
+		let _this = this;
+		Require.ajax({
+			//loading: "1",   //是否开启loading
+			url: "api/Tellingstory/tellingPageStory",
+			method: 'POST',
+			param: {
+				order_type: 1
+			},
+			success(res) {
+				console.log(res.data)
+				_this.setData({
+					list: res.data
+				})
+			}
+		})
+	},
 	//阅读
-	openSpeakDetail () {
+	openSpeakDetail (e) {
+		let id = e.currentTarget.dataset.id;
 		wx.navigateTo({
-			url: '/pages/speak/speakDetail/speakDetail',
+			url: '/pages/speak/speakDetail/speakDetail?id=' + id,
 		})
 	}
 

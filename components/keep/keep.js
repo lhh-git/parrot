@@ -7,12 +7,17 @@ const recorderManager = wx.getRecorderManager()
 const myaudio = wx.createInnerAudioContext()
 
 Component({
-	// properties: {
-	// 	list: {               // 属性名
-	// 		type: Object,     // 类型（必填），目前接受的类型包括：String, Number, Boolean, Object, Array, null（表示任意类型）
-	// 		value: ''         // 属性初始值（可选），如果未指定则会根据类型选择一个
-	// 	}
-	// },
+	properties: {
+		storyId: {
+			type: [Number, String]
+		},
+		dbId: {
+			type: [Number, String]
+		},
+		url: {
+			type: String
+		}
+	},
 	data: {
 		hideModal: true, //模态框的状态  true-隐藏  false-显示
 		animationData: {},//
@@ -73,14 +78,35 @@ Component({
 		//存草稿
 		handleKeepDraft() {
 			this.hideModal()
-			console.log('存草稿')
+			this.handleSaveDrafts()		//存草稿
+		},
+		handleSaveDrafts () {
+			let _this = this;
+			Require.uploadFile({
+				loading: '正在上传',
+				url: "api/Tellingstory/saveDrafts", 
+				filePath: this.data.url,
+				name: 'file',
+				param: {
+					telling_story_id: this.data.storyId,
+					bgm_id: this.data.dbId
+				},
+				success(res) {
+					Utils.showToast('上传成功', 'success')
+				}
+			})
 
+			
+		
 		},
 		//上传作品
 		handleOpenStoredWorks() {
-			wx.navigateTo({
-				url: '/pages/speak/storedWorks/storedWorks',
-			})
+			// wx.navigateTo({
+			// 	url: '/pages/speak/storedWorks/storedWorks?storyId=' + this.data.storyId 
+			// 		+ '&dbId=' + this.data.dbId
+			// 		+ '&url=' + this.data.url
+			// })
+			console.log(this.data.storyId, this.data.dbId, this.data.url)
 		}
 		
 		

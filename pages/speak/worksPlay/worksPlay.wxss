@@ -40,23 +40,32 @@
 	margin-left: 6rpx;
 	color: #AEAEAE;
 }
+.section .content .button {
+	display: flex;
+	justify-content: space-between;
+	margin: 41rpx 89rpx 0 86rpx;
+}
+.section .content .button image {
+	width: 228rpx;
+	height: 90rpx;
+}
 .section .content .words {
-	margin: 40rpx 34rpx 33rpx 28rpx;
-	line-height: 75rpx;
-	font-size: 45rpx;
-	color: #989898;
+	margin: 38rpx 34rpx 33rpx 28rpx;
+	line-height: 55rpx;
+	font-size: 35rpx;
+	color: #4E4E4E;
 	text-indent: 2em;
 }
 
 
 
+/* 播放 */
 .command {
-	height: 416rpx;
-	/* background: red; */
+	height: 221rpx;
 }
 .command .progress {
 	position: relative;
-	margin: 60rpx 50rpx 0;
+	margin: 58rpx 50rpx 0;
 	height: 2rpx;
 	background: #989898;
 }
@@ -80,11 +89,11 @@
 
 .command .play {
 	float: left;
-	margin: 46rpx 0 0 46rpx;
+	margin: 36rpx 0 0 46rpx;
 }
 .command .play image{
-	width: 40rpx;
-	height: 40rpx;
+	width: 61rpx;
+	height: 61rpx;
 }
 
 .command .time {
@@ -101,11 +110,4 @@
 	border-radius: 21rpx;
 }
 
-.command .tool {
-	margin-top: 147rpx;
-	text-align: center;
-}
-.command .tool image {
-	width: 652rpx;
-	height: 90rpx;
-}
+
