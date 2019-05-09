@@ -86,7 +86,7 @@
 	height: 60rpx;
 }
 .header .subscribe>.main {
-	margin-left: 13rpx;
+	padding-left: 13rpx;
 }
 .header .subscribe>.main>view:nth-child(1) {
 	font-size: 25rpx;

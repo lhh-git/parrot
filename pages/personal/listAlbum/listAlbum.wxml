@@ -47,7 +47,7 @@
 			</view>
 		</view>
 
-		<!-- ta的声音 -->
+		<!-- 我的专辑 -->
 		<view class="list_wrapper" wx:if="{{menu_id == 1}}">
 			<navigator url="/pages/personal/listDrafts/listDrafts">
 				<view class="item">
@@ -68,6 +68,7 @@
 				data-index="{{index}}" 
 				bindtouchstart="touchstart" 
 				bindtouchmove="touchmove" 
+				bindtap='handleOpenListStory'
 			>
 				<view class="wrapper">
 					<image class="photo" src='../../../images/list_ablum_create.png'></image>

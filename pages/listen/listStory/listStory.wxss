@@ -1,0 +1,67 @@
+.list {
+	margin-top: 20rpx;
+}
+.item {
+	overflow: hidden;
+	display: flex;
+	margin: 0 33rpx 0 37rpx;
+	height: 160rpx;
+	border-bottom: 1rpx solid #D1D1D1;
+}
+.item:last-child {
+	border-bottom: none;
+}
+.wrapper {
+	display: flex;
+	margin-top: 47rpx;
+	width: 100%;
+	
+}
+.wrapper .photo {
+	margin-left: 28rpx;
+	width: 64rpx;
+	height: 64rpx;
+}
+.wrapper .content {
+	flex: 1;
+	margin-left: 41rpx;
+}
+.wrapper .content .title {
+	font-size: 30rpx;
+	color: #4E4E4E;
+}
+.wrapper .content .tool {
+	display: flex;
+	align-items: center;
+	margin-top: 13rpx;
+	height: 25rpx;
+	font-size: 25rpx;
+	color: #C9C9C9;
+}
+.wrapper .content .tool .browse {
+	margin-right:16rpx;
+	width:18rpx;
+	height:19rpx;
+}
+.wrapper .content .tool .collect {
+	margin-left:58rpx;
+	margin-right:12rpx;
+	width:21rpx;
+	height:19rpx;
+}
+
+.wrapper .item_collect {
+	margin-right: 20rpx;
+	text-align: center;
+	font-size: 25rpx;
+	color: #a8a8a8;
+}
+.wrapper .item_collect.active {
+	color: #f9653f;
+}
+.wrapper .item_collect image {
+	margin-bottom: 10rpx;
+	width: 41rpx;
+	height: 35rpx;
+}
+

@@ -13,7 +13,9 @@
 	</view>
 
 	<view class="activity">
-		<image src='../../../images/my_activity.png'></image>
+		<navigator url="/pages/personal/listVip/listVip">
+			<image src='../../../images/my_activity.png'></image>
+		</navigator>
 	</view>
 
 	<view class="section">

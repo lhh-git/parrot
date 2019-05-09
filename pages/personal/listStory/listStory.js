@@ -5,7 +5,7 @@ import Require from '../../../utils/require.js'
 
 Page({
 	data: {
-		menu: ["简介", "我的专辑"],
+		menu: ["简介", "已上传"],
 		menu_id: 1,
 		describe: '',		//简介
 		tab_input: '',		//标签input
@@ -13,7 +13,7 @@ Page({
 		tabs: [],			//标签集合
 
 
-
+		status: false,		//完结状态
 		//侧滑删除
 		items: [],
 		startX: 0, //开始坐标
@@ -33,37 +33,43 @@ Page({
 		});
 	},
 	//收集formId
-	formSubmit (e) {
+	formSubmit(e) {
 		Utils.getFormId(e); //获取formId	
 	},
+	//是否完结
+	switchChange (e) {
+		this.setData({
+			status: e.detail.value
+		})
+	},
 	//菜单切换
-	handleToggleMenu (e) {
+	handleToggleMenu(e) {
 		const index = e.currentTarget.dataset.index;
 		this.setData({
 			menu_id: index
 		})
 	},
 	//跳转到故事列表页
-	handleOpenListStory () {
+	handleOpenListStory() {
 		wx.navigateTo({
 			url: '/pages/personal/listStory/listStory',
 		})
 	},
 	//简介
-	handleTextarea (e) {
+	handleTextarea(e) {
 		this.setData({
 			describe: e.detail.value
 		})
 	},
 	//监听标签input输入
-	handleTabInput (e) {
+	handleTabInput(e) {
 		let val = e.detail.value;
 		this.setData({
 			tab_input: val
 		})
 	},
 	//添加标签
-	handleAddTabs () {
+	handleAddTabs() {
 		let val = this.data.tab_input;
 		let tabs = this.data.tabs;
 		tabs.push(val);
@@ -116,6 +122,7 @@ Page({
 					v.isTouchMove = false
 				else //左滑
 					v.isTouchMove = true
+				
 			}
 		})
 
@@ -139,14 +146,7 @@ Page({
 		return 360 * Math.atan(_Y / _X) / (2 * Math.PI);
 	},
 
-	//删除事件
-	del: function (e) {
-		this.data.items.splice(e.currentTarget.dataset.index, 1)
-		this.setData({
-			items: this.data.items
-		})
 
-	}
 
 
 

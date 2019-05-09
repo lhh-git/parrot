@@ -1,0 +1,7 @@
+{
+	"navigationBarTitleText": "音频列表",
+	
+	"usingComponents": {
+		"footer": "/components/footer/footer"
+	}
+}
