@@ -1,0 +1,70 @@
+page{
+	background:rgba(243,243,243,1);
+}
+
+.header {
+	display: flex;
+	padding: 58rpx 65rpx 81rpx;
+	height: 133rpx;
+	background:rgba(255,255,255,1);
+}
+.header .photo {
+	width: 133rpx;
+	height: 133rpx;	
+}
+.header .photo image {
+	width: 133rpx;
+	height: 133rpx;
+	border-radius: 50%;
+}
+.header .main {
+	width: 400rpx;
+}
+.header .main .title {
+	margin-left: 40rpx;
+	margin-top: 13rpx;
+	font-size: 43rpx;
+	color: #4E4E4E;
+}
+.header .main .update_time {
+	margin-left: 40rpx;
+	margin-top: 18rpx;
+	font-size: 23rpx;
+	color: #4E4E4E;
+}
+.header .chat {
+	flex: 1;
+	margin-top: 14rpx;
+}
+.header .chat image {
+	width: 89rpx;
+	height: 81rpx;
+}
+
+
+
+.order {
+	display: flex;
+	align-items: center;
+	margin-top: 15rpx;
+	width: 100%;
+	height: 100rpx;
+	background: #fff;
+}
+.order .title {
+	flex: 1;
+	margin-left: 57rpx;
+	font-size: 26rpx;
+	color: #8E8D8D;
+}
+.order .new {
+	width: 17rpx;
+	height: 17rpx;
+	background:rgba(248,100,66,1);
+	border-radius: 50%;
+}
+.order .open {
+	margin: 0 64rpx 0 12rpx;
+	width: 11rpx;
+	height: 19rpx;
+}

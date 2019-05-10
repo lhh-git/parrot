@@ -45,7 +45,9 @@ function ajax(model) {
 						})
 					},
 					cancel () {
-
+						wx.navigateTo({
+							url: '/pages/login/index/index',
+						})
 					}		
 				})
 				return;

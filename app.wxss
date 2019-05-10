@@ -35,3 +35,8 @@ button::after {
 	-webkit-line-clamp: 2;
 	-webkit-box-orient: vertical;
 }
+
+/* 去掉下边框 */ 
+.bottom_none {
+	border-bottom: none;
+}

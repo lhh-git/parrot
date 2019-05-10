@@ -1,0 +1,94 @@
+<view class="contain">
+	<view class="list" bindtap='handleOpenVipOrderDetail'>
+		<view class="title">
+			<view>订单号:22019383338102</view>
+			<view>待发货</view>
+		</view>
+		<view class="info">
+			<view>商品共 0 件 2019-3-20</view>
+			<view></view>
+		</view>
+		<view class="content">
+			<view class="item">
+				<view class="left">
+					<image src="../../../images/list_ablum_create.png"></image>
+				</view>
+				<view class="center overhide">
+					<view class="user">韩国进口精品学生专用日记本</view>
+					<view class="count">
+						<view>￥ 00.00</view>
+						<view>￥ 00.00</view>
+					</view>
+				</view>
+				<view class="right">
+					<view>赠品</view>
+					<view>x1</view>
+				</view>
+			</view>
+
+			<view class="item">
+				<view class="left">
+					<image src="../../../images/list_ablum_create.png"></image>
+				</view>
+				<view class="center overhide">
+					<view class="user">韩国进口精品学生专用日记本</view>
+					<view class="count">
+						<view>￥ 00.00</view>
+						<view>￥ 00.00</view>
+					</view>
+				</view>
+				<view class="right">
+					<view>赠品</view>
+					<view>x1</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view class="list">
+		<view class="title">
+			<view>订单号:22019383338102</view>
+			<view class="green">已发货</view>
+		</view>
+		<view class="info">
+			<view>商品共 0 件 2019-3-20</view>
+			<view></view>
+		</view>
+		<view class="content">
+			<view class="item">
+				<view class="left">
+					<image src="../../../images/list_ablum_create.png"></image>
+				</view>
+				<view class="center overhide">
+					<view class="user">韩国进口精品学生专用日记本</view>
+					<view class="count">
+						<view>￥ 00.00</view>
+						<view>￥ 00.00</view>
+					</view>
+				</view>
+				<view class="right">
+					<view>赠品</view>
+					<view>x1</view>
+				</view>
+			</view>
+
+			<view class="item">
+				<view class="left">
+					<image src="../../../images/list_ablum_create.png"></image>
+				</view>
+				<view class="center overhide">
+					<view class="user">韩国进口精品学生专用日记本</view>
+					<view class="count">
+						<view>￥ 00.00</view>
+						<view>￥ 00.00</view>
+					</view>
+				</view>
+				<view class="right">
+					<view>赠品</view>
+					<view>x1</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	
+</view>

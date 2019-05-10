@@ -5,7 +5,7 @@ import Require from '../../../utils/require.js'
 
 Page({
 	data: {
-
+		
 	},
 	onLoad: function (options) {
 
@@ -15,16 +15,20 @@ Page({
 		Utils.getFormId(e); //获取formId	
 	},
 	//打开订单详情
-	handleOpenVipOrderDetail() {
+	handleOpenVipOrderDetail () {
 		wx.navigateTo({
 			url: '/pages/personal/vipOrderDetail/vipOrderDetail',
 		})
-	},
-	//打开商品详情页
-	handleOpenVipGoodsDetail () {
-		wx.navigateTo({
-			url: '/pages/personal/vipGoodsDetail/vipGoodsDetail'
-		})
 	}
 
+
+
+
+
+
+
+
+
 })
+
+

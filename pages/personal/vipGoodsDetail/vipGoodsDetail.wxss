@@ -1,0 +1,8 @@
+.swiper_box {
+	width: 100%;
+	height: 853rpx;
+}
+.swiper_box .slide-image {
+	width: 100%;
+	height: 853rpx;
+}

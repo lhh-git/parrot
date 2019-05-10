@@ -1,0 +1,94 @@
+<view class="contain">
+	<view class="list">
+		<view class="title">商品信息 共2件</view>
+		<view class="content">
+			<view class="item">
+				<view class="left">
+					<image src="../../../images/list_ablum_create.png"></image>
+				</view>
+				<view class="center overhide">
+					<view class="user">韩国进口精品学生专用日记本</view>
+					<view class="count">
+						<view>￥ 00.00</view>
+						<view>￥ 00.00</view>
+					</view>
+				</view>
+				<view class="right">
+					<view>赠品</view>
+					<view>x1</view>
+				</view>
+			</view>
+
+			<view class="item">
+				<view class="left">
+					<image src="../../../images/list_ablum_create.png"></image>
+				</view>
+				<view class="center overhide">
+					<view class="user">韩国进口精品学生专用日记本</view>
+					<view class="count">
+						<view>￥ 00.00</view>
+						<view>￥ 00.00</view>
+					</view>
+				</view>
+				<view class="right">
+					<view>赠品</view>
+					<view>x1</view>
+				</view>
+			</view>
+		</view>
+		<view class="freight">
+			<view>运费金额</view>
+			<view>包邮</view>
+		</view>
+		<view class="money">
+			<view>商品总额</view>
+			<view>￥ 00.00</view>
+		</view>
+	</view>
+
+
+	<view class="userinfo">
+		<view class="item">
+			<view>订单编号</view>
+			<view>110393470299283</view>
+		</view>
+		<view class="item">
+			<view>收货人</view>
+			<view>110393470299283</view>
+		</view>
+		<view class="item">
+			<view>收货地址</view>
+			<view>110393470299283</view>
+		</view>
+	</view>
+
+
+	<view class="logistics">
+		<view class="status">
+			<view class="round active"></view>
+			<view class="item active"></view>
+			<view class="round active"></view>
+			<view class="item active"></view>
+			<view class="round active"></view>
+			<view class="item"></view>
+			<view class="round"></view>
+		</view>
+		<view class="content">
+			<view class="play">
+				<view>已付款</view>
+				<view class="serve">
+					有疑问？请联系客服
+					<image src="../../../images/spkD_help.png"></image>
+				</view>
+			</view>
+			<view class="time">2019-4-23</view>
+			<view class="wait">商品待发货</view>
+			<view class="send">已揽件</view>
+			<view class="order">天天快递 31827363003113</view>
+			<view class="receive">已签收</view>
+		</view>
+	</view>
+
+	
+	<footer id="footer" footerIndex="2"></footer>
+</view>

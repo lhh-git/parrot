@@ -1,0 +1,33 @@
+
+<view class="contain">
+	<view class="header">
+		<view class="photo">
+			<image src="{{userInfo.avatarUrl}}"></image>
+		</view>
+		<view class="main">
+			<view class="title overhide">{{userInfo.nickName}}</view>
+			<view class="update_time">畅听有效期 {{userInfo.lastTime}}</view>
+		</view>
+		<view class="chat">
+			<image src="../../../images/my_chat.png"></image>
+		</view>
+	</view>
+
+
+	<view class="order" bindtap='handleOpenVipOrderList'>
+		<view class="title">我的订单</view>
+		<view class="new"></view>
+		<image class="open" src="../../../images/my_open.png"></image>
+	</view>
+
+	
+	
+
+	
+
+	
+
+
+	
+	
+</view>

@@ -50,14 +50,19 @@
 	</view>
 
 	<view class="section select">
-		<navigator url="/pages/personal/news/news">
+		<navigator url="/pages/personal/vipDetail/vipDetail">
 			<view class="news">
+				<image class="icon" src='../../../images/my_section7.png'></image>
+				我的畅听
+			</view>
+		</navigator>
+		<navigator url="/pages/personal/news/news">
+			<view class="news .bottom_none">
 				<image class="icon" src='../../../images/my_section6.png'></image>
 				我的消息
 				<view class="new"></view>
 			</view>
-		</navigator>
-		
+		</navigator>	
 	</view>
 
 
