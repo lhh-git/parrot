@@ -1,0 +1,162 @@
+page {
+	background: #F3F3F3;
+}
+
+/* 添加地址 */
+.address {
+	padding: 0 53rpx 36rpx 49rpx;
+	background: #fff;
+}
+.address .title {
+	font-size: 30rpx;
+	color: #2B2A2A;
+}
+.address .item {
+	display: flex;
+	align-items: center;
+	margin-top: 54rpx;
+	height: 43rpx;
+	font-size: 26rpx;
+	color: #8E8D8D;
+}
+.address .item view {
+	text-align: right;
+	width: 142rpx;
+}
+.address .item input {
+	flex: 1;
+	margin-left: 2rpx;
+	margin-top: 2rpx;
+	padding-left: 10rpx;
+	text-align: right;
+	color: #2B2A2A;
+	border-bottom: 1rpx solid #EEEEEB;
+}
+.address .item .input_place {
+	font-size: 26rpx;
+	color: #C9C9C9;
+}
+
+
+/* 商品信息 */
+.goods {
+	margin-top: 15rpx;
+	padding-top: 47rpx;
+	padding-bottom: 36rpx;
+	background: #fff;
+}
+.goods:first-child {
+	margin-top: 0;
+}
+.goods .title {
+	margin-left: 49rpx;
+	padding-bottom: 27rpx;
+	font-size: 30rpx;
+	color: #2B2A2A;
+}
+.goods .content {
+	margin-top: 32rpx;
+	padding: 0 31rpx 61rpx 50rpx;
+	border-bottom: 1rpx solid #EEEEEB;
+}
+.goods .content .item {
+	display: flex;
+	margin-top: 52rpx;
+	height: 116rpx;
+}
+.goods .content .item:first-child {
+	margin-top: 0;
+}
+.goods .content .item .left {
+	width: 116rpx;
+	height: 116rpx;
+}
+.goods .content .item .left image {
+	width: 116rpx;
+	height: 116rpx;
+}
+.goods .content .item .center {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-left: 21rpx;
+}
+.goods .content .item .center .user {
+	font-size: 26rpx;
+	color: #8E8D8D;
+}
+.goods .content .item .center .count {
+	display: flex;
+	font-size: 22rpx;
+	color: #8E8D8D;
+}
+.goods .content .item .center .count view:nth-child(2) {
+	margin-left: 8rpx;
+	text-decoration: line-through;
+}
+.goods .content .item .right {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-left: 20rpx;
+	text-align: right;
+	font-size: 26rpx;
+	color: #8E8D8D;
+}
+.goods .content .item .right view:nth-child(2) {
+	font-size: 22rpx;
+}
+
+.goods .freight, .money {
+	display: flex;
+	justify-content: space-between;
+	font-size: 26rpx;
+	color: #8E8D8D;
+}
+.goods .freight {
+	margin: 25rpx 34rpx 0 51rpx;
+}
+.goods .money {
+	margin: 42rpx 34rpx 0 51rpx;
+}
+.goods .money view:nth-child(2) {
+	font-size: 22rpx;
+}
+
+/* 留言/备注 */
+.remarks {
+	display: flex;
+	align-items: center;
+	margin-top: 15rpx;
+	padding: 0 53rpx 0 52rpx;
+	height: 135rpx;
+	font-size: 26rpx;
+	background: #fff;
+}
+.remarks .title {
+	color: #8E8D8D;
+}
+.remarks input {
+	flex: 1;
+	margin-left: 25rpx;
+	border-bottom: 1rpx solid #EEEEEB;
+}
+
+
+/* 确认购买 */
+.purchase {
+	overflow: hidden;
+	margin-top: 14rpx;
+	height: 101rpx;
+	background: #fff;
+}
+.formId {
+	margin-top: 10rpx;
+	width: 602rpx;
+	height: 85rpx;
+	font-size: 30rpx;
+	color: #FFFFFF;
+	background:#F86442;
+	border-radius: 10rpx;
+}

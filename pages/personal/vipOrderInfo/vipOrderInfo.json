@@ -1,0 +1,7 @@
+{
+	"navigationBarTitleText": "购买信息",
+	"usingComponents": {
+		"picker": "/components/picker/picker"
+	}
+
+}

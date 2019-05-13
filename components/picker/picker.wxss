@@ -1,0 +1,65 @@
+/*模态框*/
+.modals {
+	position:fixed; 
+	z-index: 11000; 
+	top:0; 
+	left: 0; 
+	right:0; 
+	bottom: 0;
+}
+/* 遮罩 */
+.modals-cancel {
+	position: absolute; 
+	z-index: 10000; 
+	top: 0; 
+	left: 0; 
+	right: 0; 
+	bottom: 0; 
+	background-color: rgba(0,0,0,.5);
+}
+/* 内容 */
+.bottom-dialog-body {
+	position: absolute; 
+	z-index: 11000; 
+	bottom: 0; 
+	left: 0; 
+	right: 0; 
+	/* padding: 30rpx;  */
+	height: 550rpx; 
+	background-color: #fff;
+}
+/*动画前初始位置*/
+.bottom-pos {
+	-webkit-transform: translateY(100%);
+	transform: translateY(100%);
+}
+
+
+
+
+/* 三级联动*/
+
+.picker {
+
+}
+.picker .tool {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height:90rpx;
+	border: 1rpx solid #D1D1D1;
+}
+.picker .tool .formId {
+	display: inline-block;
+	margin: 0;
+	width: 150rpx;
+	height: 80rpx;
+	font-size: 30rpx;
+	color: #3b83e9;
+}
+
+
+
+
+ 
