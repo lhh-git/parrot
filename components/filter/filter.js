@@ -21,7 +21,7 @@ Component({
 		sex: [],		//性别
 		sex_id: 0,
 		classify: [],	//分类
-		classify_id: 0,
+		classify_id: 5,
 
 	},
 	lifetimes: {

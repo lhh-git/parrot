@@ -11,8 +11,8 @@
 					<view class="list">
 						<view wx:for="{{age}}" 
 							wx:key="{{item.is_age}}" 
-							class="{{age_id == index ? 'active' : ''}}"
-							data-index="{{index}}"
+							class="{{age_id == item.is_age ? 'active' : ''}}"
+							data-index="{{item.is_age}}"
 							bindtap='handleToggleAge'
 						>
 							{{item.name}}
@@ -25,8 +25,8 @@
 					<view class="list">
 						<view wx:for="{{sex}}" 
 							wx:key="{{item.is_sex}}" 
-							class="{{sex_id == index ? 'active' : ''}}
-							data-index="{{index}}"
+							class="{{sex_id == item.is_sex ? 'active' : ''}}
+							data-index="{{item.is_sex}}"
 							bindtap='handleToggleSex' 
 						>
 							{{item.name}}
@@ -39,8 +39,8 @@
 					<view class="list">
 						<view wx:for="{{classify}}" 
 							wx:key="{{item.id}}"
-							class="{{classify_id == index ? 'active' : ''}}"
-							data-index="{{index}}"
+							class="{{classify_id == item.id ? 'active' : ''}}"
+							data-index="{{item.id}}"
 							bindtap='handleToggleClassify' 
 						>
 							{{item.scategory_name}}

@@ -12,6 +12,7 @@ Page({
 		circular: true,
 		interval: 5000,
 		duration: 1000,
+
 		list: [],  			//列表
 		order_type: 1,       //	1：播放量高到低 2：播放量低到高 3：时间正序 4：时间倒序
 	},
@@ -34,7 +35,7 @@ Page({
 	//跳转到搜索页
 	hanldOpenSearch () {
 		wx.navigateTo({
-			url: '/pages/common/search/search',
+			url: '/pages/common/search/search?url=' + '听故事',
 		})
 	},
 	//获取轮播图
@@ -139,7 +140,33 @@ Page({
 	},
 	//接收筛选信息
 	getFilterInfo (e) {
-		console.log(e.detail)
+		let filter = e.detail;
+		console.log(filter)
+		let _this = this;
+		Require.ajax({
+			loading: "1",   //是否开启loading
+			url: "api/Listenstory/getPageSearch",
+			method: 'POST',
+			param: {
+				is_age: filter.age_id,
+				is_sex: filter.sex_id,
+				scategory_id: filter.classify_id
+			},
+			success: function (res) {
+				console.log(res)
+				if (res.code == 200 && res.data instanceof Array) {
+					_this.setData({
+						list: res.data
+					})
+				}else {
+					Utils.showToast(res.msg)
+					_this.setData({
+						list: []
+					})	
+				}
+			}
+		})
+
 	}
 	
 	

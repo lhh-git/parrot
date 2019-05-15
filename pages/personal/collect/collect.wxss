@@ -1,8 +1,8 @@
 page {
-	background: #F3F3F3;
+	/* background: #F3F3F3; */
 }
 .menu {
-	padding-top: 40rpx;
+	padding-top: 26rpx;
 	display: flex;
 	justify-content: space-around;
 	font-size: 28rpx;
@@ -11,7 +11,7 @@ page {
 }
 .menu .item {
 	position: relative;
-	padding-bottom: 14rpx;
+	padding: 14rpx 17rpx;
 }
 .menu .active {
 	font-size: 35rpx;
@@ -19,6 +19,7 @@ page {
 }
 .menu .border_bottom {
 	position: absolute;
+	left: 0;
 	bottom: 0;
 	width: 100%;
 	height: 4rpx;
@@ -28,20 +29,14 @@ page {
 
 
 .section {
-
+	margin-top: 41rpx;
 	
-}
-.section .title {
-	padding-right: 31rpx;
-	text-align: right;
-	line-height: 41rpx;
-	font-size: 25rpx;
-	color: #909090;
 }
 .section .list {
 	background: #fff;
 }
 .section .list .item {
+	overflow: hidden;
 	margin: 0 30rpx 0 28rpx;
 	display: flex;
 	height: 124rpx;
@@ -49,6 +44,15 @@ page {
 }
 .section .list .item:last-child {
 	border-bottom: none;
+}
+.section .list .item .wrapper {
+	display: flex;
+    width: 100%;
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+    -webkit-transform: translateX(180rpx);
+    transform: translateX(180rpx);
+    margin-left: -180rpx;
 }
 .section .list .item .photo {
 	margin-left: 29rpx;
@@ -79,7 +83,78 @@ page {
 }
 
 .section .list .item .time {
+	display: flex;
 	margin-top: 19rpx;
 	font-size: 23rpx;
 	color: #909090;
+}
+.section .list .item .time .collect {
+	margin-right: 15rpx;
+	width: 21rpx;
+	height: 20rpx;
+}
+.section .list .item .time .browse {
+	margin-right: 18rpx;
+	width: 18rpx;
+	height: 19rpx;
+}
+
+/* 作者 */
+.section .author .wrapper .name {
+	flex: 1;
+	margin-top: 52rpx;
+	margin-left: 14rpx;
+	font-size: 25rpx;
+	color: #4E4E4E;
+}
+.section .author .wrapper .time {
+	margin-top: 54rpx;
+	font-size: 23rpx;
+	color: #909090;
+}
+
+/* 音频 */
+.section .audio .user_story {
+	display: flex;
+}
+.section .audio .user_story .story {
+	margin-top: 40rpx;
+	margin-left: 49rpx;
+	font-size: 25rpx;
+	color: #909090;
+}
+.section .audio .wrapper .time {
+	display: flex;
+	flex-direction: column;
+}
+.section .audio .wrapper .time .item {
+	display: flex;
+	margin-top: 8rpx;
+	border-bottom: none;
+}
+.section .audio .wrapper .time .item:nth-child(2) {
+	margin-top: 28rpx;
+}
+
+
+
+
+/* 左滑删除 */
+.del {
+    background-color: orangered;
+    width: 180rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    -webkit-transform: translateX(180rpx);
+    transform: translateX(180rpx);
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.touch-move-active .wrapper, .touch-move-active .del {
+    -webkit-transform: translateX(0) !important;
+    transform: translateX(0) !important;
 }

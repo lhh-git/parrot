@@ -11,7 +11,7 @@
 		<view class="history" wx:if="{{!search_val}}">
 			<view class="title">
 				<view>搜索记录</view>
-				<view class="delete">
+				<view class="delete" bindtap='handleClearHistotySearch'>
 					<view>清空记录</view>
 					<image src="../../../images/icon_delete.png"></image>
 				</view>
@@ -34,7 +34,7 @@
 
 		<!-- 搜索列表 -->
 		<view class="list_box" wx:if="{{search_val}}">
-			<view class="list_item">
+			<view class="list_item" bindtap='handleOpenUrl'>
 				<view class="left">
 					<image src="../../../images/list_ablum_create.png"></image>
 				</view>

@@ -37,8 +37,22 @@
 			<image src="../../../images/word_play_play.png"></image>
 		</view>
 		<view class="time">{{time < 10 ? '0'+time : time}}:00 /60:00</view>
-		
-
 	</view>
+
+	<!-- 使用canvas -->
+	<view class="canvas_box">
+		<view class="mask"></view>
+
+		<view class="content">
+			<canvas  style="width: 600rpx;height: 947rpx; background: pink;" canvas-id="mycanvas"/>
+		
+			<form bindsubmit="formSubmit" report-submit='true' >
+				<button class="formId" form-type="submit">保存海报</button>
+			</form>
+			<view class="point">保存海报，分享给更多好友</view>
+		</view>
+		
+	</view>
+
 </view>
 

@@ -23,12 +23,13 @@ Page({
 	formSubmit(e) {
 		Utils.getFormId(e); //获取formId	
 	},
-	//打开订单详情
-	handleOpenVipOrderDetail() {
+	//打开商品信息
+	handleOpenVipOrderInfo () {
 		wx.navigateTo({
-			url: '/pages/personal/vipOrderDetail/vipOrderDetail',
+			url: '/pages/personal/vipOrderInfo/vipOrderInfo',
 		})
 	}
+
 
 
 

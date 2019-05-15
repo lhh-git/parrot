@@ -1,14 +1,24 @@
 {
 	"pages": [
-		"pages/personal/vipOrderInfo/vipOrderInfo",
+		
+		
+		
+		
 		"pages/login/index/index",
 		"pages/login/phone/phone",
+
+		
+
+		
 		"pages/listen/listenIndex/listenIndex",
 		"pages/listen/collectMoney/collectMoney",
 		"pages/listen/classifyList/classifyList",
 		"pages/listen/popularity/popularity",
 		"pages/listen/details/details",
 		"pages/listen/listStory/listStory",
+		
+
+
 		"pages/speak/speakIndex/speakIndex",
 		"pages/speak/speakDetail/speakDetail",
 		"pages/speak/collectMoney/collectMoney",
@@ -16,6 +26,8 @@
 		"pages/speak/record/record",
 		"pages/speak/dubbing/dubbing",
 		"pages/speak/storedWorks/storedWorks",
+
+
 		"pages/personal/personalIndex/personalIndex",
 		"pages/personal/createAlbum/createAlbum",
 		"pages/personal/detailsAlbum/detailsAlbum",
@@ -34,11 +46,18 @@
 		"pages/personal/listAlbum/listAlbum",
 		"pages/personal/listVip/listVip",
 		"pages/personal/listStory/listStory",
+		
 		"pages/personal/vipOrderDetail/vipOrderDetail",
 		"pages/personal/vipOrderList/vipOrderList",
 		"pages/personal/vipDetail/vipDetail",
 		"pages/personal/vipGoodsDetail/vipGoodsDetail",
+		"pages/personal/vipOrderInfo/vipOrderInfo",
+		
+
 		"pages/common/search/search",
+		
+
+
 		"pages/ceshi/ceshi",
 		"pages/music/music"
 	],

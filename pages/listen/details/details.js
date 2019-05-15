@@ -15,7 +15,7 @@ Page({
 		})
 	},
 	//获取fromId
-	formSubmit(e) {
+	formSubmit (e) {
 		Utils.getFormId(e);
 	},
 	//跳转到人气主播

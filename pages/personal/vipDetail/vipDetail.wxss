@@ -42,6 +42,31 @@ page{
 }
 
 
+.more {
+	overflow: hidden;
+	margin-top: 15rpx;
+	height: 343rpx;
+	background: #fff;
+}
+.more .title {
+	margin-top: 38rpx;
+	text-align: center;
+	font-size: 30rpx;
+	color: #4E4E4E;
+}
+.more .list {
+
+}
+.more .list .item-box {
+	display: flex;
+	justify-content: space-between;
+	margin: 42rpx 44rpx 0 43rpx;
+}
+.more .list .item-box image {
+	width: 318rpx;
+	height: 188rpx;
+	border-radius: 10rpx;
+}
 
 .order {
 	display: flex;
@@ -68,3 +93,54 @@ page{
 	width: 11rpx;
 	height: 19rpx;
 }
+
+
+.privilege {
+	overflow: hidden;
+	margin-top: 18rpx;
+	height: 228rpx;
+	background: #fff;
+}
+.privilege .title {
+	margin-top: 35rpx;
+	text-align: center;
+	font-size: 30rpx;
+	color: #4E4E4E;
+}
+.privilege .list {
+	display: flex;
+	justify-content: space-between;
+	margin: 39rpx 41rpx 0 40rpx;
+}
+.privilege .list .item {
+	display: flex;
+	overflow: hidden;
+	width: 318rpx;
+	height: 79rpx;
+	background:#DFC06E;
+	border-radius: 10rpx;
+}
+.privilege .list .item .left {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 94rpx;
+	height: 100%;
+	background: #32221A;
+}
+.privilege .list .item .left image {
+	width: 39rpx;
+	height: 39rpx;
+}
+.privilege .list .item .right {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 24rpx;
+	color: #32221A;
+}
+
+
+
+

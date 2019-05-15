@@ -14,10 +14,56 @@
 	</view>
 
 
+	<view class="more">
+		<view class="title">- 更多好物 -</view>
+		<view class="list">
+			<swiper
+				indicator-dots="{{indicatorDots}}"
+				interval="{{interval}}"
+				duration="{{duration}}"
+				indicator-color="#EBEBEB"
+				indicator-active-color="#C1C1C1"
+			>
+				<block wx:for="{{icons}}" wx:key="{{item.id}}">
+					<swiper-item class="swiper-item">
+						<view class="item-box">
+							<view wx:for="{{item}}" 
+								class="icons_item" 
+								wx:key="{{item.id}}"
+							>
+								<image src="../../../images/details_album_bg.png"/>
+							</view>
+						</view>
+					</swiper-item>
+				</block>
+			</swiper>
+		</view>
+	</view>
+
+
 	<view class="order" bindtap='handleOpenVipOrderList'>
 		<view class="title">我的订单</view>
 		<view class="new"></view>
 		<image class="open" src="../../../images/my_open.png"></image>
+	</view>
+
+
+	<view class="privilege">
+		<view class="title">- 畅听特权 -</view>
+		<view class="list">
+			<view class="item">
+				<view class="left">
+					<image src='../../../images/vip_detail_icon1.png'></image>
+				</view>
+				<view class="right">全场畅听</view>
+			</view>
+			<view class="item">
+				<view class="left">
+					<image src='../../../images/vip_detail_icon2.png'></image>
+				</view>
+				<view class="right">赚取佣金</view>
+			</view>
+		</view>
 	</view>
 
 	

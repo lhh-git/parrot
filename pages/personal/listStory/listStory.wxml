@@ -48,7 +48,7 @@
 			</view>
 		</view>
 
-		<!-- 我的专辑 -->
+		<!-- 已上传-->
 		<view class="list_wrapper" wx:if="{{menu_id == 1}}">
 			<view class="list">
 				<view class="item {{item.isTouchMove ? 'touch-move-active' : ''}}" 
@@ -57,6 +57,7 @@
 					data-index="{{index}}" 
 					bindtouchstart="touchstart" 
 					bindtouchmove="touchmove" 
+					bindtap='handleWorksPlay'
 				>
 					<view class="wrapper">
 						<image class="photo" src="../../../images/icon_play.png"></image>

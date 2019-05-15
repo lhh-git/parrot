@@ -75,7 +75,7 @@ const getFormId = (e) => {
 		// </form>
 	
 	// Require.ajax({
-	// 	//loading: "1",   //是否开启loading
+	// 	loading: "1",   //是否开启loading
 	// 	url: "api/collectFormID",
 	// 	method: 'POST',
 	// 	param: {
@@ -84,7 +84,6 @@ const getFormId = (e) => {
 	// 	success(res) {
 	// 		console.log(res)
 	// 	}
-
 	// })
 }
 

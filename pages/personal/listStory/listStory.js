@@ -33,7 +33,7 @@ Page({
 		});
 	},
 	//收集formId
-	formSubmit(e) {
+	formSubmit (e) {
 		Utils.getFormId(e); //获取formId	
 	},
 	//是否完结
@@ -43,33 +43,33 @@ Page({
 		})
 	},
 	//菜单切换
-	handleToggleMenu(e) {
+	handleToggleMenu (e) {
 		const index = e.currentTarget.dataset.index;
 		this.setData({
 			menu_id: index
 		})
 	},
-	//跳转到故事列表页
-	handleOpenListStory() {
+	//跳转到作品播放页
+	handleWorksPlay () {
 		wx.navigateTo({
-			url: '/pages/personal/listStory/listStory',
+			url: '/pages/speak/worksPlay/worksPlay',
 		})
 	},
 	//简介
-	handleTextarea(e) {
+	handleTextarea (e) {
 		this.setData({
 			describe: e.detail.value
 		})
 	},
 	//监听标签input输入
-	handleTabInput(e) {
+	handleTabInput (e) {
 		let val = e.detail.value;
 		this.setData({
 			tab_input: val
 		})
 	},
 	//添加标签
-	handleAddTabs() {
+	handleAddTabs () {
 		let val = this.data.tab_input;
 		let tabs = this.data.tabs;
 		tabs.push(val);

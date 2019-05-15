@@ -34,7 +34,12 @@
     </view>
     <view class="vgd_button">
         <form bindsubmit="formSubmit" report-submit='true' >
-            <button class="vgd_purchase" form-type="submit">确认购买</button>
+            <button class="vgd_purchase" 
+				form-type="submit"
+				bindtap='handleOpenVipOrderInfo'
+			>
+				确认购买
+			</button>
         </form>
     </view>
 </view>

@@ -1,7 +1,7 @@
 <view class="container">
 	<view class="header">
 		<view class="photo">
-			<image src="../../../images/income.png"></image>
+			<image src="../../../images/listen_details_musicbg.png"></image>
 		</view>
 		<view class="play">
 			<image src="../../../images/listen_details_prev.png"></image>
@@ -32,9 +32,8 @@
 			</view>
 			<view class="button" bindtap='handleSubscribe'>
 				<form bindsubmit="formSubmit" report-ubmit='true'>
-					<button form-type="submit" class="form_id"></button>
+					<button form-type="submit" class="form_id">已收藏</button>
 				</form >
-				<image src="../../../images/listen_details_subscribe.png"></image>
 			</view>
 		</view>
 	</view>
@@ -64,7 +63,9 @@
 					<view class="status">完</view>
 				</view>
 				<view class="button">
-					<image src="../../../images/word_play_collect.png"></image>
+					<form bindsubmit="formSubmit" report-ubmit='true'>
+						<button form-type="submit" class="form_id">已收藏</button>
+					</form >
 				</view>
 			</view>
 			<view class="list">

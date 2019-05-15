@@ -27,7 +27,7 @@ Page({
 	//搜索
 	hanldOpenSearch () {
 		wx.navigateTo({
-			url: '/pages/common/search/search',
+			url: '/pages/common/search/search?url=' +'讲故事',
 		})
 	},
 	//人气榜  精品榜  新品榜

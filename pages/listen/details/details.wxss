@@ -1,5 +1,5 @@
 .header {
-	margin-top: 57rpx;
+	margin-top: 25rpx;
 	overflow: hidden;
 	position: relative;
 	box-shadow: 0rpx 12rpx 5rpx #e9e9e9;
@@ -9,17 +9,14 @@
 	left: 50%;
 	top: 0;
 	transform: translateX(-50%);
-	width: 329rpx;
-	height: 329rpx;
-	background: #3E3E3E;
+
 }
 .header>.photo image {
-	margin: 9.5rpx;
-	width: 310rpx;
+	width: 687rpx;
 	height: 310rpx;
 }
 .header .play {
-	margin-top: 380rpx;
+	margin-top: 360rpx;
 	height: 82rpx;
 }
 .header .play image:nth-child(1){
@@ -109,11 +106,12 @@
 }
 
 .header .subscribe>.button .form_id {
-	opacity: 0;
-	position: absolute;
+	line-height: 63rpx;
 	width: 196rpx;
 	height: 63rpx;
-	background: pink;
+	font-size: 33rpx;
+	color: #FFFFFF;
+	background: #D2D2D2;
 	border-radius: 63rpx;
 }
 
@@ -190,9 +188,14 @@
 	background: #f86442;
 	border-radius: 6rpx;
 }
-.complete .button image {
+.complete .tool .button .form_id{
+	line-height: 63rpx;
 	width: 196rpx;
 	height: 63rpx;
+	font-size: 33rpx;
+	color: #FFFFFF;
+	background: #D2D2D2;
+	border-radius: 63rpx;
 }
 
 .complete .list {
