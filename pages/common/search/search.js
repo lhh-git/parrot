@@ -19,12 +19,14 @@ Page({
 	},
 	//收集formId
 	formSubmit (e) {
-		console.log(1)
 		Utils.getFormId(e); //获取formId	
 	},
 	//搜索框变化
 	handleGetInputVal (e) {
 		let search_val = e.detail.value;
+		if (search_val == '') {
+			this.handleGetSearchHistory()
+		}
 		this.setData({
 			search_val: search_val
 		}, () => {
@@ -66,7 +68,7 @@ Page({
 		}
 		if (url == '讲故事') {
 			wx.navigateTo({
-				url: '/pages/personal/listStory/listStory',
+				url: '/pages/listen/listStory/listStory',
 			})
 			return;
 		}
@@ -80,7 +82,6 @@ Page({
 			method: 'POST',
 			param: {},
 			success: function (res) {
-				console.log(res)
 				if (res.code == 200 && res.data instanceof Array) {
 					_this.setData({
 						history: res.data
@@ -103,10 +104,10 @@ Page({
 			param: {},
 			success: function (res) {
 				console.log(res)
-				if (res.code == 200) {
-
+				if (res.code == 0) {
+					_this.handleGetSearchHistory()
 				} else {
-					Utils.showToast('清空失败', 'err')
+					Utils.showToast(res.msg, 'err')
 				}
 			}
 		})

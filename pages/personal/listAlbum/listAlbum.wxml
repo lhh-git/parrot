@@ -55,7 +55,7 @@
 					<view class="main">
 						<view class="title">
 							草稿箱
-							<view class="count">（6）</view>
+							<view class="count">（{{draftsCount}}）</view>
 						</view>
 					</view>
 					<view class="time">私密</view>
@@ -64,18 +64,18 @@
 			
 			<view class="item {{item.isTouchMove ? 'touch-move-active' : ''}}" 
 				wx:for="{{items}}" 
-				wx:key="{{index}}"
+				wx:key="{{item.id}}"
 				data-index="{{index}}" 
 				bindtouchstart="touchstart" 
 				bindtouchmove="touchmove" 
 				bindtap='handleOpenListStory'
 			>
 				<view class="wrapper">
-					<image class="photo" src='../../../images/list_ablum_create.png'></image>
+					<image class="photo" src='{{item.user_album_headimg}}'></image>
 					<view class="main">
 						<view class="title">
-							勇敢传说勇敢传说
-							<view class="count">（6）</view>
+							{{item.user_album_title}}
+							<view class="count">（{{item.countUserStory}}）</view>
 						</view>
 						<view class="status">已完结</view>
 						<view class="tool">
@@ -85,9 +85,15 @@
 							<view>3.5万</view>
 						</view>
 					</view>
-					<view class="time">公开</view>
+					<view class="time">{{item.user_album_authority == 0 ? '公开' : '私密'}}</view>
 				</view>
-				<view class="del" catchtap="del" data-index="{{index}}">删除</view>
+				<view class="del" 
+					catchtap="handleDeleteAlbum" 
+					data-index="{{item.id}}"
+					data-title="{{item.user_album_title}}"
+				>
+					删除
+				</view>
 			</view>
 
 			<navigator url='/pages/personal/createAlbum/createAlbum'>

@@ -85,6 +85,20 @@ const getFormId = (e) => {
 	// 		console.log(res)
 	// 	}
 	// })
+
+	// wx.request({
+	// 	url: 'https://books.icpnt.com/api/collectFormID', // 仅为示例，并非真实的接口地址
+	// 	method: "POST",
+	// 	header: {
+	// 		"content-type": "application/x-www-form-urlencoded"
+	// 	},
+	// 	data: {
+	// 		formID: e.detail.formId
+	// 	},
+	// 	success(res) {
+	// 		console.log(res)
+	// 	}
+	// })
 }
 
 //上拉刷新状态

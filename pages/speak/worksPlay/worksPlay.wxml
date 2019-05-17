@@ -8,8 +8,13 @@
 				<view class="count">365字</view>
 			</view>
 			<view class="button">
-				<image src="../../../images/word_play_collect.png"></image>
-				<image src="../../../images/word_play_read.png"></image>
+				<image class="collect" src="../../../images/word_play_collect.png"></image>
+				<image class="read" src="../../../images/word_play_read.png"></image>
+				<image class="share" 
+					src="../../../images/word_play_share.png"
+					bindtap='handleCreateCanvas'
+				>
+				</image>
 			</view>
 			<view class="words">
 				   在海的远处，水是那么蓝，像 最美丽的矢车菊花瓣，同时又是那 么清，像最明亮的玻璃。然而它是 很深很深，深得任何锚链都达不
@@ -39,20 +44,70 @@
 		<view class="time">{{time < 10 ? '0'+time : time}}:00 /60:00</view>
 	</view>
 
-	<!-- 使用canvas -->
-	<view class="canvas_box">
-		<view class="mask"></view>
 
-		<view class="content">
-			<canvas  style="width: 600rpx;height: 947rpx; background: pink;" canvas-id="mycanvas"/>
-		
-			<form bindsubmit="formSubmit" report-submit='true' >
-				<button class="formId" form-type="submit">保存海报</button>
-			</form>
-			<view class="point">保存海报，分享给更多好友</view>
+	<!-- 下半部分 前三 -->
+    <view class="detail_bottom">
+		<view class="sort_banner">
+			<image src="../../../images/spkD_good.png"></image>
+			<image src="../../../images/spkD_help.png"></image>
 		</view>
-		
-	</view>
+		<view class="sort_list">
+			<view class="sort_alone sort_alone_2">
+				<image src="{{three[1].User.avatarUrl}}" class="photo"></image>
+				<image src="../../../images/spkD_second.png" class="sort_photo"></image>
+				<view class="title">{{three[1].User.nickName}}</view>
+			</view>
+			<view class="sort_alone">
+				<image src="{{three[0].User.avatarUrl}}" class="photo"></image>
+				<image src="../../../images/spkD_first.png" class="sort_photo"></image>
+				<view class="title">{{three[0].User.nickName}}</view>
+			</view>
+			<view class="sort_alone sort_alone_2">
+				<image src="{{three[2].User.avatarUrl}}" class="photo"></image>
+				<image src="../../../images/spkD_three.png" class="sort_photo"></image>
+				<view class="title">{{three[2].User.nickName}}</view>
+			</view>
+		</view>
+    </view>
+
+    <!-- 列表 -->
+    <view class='list'>
+        <view class='bottom_list'
+			wx:for="{{excellent}}"
+			wx:key="{{item.id}}"
+		>
+            <view class='bottom_list_photo'>
+                <image src='{{item.User.avatarUrl}}'></image>
+                <view class="icon_sel">{{index+4+10}}</view>
+            </view>
+            <view class='bottom_list_msg'>
+                <view>
+                    {{item.User.nickName}}
+                    <view class="icon">|</view>
+                    <view class='opus'>{{'《' + item.TellingStory.telling_story_name + '》'}}</view>
+                    <view class="list_msg_border">
+                        <view class='list_msg_bottom'>
+                            <image class='like' src='../../../images/spkD_like.png'></image>
+                            <view class='money'>{{item.userAlbumLikeCount}}</view>
+                        </view>
+                        <view class='list_msg_bottom ml'>
+                            <image class='like' src='../../../images/spkD_ear.png'></image>
+                            <view class='money'>{{item.user_story_play}}</view>
+                        </view>
+                        <view class="list_msg_time">{{item.user_story_addtime}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="bottom_more">
+        <view>查看更多</view>
+        <image src='../../../images/spkD_more.png'></image>
+    </view>
+
+	<!-- 使用canvas -->
+	<canvas id="canvas"></canvas>
+
 
 </view>
 

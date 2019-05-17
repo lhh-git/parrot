@@ -55,8 +55,8 @@
 	<!-- 列表 -->
 	<view class="section">
 		<view class="title">
-			<view class="new">最新</view>
-			<view class="play_count">播放量</view>
+			<view class="new" data-index="3" bindtap='handleToggleOrderType'>最新</view>
+			<view class="play_count" data-index="1" bindtap='handleToggleOrderType'>播放量</view>
 		</view>
 		<view class="main">
 			<view class="alone" wx:for="{{list}}" wx:key="{{item.id}}">

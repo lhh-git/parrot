@@ -12,25 +12,18 @@ Page({
 		tab: '',			//标签
 		tabs: [],			//标签集合
 
+		draftsCount: '',    //草稿箱作品数
+		items: [],			//专辑列表
 
 
 		//侧滑删除
-		items: [],
 		startX: 0, //开始坐标
 		startY: 0
 
 
 	},
 	onLoad: function (options) {
-		for (var i = 0; i < 10; i++) {
-			this.data.items.push({
-				content: i + " 向左滑动删除哦,向左滑动删除哦,向左滑动删除哦,向左滑动删除哦,向左滑动删除哦",
-				isTouchMove: false //默认隐藏删除
-			})
-		}
-		this.setData({
-			items: this.data.items
-		});
+		this.handleGetAlbumInfo()
 	},
 	//收集formId
 	formSubmit (e) {
@@ -72,6 +65,30 @@ Page({
 			tab_input: ''
 		})
 	},
+	// 获取专辑
+	handleGetAlbumInfo () {
+		Require.ajax({
+			loading: "1",   //是否开启loading
+			url: "api/User/UserAlbum",
+			method: 'POST',
+			param: {},
+			success: res => {
+				if (res.code == 200) {
+					this.setData({
+						draftsCount: res.data.draftsCount
+					})
+					if (res.data.userAlbum instanceof Array) {
+						this.setData({
+							items: res.data.userAlbum
+						})
+						console.log(res.data.userAlbum)
+					}
+				}
+			}
+		})
+	},
+
+
 
 
 
@@ -139,11 +156,26 @@ Page({
 		return 360 * Math.atan(_Y / _X) / (2 * Math.PI);
 	},
 
-	//删除事件
-	del: function (e) {
-		this.data.items.splice(e.currentTarget.dataset.index, 1)
-		this.setData({
-			items: this.data.items
+	//删除专辑
+	handleDeleteAlbum (e) {
+		let index = e.currentTarget.dataset.index;
+		let title = e.currentTarget.dataset.title;
+		if (title == "默认专辑") {
+			Utils.showToast('默认专辑不可删除')
+			return;
+		}
+		Require.ajax({
+			//loading: "1",   //是否开启loading
+			url: "api/User/clearUserAlbum",
+			method: 'POST',
+			param: {
+				id: index
+			},
+			success: res => {
+				if (res.code == 0) {	
+					this.handleGetAlbumInfo()			
+				}
+			}
 		})
 
 	}

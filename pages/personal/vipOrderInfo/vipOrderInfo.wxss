@@ -153,9 +153,11 @@ page {
 }
 .formId {
 	margin-top: 10rpx;
+	line-height: 85rpx;
 	width: 602rpx;
 	height: 85rpx;
 	font-size: 30rpx;
+	letter-spacing: 3rpx;
 	color: #FFFFFF;
 	background:#F86442;
 	border-radius: 10rpx;

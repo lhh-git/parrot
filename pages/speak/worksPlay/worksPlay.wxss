@@ -1,13 +1,5 @@
-.contain {
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-}
-
 .section {
-	flex: 1;
+	height: 998rpx;
 	position: relative;
 }
 .section .bgImg {
@@ -43,11 +35,20 @@
 .section .content .button {
 	display: flex;
 	justify-content: space-between;
-	margin: 41rpx 89rpx 0 86rpx;
+	align-items: center;
+	margin: 41rpx 52rpx 0 50rpx;
 }
-.section .content .button image {
-	width: 228rpx;
-	height: 90rpx;
+.section .content .button .collect {
+	width: 169rpx;
+	height: 70rpx;
+}
+.section .content .button .read {
+	width: 202rpx;
+	height: 80rpx;
+}
+.section .content .button .share {
+	width: 169rpx;
+	height: 70rpx;
 }
 .section .content .words {
 	margin: 38rpx 34rpx 33rpx 28rpx;
@@ -111,11 +112,199 @@
 }
 
 
+
+
+/* 下半部分 */
+.detail_bottom{
+	overflow: hidden;
+	width: 100%;
+}
+/* 前三 */
+.detail_bottom .sort_banner {
+	height: 55rpx;
+}
+.detail_bottom .sort_banner image:nth-child(1) {
+	margin-left: 283rpx;
+	width: 185rpx;
+	height: 55rpx;
+}
+.detail_bottom .sort_banner image:nth-child(2) {
+	margin-left: 17rpx;
+	margin-top: -20rpx;
+	width: 35rpx;
+	height: 34rpx;
+}
+.detail_bottom .sort_list {
+	display: flex;
+	margin: 0 83rpx 0 87rpx; 
+	height: 207rpx;
+}
+.detail_bottom .sort_list .sort_alone {
+	position: relative;
+	text-align: center;
+	height: 100%;
+}
+.detail_bottom .sort_list .sort_alone:nth-child(1) {
+	width: 147rpx;
+}
+.detail_bottom .sort_list .sort_alone_2 .photo {
+	margin-top: 44rpx;
+	width: 105rpx;
+	height: 105rpx;
+	border-radius: 50%;
+}
+.detail_bottom .sort_list .sort_alone_2 .sort_photo {
+	position: absolute;
+	top: 126rpx;
+	left: 0;
+	width: 147rpx;
+	height: 31rpx;
+}
+.detail_bottom .sort_list .sort_alone_2 .title {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100%;
+	font-size: 30rpx;
+	color: #889395;
+}
+
+.detail_bottom .sort_list .sort_alone:nth-child(2) {
+	margin: 0 46rpx;
+	width: 194rpx;
+	height: 100%;
+}
+.detail_bottom .sort_list .sort_alone:nth-child(2) .photo {
+	margin-top: 31rpx;
+	width: 126rpx;
+	height: 126rpx;
+	border-radius: 50%;
+}
+.detail_bottom .sort_list .sort_alone:nth-child(2) .sort_photo {
+	position: absolute;
+	top: 126rpx;
+	left: 0;
+	width: 194rpx;
+	height: 41rpx;
+}
+.detail_bottom .sort_list .sort_alone:nth-child(2) .title {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100%;
+	font-size: 30rpx;
+	color: #F8740A;
+}
+.detail_bottom .sort_list .sort_alone:nth-child(3) {
+	width: 147rpx;
+	height: 100%;
+}
+.detail_bottom .sort_list .sort_alone:nth-child(3) .title {
+	color: #C37641;
+}
+
+
+/* 列表 */
+.list{
+    margin-left: 40rpx;
+}
+.bottom_list{
+    padding-top: 52rpx;
+}
+.bottom_list_photo{
+    display: inline-block;
+    width: 73rpx;
+    height: 73rpx;
+    text-align: center;
+    position: relative
+}
+.bottom_list_photo image{
+    width: 73rpx;
+    height: 73rpx;
+    border-radius: 50%;
+}
+.bottom_list_photo .icon_sel {
+	position: absolute;
+	bottom: -5rpx;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 0 7rpx;
+    height: 23rpx;
+    border-radius: 12rpx;
+    background: #FFAA04;
+    font-size: 23rpx;
+    text-align: center;
+    line-height: 23rpx;
+    color: #FFFFFF;
+}
+
+.bottom_list_msg{
+    display: inline-block;
+    vertical-align: top;
+	width: 80%;
+    font-size: 25rpx;
+    margin-left: 13rpx;
+    color:#8E8D8D;
+}
+.bottom_list_msg .icon{
+    display: inline-block;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+}
+.bottom_list_msg .opus{
+    display: inline-block;
+    color:#585858;
+}
+.list_msg_border {
+    padding-bottom: 36rpx; 
+    border-bottom: 1rpx solid #C9C9C9;
+}
+.list_msg_bottom {
+    display: inline-block;
+    margin-top: 20rpx;
+}
+.list_msg_bottom .like{
+    width: 21rpx;
+    height: 20rpx;
+}
+.list_msg_bottom .money{
+    display: inline-block;
+    margin-left: 8rpx;
+}
+.ml{
+    margin-left: 33rpx;
+}
+
+.list_msg_time{
+    float: right;
+	margin-top:24rpx;
+}
+
+/* 加载更多 */
+.bottom_more{
+    text-align: center;
+    color: #8E8D8D;
+    font-size: 23rpx;
+    margin-top: 54rpx;
+}
+.bottom_more image{
+    width: 40rpx;
+    height: 27rpx;
+    margin-top: 25rpx;
+	margin-bottom: 27rpx;
+}
+
+
+
 /* canvas海报 */
 .canvas_box {
 	position: fixed;
-	width: 100%;
-	height: 100%;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
 }
 .canvas_box .mask {
 	opacity:0.5;
