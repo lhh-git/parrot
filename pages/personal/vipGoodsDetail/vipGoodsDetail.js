@@ -5,11 +5,8 @@ import Require from '../../../utils/require.js'
 
 Page({
 	data: {
-		imgUrls: [
-			'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
-			'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
-			'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
-		],
+        detail:"",
+		imgUrls: [],
 		indicatorDots: true,
 		autoplay: true,
 		interval: 2000,
@@ -17,28 +14,38 @@ Page({
 		circular: true,
 	},
 	onLoad: function (options) {
-
+        this.getListDetail(options.id)
 	},
 	//收集formId
 	formSubmit(e) {
 		Utils.getFormId(e); //获取formId	
 	},
 	//打开商品信息
-	handleOpenVipOrderInfo () {
+	handleOpenVipOrderInfo (e) {
+        const id = e.currentTarget.dataset.id
 		wx.navigateTo({
-			url: '/pages/personal/vipOrderInfo/vipOrderInfo',
+			url: '/pages/personal/vipOrderInfo/vipOrderInfo?id='+id,
 		})
-	}
-
-
-
-
-
-
-
-
-
-
+	},
+    getListDetail(id) {
+        Require.ajax({
+            loading: "1",   //是否开启loading
+            url: "api/Vip/getProductDetail",
+            method: 'POST',
+            param: {
+                id:id
+            },
+            success: res => {
+                console.log(res)
+                if (res.code === 200) {
+                    this.setData({
+                        detail: res.data,
+                        imgUrls: res.data.ProductImg
+                    })
+                }
+            }
+        })
+    }
 })
 
 

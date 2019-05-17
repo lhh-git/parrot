@@ -11,31 +11,30 @@
 	>
 		<block wx:for="{{imgUrls}}" wx:key="{{index}}">
 			<swiper-item>
-				<image src="{{item}}" class="slide-image" width="355" height="150" />
+				<image src="{{item.product_images}}" class="slide-image" width="355" height="150" />
 			</swiper-item>
 		</block>
 	</swiper>
     <view class="vgd_money">
-        <view class="item">￥00.00
-            <view class="no_money">￥00.00</view>
+        <view class="item">{{detail.product_price}}
+            <view class="no_money">{{detail.product_original_price}}</view>
             </view>
         <view class="item">运费：包邮</view>
     </view>
-    <view class="vgd_name">韩国进口精品学生用日记本</view>
-    <view class="vgd_gift">赠品：鹦鹉听书畅听权限3日</view>
+    <view class="vgd_name">{{detail.product_name}}</view>
+    <view class="vgd_gift">赠品：鹦鹉听书畅听权限{{detail.MemberCard.membercard_days}}日</view>
     <view class="vgd_discount">优惠：折上反佣金</view>
     <view class="vgd_detail">
         <view class="vgd_h1">- 商品详情 -</view>
         <view class="vgd_img">
-            <image src='../../../images/binding_code.png'></image>
-            <image src='../../../images/binding_code.png'></image>
-            <image src='../../../images/binding_code.png'></image>
+            <image src="{{detail.ProductImg[0].product_images}}"></image>
         </view>
     </view>
     <view class="vgd_button">
         <form bindsubmit="formSubmit" report-submit='true' >
             <button class="vgd_purchase" 
 				form-type="submit"
+                data-id="{{detail.membercard_id}}"
 				bindtap='handleOpenVipOrderInfo'
 			>
 				确认购买

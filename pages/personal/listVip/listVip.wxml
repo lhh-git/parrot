@@ -1,7 +1,5 @@
 <view class="contain">
-	<view class="list">
-		<view class="item" bindtap='handleOpenVipGoodsDetail'></view>
-		<view class="item"></view>
-		<view class="item"></view>
+    <view class="list" wx:for="{{list}}" wx:key="{{item.id}}">
+        <image class="item" src="{{item.product_cover}}" data-id="{{item.id}}" width="355" height="150" bindtap='handleOpenVipGoodsDetail'/>
 	</view>
 </view>
