@@ -1,5 +1,4 @@
 import Require from './utils/require.js'
-import Token from './utils/token.js'
 
 App({
     onLaunch: function() {

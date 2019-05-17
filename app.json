@@ -49,11 +49,8 @@
 		"pages/personal/vipOrderInfo/vipOrderInfo",
 
 
-		"pages/common/search/search",
+		"pages/common/search/search"
 
-
-		"pages/ceshi/ceshi",
-		"pages/music/music"
 	],
 	"window": {
 		"backgroundTextStyle": "dark",
