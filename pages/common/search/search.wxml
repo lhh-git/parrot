@@ -17,18 +17,12 @@
 				</view>
 			</view>
 			<view class="list">
-				<view class="item">刘纯燕</view>
-				<view class="item">海的女儿</view>
-				<view class="item">刘纯燕</view>
-				<view class="item">海的女儿</view>
-				<view class="item">刘纯燕</view>
-				<view class="item">海的女</view>
-				<view class="item">刘</view>
-				<view class="item">海的女儿</view>
-				<view class="item">刘纯燕</view>
-				<view class="item">海的女儿</view>
-				<view class="item">刘</view>
-				<view class="item">海的女儿</view>
+				<view class="item" 
+					wx:for="{{history}}"
+					wx:key="{{item.id}}"
+				>
+					{{item.search_name}}
+				</view>
 			</view>
 		</view>
 
@@ -60,97 +54,7 @@
 					139万人
 				</view>
 			</view>
-			<view class="list_item">
-				<view class="left">
-					<image src="../../../images/list_ablum_create.png"></image>
-				</view>
-				<view class="center">
-					<view class="user">《刘纯燕晚安故事集》</view>
-					<view class="name">刘纯燕</view>
-				</view>
-				<view class="right">
-					<image src="../../../images/icon_collect.png"></image>
-					139万人
-				</view>
-			</view>
-			<view class="list_item">
-				<view class="left">
-					<image src="../../../images/list_ablum_create.png"></image>
-				</view>
-				<view class="center">
-					<view class="user">《刘纯燕晚安故事集》</view>
-					<view class="name">刘纯燕</view>
-				</view>
-				<view class="right">
-					<image src="../../../images/icon_collect.png"></image>
-					139万人
-				</view>
-			</view>
-			<view class="list_item">
-				<view class="left">
-					<image src="../../../images/list_ablum_create.png"></image>
-				</view>
-				<view class="center">
-					<view class="user">《刘纯燕晚安故事集》</view>
-					<view class="name">刘纯燕</view>
-				</view>
-				<view class="right">
-					<image src="../../../images/icon_collect.png"></image>
-					139万人
-				</view>
-			</view>
-			<view class="list_item">
-				<view class="left">
-					<image src="../../../images/list_ablum_create.png"></image>
-				</view>
-				<view class="center">
-					<view class="user">《刘纯燕晚安故事集》</view>
-					<view class="name">刘纯燕</view>
-				</view>
-				<view class="right">
-					<image src="../../../images/icon_collect.png"></image>
-					139万人
-				</view>
-			</view>
-			<view class="list_item">
-				<view class="left">
-					<image src="../../../images/list_ablum_create.png"></image>
-				</view>
-				<view class="center">
-					<view class="user">《刘纯燕晚安故事集》</view>
-					<view class="name">刘纯燕</view>
-				</view>
-				<view class="right">
-					<image src="../../../images/icon_collect.png"></image>
-					139万人
-				</view>
-			</view>
-			<view class="list_item">
-				<view class="left">
-					<image src="../../../images/list_ablum_create.png"></image>
-				</view>
-				<view class="center">
-					<view class="user">《刘纯燕晚安故事集》</view>
-					<view class="name">刘纯燕</view>
-				</view>
-				<view class="right">
-					<image src="../../../images/icon_collect.png"></image>
-					139万人
-				</view>
-			</view>
-			<view class="list_item">
-				<view class="left">
-					<image src="../../../images/list_ablum_create.png"></image>
-				</view>
-				<view class="center">
-					<view class="user">《刘纯燕晚安故事集》</view>
-					<view class="name">刘纯燕</view>
-				</view>
-				<view class="right">
-					<image src="../../../images/icon_collect.png"></image>
-					139万人
-				</view>
-			</view>
+			
 		</view>
 	</view>
 </view>

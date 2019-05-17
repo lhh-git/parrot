@@ -79,7 +79,7 @@ Page({
 	handleGetListInfo () {
 		let _this = this;
 		Require.ajax({
-			//loading: "1",   //是否开启loading
+			loading: "1",   //是否开启loading
 			url: "api/Tellingstory/tellingPageStory",
 			method: 'POST',
 			param: {
@@ -92,6 +92,18 @@ Page({
 				})
 			}
 		})
+	},
+	//切换最新播放量
+	handleToggleOrderType(e) {
+		let type = this.data.order_type;
+		let index = e.currentTarget.dataset.index;
+		switch (index) {
+			case '1': this.setData({ order_type: type == 1 ? 2 : 1 }); break;
+			case '1': this.setData({ order_type: type == 2 ? 1 : 1 }); break;
+			case '3': this.setData({ order_type: type == 3 ? 4 : 3 }); break;
+			case '3': this.setData({ order_type: type == 4 ? 3 : 3 }); break;
+		}
+		this.handleGetListInfo()	  //获取列表数据
 	},
 	//阅读
 	openSpeakDetail (e) {

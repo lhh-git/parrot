@@ -125,7 +125,7 @@ Component({
 			this.setData({
 				age_id: 0,
 				sex_id: 0,
-				classify_id: 0
+				classify_id: 5
 			})
 		},
 		//

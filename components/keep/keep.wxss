@@ -25,7 +25,7 @@
 	left: 0; 
 	right: 0; 
 	/* padding: 30rpx;  */
-	height: 352rpx; 
+	height: 467rpx; 
 	background-color: #fff;
 }
 /*动画前初始位置*/
@@ -56,5 +56,7 @@
 .upload view:nth-child(2) {
 	margin-top: 30rpx;
 }
-
+.upload view:nth-child(3) {
+	margin-top: 30rpx;
+}
  
