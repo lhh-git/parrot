@@ -36,6 +36,7 @@ const showToast = (title, icon, duration) => {
 
 //modal弹窗
 const showModal = (model) => {
+    console.log(model)
 	wx.showModal({
 		content: model.content,
 		cancelText: model.cancelText ? model.cancelText : '取消',

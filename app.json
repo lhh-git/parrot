@@ -1,6 +1,6 @@
 {
 	"pages": [
-		
+        
 
 		"pages/login/index/index",
 		"pages/login/phone/phone",
@@ -21,6 +21,7 @@
 		"pages/speak/record/record",
 		"pages/speak/dubbing/dubbing",
 		"pages/speak/storedWorks/storedWorks",
+        "pages/speak/classifyList/classifyList",
 
 
 		"pages/personal/personalIndex/personalIndex",
@@ -41,13 +42,12 @@
 		"pages/personal/listAlbum/listAlbum",
 		"pages/personal/listVip/listVip",
 		"pages/personal/listStory/listStory",
-
+        
 		"pages/personal/vipOrderDetail/vipOrderDetail",
 		"pages/personal/vipOrderList/vipOrderList",
 		"pages/personal/vipDetail/vipDetail",
 		"pages/personal/vipGoodsDetail/vipGoodsDetail",
 		"pages/personal/vipOrderInfo/vipOrderInfo",
-
 
 		"pages/common/search/search"
 

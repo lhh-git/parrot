@@ -2,8 +2,13 @@
 	<view class="search">
 		<view class="search_words">
 			<image src="../../../images/icon_search.png"></image>
-			<input placeholder='请输入关键字搜索' bindinput='handleGetInputVal'></input>
+			<input placeholder='请输入关键字搜索' bindinput='handleGetInputVal' value="{{search_val}}"></input>
 		</view>
+       <view class="button" bindtap="{{url=='听故事'?'handleGetSearchList':'handleGetSearchList1'}}">
+            <form bindsubmit="formSubmit" report-ubmit='true'>
+                <button form-type="submit" class="form_id">搜索</button>
+            </form >
+        </view>
 	</view>
 
 
@@ -20,41 +25,30 @@
 				<view class="item" 
 					wx:for="{{history}}"
 					wx:key="{{item.id}}"
+                    bindtap='handleHistorySearch'
 				>
-					{{item.search_name}}
+					{{item.keyWord}}
 				</view>
 			</view>
 		</view>
 
 		<!-- 搜索列表 -->
 		<view class="list_box" wx:if="{{search_val}}">
-			<view class="list_item" bindtap='handleOpenUrl'>
+			<view class="list_item" wx:for="{{list}}" wx:key="{{item.id}}" bindtap='handleOpenUrl' data-id='{{item.id}}'>
 				<view class="left">
-					<image src="../../../images/list_ablum_create.png"></image>
+					<image src="{{imgPath+item.imgPath+'&w=93&h=93'}}"></image>
 				</view>
 				<view class="center">
-					<view class="user">《刘纯燕晚安故事集》</view>
-					<view class="name">刘纯燕</view>
+					<view class="user">《{{item.name}}》</view>
+					<view class="name">{{item.authorName || item.userName}}</view>
 				</view>
 				<view class="right">
 					<image src="../../../images/icon_collect.png"></image>
-					139万人
+					{{item.collectNum}}人
 				</view>
 			</view>
-			<view class="list_item">
-				<view class="left">
-					<image src="../../../images/list_ablum_create.png"></image>
-				</view>
-				<view class="center">
-					<view class="user">《刘纯燕晚安故事集》</view>
-					<view class="name">刘纯燕</view>
-				</view>
-				<view class="right">
-					<image src="../../../images/icon_collect.png"></image>
-					139万人
-				</view>
-			</view>
-			
+            
 		</view>
+
 	</view>
 </view>

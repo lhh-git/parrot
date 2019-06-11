@@ -5,28 +5,35 @@ import Require from '../../../utils/require.js'
 
 Page({
 	data: {
-		userInfo: {}
+		userInfo: {},
+        userInfo1: {},
+
 	},
 	onLoad: function (options) {
+        const userInfo = JSON.parse(wx.getStorageSync("userInfo"))
+        console.log(userInfo)
+        this.setData({
+            userInfo: userInfo
+        })
 		this.handleGetUserInfo()
 	},
-	//获取token
+	onShow(){
+        this.handleGetUserInfo()
+    },
 	handleGetUserInfo() {
-		let _this = this;
+        const userId = wx.getStorageSync("id")
 		Require.ajax({
 			//loading: "1",   //是否开启loading
-			url: "api/User/PersonalCenter",
-			method: 'POST',
-			param: {},
-			success(res) {
-				console.log(res)
-				_this.setData({
-					userInfo: res.data
+            url: "User/getUnMessageCount",
+			method: 'GET',
+			param: {
+                userID: userId
+            },
+			success:res=> {
+				this.setData({
+					userInfo1: res
 				})
 			}
 		})
-	},
-
-
-
+	}
 })

@@ -33,10 +33,15 @@
 	color: #AEAEAE;
 }
 .section .content .button {
-	display: flex;
+	/* display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin: 41rpx 52rpx 0 50rpx;
+	margin: 41rpx 52rpx 0 50rpx; */
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:41rpx 52rpx 0 50rpx;
+
 }
 .section .content .button .collect {
 	width: 169rpx;
@@ -335,6 +340,9 @@
 	margin-top: 20rpx;
 	font-size: 30rpx;
 	color: #E5E5E5;
+}
+canvas{
+    height: 0;
 }
 
 

@@ -17,7 +17,12 @@
 .section .content {
 	position: absolute;
 	left: 0;
-	top: 0;}
+	top: 0;
+    height:100%;
+    overflow:hidden;
+    overflow-y:auto;
+
+    }
 .section .content .title {
 	margin-top: 83rpx;
 	text-align: center;
@@ -107,3 +112,8 @@
 .command .tool image:last-child {
 	margin-top: 36rpx;
 }
+
+
+canvas{
+    height: 0;
+} 

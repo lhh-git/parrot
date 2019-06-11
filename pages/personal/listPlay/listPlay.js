@@ -9,7 +9,7 @@ Page({
 		menu_id: 0,
 	},
 	onLoad: function (options) {
-		
+        this.handleOrderDetail()
 	},
 	//收集formId
 	formSubmit(e) {
@@ -27,7 +27,23 @@ Page({
 		wx.navigateTo({
 			url: '/pages/personal/detailsPlay/detailsPlay',
 		})
-	}
+	},
+    handleOrderDetail() {
+        let _this = this;
+        Require.ajax({
+            loading: "1",   //是否开启loading
+            url: "api/Money/expenditure",
+            method: 'POST',
+            param: {
+                id: "1"
+            },
+            success(res) {
+                _this.setData({
+                    story: res.data
+                })
+            }
+        })
+    }
 
 
 

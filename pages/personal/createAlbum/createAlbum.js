@@ -44,12 +44,14 @@ Page({
 		let arr = [];
 		Require.ajax({
 			//loading: "1",   //是否开启loading
-			url: "api/Tellingstory/getCreateScategory",
+            url: "Index/getStoryType",
 			method: 'GET',
-			param: {},
+			param: {
+                type:2,
+            },
 			success(res) {
 				res.data.forEach((item, index) => {
-					arr.push(item.scategory_name);
+                    arr.push(item.name);
 				})
 				_this.setData({
 					classify_arr: res.data,
@@ -68,7 +70,7 @@ Page({
 				let classify = _this.data.classify_arr;
 				let classify_sel = _this.data.classify[res.tapIndex];
 				classify.forEach((val, index) => {
-					if (val.scategory_name == classify_sel) {
+					if (val.name == classify_sel) {
 						_this.setData({
 							classify_sel: classify_sel,
 							classify_selid: val.id
@@ -150,23 +152,26 @@ Page({
 			Utils.showToast("标题格式错误", "err");
 			return;
 		}
-
-
+        const userId = wx.getStorageSync("id")
+        let userInfo = wx.getStorageSync("userInfo")
+        userInfo = JSON.parse(userInfo)
+        console.log(this.data.photo);
 		Require.uploadFile({
 			loading: "正在上传",   //是否开启loading
-			url: 'api/Tellingstory/createUserAlbum',
-			filePath: this.data.photo,
-			name: 'file',
+            url: 'User/createAlbum',
+            filePath: this.data.photo,
+            name: 'file',
 			param: {
-				arrayStoryLabel: JSON.stringify(this.data.tabs),
-				user_album_title: this.data.title,
-				user_album_authority: this.data.is == true ? 0 : 1,
-				user_album_describe: this.data.describe,
-				scategory_id: this.data.classify_selid	
+                userID: userId,
+                userName: userInfo.nickName,
+                name: this.data.title,
+                typeID: this.data.classify_selid,
+                isOpen: this.data.is?0:1,
+                desc: this.data.describe,	
 			},
 			success(res) {
 				let ret = JSON.parse(res);
-				if (ret.code == 0) {
+				if (ret.code == 200) {
 					Utils.showToast('创建成功', 'success')
 				}else {
 					Utils.showToast('创建失败', 'err')

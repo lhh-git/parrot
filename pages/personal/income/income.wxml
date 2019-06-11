@@ -1,6 +1,6 @@
 <view class="contain">
 	<view class="income">
-		<image src='../../../images/income.png'></image>
+		<image src='../../../images/income.jpg'></image>
 		<view class="menu">
 			<view wx:for="{{menu}}" 
 				wx:key="{{index}}"

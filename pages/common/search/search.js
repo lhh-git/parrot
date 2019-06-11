@@ -7,13 +7,14 @@ Page({
 	data: {
 		url: '',		//听故事/讲故事
 		search_val: '',
-
 		history: [], 	//搜索历史
 		list: [],		//搜索列表
+        imgPath:"",
 	},
 	onLoad: function (options) {
 		this.setData({
-			url: options.url
+			url: options.url,
+            imgPath: APP.globalData.imgPath
 		})
 		this.handleGetSearchHistory();
 	},
@@ -29,65 +30,111 @@ Page({
 		}
 		this.setData({
 			search_val: search_val
-		}, () => {
-			this.handleGetSearchList()
 		})
 	},
+    //获取搜索列表
+    handleGetSearchList1() {
+        const userId = wx.getStorageSync("id")
+        Require.ajax({
+            //loading: "1",   //是否开启loading
+            url: "Speak/search",
+            method: 'GET',
+            param: {
+                keyWord: this.data.search_val,
+                userID: userId
+            },
+            success: res=> {
+                if (res.code == 200) {
+                    let arr = []
+                    if (res.albumList && res.albumListForUser) {
+                         arr = [...res.albumList, ...res.albumListForUser]
+                    }else {
+                         arr = (res.albumList || res.albumListForUser)
+                    }
+                    // 去重
+                    for (let i=0; i<arr.length; i++) {
+                        for (let j=0; j < arr.length; j++){
+                            if (i!=j) {
+                                if (arr[i].id==arr[j].id) {
+                                    arr.splice(j, 1)
+                                }
+                            }
+                        }
+                    }
+                    if (arr == "") {
+                        Utils.showToast("暂无相关专辑")
+                    }
+                    this.setData({
+                        list: arr
+                    })
+                } else {
+                    Utils.showToast(res.err)
+                }
+            }
+        })
+    },
 	//获取搜索列表
 	handleGetSearchList () {
-		let _this = this;
+        const userId = wx.getStorageSync("id")
+        if (!this.data.search_val){
+            Utils.showToast("请输入搜索关键词")
+            return;
+        }
 		Require.ajax({
-			//loading: "1",   //是否开启loading
-			url: "api/Tellingstory/searchList",
-			method: 'POST',
+			loading: "1",   //是否开启loading
+            url: "Index/search",
+			method: 'GET',
 			param: {
-				title: this.data.search_val
+                keyWord: this.data.search_val,
+                userID: userId
 			},
-			success: function (res) {
-				console.log(res)
-				if (res.code == 200 && res.data instanceof Array) {
-					_this.setData({
+			success:res=> {
+				if (res.code == 200) {
+                    if(res.data=="") {
+                        Utils.showToast("暂无相关专辑")
+                    }
+					this.setData({
 						list: res.data
 					})
 				} else {
-					_this.setData({
-						list: []
-					})
+                    Utils.showToast(res.err)
 				}
 			}
 		})
 	},
 	//跳转到对应模块
-	handleOpenUrl () {
+	handleOpenUrl (e) {
 		let url = this.data.url;
 		if (url == '听故事') {
 			wx.navigateTo({
-				url: '/pages/listen/listStory/listStory',
+                url: '/pages/listen/listStory/listStory?id=' + e.currentTarget.dataset.id+"&title="+url,
 			})
 			return;
 		}
 		if (url == '讲故事') {
 			wx.navigateTo({
-				url: '/pages/listen/listStory/listStory',
+                url: '/pages/listen/listStory/listStory?id=' + e.currentTarget.dataset.id+"&title=" + url,
 			})
 			return;
 		}
 	},
 	// 搜索记录
 	handleGetSearchHistory () {
-		let _this = this;
+        const userId = wx.getStorageSync("id")
 		Require.ajax({
 			//loading: "1",   //是否开启loading
-			url: "api/Tellingstory/searchHistory",
-			method: 'POST',
-			param: {},
-			success: function (res) {
+            url: "Index/getSearchHistory",
+            method: 'GET',
+			param: {
+                userID:userId
+            },
+			success: res=> {
 				if (res.code == 200 && res.data instanceof Array) {
-					_this.setData({
+					this.setData({
 						history: res.data
 					})
 				} else {
-					_this.setData({
+					this.setData({
 						history: []
 					})
 				}
@@ -96,33 +143,36 @@ Page({
 	},
 	// 清空搜索记录
 	handleClearHistotySearch () {
-		let _this = this;
+        const userId = wx.getStorageSync("id")
+        console.log(userId)
 		Require.ajax({
 			//loading: "1",   //是否开启loading
-			url: "api/Tellingstory/clearSearchHistory",
+            url: "Index/delSearchHistory",
 			method: 'POST',
-			param: {},
-			success: function (res) {
-				console.log(res)
-				if (res.code == 0) {
-					_this.handleGetSearchHistory()
+			param: {
+                userID: userId
+            },
+			success: res=> {
+				if (res.code == 200) {
+					this.handleGetSearchHistory()
 				} else {
 					Utils.showToast(res.msg, 'err')
 				}
 			}
 		})
 	},
-
-
-	
-	
-
-
-
-
-
-
-
+    // 点击历史记录搜索
+    handleHistorySearch(e){
+        const val = e._relatedInfo.anchorTargetText.replace(/\s+/g, '')
+        this.setData({
+            search_val:val,
+        },()=>{
+            if(this.data.url=="听故事"){
+                this.handleGetSearchList()
+            }else{
+                this.handleGetSearchList1()
+            }
+        })
+    }
 
 })
-

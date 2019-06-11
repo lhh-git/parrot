@@ -14,11 +14,15 @@ Page({
 		duration: 1000,
 		list: [],			//列表页
 		order_type: 1,		//1：播放量高 2：播放量低 3：时间正序 4：时间倒序
+        imgPath: "",
 	},
 	onLoad() {
 		this.getTellingBanner()	//获取轮播图
 		this.getTellingScategory()	//获取分类
 		this.handleGetListInfo()	//获取列表数据
+        this.setData({
+            imgPath: APP.globalData.imgPath
+        })
 	},
 	//获取fromId
 	formSubmit(e) {
@@ -31,21 +35,32 @@ Page({
 		})
 	},
 	//人气榜  精品榜  新品榜
-	handleOpenCollectMoney() {
+	handleOpenCollectMoney(e) {
 		wx.navigateTo({
-			url: '/pages/speak/collectMoney/collectMoney',
+			url: '/pages/speak/collectMoney/collectMoney?title='+e.currentTarget.dataset.title,
 		})
 	},
+    // 故事分类
+    handleUrl(e) {
+        console.log(e)
+        let title = e.currentTarget.dataset.title;
+        let id = e.currentTarget.dataset.id;
+        wx.navigateTo({
+            url: '/pages/speak/classifyList/classifyList?footerIndex=' + 1 + '&title=' + title + '&id=' + id,
+        })
+    },
 	//获取轮播图
 	getTellingBanner() {
-		let _this = this;
 		Require.ajax({
 			//loading: "1",   //是否开启loading
-			url: "api/getTellingBanner",
+            url: "Index/getBanner",
 			method: 'GET',
-			param: {},
-			success(res) {
-				_this.setData({
+			param: {
+                type:2
+            },
+			success:res=> {
+                console.log(res)
+				this.setData({
 					imgUrls: res.data
 				})
 			}
@@ -56,14 +71,16 @@ Page({
 		let _this = this;
 		Require.ajax({
 			//loading: "1",   //是否开启loading
-			url: "api/Scategory/getTellingScategory",
+            url: "Index/getStoryType",
 			method: 'GET',
-			param: {},
+            param: {
+                type: 2
+            },
 			success(res) {
 				let icons = res.data
 				const pages = [];
 				icons.forEach((value, index) => {
-					const page = Math.floor(index / 6)
+					const page = Math.floor(index / 3)
 					if (!pages[page]) {
 						pages[page] = []
 					}
@@ -77,17 +94,17 @@ Page({
 	},
 	// 列表数据
 	handleGetListInfo () {
-		let _this = this;
 		Require.ajax({
 			loading: "1",   //是否开启loading
-			url: "api/Tellingstory/tellingPageStory",
-			method: 'POST',
+            url: "Index/getStoryList",
+            method: 'GET',
 			param: {
-				order_type: 1
+                order: this.data.order_type,
+                moduleType:2,
 			},
-			success(res) {
+			success:res=> {
 				console.log(res.data)
-				_this.setData({
+				this.setData({
 					list: res.data
 				})
 			}

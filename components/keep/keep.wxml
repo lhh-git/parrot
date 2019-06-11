@@ -8,7 +8,8 @@
 		<view class="upload">
 			<view bindtap='handleKeepDraft'>存草稿</view>
 			<view bindtap='handleOpenStoredWorks'>上传作品</view>
-			<view>作品分享</view>
+            <slot></slot>
+			<view bindtap='handleCreateCanvas'>作品分享</view>
 		</view>
 	</view>
 

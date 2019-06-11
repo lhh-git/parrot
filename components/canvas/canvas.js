@@ -4,11 +4,13 @@ import Require from '../../utils/require.js'
 
 Component({
 	properties: {
-		// isCanvas: {               // 属性名
-		// 	type: Boolean,     // 类型（必填），目前接受的类型包括：String, Number, Boolean, Object, Array, null（表示任意类型）
-		// 	value: ''         // 属性初始值（可选），如果未指定则会根据类型选择一个
-		// }
-	},
+            title: {
+                type: [String]
+            },
+            content: {
+                type: [String]
+            }
+	    },
 	data: {
 		isCanvas: false,
 		Width: '',			//canvas数据
@@ -40,50 +42,40 @@ Component({
 				}
 			})
 
-			wx.getUserInfo({
-				success: res => {
-					this.setData({
-						name: res.userInfo.nickName,
-						avatarUrl: res.userInfo.avatarUrl
-					})
-					wx.downloadFile({
-						url: res.userInfo.avatarUrl, //仅为示例，并非真实的资源
-						success: function (res) {
-							// 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
-							if (res.statusCode === 200) {
-								_this.setData({
-									avatarUrl: res.tempFilePath
-								}, () => {
-									_this.createNewImg()
-								})
-							}
-						}
-					})
-				}
-			})
+            const userInfo = JSON.parse(wx.getStorageSync("userInfo"))
+            const img = wx.getStorageSync("img")
+            this.setData({
+                name: userInfo.nickName,
+                avatarUrl: img
+            },()=>{
+                this.createNewImg()
+            })
 		},
 		// 给canvas填充数据
 		createNewImg() {
 			let _this = this;
 			let width = this.data.Width;
 			let height = this.data.Height;
-			let context = wx.createCanvasContext('mycanvas');
+            let context = wx.createCanvasContext('mycanvas',this);
 			//绘制背景图片
-			let canvas_bg = '../../images/canvas_bg.png'
+			let canvas_bg='/images/canvas_bg.png'
 			context.drawImage(canvas_bg, 0, 0, width * 0.8, height * 0.72);
-
+            let code = '/images/code.jpg'
+            context.drawImage(code, (width / 2) - 90, (height * 0.72)-120, 100, 100);
 			// 绘制头像
 			let path1 = this.data.avatarUrl;
+            console.log(path1)
 			let avatarurl_width = 73;    //绘制的头像宽度
 			let avatarurl_heigth = 73;   //绘制的头像高度
-			let avatarurl_x = width / 2 - avatarurl_width;   //绘制的头像在画布上的位置
+			let avatarurl_x =width/2-avatarurl_width;  //绘制的头像在画布上的位置
 			let avatarurl_y = height * 0.05;   //绘制的头像在画布上的位置
-			context.strokeStyle = "#fff";
+          
+            context.strokeStyle = "#fff";
+           
 			context.save();
 			context.beginPath(); //开始绘制
 			//先画个圆   前两个参数确定了圆心 （x,y） 坐标  第三个参数是圆的半径  四参数是绘图方向  默认是false，即顺时针
-			context.arc(avatarurl_width / 2 + avatarurl_x, avatarurl_heigth / 2 + avatarurl_y, avatarurl_width / 2, 0, Math.PI * 2, false);
-
+			context.arc(avatarurl_width / 2 + avatarurl_x, avatarurl_heigth / 2 + avatarurl_y, avatarurl_width / 2, 0, Math.PI * 2, false); 
 			context.clip();//画好了圆 剪切  原始画布中剪切任意形状和尺寸。一旦剪切了某个区域，则所有之后的绘图都会被限制在被剪切的区域内 这也是我们要save上下文的原因
 			context.drawImage(path1, avatarurl_x, avatarurl_y, avatarurl_width, avatarurl_heigth); // 推进去图片，必须是https图片
 			context.restore(); //恢复之前保存的绘图上下文 恢复之前保存的绘图上下午即状态 还可以继续绘制 
@@ -103,14 +95,14 @@ Component({
 			context.stroke();
 
 			//绘制标题
-			let title = '《海的女儿》';
+            let title = '《'+this.data.title+'》';//'《海的女儿》';
 			context.setFontSize(15);
 			context.setFillStyle('#622F2D');
 			context.fillText(title, (width * 0.8 - context.measureText(title).width) / 2, height * 0.3);
 			context.stroke();
 
 			//绘制内容
-			let str = '在海的远处，水是那么蓝，像最美丽的矢车菊花瓣，同时又是那么清，像最明亮的玻璃。然而它是很深很深，深得任何锚链都达不到底。要想从海底一直达到水面，必须范德萨萨芬的水电费';
+			let str = this.data.content;/*'在海的远处，水是那么蓝，像最美丽的矢车菊花瓣，同时又是那么清，像最明亮的玻璃。然而它是很深很深，深得任何锚链都达不到底。要想从海底一直达到水面，必须范德萨萨芬的水电费';*/
 			let count = 19;
 
 			let page0 = str.slice(0, count);
@@ -127,6 +119,7 @@ Component({
 			context.stroke();
 
 			let page2 = str.slice(count * 2, count * 3);
+           
 			context.setFontSize(12.5);
 			context.setFillStyle('#622F2D');
 			context.fillText(page2, (width * 0.8 - context.measureText(page2).width) / 2, height * 0.41);
@@ -138,24 +131,61 @@ Component({
 			context.setGlobalAlpha(0.5);
 			context.fillText(page3, (width * 0.8 - context.measureText(page3).width) / 2, height * 0.44);
 			context.stroke();
-
-
-
 			context.draw();
 		},
 		// 保存海报
 		handleSaveCanvas() {
-			wx.canvasToTempFilePath({
-				canvasId: 'mycanvas',
-				success: function (res) {
-					wx.saveImageToPhotosAlbum({
-						filePath: res.tempFilePath,
-						success(result) {
-							Utils.showToast('图片保存成功', 'success')
-						}
-					})
-				}
-			})
+            // 图片授权
+            wx.getSetting({
+                success:res=>{
+                    if (!res.authSetting['scope.writePhotosAlbum']) {
+                        wx.authorize({
+                            scope: 'scope.writePhotosAlbum',
+                            success:()=> {
+                                wx.canvasToTempFilePath({
+                                    canvasId: 'mycanvas',
+                                    success: function (res) {
+                                        wx.saveImageToPhotosAlbum({
+                                            filePath: res.tempFilePath,
+                                            success(result) {
+                                                console.log(result)
+                                                Utils.showToast('图片保存成功', 'success')
+                                            }
+                                        })
+                                    }
+                                }, this)
+                            },
+                            fail: function (res) {
+                                //重新获取用户录音授权
+                                wx.showModal({
+                                    content: '检测到您没打开相册权限，是否去设置打开？',
+                                    confirmText: "确认",
+                                    cancelText: "取消",
+                                    success: function (res) {
+                                        if (res.confirm) {
+                                            wx.openSetting({})
+                                        }
+                                    }
+                                });
+                            }
+                        })
+                    }else{
+                        wx.canvasToTempFilePath({
+                            canvasId: 'mycanvas',
+                            success: function (res) {
+                                wx.saveImageToPhotosAlbum({
+                                    filePath: res.tempFilePath,
+                                    success(result) {
+                                        console.log(result)
+                                        Utils.showToast('图片保存成功', 'success')
+                                    }
+                                })
+                            }
+                        }, this)
+                    }
+                }
+            })
+			
 		},
 		// 关闭海报
 		handleHideCanvas() {

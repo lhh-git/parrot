@@ -2,7 +2,7 @@
 const APP = getApp()
 import Utils from '../../../utils/util.js'
 import Require from '../../../utils/require.js'
-
+var app = getApp();  
 Page({
 	data: {
 		imgUrls: [],   //轮播图
@@ -12,14 +12,19 @@ Page({
 		circular: true,
 		interval: 5000,
 		duration: 1000,
-
 		list: [],  			//列表
 		order_type: 1,       //	1：播放量高到低 2：播放量低到高 3：时间正序 4：时间倒序
+        imgPath:"",
+        audioPath:"",
 	},
 	onLoad () {
 		this.getListenBanner()	//获取轮播图
 		this.getListenScategory()	//获取分类
 		this.getListInfo()          //获取列表数据
+        this.setData({
+            imgPath: app.globalData.imgPath,
+            audioPath: app.globalData.audioPath,
+        })
 	},
 	onReady: function () { //获得popup组件
 		this.filter = this.selectComponent("#filter");
@@ -28,6 +33,25 @@ Page({
 	formSubmit (e) {
 		Utils.getFormId(e);
 	},
+    onShow(){
+        let userinfo = JSON.parse(wx.getStorageSync("userInfo"))
+        console.log(userinfo)
+        wx.downloadFile({
+            url: userinfo.avatarUrl, //仅为示例，并非真实的资源
+            type:"image",
+            success: res => {
+                wx.saveFile({
+                    tempFilePath: res.tempFilePath,
+                    success: function (res) {
+                        wx.setStorageSync("img", res.savedFilePath)
+                    }
+                })
+            },
+            fail:function(){
+                Utils.showToast(err,"err",10000)
+            }
+        })
+    },
 	//分享
 	onShareAppMessage () {
 		return Utils.onShareAppMessage('21', '/pages/personal/history/history', '../../../images/my_section1.png')
@@ -40,15 +64,14 @@ Page({
 	},
 	//获取轮播图
 	getListenBanner() {
-		let _this = this;
 		Require.ajax({
 			//loading: "1",   //是否开启loading
-			url: "api/getListenBanner",
+            url: "Index/getBanner",
 			method: 'GET',
 			param: {},
-			success(res) {
-				_this.setData({
-					imgUrls: res.data
+			success:res=> {
+				this.setData({
+					imgUrls:res.data
 				})
 			}
 		})
@@ -62,23 +85,25 @@ Page({
 	},
 	//获取分类
 	getListenScategory() {
-		let _this = this;
 		Require.ajax({
 			//loading: "1",   //是否开启loading
-			url: "api/Scategory/getListenScategory",
+            url: "Index/getStoryType",
 			method: 'GET',
-			param: {},
-			success(res) {
+			param: {
+                type:1,
+            },
+			success:res=> {
 				let icons = res.data
 				const pages = [];
 				icons.forEach((value, index) => {
-					const page = Math.floor(index / 6)
+					const page = Math.floor(index / 3)
 					if (!pages[page]) {
 						pages[page] = []
 					}
 					pages[page].push(value)
 				})
-				_this.setData({
+                console.log(pages)
+				this.setData({
 					icons: pages
 				})
 			}
@@ -87,28 +112,24 @@ Page({
 	// 跳转到分类列表页
 	handleOpenClassifyList(e) {
 		let title = e.currentTarget.dataset.title;
+        let id = e.currentTarget.dataset.id;
 		wx.navigateTo({
-			url: '/pages/listen/classifyList/classifyList?footerIndex=' + 0 + '&title=' + title,
+			url: '/pages/listen/classifyList/classifyList?footerIndex=' + 0 + '&title=' + title + '&id='+id,
 		})
 	},
 	
-	
-	
-	
-	
 	//获取列表数据
 	getListInfo () {
-		const _this = this;
 		Require.ajax({
-			loading: "1",   //是否开启loading
-			url: "api/Salbum/listenPageStory",
-			method: 'POST',
+			// loading: "1",   //是否开启loading
+            url: "Index/getStoryList",
+            method: 'GET',
 			param: {
-				order_type: this.data.order_type
+				order: this.data.order_type
 			},
-			success: function (res) { 
+			success: res=> { 
 				console.log(res)
-				_this.setData({
+				this.setData({
 					list: res.data
 				})
 			}
@@ -140,27 +161,27 @@ Page({
 	},
 	//接收筛选信息
 	getFilterInfo (e) {
+        
 		let filter = e.detail;
-		console.log(filter)
-		let _this = this;
+
 		Require.ajax({
 			loading: "1",   //是否开启loading
-			url: "api/Listenstory/getPageSearch",
+            url: "Index/screenStory",
 			method: 'POST',
 			param: {
-				is_age: filter.age_id,
-				is_sex: filter.sex_id,
-				scategory_id: filter.classify_id
+                age: filter.age_id,
+                sex: filter.sex_id,
+                storyTypeID: filter.classify_id
 			},
-			success: function (res) {
+			success: res=>{
 				console.log(res)
 				if (res.code == 200 && res.data instanceof Array) {
-					_this.setData({
+					this.setData({
 						list: res.data
 					})
 				}else {
 					Utils.showToast(res.msg)
-					_this.setData({
+					this.setData({
 						list: []
 					})	
 				}
@@ -168,6 +189,6 @@ Page({
 		})
 
 	}
-	
-	
+
+
 })

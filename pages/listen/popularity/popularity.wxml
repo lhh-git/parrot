@@ -4,11 +4,11 @@
 			<image src="../../../images/details_album_bg.png"></image>
 		</view>
 		<view class="user_info">
-			<image class="photo" src="../../../images/my_photo.png"></image>
-			<view class="name">亢奋的蜗牛</view>
-			<view class="count">订阅人数0人</view>
+			<image class="photo" src="{{imgPath+desc.imgPath+'&w=115&h=115'}}"></image>
+			<view class="name">{{desc.name}}</view>
+			<view class="count">订阅人数{{desc.collectNum}}人</view>
 			<form bindsubmit="formSubmit" report-submit='true' >
-				<button class="formId" form-type="submit">已收藏</button>
+				<button class="formId" bindtap='handleAuthor' form-type="submit">{{desc.isCollectAuthor>0?"取消收藏":"收藏"}}</button>
 			</form>
 		</view>
 		
@@ -29,7 +29,7 @@
 
 		<!-- 简介 -->
 		<view class="synopsis" wx:if="{{menu_id == 0}}">
-			<view class="words">12sd</view>
+			<view class="words">{{desc.desc}}</view>
 			<view class="tabs">
 				<view class="title">
 					标签
@@ -43,30 +43,30 @@
 		</view>
 
 		<!-- 我的专辑 -->
-		<view class="list_wrapper" wx:if="{{menu_id == 1}}">
-			<view class="item" bindtap='handleOpenListStory'>
+		<view class="list_wrapper" wx:if="{{menu_id == 1}}" >
+			<view class="item" wx:for="{{desc.albumList}}" wx:key="{{item.id}}">
 				<view class="wrapper">
-					<image class="photo" src='../../../images/list_ablum_create.png'></image>
-					<view class="main">
+					<image class="photo" src="{{imgPath+item.imgPath+'&h=142&w=142'}}" data-id='{{item.id}}' bindtap='handleOpenListStory'></image>
+					<view class="main" bindtap='handleOpenListStory' data-id='{{item.id}}'>
 						<view class="title">
-							勇敢传说勇敢传说
-							<view class="count">（6）</view>
+							{{item.name}}
+							<view class="count">（{{item.storyNum}}）</view>
 						</view>
-						<view class="status">已完结</view>
+						<view class="status">{{item.isClose>0?"已完结":"未完结"}}</view>
 						<view class="tool">
 							<image class="browse" src='../../../images/icon_browse.png'></image>
-							<view>3581</view>
+							<view>{{item.playNum}}</view>
 							<image class="collect" src='../../../images/icon_collect.png'></image>
-							<view>3.5万</view>
+							<view>{{item.albumCollectNum}}</view>
 						</view>
 					</view>
-					<view class="time_collect">
-						<image src="../../../images/listen_details_collect.png"></image>
-						<view>点击收藏</view>
+					<view class="time_collect" data-id="{{item.id}}" bindtap='handleAlbum'>
+						<image src="{{item.isCollect>0?'../../../images/listen_details_collect_sel.png':'../../../images/listen_details_collect.png'}}"></image>
+						<view>{{item.isCollect>0?"取消收藏":"点击收藏"}}</view>
 					</view>
 				</view>
 			</view>
-			<view class="item">
+			<!-- <view class="item">
 				<view class="wrapper">
 					<image class="photo" src='../../../images/list_ablum_create.png'></image>
 					<view class="main">
@@ -87,11 +87,11 @@
 						<view>已收藏</view>
 					</view>
 				</view>
-			</view>
+			</view> -->
 			
 		</view>
 	</view>
 
 	<!-- 底部导航 -->
-	<footer id="footer" footerIndex="0"></footer>
+	<footer id="footer" footerIndex="{{footerIndex || 0}}"></footer>
 </view>

@@ -23,12 +23,18 @@ Component({
 		animationData: {},//
 
 	},
+    
 	lifetimes: {
 		attached() {	// 在组件实例进入页面节点树时执行
 			
 		},
 	},
 	methods: {
+        // 生成海报
+        handleCreateCanvas () {
+            this.hideModal()
+            this.triggerEvent('myevent')
+        },
 		// 显示遮罩层
 		showModal: function () {
 			var that = this;
@@ -78,21 +84,35 @@ Component({
 		//存草稿
 		handleKeepDraft() {
 			this.hideModal()
-			this.handleSaveDrafts()		//存草稿
+			this.handleSaveDrafts()		
 		},
 		handleSaveDrafts () {
-			let _this = this;
+            // if (!this.data.dbId) {
+            //     Utils.showToast('请选择配乐', 'err')
+            //     return;
+            // }
+            let userId = wx.getStorageSync("id")
 			Require.uploadFile({
 				loading: '正在上传',
-				url: "api/Tellingstory/saveDrafts", 
+                url: "Speak/saveStory", 
 				filePath: this.data.url,
 				name: 'file',
-				param: {
-					telling_story_id: this.data.storyId,
-					bgm_id: this.data.dbId
+                param: {
+                    isDraft:0,
+                    userID : userId,
+                    storyID: this.data.storyId,
+                    musicID: this.data.dbId || "",
 				},
-				success(res) {
-					Utils.showToast('上传成功', 'success')
+				success:res=> {
+                    const data = JSON.parse(res)
+                    if (data.code==200){
+                        Utils.showToast(data.msg,"success")
+                        wx.navigateTo({
+                            url:"/pages/personal/listDrafts/listDrafts?id=0"
+                        })
+                    }else{
+                        Utils.showToast(data.msg)
+                    }
 				}
 			})
 
@@ -101,18 +121,36 @@ Component({
 		},
 		//上传作品
 		handleOpenStoredWorks() {
-			// wx.navigateTo({
-			// 	url: '/pages/speak/storedWorks/storedWorks?storyId=' + this.data.storyId 
-			// 		+ '&dbId=' + this.data.dbId
-			// 		+ '&url=' + this.data.url
-			// })
-			console.log(this.data.storyId, this.data.dbId, this.data.url)
+            // if (!this.data.dbId) {
+            //     Utils.showToast('请选择配乐', 'err')
+            //     return;
+            // }
+            let userId = wx.getStorageSync("id")
+            Require.uploadFile({
+                loading: '正在上传',
+                url: "Speak/saveStory",
+                filePath: this.data.url,
+                name: 'file',
+                param: {
+                    isDraft: 1,
+                    userID: userId,
+                    storyID: this.data.storyId,
+                    musicID: this.data.dbId || "",
+                },
+                success(res) {
+                    const data = JSON.parse(res)
+                    if (data.code == 200) {
+                        Utils.showToast('上传成功', 'success')
+                        wx.navigateTo({
+                            url: '/pages/personal/listStory/listStory?id=0&title=默认专辑',
+                        })
+                    } else {
+                        Utils.showToast(data.msg)
+                    }
+                }
+            })
 		}
-		
-		
-	}
-
-
+	},
 
 
 })

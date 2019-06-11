@@ -60,7 +60,6 @@ page {
 	width: 93rpx;
 	height: 93rpx;
 	border-radius: 15rpx;
-	background: pink;
 }
 .section .list .item .photo image {
 	width: 93rpx;

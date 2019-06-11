@@ -4,14 +4,14 @@
 			<image src="../../../images/details_album_bg.png"></image>
 		</view>
 		<view class="user_info">
-			<image class="photo" src="../../../images/my_photo.png"></image>
-			<view class="name">亢奋的蜗牛</view>
-			<view class="count">订阅人数0人</view>
+			<image class="photo" src="{{draftsCount.avatarUrl}}"></image>
+			<view class="name">{{draftsCount.nickName}}</view>
+			<view class="count">订阅人数{{draftsCount.collectNum}}人</view>
 		</view>
 	</view>
 
 	<view class="section">
-		<view class="menu">
+		<!-- <view class="menu">
 			<view wx:for="{{menu}}"
 				wx:key="{{index}}" 
 				class="{{menu_id == index ? 'item active' : 'item'}}"
@@ -21,10 +21,10 @@
 				<view class="icon" wx:if="{{menu_id == index}}"></view>
 				{{item}}
 			</view>
-		</view>
+		</view> -->
 
 		<!-- 简介 -->
-		<view class="synopsis" wx:if="{{menu_id == 0}}">
+		<!-- <view class="synopsis" wx:if="{{menu_id == 0}}">
 			<textarea class="words" 
 				placeholder='写下你创作时的心得与感受,可吸引更多听众'
 				bindinput='handleTextarea'
@@ -44,18 +44,21 @@
 						{{item}}
 					</view>
 				</view>
+                <view class='save_button' bindtap='handleSavebutton'>
+                    <image src='../../../images/save_button.png'></image>
+                </view>
 			</view>
-		</view>
+		</view> -->
 
 		<!-- 我的专辑 -->
 		<view class="list_wrapper" wx:if="{{menu_id == 1}}">
-			<navigator url="/pages/personal/listDrafts/listDrafts">
+			<navigator url="/pages/personal/listDrafts/listDrafts?id={{draftsCount.albumList[0].id}}">
 				<view class="item">
 					<image class="photo" src='../../../images/list_ablum_drafts.png'></image>
 					<view class="main">
 						<view class="title">
 							草稿箱
-							<view class="count">（{{draftsCount}}）</view>
+							<view class="count">（{{draftsCount.albumList[0].storyNum}}）</view>
 						</view>
 					</view>
 					<view class="time">私密</view>
@@ -63,45 +66,48 @@
 			</navigator>
 			
 			<view class="item {{item.isTouchMove ? 'touch-move-active' : ''}}" 
-				wx:for="{{items}}" 
+				wx:for="{{draftsCount.albumList}}" 
 				wx:key="{{item.id}}"
+                wx:if="{{index!=0}}"
 				data-index="{{index}}" 
 				bindtouchstart="touchstart" 
 				bindtouchmove="touchmove" 
 				bindtap='handleOpenListStory'
+                data-id='{{item.id}}'
+                data-title='{{item.name}}'
 			>
 				<view class="wrapper">
-					<image class="photo" src='{{item.user_album_headimg}}'></image>
+					<image class="photo" src="{{index==1?'../../../images/icon_play.png':imgPath+item.imgPath}}"></image>
 					<view class="main">
 						<view class="title">
-							{{item.user_album_title}}
-							<view class="count">（{{item.countUserStory}}）</view>
+							{{item.name}}
+							<view class="count">（{{item.storyNum}}）</view>
 						</view>
-						<view class="status">已完结</view>
+						<view class="status">{{item.isClose?item.isClose>0?'已完结':'未完结':""}}</view>
 						<view class="tool">
 							<image class="browse" src='../../../images/icon_browse.png'></image>
-							<view>3581</view>
+							<view>{{item.playCount || 0}}</view>
 							<image class="collect" src='../../../images/icon_collect.png'></image>
-							<view>3.5万</view>
+							<view>{{item.collectCount}}</view>
 						</view>
 					</view>
-					<view class="time">{{item.user_album_authority == 0 ? '公开' : '私密'}}</view>
+					<view class="time">{{item.isOpen < 1 ? '公开' : '私密'}}</view>
 				</view>
 				<view class="del" 
 					catchtap="handleDeleteAlbum" 
 					data-index="{{item.id}}"
-					data-title="{{item.user_album_title}}"
+					data-title="{{item.name}}"
 				>
 					删除
 				</view>
 			</view>
 
-			<navigator url='/pages/personal/createAlbum/createAlbum'>
+			<!-- <navigator url='/pages/personal/createAlbum/createAlbum'>
 				<view class="item created">
 					<image class="photo" src='../../../images/list_ablum_create.png'></image>
 					<view class="main">创建新专辑</view>
 				</view>
-			</navigator>
+			</navigator> -->
 			
 		</view>
 	</view>

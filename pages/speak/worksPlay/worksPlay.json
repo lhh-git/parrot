@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText": "String",
+	"navigationBarTitleText": "录制作品",
 	"usingComponents": {
 		"canvas": "/components/canvas/canvas"
 	}

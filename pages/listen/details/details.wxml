@@ -1,53 +1,64 @@
 <view class="container">
 	<view class="header">
 		<view class="photo">
-			<image src="../../../images/listen_details_musicbg.png"></image>
+			<image src="../../../images/listen_details_musicbg.jpg"></image>
 		</view>
 		<view class="play">
-			<image src="../../../images/listen_details_prev.png"></image>
-			<image src="../../../images/listen_details_play.png"></image>
-			<image src="../../../images/listen_details_next.png"></image>
-			<image src="../../../images/listen_details_collect.png"></image>
+			<image src="../../../images/listen_details_prev.png" bindtap='handlePrev'></image>
+			<image src="{{control?'../../../images/listen_details_play_sel.png':'../../../images/listen_details_play.png'}}" bindtap='handleTogglePlay'></image>
+			<image src="../../../images/listen_details_next.png" bindtap='handleNext'></image>
 		</view>
 		<!-- 进度条 -->
-		<view class="progress">
+		<view class="progress" id="the-id">
 			<view class="all_show">
-				<view class="show" style="width: 10%;">
+				<view class="show" style="width: {{minute_play*100}}%;">
 					<view class="icon"></view>
 				</view>
 			</view>
 			<view class="time">
-				<view class="now_time">00:01:38 </view>
-				<view class="all_time">00:15:00</view>
+				<view class="now_time">{{time?time:"00:00:00"}} </view>
+				<view class="all_time">00:{{duration?duration:"00:00"}}</view>
 			</view>
 		</view>
+        <view class="collect">
+            <view class="collect_item">
+                <image src="{{story.isCollectStory==0?'../../../images/listen_details_collect.png':'../../../images/dubbing_collect_sel.png'}}"></image>
+                <view bindtap='handleCollect'>
+                    <form bindsubmit="formSubmit" report-ubmit='true'>
+                        <view form-type="submit">{{story.isCollectStory>0?"取消收藏":"点击收藏"}}</view>
+                    </form >
+			    </view>
+            </view>
+            <view class="collect_item">
+                <image src='../../../images/icon_browse.png'></image>
+                <view class='right'>{{story.playNum}}</view>
+                <image src='../../../images/icon_collect.png'></image>
+                <view>{{story.isCollectStory}}</view>
+            </view>
+        </view>
 		<!-- 订阅 -->
-		<view class="subscribe">
+		<!-- <view class="subscribe">
 			<view class="photo">
-				<image src="../../../images/listen_details_play.png" bindtap='handleOpenPopularity'></image>
+				<image src="{{imgPath+story.imgPath+'&h=60&w=60'}}" bindtap='handleOpenPopularity'></image>
 			</view>
 			<view class="main" bindtap='handleOpenPopularity'>
-				<view>刘纯燕</view>
-				<view>365.9万人订阅</view>
+				<view>{{story.albumName}}</view>
+				<view>{{story.isCollectAuthor}}人订阅</view>
 			</view>
-			<view class="button" bindtap='handleSubscribe'>
+			<view class="button" bindtap='handleAuthor'>
 				<form bindsubmit="formSubmit" report-ubmit='true'>
-					<button form-type="submit" class="form_id">已收藏</button>
+					<button form-type="submit" class="form_id">{{story.isCollectAuthor>0?"取消收藏":"收藏"}}</button>
 				</form >
 			</view>
-		</view>
+		</view> -->
 	</view>
 
 	<view class="section">
 		<!-- 简介 -->
 		<view class="synopsis">
 			<view class="title">简介</view>
-			<view class="{{show ? 'active' : 'content'}}">刘纯燕，1966年8月20日出生于北京，毕业于中国传媒大
-学，中国中央电视台主持人、配音演员。刘纯燕从1991年起主持《大风车》节目，塑造了小脚丫、
-刘纯燕，1966年8月20日出生于北京，毕业于中国传媒大
-学，中国中央电视台主持人、配音演员。刘纯燕从1991年起主持《大风车》节目，塑造了小脚丫、
-刘纯燕，1966年8月20日出生于北京，毕业于中国传媒大
-学，中国中央电视台主持人、配音演员。刘纯燕从1991年起主持《大风车》节目，塑造了小脚丫、
+			<view class="{{show ? 'active' : 'content'}}">
+            {{story.desc}}
 			</view>
 			<view class="show" bindtap='handleSunopsisShow'>
 				<view>展示</view>
@@ -59,101 +70,72 @@
 		<view class="complete">
 			<view class="tool">
 				<view class="tool_info">
-					专辑（4集）
-					<view class="status">完</view>
+					专辑（{{story.albunStoryList.length}}集）
+					<view class="status">{{story.isClose>0?"完":"更"}}</view>
 				</view>
-				<view class="button">
+				<!-- <view class="button" bindtap='handleAlbum'>
 					<form bindsubmit="formSubmit" report-ubmit='true'>
-						<button form-type="submit" class="form_id">已收藏</button>
+						<button form-type="submit" class="form_id">{{story.isCollectAlbum>0?"取消收藏":"收藏"}}</button>
 					</form >
-				</view>
+				</view> -->
 			</view>
-			<view class="list">
-				<view class="item">
+			<!-- <view class="list">
+				<view class="item" wx:for="{{story.albunStoryList}}" wx:key="{{item.id}}" bindtap='handletab' data-path="{{item.audioPath}}" data-id="{{item.id}}">
 					<view class="photo">
-						<image src="../../../images/list_ablum_create.png"></image>
-						<image class="photo_sel" src="../../../images/listen_details_sel.png"></image>
+						<image src="../../../images/icon_play.png"></image>
+						<image class="photo_sel" src="{{tabIndex==item.id?'../../../images/listen_details_sel.png':''}}"></image>
 					</view>
 					<view class="item_info">
-						<view class="sort active">01</view>
-						<view class="time">19-04-20</view>
+						<view class="sort active">{{'0'+(index+1)}}</view>
+						<view class="time">{{item.addTime}}</view>
 					</view>
 				</view>
-				<view class="item">
-					<view class="photo">
-						<image src="../../../images/list_ablum_create.png"></image>
-					</view>
-					<view class="item_info">
-						<view class="sort">01</view>
-						<view class="time">19-04-20</view>
-					</view>
-				</view>
-				<view class="item">
-					<view class="photo">
-						<image src="../../../images/list_ablum_create.png"></image>
-					</view>
-					<view class="item_info">
-						<view class="sort">01</view>
-						<view class="time">19-04-20</view>
-					</view>
-				</view>
-				<view class="item">
-					<view class="photo">
-						<image src="../../../images/list_ablum_create.png"></image>
-					</view>
-					<view class="item_info">
-						<view class="sort">01</view>
-						<view class="time">19-04-20</view>
-					</view>
-				</view>
-				<view class="item">
-					<view class="photo">
-						<image src="../../../images/list_ablum_create.png"></image>
-					</view>
-					<view class="item_info">
-						<view class="sort">01</view>
-						<view class="time">19-04-20</view>
-					</view>
-				</view>
-				<view class="item">
-					<view class="photo">
-						<image src="../../../images/list_ablum_create.png"></image>
-					</view>
-					<view class="item_info">
-						<view class="sort">01</view>
-						<view class="time">19-04-20</view>
-					</view>
-				</view>
-			</view>
+			</view> -->
 		</view>
-		
+		 <view class="list_box">
+            <view class="list" bindtap='handleOpenDetails' wx:for="{{story}}" wx:key="{{item.id}}" data-id='{{item.id}}'>
+                <view class="sort">
+                    <view>{{index>2?index>9?index+1:"0"+(index+1):""}}</view>
+                    <image class="three" src="../../../images/icon_sort{{1}}.png"></image>
+                </view>
+                <view class="main">
+                    <view class="photo">
+                        <image class="three" src="../../../images/icon_play.png"></image>
+                    </view>
+                    <view class="info">
+                        <view class="title overstep">{{item.title}}啊實打實擴大和大夥傻大姐啊實打實的哈斯</view>
+                        <view class="user overstep">{{item.name}}啊實打實的士大夫撒旦發生發射點發射點發</view>
+                        <view class="describe overstep">{{item.albumName || '默认专辑'}}-{{item.desc}}啊颯颯大蘇打大撒大撒大蘇打</view>
+                        <view class="tool">
+                            <view class="status">{{item.isClose>0?"已完结":"未完结"}}</view>
+                            <view class="browse">
+                                <image src='../../../images/icon_browse.png'></image>
+                                {{item.playNum}}1222
+                            </view>
+                            <view class="collect1">
+                                <image src='../../../images/icon_collect.png'></image>
+                                {{item.collectNum}}1223
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+	    </view>
 		<!-- 相关推荐 -->
-		<view class="recommend">
+		<!-- <view class="recommend">
 			<view class="title">听过本节目的人也在听…</view>
 			<view class="list">
-				<view class="item">
-					<image src="../../../images/list_ablum_create.png"></image>
-					<view class="words">安东尼先生 与安东尼…安东尼先生 与安东尼…</view>
-				</view>
-				<view class="item">
-					<image src="../../../images/list_ablum_create.png"></image>
-					<view class="words">安东尼先生 与安东尼…安东尼先生 与安东尼…</view>
-				</view>
-				<view class="item">
-					<image src="../../../images/list_ablum_create.png"></image>
-					<view class="words">安东尼先生 与安东尼…安东尼先生 与安东尼…</view>
-				</view>
-				<view class="item">
-					<image src="../../../images/list_ablum_create.png"></image>
-					<view class="words">安东尼先生 与安东尼…安东尼先生 与安东尼…</view>
-				</view>
-				<view class="item">
-					<image src="../../../images/list_ablum_create.png"></image>
-					<view class="words">安东尼先生 与安东尼…安东尼先生 与安东尼…</view>
-				</view>
-			</view>
-		</view>
+                <view wx:for="{{story.otherStory}}" class="item1" wx:key="{{item.id}}" bindtap='handletab' data-path="{{item.otherList.audioPath}}" data-id="{{item.otherList.id}}">
+                    <view class="item">
+                        <image src="../../../images/icon_play.png"></image>
+                        <image class="photo_sel" src="{{tabIndex==item.otherList.id?'../../../images/listen_details_sel.png':''}}"></image>
+                        <view class="words">{{item.otherList.title}}</view>
+                    </view>
+                </view>
+            </view>
+		</view> -->
 	</view>
+
 
 
 

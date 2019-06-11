@@ -1,13 +1,10 @@
 import Util from './util.js'
 
 var webUrl = "https://books.icpnt.com/";
-// var webUrl = "http://192.168.0.198/";
-
+// var webUrl = "http://192.168.0.149/";
 
 //网络请求方法
 function ajax(model) {
-	//获取token
-	var Token = wx.getStorageSync("Token");
 	// 开启loading
 	if (model.loading) {
 		wx.showLoading({
@@ -15,13 +12,11 @@ function ajax(model) {
 			mask: true
 		})
 	}
-
 	wx.request({
 		url: webUrl + model.url,
 		data: model.param,
 		header: {
-			"content-type": "application/x-www-form-urlencoded",
-			"token": Token
+            'content-type': 'application/x-www-form-urlencoded'
 		},
 		method: model.method,
 		success: function (res) {
@@ -33,25 +28,25 @@ function ajax(model) {
 				return;
 			}
 			
-			//token过期
-			if (res.data.code === 80000) {
-				Util.showModal({
-					content: 'token已过期',
-					cancelText: '取消',
-					confirmText: '重新获取',
-					confirm () {
-						wx.navigateTo({
-							url: '/pages/login/index/index',
-						})
-					},
-					cancel () {
-						wx.navigateTo({
-							url: '/pages/login/index/index',
-						})
-					}		
-				})
-				return;
-			}
+			// //token过期
+			// if (res.data.code === 80000) {
+			// 	Util.showModal({
+			// 		content: 'token已过期',
+			// 		cancelText: '取消',
+			// 		confirmText: '重新获取',
+			// 		confirm () {
+			// 			wx.navigateTo({
+			// 				url: '/pages/login/index/index',
+			// 			})
+			// 		},
+			// 		cancel () {
+			// 			wx.navigateTo({
+			// 				url: '/pages/login/index/index',
+			// 			})
+			// 		}		
+			// 	})
+			// 	return;
+			// }
 
 			wx.hideLoading()
 			model.success(res.data)
@@ -67,7 +62,6 @@ function ajax(model) {
 
 // 文件上传
 function uploadFile(model) {
-	var Token = wx.getStorageSync("Token");
 	if (model.loading) {
 		wx.showLoading({
 			title: model.loading,
@@ -77,7 +71,6 @@ function uploadFile(model) {
 	wx.uploadFile({
 		header: {
 			"content-type": "application/x-www-form-urlencoded",
-			"token": Token
 		},
 		url: webUrl + model.url,
 		filePath: model.filePath,

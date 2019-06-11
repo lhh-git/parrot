@@ -14,7 +14,7 @@ Page({
 
 		draftsCount: '',    //草稿箱作品数
 		items: [],			//专辑列表
-
+        imgPath :"",
 
 		//侧滑删除
 		startX: 0, //开始坐标
@@ -24,7 +24,13 @@ Page({
 	},
 	onLoad: function (options) {
 		this.handleGetAlbumInfo()
+        this.setData({
+            imgPath: APP.globalData.imgPath
+        })
 	},
+    onShow() {
+        this.handleGetAlbumInfo()
+    },
 	//收集formId
 	formSubmit (e) {
 		Utils.getFormId(e); //获取formId	
@@ -33,13 +39,13 @@ Page({
 	handleToggleMenu (e) {
 		const index = e.currentTarget.dataset.index;
 		this.setData({
-			menu_id: index
+			menu_id: index,
 		})
 	},
 	//跳转到故事列表页
-	handleOpenListStory () {
+	handleOpenListStory (e) {
 		wx.navigateTo({
-			url: '/pages/personal/listStory/listStory',
+            url: '/pages/personal/listStory/listStory?id=' + e.currentTarget.dataset.id + '&title=' + e.currentTarget.dataset.title,
 		})
 	},
 	//简介
@@ -57,8 +63,12 @@ Page({
 	},
 	//添加标签
 	handleAddTabs () {
-		let val = this.data.tab_input;
+        let val = this.data.tab_input.replace(/\s+/g, '');
 		let tabs = this.data.tabs;
+        if (val==""){
+            Utils.showToast('标签不能为空')
+            return;
+        }
 		tabs.push(val);
 		this.setData({
 			tabs: tabs,
@@ -67,43 +77,64 @@ Page({
 	},
 	// 获取专辑
 	handleGetAlbumInfo () {
+        const userid = wx.getStorageSync("id")
 		Require.ajax({
 			loading: "1",   //是否开启loading
-			url: "api/User/UserAlbum",
-			method: 'POST',
-			param: {},
+            url: "User/userHomePage",
+            method: 'GET',
+			param: {
+                id: userid
+            },
 			success: res => {
 				if (res.code == 200) {
+                    let arr = res.data
+                    for (let i = 0; i < arr.albumList.length; i++ ){
+                        console.log(arr.albumList[i])
+                        arr.albumList[i]["isTouchMove"] = false
+                       
+                    }
 					this.setData({
-						draftsCount: res.data.draftsCount
+                        draftsCount: arr
 					})
-					if (res.data.userAlbum instanceof Array) {
-						this.setData({
-							items: res.data.userAlbum
-						})
-						console.log(res.data.userAlbum)
-					}
+                   
 				}
 			}
 		})
 	},
-
-
+    handleSavebutton() {
+        const userid = wx.getStorageSync("id")
+        const tabs = JSON.stringify(this.data.tabs)
+        Require.ajax({
+            loading: "1",   //是否开启loading
+            url: "User/updateUserInfo",
+            method: 'POST',
+            param: {
+                id: userid,
+                desc: this.data.describe,
+                labels: tabs
+            },
+            success: res => {
+                if (res.code == 200) {
+                    Utils.showToast('保存成功',"success")
+                }
+            }
+        })
+    },
 
 
 
 	//手指触摸动作开始 记录起点X坐标
 	touchstart: function (e) {
 		//开始触摸时 重置所有删除
-		this.data.items.forEach(function (v, i) {
-			if (v.isTouchMove) //只操作为true的
+    this.data.draftsCount.albumList.forEach(function (v, i) {
+        if (v.isTouchMove) //只操作为true的
 				v.isTouchMove = false;
 
 		})
 		this.setData({
 			startX: e.changedTouches[0].clientX,
 			startY: e.changedTouches[0].clientY,
-			items: this.data.items
+            draftsCount: this.data.draftsCount
 		})
 	},
 
@@ -124,7 +155,7 @@ Page({
 					Y: touchMoveY
 				});
 
-		that.data.items.forEach(function (v, i) {
+        this.data.draftsCount.albumList.forEach(function (v, i) {
 			v.isTouchMove = false
 			//滑动超过30度角 return
 			if (Math.abs(angle) > 30) return;
@@ -138,7 +169,7 @@ Page({
 
 		//更新数据
 		that.setData({
-			items: that.data.items
+            draftsCount: this.data.draftsCount
 		})
 
 	},
@@ -164,19 +195,30 @@ Page({
 			Utils.showToast('默认专辑不可删除')
 			return;
 		}
-		Require.ajax({
-			//loading: "1",   //是否开启loading
-			url: "api/User/clearUserAlbum",
-			method: 'POST',
-			param: {
-				id: index
-			},
-			success: res => {
-				if (res.code == 0) {	
-					this.handleGetAlbumInfo()			
-				}
-			}
-		})
+        wx.showModal({
+            content: '删除专辑也会将您的专辑下的故事全部删除 是否删除？',
+            confirmText: "确认",
+            cancelText: "取消",
+            success: res=> {
+                if (res.confirm){
+                    Require.ajax({
+                        //loading: "1",   //是否开启loading
+                        url: "User/delAlbum",
+                        method: 'POST',
+                        param: {
+                            albumID: index
+                        },
+                        success: res => {
+                            if (res.code == 200) {
+                                Utils.showToast('删除成功','success')
+                                this.handleGetAlbumInfo()
+                            }
+                        }
+                    })
+                }
+            }
+        });
+		
 
 	}
 

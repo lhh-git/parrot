@@ -76,8 +76,9 @@
     margin-top: 24rpx;
 }
 .vgd_img {
-    margin-left: 30rpx;
-    margin-right: 30rpx;
+   display:flex;
+    flex-direction:column;
+    align-items:center;
     margin-top: 48rpx;
 }
 .vgd_img image {

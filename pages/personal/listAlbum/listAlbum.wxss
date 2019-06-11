@@ -42,7 +42,7 @@
 
 .section {
 	margin: 83rpx 33rpx 0 37rpx;
-	border-top: 1rpx solid #D1D1D1;
+	/* border-top: 1rpx solid #D1D1D1; */
 }
 .section .menu {
 	display: flex;
@@ -119,7 +119,7 @@
 /* 我的专辑 */
 .list_wrapper {
 	margin-top: 53rpx;
-	margin-bottom: 100rpx;
+	padding-bottom: 100rpx;
 }
 .list_wrapper .item {
 	overflow: hidden;
@@ -222,4 +222,17 @@
 .touch-move-active .wrapper, .touch-move-active .del {
     -webkit-transform: translateX(0) !important;
     transform: translateX(0) !important;
+}
+
+/* 简介保存 */
+.save_button {
+    width:652rpx;
+    height:90rpx;
+    display: flex;
+    justify-content: center;
+    margin-top: 30rpx;
+}
+.save_button image{
+    width:652rpx;
+    height:90rpx;
 }

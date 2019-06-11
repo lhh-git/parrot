@@ -1,0 +1,156 @@
+.title_nav {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 96rpx;
+	font-size: 30rpx;
+	color: #4E4E4E;
+	border-bottom: 1rpx solid #F3F3F3;
+}
+
+.title_nav .new,.play_count {
+	position: relative;
+}
+.title_nav .new::after {
+	position: absolute;
+	left: 65rpx;
+	top: 5rpx;
+	content: "";
+	width: 0;
+	height: 0;
+	border-left: 7rpx solid transparent;
+	border-right: 7rpx solid transparent;
+	border-bottom: 9rpx solid #4E4E4E;
+}
+.title_nav .new::before {
+	position: absolute;
+	left: 65rpx;
+	top: 19rpx;
+	content: "";
+	width: 0;
+	height: 0;
+	border-left: 7rpx solid transparent;
+	border-right: 7rpx solid transparent;
+	border-top: 9rpx solid #4E4E4E;
+}
+.title_nav .play_count::after {
+	position: absolute;
+	left: 95rpx;
+	top: 5rpx;
+	content: "";
+	width: 0;
+	height: 0;
+	border-left: 7rpx solid transparent;
+	border-right: 7rpx solid transparent;
+	border-bottom: 9rpx solid #4E4E4E;
+}
+.title_nav .play_count::before {
+	position: absolute;
+	left: 95rpx;
+	top: 19rpx;
+	content: "";
+	width: 0;
+	height: 0;
+	border-left: 7rpx solid transparent;
+	border-right: 7rpx solid transparent;
+	border-top: 9rpx solid #4E4E4E;
+}
+
+
+
+
+.list_box {
+	margin-bottom: 100rpx;
+}
+.list_box .list:last-child .main {
+	border-bottom: none;
+}
+
+.list {
+	display: flex;
+	height: 231rpx;
+}
+.list .sort {
+	margin: auto 0;
+	text-align: center;
+	width: 112rpx;
+	font-size: 25rpx;
+	color: #4E4E4E;
+}
+.list .sort .three {
+	width: 34rpx;
+	height: 22rpx;
+}
+.list .main {
+	display: flex;	
+	align-items: center;
+	margin-right: 53rpx;
+	border-bottom: 1px solid #D1D1D1;
+}
+.list .main .photo {
+	width: 142rpx;
+	height: 142rpx;
+	border-radius: 15rpx;
+}
+.list .main .photo image {
+	margin: 7rpx;
+	width: 128rpx;
+	height: 128rpx;
+}
+.list .main .info{
+	flex: 1;
+	margin-left: 32rpx;
+}
+.list .main .info .title {
+	font-size: 30rpx;
+	color: #4E4E4E;
+}
+.list .main .info .user {
+	margin-top: 15rpx;
+	font-size: 25rpx;
+	color: #8E8D8D;
+}
+.list .main .info .describe {
+	margin-top: 15rpx;
+	font-size: 25rpx;
+	color: #8E8D8D;
+}
+.list .main .info .tool {
+	display: flex;
+	align-items: center;
+	margin-top: 14rpx;
+	font-size: 25rpx;
+	color: #C9C9C9;
+}
+.list .main .info .tool .status {
+	margin-right: 65rpx;
+	color: #FF6A1F;
+}
+.list .main .info .tool .browse {
+	display: flex;
+	align-items: center;	
+}
+.list .main .info .tool .browse image{
+	margin-right: 18rpx;
+	width: 18rpx;
+	height: 19rpx;
+}
+.list .main .info .tool .collect {
+	display: flex;
+	align-items: center;
+	margin-left: 44rpx;
+}
+.list .main .info .tool .collect image {
+	margin-right: 15rpx;
+	width: 21rpx;
+	height: 20rpx;
+}
+
+
+/* 超出隐藏 */
+.overstep {
+	width: 411rpx;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

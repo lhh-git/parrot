@@ -30,7 +30,6 @@
 	width: 142rpx;
 	height: 142rpx;
 	border-radius: 15rpx;
-	background: red;
 }
 .list .main .photo image {
 	margin: 7rpx;

@@ -1,18 +1,18 @@
 <view class="contain">
-	<view class="head">
+	<view class="head" hidden="{{title=='默认专辑'}}">
 		<view class="photo">
-			<image src="../../../images/my_photo.png"></image>
+			<image src="{{title!='默认专辑'?imgPath+detail.imgPath+'&w=157&h=157':''}}"></image>
 		</view>
-		<view class="content"> 
-			<view>亢奋的蜗牛集</view>
-			<view>3.3万人订阅</view>
+		<view class="content" wx:if="{{title!='默认专辑'}}"> 
+			<view>{{detail.name}}</view>
+			<view>{{detail.collectNum}}订阅</view>
 			<view wx:if="{{status}}">已完结</view>
 		</view>
-		<switch color="#F86442" bindchange="switchChange"/>
+		<switch wx:if="{{title!='默认专辑'}}" checked="{{status}}" color="#F86442" bindchange="switchChange"/>
 	</view>
 
 	<view class="section">
-		<view class="menu">
+		<view class="menu" wx:if="{{title!='默认专辑'}}">
 			<view wx:for="{{menu}}"
 				wx:key="{{index}}" 
 				class="{{menu_id == index ? 'item active' : 'item'}}"
@@ -52,29 +52,29 @@
 		<view class="list_wrapper" wx:if="{{menu_id == 1}}">
 			<view class="list">
 				<view class="item {{item.isTouchMove ? 'touch-move-active' : ''}}" 
-					wx:for="{{items}}" 
+					wx:for="{{list}}" 
 					wx:key="{{index}}"
 					data-index="{{index}}" 
 					bindtouchstart="touchstart" 
 					bindtouchmove="touchmove" 
-					bindtap='handleWorksPlay'
+					
 				>
-					<view class="wrapper">
+					<view class="wrapper" data-id="{{item.story_id}}" bindtap='handleWorksPlay'>
 						<image class="photo" src="../../../images/icon_play.png"></image>
 						<view class="content">
-							<view class="title">《勇敢传说勇敢传说2》</view>
+							<view class="title">{{item.story_name}}</view>
 							<view class="tool">
 								<image class="browse" src="../../../images/icon_browse.png"></image>
-								<view>3581</view>
+								<view>{{item.story_playNum}}</view>
 								<image class="collect" src="../../../images/icon_collect.png"></image>
-								<view>3581</view>
+								<view>{{item.collectNum}}</view>
 							</view>
 						</view>
 					</view>
 					<view class="form_box">
 						<form bindsubmit="formSubmit" report-submit='true'>
-							<button class="formId" form-type="submit">移至</button>
-							<button class="formId" form-type="submit">删除</button>
+							<button class="formId" data-id="{{item.story_id}}" bindtap='handleGo' form-type="submit">移至</button>
+							<button class="formId" data-id="{{item.story_id}}" bindtap='handleDetele' form-type="submit">删除</button>
 						</form>
 					</view>
 				</view>

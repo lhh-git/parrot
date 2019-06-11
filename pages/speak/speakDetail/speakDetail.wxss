@@ -1,15 +1,26 @@
 /* pages/speakDetail/speakDetail.wxss */
+page{
+    height: 100%;
+}
+.contain{
+    height: 100%;
+}
 /* 上半部分 */
 .detail_top{
+    height: 100%;
     position: relative;
 }
 .detail_top image{
     width: 100%;
-    height:827rpx;
+    height: 100%;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+
 }
 .detail_story{
     width: 100%;
-    height:827rpx;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
@@ -34,22 +45,19 @@
 }
 .detail_story button {
 	position: absolute;
-	width: 228rpx;
     height: 90rpx;
-	left: 263rpx;
-	top: 220rpx;
-	background: red;
-	opacity: 0;
+	left: 50%;
+    bottom: 20rpx;
+	transform: translateX(-50%);
+	background:transparent;
 }
 .detail_story image{
     width: 228rpx;
     height: 90rpx;
-    margin-left: 263rpx;
-    margin-top: 68rpx;
 }
 .detail_story_info{
     width: 692rpx;
-    height: 419rpx;
+    height:67%;
     white-space: pre-wrap;
     margin-top: 76rpx;
     font-size: 35rpx;
@@ -60,6 +68,7 @@
     overflow-y:auto; 
     letter-spacing:140;
     text-align: left;
+    text-indent:2em;
 }
 .detail_story_mark{
     position: absolute;

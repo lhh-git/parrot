@@ -13,70 +13,70 @@
 
 	<view class="section">
 		<!-- 作者 -->
-		<view class="list author" wx:if="{{menu_id == 0}}">
+		<!-- <view class="list author" wx:if="{{menu_id == 0}}">
 			<view class="item {{item.isTouchMove ? 'touch-move-active' : ''}}" 
-				wx:for="{{items}}" 
+				wx:for="{{detail}}" 
 				wx:key="{{index}}"
 				data-index="{{index}}" 
 				bindtouchstart="touchstart" 
 				bindtouchmove="touchmove" 
 			>
-				<view class="wrapper">
+				<view class="wrapper"  data-url="/pages/listen/popularity/popularity?id={{item.id}}" bindtap='handlePath'>
 					<view class="photo">
-						<image src="../../../images/details_album_bg.png"></image>
+						<image src="{{imgPath+item.headImg}}"></image>
 					</view>
-					<view class="name">刘纯燕</view>
-					<view class="time">15:30:50</view>
+					<view class="name">{{item.name}}</view>
+					<view class="time">{{item.view_time}}</view>
 				</view>
 				<view class="del" catchtap="del" data-index="{{index}}">删除</view>
 			</view>
-		</view>
+		</view> -->
 		<!-- 专辑 -->
-		<view class="list" wx:if="{{menu_id == 1}}">
+		<view class="list" wx:if="{{menu_id == 0}}">
 			<view class="item {{item.isTouchMove ? 'touch-move-active' : ''}}" 
-				wx:for="{{items}}" 
+				wx:for="{{detail}}" 
 				wx:key="{{index}}"
 				data-index="{{index}}" 
 				bindtouchstart="touchstart" 
 				bindtouchmove="touchmove" 
 			>
-				<view class="wrapper">
+				<view class="wrapper" data-url="/pages/listen/listStory/listStory?id={{item.albumID}}" bindtap='handlePath'>
 					<view class="photo">
-						<image src="../../../images/details_album_bg.png"></image>
+						<image src="{{imgPath+item.albumInfo.imgPath}}"></image>
 					</view>
 					<view class="content">
-						<view class="user">狂奔的蜗牛</view>
-						<view class="name">刘纯燕</view>
+						<view class="user">{{item.albumInfo.name}}</view>
+						<view class="name">{{item.albumInfo.authorName}}</view>
 					</view>
 					<view class="time">
-						15:30:50
+						{{item.addTime}}
 					</view>
 				</view>
 				<view class="del" catchtap="del" data-index="{{index}}">删除</view>
 			</view>
 		</view>
 		<!-- 音频 -->
-		<view class="list audio" wx:if="{{menu_id == 2}}">
+		<view class="list audio" wx:if="{{menu_id == 1}}" >
 			<view class="item {{item.isTouchMove ? 'touch-move-active' : ''}}" 
-				wx:for="{{items}}" 
+				wx:for="{{detail}}" 
 				wx:key="{{index}}"
 				data-index="{{index}}" 
 				bindtouchstart="touchstart" 
 				bindtouchmove="touchmove" 
 			>
-				<view class="wrapper">
+				<view class="wrapper" data-url="{{(item.story_detailsType==1?'/pages/listen/details/details':'/pages/speak/speakDetail/speakDetail')+'?id='+item.story_id}}" bindtap='handlePath'>
 					<view class="photo">
-						<image src="../../../images/details_album_bg.png"></image>
+						<image src="../../../images/icon_play.png"></image>
 					</view>
 					<view class="content">
-						<view class="user">《刘纯燕晚安故事1》</view>
+						<view class="user">《{{item.story_name}}》</view>
 						<view class="user_story">
-							<view class="name">刘纯燕</view>
-							<view class="story">《刘纯燕晚安故事集》</view>
+							<view class="name">{{item.name}}</view>
+							<view class="story">《{{item.story_albumName || "默认专辑"}}》</view>
 						</view>
 					</view>
 					<view class="time">
-						15:30:50
+						{{item.view_time}}
 					</view>
 				</view>
 				<view class="del" catchtap="del" data-index="{{index}}">删除</view>

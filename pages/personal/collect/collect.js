@@ -5,25 +5,28 @@ import Require from '../../../utils/require.js'
 
 Page({
 	data: {
-		menu: ["作者", "专辑", "音频"],
-		menu_id: 0,
+		menu: ["专辑", "音频"],
+		menu_id:0,
 		classify: ["exchange_bonus.png", "exchange_commission.png", "exchange_egg.png"],
 		classify_id: 0,
-
+        detail:"",
 		//侧滑删除
-		items: [],
+        // items:[],
+        imgPath:"",
 		startX: 0, //开始坐标
 		startY: 0
 	},
 	onLoad: function (options) {
-		for (var i = 0; i < 10; i++) {
-			this.data.items.push({
-				content: i + " 向左滑动删除哦,向左滑动删除哦,向左滑动删除哦,向左滑动删除哦,向左滑动删除哦",
-				isTouchMove: false //默认隐藏删除
-			})
-		}
+        this.getOrderInfo()
+		// for (var i = 0; i < 10; i++) {
+		// 	this.data.items.push({
+		// 		content: i + " 向左滑动删除哦,向左滑动删除哦,向左滑动删除哦,向左滑动删除哦,向左滑动删除哦",
+		// 		isTouchMove: false //默认隐藏删除
+		// 	})
+		// }
 		this.setData({
-			items: this.data.items
+			// items: this.data.items,
+            imgPath: APP.globalData.imgPath
 		});
 	},
 	//收集formId
@@ -35,26 +38,97 @@ Page({
 		const index = e.currentTarget.dataset.index;
 		this.setData({
 			menu_id: index
-		})
+		},()=>{
+            this.getOrderInfo()
+        })
 	},
-
-
-
+    //跳转统一处理
+    handlePath(e) {
+        const url = e.currentTarget.dataset.url
+        wx.navigateTo({
+            url: url
+        })
+    },
 	//手指触摸动作开始 记录起点X坐标
 	touchstart: function (e) {
 		//开始触摸时 重置所有删除
-		this.data.items.forEach(function (v, i) {
+        this.data.detail.forEach(function (v, i) {
 			if (v.isTouchMove) //只操作为true的
 				v.isTouchMove = false;
-
 		})
 		this.setData({
 			startX: e.changedTouches[0].clientX,
 			startY: e.changedTouches[0].clientY,
-			items: this.data.items
+            detail: this.data.detail
 		})
 	},
-
+    // 刪除收藏作者
+    handleAuthor(e) {
+        const userid = wx.getStorageSync("id")
+        const authorID = e.currentTarget.dataset.id
+        Require.ajax({
+            loading: "1",   //是否开启loading
+            url: "Index/collectAuthor",
+            method: 'POST',
+            param: {
+                authorID: authorID,
+                userID: userid,
+            },
+            success: res => {
+                if (res.code == 200) {
+                    Utils.showToast(res.msg, "success")
+                    this.getOrderInfo()
+                } else {
+                    Utils.showToast(res.msg, "err")
+                }
+            }
+        })
+    },
+    // 刪除收藏专辑
+    handleAlbum(e) {
+        const userid = wx.getStorageSync("id")
+        const albumID = e.currentTarget.dataset.id
+        Require.ajax({
+            loading: "1",   //是否开启loading
+            url: "Index/collectAlbum",
+            method: 'POST',
+            param: {
+                albumID: albumID,
+                userID: userid,
+            },
+            success: res => {
+                if (res.code == 200) {
+                    Utils.showToast(res.msg, "success")
+                    this.getOrderInfo()
+                } else {
+                    Utils.showToast(res.msg, "err")
+                }
+            }
+        })
+    },
+    // 刪除收藏故事
+    handleCollect(e) {
+        const userid = wx.getStorageSync("id")
+        const storyID = e.currentTarget.dataset.id
+        console.log(storyID)
+        Require.ajax({
+            loading: "1",   //是否开启loading
+            url: "Index/collectStory",
+            method: 'POST',
+            param: {
+                storyID: storyID,
+                userID: userid
+            },
+            success: res => {
+                if (res.code == 200) {
+                    Utils.showToast(res.msg, "success")
+                    this.getOrderInfo()
+                } else {
+                    Utils.showToast(res.msg, "err")
+                }
+            }
+        })
+    },
 	//滑动事件处理
 	touchmove: function (e) {
 		var that = this,
@@ -72,7 +146,7 @@ Page({
 					Y: touchMoveY
 				});
 
-		that.data.items.forEach(function (v, i) {
+        that.data.detail.forEach(function (v, i) {
 			v.isTouchMove = false
 			//滑动超过30度角 return
 			if (Math.abs(angle) > 30) return;
@@ -86,7 +160,7 @@ Page({
 
 		//更新数据
 		that.setData({
-			items: that.data.items
+            detail: that.data.detail
 		})
 
 	},
@@ -111,15 +185,31 @@ Page({
 			items: this.data.items
 		})
 
-	}
-
-
-
-
-
-
-
-
-
+	},
+    // 首次渲染
+    getOrderInfo() {
+        const userId = wx.getStorageSync("id")
+        let index = this.data.menu_id
+        Require.ajax({
+            loading: "1",   //是否开启loading
+            url: "User/myCollect",
+            method: 'GET',
+            param: {
+                id: userId,
+                type: (index == 0 ? 2 : index == 1 ? 1 : index == 2 ? 1 : 3),
+            },
+            success: res => {
+                let arr = res.data
+                for (let i = 0; i < arr.length; i++) {
+                    arr[i]["isTouchMove"] = false
+                }
+                if (res.code === 200) {
+                    this.setData({
+                        detail: arr,
+                    })
+                }
+            }
+        })
+    }
 })
 

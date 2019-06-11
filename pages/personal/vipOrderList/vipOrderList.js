@@ -8,7 +8,7 @@ Page({
 		
 	},
 	onLoad: function (options) {
-
+        this.handleOrderList(options.id)
 	},
 	//收集formId
 	formSubmit(e) {
@@ -19,7 +19,23 @@ Page({
 		wx.navigateTo({
 			url: '/pages/personal/vipOrderDetail/vipOrderDetail',
 		})
-	}
+	},
+    handleOrderList(id) {
+        let _this = this;
+        Require.ajax({
+            //loading: "1",   //是否开启loading
+            url: "api/Vip/myOrder",
+            method: 'POST',
+            param: {
+            },
+            success(res) {
+                console.log(res.data)
+                _this.setData({
+                    story: res.data
+                })
+            }
+        })
+    }
 
 
 

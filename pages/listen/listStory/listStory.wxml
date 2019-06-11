@@ -1,55 +1,24 @@
 <view class="contain">
-	<view class="list">
-		<view class="item" bindtap='handleOpenDetails'>
+	<view class="list" >
+		<view class="item" wx:for="{{list}}" wx:key="{{item.id}}">
 			<view class="wrapper">
-				<image class="photo" src="../../../images/icon_play.png"></image>
-				<view class="content">
-					<view class="title">《勇敢传说勇敢传说2》</view>
+				<image class="photo" src="../../../images/icon_play.png" data-id="{{item.id}}" data-stu="{{item.storyTypeID}}"  bindtap='handleOpenDetails'></image>
+				<view class="content" data-id="{{item.id}}" data-stu="{{item.moduleType}}"  bindtap='handleOpenDetails'>
+					<view class="title">《{{item.title || item.story_name}}》</view>
 					<view class="tool">
 						<image class="browse" src="../../../images/icon_browse.png"></image>
-						<view>3581</view>
+						<view>{{item.playNum || item.story_playNum}}</view>
 						<image class="collect" src="../../../images/icon_collect.png"></image>
-						<view>3581</view>
+						<view>{{item.isCollect || item.collectNum}}</view>
 					</view>
 				</view>
-				<view class="item_collect active">
-					<image src="../../../images/listen_details_collect_sel.png"></image>
-					<view>点击收藏</view>
+				<view class="item_collect active" data-id="{{item.id}}"  bindtap="{{title=='听故事'?'handleCollect':'handleCollect1'}}">
+					<image src="{{item.isCollect>0?'../../../images/listen_details_collect_sel.png':'../../../images/listen_details_collect.png'}}"></image>
+					<view>{{item.isCollect>0?"取消收藏":"点击收藏"}}</view>
 				</view>
 			</view>
 		</view>
-		<view class="item">
-			<view class="wrapper">
-				<image class="photo" src="../../../images/icon_play.png"></image>
-				<view class="content">
-					<view class="title">《勇敢传说勇敢传说2》</view>
-					<view class="tool">
-						<image class="browse" src="../../../images/icon_browse.png"></image>
-						<view>3581</view>
-						<image class="collect" src="../../../images/icon_collect.png"></image>
-						<view>3581</view>
-					</view>
-				</view>
-				<view class="item_collect">
-					<image src="../../../images/listen_details_collect.png"></image>
-					<view>点击收藏</view>
-				</view>
-			</view>
-		</view>
-		<view class="item">
-			<view class="wrapper">
-				<image class="photo" src="../../../images/icon_play.png"></image>
-				<view class="content">
-					<view class="title">《勇敢传说勇敢传说2》</view>
-					<view class="tool">
-						<image class="browse" src="../../../images/icon_browse.png"></image>
-						<view>3581</view>
-						<image class="collect" src="../../../images/icon_collect.png"></image>
-						<view>3581</view>
-					</view>
-				</view>
-			</view>
-		</view>
+		
 	</view>
 
 

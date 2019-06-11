@@ -1,29 +1,29 @@
 <view class="contain">
 	<view class="list">
 		<view class="item {{item.isTouchMove ? 'touch-move-active' : ''}}" 
-			wx:for="{{items}}" 
+			wx:for="{{list}}" 
 			wx:key="{{index}}"
 			data-index="{{index}}" 
 			bindtouchstart="touchstart" 
 			bindtouchmove="touchmove" 
 		>
-			<view class="wrapper">
+			<view class="wrapper" data-id="{{item.story_id}}" bindtap='handleWorksPlay'>
 				<image class="photo" src="../../../images/icon_play.png"></image>
 				<view class="content">
-					<view class="title">《勇敢传说勇敢传说2》</view>
+					<view class="title">《{{item.story_name}}》</view>
 					<view class="tool">
 						<image class="browse" src="../../../images/icon_browse.png"></image>
-						<view>3581</view>
+						<view>{{item.story_playNum}}</view>
 						<image class="collect" src="../../../images/icon_collect.png"></image>
-						<view>3581</view>
+						<view>{{item.collectNum}}</view>
 					</view>
 				</view>
 			</view>
 			<view class="form_box">
 				<form bindsubmit="formSubmit" report-submit='true'>
-					<button class="formId" form-type="submit">移至</button>
-					<button class="formId" form-type="submit">删除</button>
-					<button class="formId" form-type="submit">上传</button>
+					<button class="formId" data-id="{{item.story_id}}" bindtap='handleGo' form-type="submit">移至</button>
+					<button class="formId" data-id="{{item.story_id}}" bindtap='handleDetele' form-type="submit">删除</button>
+					<button class="formId" data-id="{{item.story_id}}" bindtap='handleUploade' form-type="submit">上传</button>
 				</form>
 			</view>
 		</view>

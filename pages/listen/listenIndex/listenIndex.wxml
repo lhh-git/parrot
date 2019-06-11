@@ -1,10 +1,10 @@
 <view class="contain">
-	<view class="search">
+	<!-- <view class="search">
 		<view class="content" bindtap='hanldOpenSearch'>
 			<image class="icon" src='../../../images/icon_search.png'></image>
 			<view class="words">请输入关键字搜索</view>
 		</view>
-	</view>
+	</view> -->
 
 	<view class="slider">
 		<swiper
@@ -18,17 +18,17 @@
 		>
 			<block wx:for="{{imgUrls}}" wx:key="{{item.id}}">
 				<swiper-item>
-					<image src="{{item.banner_img}}" class="slide-image"/>
+					<image src="{{imgPath+item.imgPath+'&w=750&h=300'}}" class="slide-image"/>
 				</swiper-item>
 			</block>
 		</swiper>		
 	</view>
 
-	<view class="nav">
+	<!-- <view class="nav">
 		<image src='../../../images/icon_fiery.png' data-title="人气榜" bindtap='handleOpenCollectMoney'></image>
 		<image src='../../../images/icon_good.png' data-title="精品榜" bindtap='handleOpenCollectMoney'></image>
 		<image src='../../../images/icon_new.png' data-title="新品榜" bindtap='handleOpenCollectMoney'></image>
-	</view>
+	</view> -->
 
 	<view class="icon-slider">
 		<swiper
@@ -44,11 +44,14 @@
 						<view wx:for="{{item}}" 
 							class="icons_item" 
 							wx:key="{{item.id}}"
-							data-title="{{item.scategory_name}}"
+							data-title="{{item.name}}"
+                            data-id="{{item.id}}"
 							bindtap='handleOpenClassifyList'
 						>
-							<image src="{{item.scategory_headimg}}" class="slide-image"/>
-							<view class="title">{{item.scategory_name}}</view>
+							<image src="{{imgPath+item.imgPath+'&w=180&h=180'}}" class="slide-image"/>
+							<view class="title">
+                                {{item.name}}
+                            </view>
 						</view>
 					</view>
 				</swiper-item>
@@ -58,11 +61,11 @@
 
 
 	<view class="section">
-		<view class="title">
+		<!-- <view class="title">
 			<view class="new" data-index="3" bindtap='handleToggleOrderType'>最新</view>
 			<view class="play_count" data-index="1" bindtap='handleToggleOrderType'>播放量</view>
 			<view bindtap='handleOpenFilter'>筛选</view>
-		</view>
+		</view> -->
 		<view class="main">
 			<view class="alone" 
 				wx:for="{{list}}" 
@@ -71,15 +74,16 @@
 				bindtap='handleOpenDetails'
 			>
 				<view class="left">
-					<image src="{{item.salbum_headimg}}"></image>
+					<image src="../../../images/icon_play.png"></image>
 				</view>
 				<view class="right">
-					<view class="title overhide_two">{{item.salbum_name}}</view>
+					<view class="title overhide_two">《{{item.title}}》</view>
+                    <view class="title_second">副标题</view>
 					<view class="tool">
 						<image class="browse" src='../../../images/icon_browse.png'></image>
-						<view>{{item.salbum_play}}</view>
+						<view>{{item.playNum}}</view>
 						<image class="collect" src='../../../images/icon_collect.png'></image>
-						<view>{{item.salbum_like}}</view>
+						<view>{{item.collectNum}}</view>
 					</view>
 				</view>
 			</view>	

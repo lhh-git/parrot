@@ -2,20 +2,19 @@
 	<view class="section">
 		<image class="bgImg" src='../../../images/spkD_bg.jpg'></image>
 		<view class="content">
-			<view class="title">《海的女儿》</view>
+			<view class="title">{{'《' + story.title + '》'}}</view>
 			<view class="info">
-				<view>安徒生</view>
-				<view class="count">365字</view>
+				<view>{{story.original}}</view>
+				<view class="count">{{story.desc.length}}字</view>
 			</view>
 			<view class="words">
-				在海的远程
-                        
+				{{story.desc}}
 			</view>
 		</view>
 	</view>
 	<view class="command">
 		<view class="progress">
-			<view class="start" style="width: {{time / duration * 100}}%">
+			<view class="start" style="width: {{time/duration * 100}}%">
 				<view class="loco"></view>
 			</view>
 		</view>
@@ -31,10 +30,10 @@
 		</view>
 		
 		<view class="tool">
-			<image src='../../../images/dubbing_button.png'
+			<!-- <image src='../../../images/dubbing_button.png'
 				bindtap='handleOpenDubbing'
 			>
-			</image>
+			</image> -->
 			<image 
 				src='../../../images/dubbing_button2.png'
 				bindtap='handleOpenUpload'
@@ -45,9 +44,9 @@
 
 	<!-- 配乐列表 -->
 	<modal id="modal" bind:myevent="getDubbingIndex"></modal>
-
 	<!-- 录制完成弹窗 -->
-	<keep id="keep" storyId="{{id}}" dbId="{{dbId}}"  url="{{recordInfo.tempFilePath}}"></keep>	
-
+	<keep id="keep" storyId="{{id}}" bind:myevent="handleCreateCanvas" dbId="{{dbId}}" albumId="{{1}}"  url="{{recordInfo.tempFilePath}}"></keep>	
+     <!-- 使用canvas -->
+	 <canvas id="canvas" title="{{story.title}}" content="{{story.desc}}"></canvas>
 </view>
 

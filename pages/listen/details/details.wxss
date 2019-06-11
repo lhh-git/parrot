@@ -119,7 +119,7 @@
 
 
 .section {
-
+    padding-bottom: 100rpx;
 }
 .section .synopsis {
 	margin: 38rpx 59rpx 0 56rpx;
@@ -207,6 +207,7 @@
 .complete .list .item {
 	margin-left: 21rpx;
 	width: 142rpx;
+    text-align:center;
 }
 .complete .list .item:first-child {
 	margin-left: 0;
@@ -267,6 +268,7 @@
 .section .recommend .list .item {
 	width: 142rpx;
 	margin-bottom: 22rpx;
+    position: relative;
 }
 .section .recommend .list .item:nth-child(3n-1) {
 	margin: 0 77rpx 0 76rpx;
@@ -287,4 +289,140 @@
 	font-size: 25rpx;
 	color: #4E4E4E;
 
+}
+.photo_sel {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+/* 收藏 */
+.collect {
+    width: 100%;
+    display: flex;
+    /* justify-content: space-between; */
+    font-size: 30rpx;
+    margin-top:20rpx;
+    position: relative;
+    margin-bottom:20rpx;
+}
+.collect image{
+    width: 30rpx;
+    height: 30rpx;
+    display: block;
+}
+.collect_item{
+    display: flex;
+    margin-left:44rpx; 
+}
+.collect_item:last-child{
+  position: absolute;
+  right:44rpx;
+}
+.right{
+    padding-right: 20rpx;
+}
+/* .list .item1 {
+    margin-left:76rpx;
+    text-align: center;
+}
+.list .item1:nth-child(3n-2){
+    margin-left:0;
+} */
+
+.list_box {
+	margin-bottom: 100rpx;
+}
+.list_box .list:last-child .main {
+	border-bottom: none;
+}
+
+.list {
+	display: flex;
+	height: 231rpx;
+}
+.list .sort {
+	margin: auto 0;
+	text-align: center;
+	width: 112rpx;
+	font-size: 25rpx;
+	color: #4E4E4E;
+}
+.list .sort .three {
+	width: 34rpx;
+	height: 22rpx;
+}
+.list .main {
+	display: flex;	
+	align-items: center;
+	margin-right: 53rpx;
+	border-bottom: 1px solid #D1D1D1;
+}
+.list .main .photo {
+	width: 142rpx;
+	height: 142rpx;
+	border-radius: 15rpx;
+}
+.list .main .photo image {
+	margin: 7rpx;
+	width: 128rpx;
+	height: 128rpx;
+}
+.list .main .info{
+	flex: 1;
+	margin-left: 32rpx;
+}
+.list .main .info .title {
+	font-size: 30rpx;
+	color: #4E4E4E;
+}
+.list .main .info .user {
+	margin-top: 15rpx;
+	font-size: 25rpx;
+	color: #8E8D8D;
+}
+.list .main .info .describe {
+	margin-top: 15rpx;
+	font-size: 25rpx;
+	color: #8E8D8D;
+}
+.list .main .info .tool {
+	display: flex;
+	align-items: center;
+	margin-top: 14rpx;
+	font-size: 25rpx;
+	color: #C9C9C9;
+     justify-content: space-between;
+}
+.list .main .info .tool .status {
+	/* width:154rpx; */
+	color: #FF6A1F;
+}
+.list .main .info .tool .browse {
+	display: flex;
+	align-items: center;
+    /* width:175rpx;	 */
+}
+.list .main .info .tool .browse image{
+	margin-right: 18rpx;
+	width: 18rpx;
+	height: 19rpx;
+}
+.list .main .info .tool .collect1 {
+	display: flex;
+	align-items: center;
+	/* margin-left: 44rpx; */
+    font-size: 25rpx;
+}
+.list .main .info .tool .collect1 image {
+	margin-right: 15rpx;
+	width: 21rpx;
+	height: 20rpx;
+}
+/* 超出隐藏 */
+.overstep {
+	width: 411rpx;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }

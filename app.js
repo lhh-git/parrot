@@ -39,25 +39,27 @@ App({
 		// 获取openID
 		wx.login({
 			success(res) {
-				console.log(res)
+                const code = res.code
+                console.log(code)
 				Require.ajax({
 					// loading: "1",   //是否开启loading
-					url: "api/user/getOpenID",
-					method: 'POST',
+                    url: "Login/getOpenId",
+					method: 'GET',
 					param: {
-						code: res.code
+						code: code
 					},
-					success(res) {
-						console.log(res)
-						wx.setStorageSync("openid", res.openID);
+					success:res=>{
+                        console.log(res)
+                        const openId = JSON.parse(res.openId)
+                        wx.setStorageSync("openid", openId.openid);
+                        wx.setStorageSync("session_key", openId.session_key);
 					}
 				})
 			}
 		})
-
 		// 检测手机型号
 		wx.getSystemInfo({
-			success: function (res) {
+			success: res=>{
 				if (/iOS/ig.test(res.system)) {
 					wx.setStorageSync("system", 'ios');
 				}
@@ -70,6 +72,7 @@ App({
 		
     },
     globalData: {
-		
+        audioPath:"https://books.icpnt.com/Uploads/",
+        imgPath: "https://books.icpnt.com/Image/getThumbnail?imgPath="
     },
 })

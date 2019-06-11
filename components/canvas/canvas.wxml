@@ -1,12 +1,11 @@
-<view class="canvas_box" wx:if="{{isCanvas}}">
+<view class="canvas_box" wx:if="{{isCanvas}}" catchtouchmove="ture">
 	<view class="mask" bindtap='handleHideCanvas'></view>
 
 	<view class="content">
 		<canvas  style="width:{{Width*0.8}}px;height:{{Height*0.72}}px;background: pink;" canvas-id="mycanvas"/>
-	
-		<form bindsubmit="formSubmit" report-submit='true' >
-			<button class="formId" form-type="submit" bindtap='handleSaveCanvas'>保存海报</button>
-		</form>
+            <form bindsubmit="formSubmit" report-submit='true' >
+                <button class="formId" bindtap='handleSaveCanvas'>保存海报</button>
+            </form>
 		<view class="point">保存海报，分享给更多好友</view>
 	</view>
 		

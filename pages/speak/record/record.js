@@ -13,12 +13,14 @@ Page({
 		id: '',				//故事id
 		control: false,		//开关
 		recordStart: false, //开启试听和下一步
-		recordInfo: null,     //录音信息
+		recordInfo: null,   //录音信息
 		audition: false,    //试听
 		time: 0,            //录制时长
 		minute: 0,          //录制分钟数
+        story:"",           //故事
 	},
 	onLoad: function (options) {
+        this.handleGetTellingStoryContent(options.id)
 		this.setData({
 			id: options.id
 		})
@@ -27,6 +29,24 @@ Page({
 			scope: 'scope.record'
 		})
 	},
+    //根据上页故事id获取内容
+    handleGetTellingStoryContent(id) {
+        let _this = this;
+        Require.ajax({
+            //loading: "1",   //是否开启loading
+            url: "Speak/getStoryDetails",
+            method: 'GET',
+            param: {
+                id: id
+            },
+            success(res) {
+                console.log(res.data)
+                _this.setData({
+                    story: res.data
+                })
+            }
+        })
+    },
 	//监测录音权限
 	handleToggleRecord() {
 		let _this = this;
@@ -58,7 +78,6 @@ Page({
 	handleJudegRecord () {
 		let _this = this;
 		let control = !this.data.control;
-
 		if (this.data.recordInfo && this.data.control == false) {
 			Utils.showModal({
 				content: '重新录制会覆盖已录制的音频',

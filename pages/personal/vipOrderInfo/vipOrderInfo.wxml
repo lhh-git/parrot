@@ -4,7 +4,7 @@
 		<view class="title">添加地址</view>
 		<view class="item">
 			<view>所在城市</view>
-			<input placeholder='请输入关键字搜索' 
+			<input placeholder='请选择城市' 
 				placeholder-class='input_place'
 				disabled='true'
 				bindtap='handleGetPicker'
@@ -12,15 +12,19 @@
 		</view>
 		<view class="item">
 			<view>街道/小区</view>
-			<input placeholder='例：朝阳区 朝阳路28号 绿洲小区' placeholder-class='input_place'/>
+			<input placeholder='例：朝阳区 朝阳路28号 绿洲小区' data-title="district" bindinput='handleInput' placeholder-class='input_place'/>
 		</view>
 		<view class="item">
 			<view>楼号-门牌号</view>
-			<input placeholder='请填写收货人详细地址' placeholder-class='input_place'/>
+			<input placeholder='请填写收货人详细地址' data-title="add" bindinput='handleInput' placeholder-class='input_place'/>
 		</view>
 		<view class="item">
 			<view>收货人姓名</view>
-			<input placeholder='请填写收货人姓名' placeholder-class='input_place'/>
+			<input placeholder='请填写收货人姓名' data-title="name" bindinput='handleInput' placeholder-class='input_place'/>
+		</view>
+        <view class="item">
+			<view>联系方式</view>
+			<input placeholder='请填写收货人有效联系方式' data-title="phone" bindinput='handleInput' placeholder-class='input_place'/>
 		</view>
 	</view>
 
@@ -30,27 +34,27 @@
 		<view class="content">
 			<view class="item">
 				<view class="left">
-					<image src="../../../images/list_ablum_create.png"></image>
+					<image src="{{imgPath+detail.imgs[0].imgPath+'&w=116&h=116'}}"></image>
 				</view>
 				<view class="center overhide">
-					<view class="user">韩国进口精品学生专用日记本</view>
+					<view class="user">{{detail.name}}</view>
 					<view class="count">
-						<view>￥ 00.00</view>
-						<view>￥ 00.00</view>
+						<view>￥ {{detail.cost}}</view>
+						<view>￥ {{detail.price}}</view>
 					</view>
 				</view>
 				<view class="right">
-					<view>赠品</view>
+					<!-- <view>赠品</view> -->
 					<view>x1</view>
 				</view>
 			</view>
 
 			<view class="item">
 				<view class="left">
-					<image src="../../../images/list_ablum_create.png"></image>
+					<image src="{{imgPath+detail.giftInfo.imgPath+'&w=116&h=116'}}"></image>
 				</view>
 				<view class="center overhide">
-					<view class="user">韩国进口精品学生专用日记本</view>
+					<view class="user">{{detail.giftInfo.name}}</view>
 					<view class="count">
 						<view>￥ 00.00</view>
 						<view>￥ 00.00</view>
@@ -68,7 +72,7 @@
 		</view>
 		<view class="money">
 			<view>商品总额</view>
-			<view>￥ 00.00</view>
+			<view>￥ {{detail.cost}}</view>
 		</view>
 	</view>
 
@@ -76,13 +80,13 @@
 	<!-- 留言/备注 -->
 	<view class="remarks">
 		<view class="title">留言/备注</view>
-		<input placeholder=''></input>
+		<input placeholder='' data-title="leaving" bindinput='handleInput'></input>
 	</view>
 
 	<!-- 确认购买 -->
 	<view class="purchase">
 		<form bindsubmit="formSubmit" report-submit='true' >
-			<button class="formId" form-type="submit">确认购买</button>
+			<button class="formId" bindtap='handleVipOrderInfo' form-type="submit">确认购买</button>
 		</form>
 	</view>
 

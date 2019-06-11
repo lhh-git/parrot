@@ -5,10 +5,14 @@ import Require from '../../../utils/require.js'
 
 Page({
 	data: {
-        list: []
+        list: [],
+        imgPath:"",
 	},
 	onLoad: function (options) {
         this.getListVip()
+        this.setData({
+            imgPath: APP.globalData.imgPath
+        })
 	},
 	//收集formId
 	formSubmit(e) {
@@ -24,7 +28,7 @@ Page({
     getListVip () {
         Require.ajax({
             loading: "1",   //是否开启loading
-            url: "api/Vip/getVipHome",
+            url: "User/getVipImgs",
             method: 'GET',
             param: {},
             success: res=> {

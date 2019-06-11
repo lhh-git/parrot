@@ -16,12 +16,12 @@ Component({
 	data: {
 		hideModal: true, //模态框的状态  true-隐藏  false-显示
 		animationData: {},//
-		age: [],		//年龄
-		age_id: 0,
-		sex: [],		//性别
-		sex_id: 0,
+        age: [{ name: "0-3岁", is_age: 1 }, { name: "6岁+", is_age: 2 }, { name: "10岁+", is_age: 3}],		//年龄
+		age_id: 1,
+        sex: [{ name: "男生", is_sex: 1 }, { name: "女", is_sex:2}],		//性别
+		sex_id: 1,
 		classify: [],	//分类
-		classify_id: 5,
+		classify_id: 1,
 
 	},
 	lifetimes: {
@@ -83,18 +83,17 @@ Component({
 		},
 		// 获取数据
 		handleGetFilterInfo () {
-			let _this = this;
 			Require.ajax({
 				//loading: "1",   //是否开启loading
-				url: "api/Listenstory/getShowPageSearch",
+                url: "Index/getStoryType",
 				method: 'GET',
-				param: {},
-				success(res) {
+				param: {
+                    type: 1,
+                },
+				success:res=>{
 					console.log(res)
-					_this.setData({
-						age: res.data.salbum_age,
-						sex: res.data.salbum_sex,
-						classify: res.data.salbum_category
+					this.setData({
+						classify: res.data
 					})
 				}
 			})
@@ -123,9 +122,9 @@ Component({
 		//重置
 		handleReset () {
 			this.setData({
-				age_id: 0,
-				sex_id: 0,
-				classify_id: 5
+				age_id: 1,
+				sex_id: 1,
+				classify_id: 1
 			})
 		},
 		//

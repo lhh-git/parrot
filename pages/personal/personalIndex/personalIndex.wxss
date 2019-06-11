@@ -1,6 +1,6 @@
-page{
+/* page{
 	background:rgba(243,243,243,1);
-}
+} */
 
 .header {
 	display: flex;

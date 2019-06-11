@@ -4,77 +4,78 @@
     <view class="detail_top">
         <image src='../../../images/spkD_bg.jpg'></image>
         <view class='detail_story'>
-            <view class='detail_story_name'>{{'《' + story.telling_story_name + '》'}}</view>
-            <view class='detail_story_from'>{{story.telling_story_author}}
-			<view class="span">{{story.telling_story_content.length}}字</view ></view>
-				<form bindsubmit="formSubmit"  report-submit='true' >
-					<button form-type="submit" bindtap='handleOpenRecord'></button>
-					<image src='../../../images/spkD_read.png'></image>
-				</form >
-            	
-
-            <view class="detail_story_info">{{story.telling_story_content}}</view>
-            <!-- 上半部分 底部遮罩 -->
-            <view class="detail_story_mark"></view>
+            <view class='detail_story_name'>{{'《' + story.title + '》'}}</view>
+            <view class='detail_story_from'>{{story.original}}
+			<view class="span">{{story.desc.length}}字</view ></view>
+            <view class="detail_story_info">{{story.desc}}</view>
+            <form bindsubmit="formSubmit"  report-submit='true' >
+                <button form-type="submit" bindtap='handleOpenRecord'>
+                    <image src='../../../images/spkD_read.png'></image>
+                </button>
+			</form >
+            <!-- 上半部分 底部遮罩
+            <view class="detail_story_mark"></view> -->
         </view>
     </view>
     <!-- 下半部分 前三 -->
-    <view class="detail_bottom">
+    <!-- <view class="detail_bottom">
 		<view class="sort_banner">
 			<image src="../../../images/spkD_good.png"></image>
 			<image src="../../../images/spkD_help.png"></image>
 		</view>
 		<view class="sort_list">
-			<view class="sort_alone sort_alone_2">
-				<image src="{{three[1].User.avatarUrl}}" class="photo"></image>
+			<view class="sort_alone sort_alone_2" data-id="{{story.goodReaders[1].userID}}" bindtap='handleUrl'>
+				<image src="{{story.goodReaders[1].userInfo.avatarUrl}}" class="photo"></image>
 				<image src="../../../images/spkD_second.png" class="sort_photo"></image>
-				<view class="title">{{three[1].User.nickName}}</view>
+				<view class="title">{{story.goodReaders[1].userInfo.nickName}}</view>
 			</view>
-			<view class="sort_alone">
-				<image src="{{three[0].User.avatarUrl}}" class="photo"></image>
+			<view class="sort_alone"  data-id="{{story.goodReaders[0].userID}}" bindtap='handleUrl'>
+				<image src="{{story.goodReaders[0].userInfo.avatarUrl}}" class="photo"></image>
 				<image src="../../../images/spkD_first.png" class="sort_photo"></image>
-				<view class="title">{{three[0].User.nickName}}</view>
+				<view class="title">{{story.goodReaders[0].userInfo.nickName}}</view>
 			</view>
-			<view class="sort_alone sort_alone_2">
-				<image src="{{three[2].User.avatarUrl}}" class="photo"></image>
+			<view class="sort_alone sort_alone_2" data-id="{{story.goodReaders[2].userID}}" bindtap='handleUrl'>
+				<image src="{{story.goodReaders[2].userInfo.avatarUrl}}" class="photo"></image>
 				<image src="../../../images/spkD_three.png" class="sort_photo"></image>
-				<view class="title">{{three[2].User.nickName}}</view>
+				<view class="title">{{story.goodReaders[2].userInfo.nickName}}</view>
 			</view>
 		</view>
-    </view>
+    </view> -->
 
     <!-- 列表 -->
-    <view class='list'>
+    <!-- <view class='list'>
         <view class='bottom_list'
-			wx:for="{{excellent}}"
+			wx:for="{{story.goodReaders}}"
 			wx:key="{{item.id}}"
+            hidden='{{index<3}}'
+            data-id="{{item.userID}}" bindtap='handleUrl'
 		>
             <view class='bottom_list_photo'>
-                <image src='{{item.User.avatarUrl}}'></image>
-                <view class="icon_sel">{{index+4+10}}</view>
+                <image src='{{item.userInfo.avatarUrl}}'></image>
+                <view class="icon_sel">{{index+1}}</view>
             </view>
             <view class='bottom_list_msg'>
                 <view>
-                    {{item.User.nickName}}
+                    {{item.userInfo.nickName}}
                     <view class="icon">|</view>
-                    <view class='opus'>{{'《' + item.TellingStory.telling_story_name + '》'}}</view>
+                    <view class='opus'>{{'《' + item.storyInfo.title + '》'}}</view>
                     <view class="list_msg_border">
                         <view class='list_msg_bottom'>
                             <image class='like' src='../../../images/spkD_like.png'></image>
-                            <view class='money'>{{item.userAlbumLikeCount}}</view>
+                            <view class='money'>{{item.collectNum}}</view>
                         </view>
                         <view class='list_msg_bottom ml'>
                             <image class='like' src='../../../images/spkD_ear.png'></image>
-                            <view class='money'>{{item.user_story_play}}</view>
+                            <view class='money'>{{item.playNum}}</view>
                         </view>
-                        <view class="list_msg_time">{{item.user_story_addtime}}</view>
+                        <view class="list_msg_time">{{item.addTime}}</view>
                     </view>
                 </view>
             </view>
         </view>
-    </view>
-    <view class="bottom_more">
+    </view> -->
+    <!-- <view class="bottom_more">
         <view>查看更多</view>
         <image src='../../../images/spkD_more.png'></image>
-    </view>
+    </view> -->
 </view>

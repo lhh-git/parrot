@@ -52,6 +52,11 @@ page {
 	height: 168rpx;
 	background: #fff;
 }
+.title_second {
+    font-size: 22rpx;
+    padding-top: 10rpx;
+    color: #C9C9C9;
+}
 .nav image {
 	width: 86rpx;
 	height: 121rpx;
@@ -63,20 +68,20 @@ page {
 
 .icon-slider {
 	width: 100%;
-	height: 312rpx;
+	height:300rpx;
 	margin-top: 5rpx;
 	background: #fff;
 }
 .icon-slider .item-box {
 	display: flex;
 	flex-wrap: wrap;
-	margin: 28rpx 53rpx 52rpx 60rpx;
+	margin:25rpx 35rpx 52rpx 40rpx;
 }
 .icon-slider .item-box .icons_item {
 	overflow: hidden;
 	position: relative;
-	width: 168rpx;
-	height: 100rpx;
+	width: 180rpx;
+	height: 180rpx;
 	border-radius: 20rpx;
 }
 .icon-slider .item-box .icons_item .title {
@@ -85,7 +90,7 @@ page {
 	bottom: 0;
 	text-align: center;
 	line-height: 28rpx;
-	width: 168rpx;
+	width: 180rpx;
 	height: 28rpx;
 	font-size: 25rpx;
 	color: white;
@@ -98,8 +103,8 @@ page {
 	margin-top: 34rpx;
 }
 .icon-slider image {
-	width: 168rpx;
-	height: 100rpx;
+	width: 180rpx;
+	height: 180rpx;
 }
 
 
@@ -203,6 +208,9 @@ page {
 	line-height: 33rpx;
 	font-size: 30rpx;
 	color: #4E4E4E;
+    overflow: hidden;
+    white-space: nowrap;
+    width:100%
 }
 .section .main .alone .right .tool {
 	position: absolute;

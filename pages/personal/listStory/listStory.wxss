@@ -38,8 +38,8 @@
 
 
 .section {
-	margin: 83rpx 33rpx 0 37rpx;
-	border-top: 1rpx solid #D1D1D1;
+	margin: 0rpx 33rpx 0 37rpx;
+	/* border-top: 1rpx solid #D1D1D1; */
 }
 .section .menu {
 	display: flex;
@@ -66,7 +66,7 @@
 /* 简介 */
 .synopsis {
 	margin-top: 40rpx;
-	margin-bottom: 100rpx;
+	padding-bottom: 100rpx;
 }
 .synopsis .words {
 	overflow-y: auto;
@@ -116,7 +116,7 @@
 /* 我的专辑 */
 .list_wrapper {
 	margin-top: 35rpx;
-	margin-bottom: 100rpx;
+	padding-bottom: 100rpx;
 }
 .list_wrapper .list {
 	margin-top: 20rpx;

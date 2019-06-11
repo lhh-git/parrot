@@ -1,5 +1,6 @@
 //获取应用实例
 const APP = getApp()
+var WxParse = require('../../../wxParse/wxParse.js');
 import Utils from '../../../utils/util.js'
 import Require from '../../../utils/require.js'
 
@@ -12,9 +13,13 @@ Page({
 		interval: 2000,
 		duration: 1000,
 		circular: true,
+        imgPath:""
 	},
 	onLoad: function (options) {
         this.getListDetail(options.id)
+        this.setData({
+            imgPath: APP.globalData.imgPath
+        })
 	},
 	//收集formId
 	formSubmit(e) {
@@ -30,17 +35,18 @@ Page({
     getListDetail(id) {
         Require.ajax({
             loading: "1",   //是否开启loading
-            url: "api/Vip/getProductDetail",
-            method: 'POST',
+            url: "User/getProductDetails",
+            method: 'GET',
             param: {
-                id:id
+                productID:id
             },
             success: res => {
                 console.log(res)
                 if (res.code === 200) {
+                    WxParse.wxParse('article', 'html', res.data.content, this, 5);
                     this.setData({
                         detail: res.data,
-                        imgUrls: res.data.ProductImg
+                        imgUrls: res.data.imgs
                     })
                 }
             }

@@ -6,7 +6,7 @@
 .search .search_words {
 	display: flex;
 	align-items: center;
-	width: 630rpx;
+	width: 530rpx;
 	height: 80rpx;
 	background: #F4F4F4;
 	border-radius: 40rpx;

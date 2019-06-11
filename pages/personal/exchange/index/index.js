@@ -11,7 +11,7 @@ Page({
 		classify_id: 0,
 	},
 	onLoad: function (options) {
-
+        this.handleOrderDetail()
 	},
 	//收集formId
 	formSubmit (e) {
@@ -32,10 +32,21 @@ Page({
 		})
 	},
 	
-
-
-
-
+    handleOrderDetail() {
+        Require.ajax({
+            loading: "1",   //是否开启loading
+            url: "api/Money/exchange",
+            method: 'POST',
+            param: {
+                user_money_type: this.data.classify_id
+            },
+            success:res=> {
+                this.setData({
+                    story: res.data
+                })
+            }
+        })
+    }
 
 
 

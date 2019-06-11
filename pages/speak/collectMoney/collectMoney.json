@@ -1,5 +1,5 @@
 {
-	"navigationBarTitleText": "精品榜",
+	"navigationBarTitleText": "",
 	"usingComponents": {
 		"footer": "/components/footer/footer"
 	}

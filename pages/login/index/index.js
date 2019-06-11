@@ -9,14 +9,23 @@ Page({
 	},
 	onLoad: function (options) {
 		//判断用户是否已经授权
-		var _this = this;
 		wx.getSetting({
 			success(res) {
 				if (res.authSetting['scope.userInfo']) {
 					//获取用户信息
 					wx.getUserInfo({
-						success: function (res) {
-							_this.handleGetToken(res.rawData, 2)
+						success:res=>{
+                            wx.setStorageSync("userInfo",res.rawData);
+                            var phone = wx.getStorageSync("phone");
+                            if (phone) {
+                                wx.switchTab({
+                                    url: '/pages/listen/listenIndex/listenIndex'
+                                })
+                            } else {
+                                wx.redirectTo({
+                                    url: '/pages/login/phone/phone'
+                                })
+                            }
 						}
 					});
 				}
@@ -25,47 +34,21 @@ Page({
 	},
 	//获取用户信息
 	handleGetUserInfo(e) {
-		console.log(e)
 		var userInfo = e.detail.userInfo;
+        wx.setStorageSync("userInfo", JSON.stringify(e.detail.userInfo))
 		if (userInfo) {
-			this.handleGetToken(userInfo, 1);
+            var phone = wx.getStorageSync("phone");
+            if (phone) {
+                wx.switchTab({
+                    url: '/pages/listen/listenIndex/listenIndex'
+                })
+            } else {
+                wx.redirectTo({
+                    url: '/pages/login/phone/phone'
+                })
+            }
 		} else {
 			console.log('err')
 		}
 	},
-	//获取token
-	handleGetToken(userInfo, status) {
-		if(status == '2') {
-			var userInfo = JSON.parse(userInfo);
-		}
-		var openId = wx.getStorageSync("openid");
-		userInfo.openID = openId;
-
-		Require.ajax({
-			//loading: "1",   //是否开启loading
-			url: "api/User/wxLogin",
-			method: 'POST',
-			param: {
-				userInfo: JSON.stringify(userInfo)
-			},
-			success(res) {
-				console.log(res);
-				wx.setStorageSync("Token", res.Token);
-				
-				var phone = wx.getStorageSync("phone");
-				if (phone) {
-					wx.switchTab({
-						url: '/pages/listen/listenIndex/listenIndex'
-					})
-				}else {
-					wx.redirectTo({
-						url: '/pages/login/phone/phone'
-					})
-				}
-			}
-		})
-	},
-	
-
-	
 })

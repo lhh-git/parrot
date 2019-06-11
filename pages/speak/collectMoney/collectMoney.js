@@ -5,68 +5,52 @@ import Require from '../../../utils/require.js'
 
 Page({
 	data: {
-		imgUrls: [],   //轮播图
-		icons: [],     //分类
-		indicatorDots: true,
-		autoplay: true,
-		circular: true,
-		interval: 5000,
-		duration: 1000
+        list:[],
+        title:"",
+        imgPath:'',
 	},
-	onLoad() {
-		this.getListenBanner()	//获取轮播图
-		this.getListenScategory()	//获取分类
+    onLoad(options) {
+        wx.setNavigationBarTitle({
+            title: options.title
+        })
+        this.setData({
+            title: options.title,
+            imgPath: APP.globalData.imgPath
+        },()=>{
+            this.handleList()
+        })
 	},
-	handleOpenCollectMoney() {
-		wx.navigateTo({
-			url: '/pages/listen/collectMoney/collectMoney',
-		})
-	},
-	//获取轮播图
-	getListenBanner() {
-		let _this = this;
+	// handleOpenCollectMoney() {
+	// 	wx.navigateTo({
+	// 		url: '/pages/listen/collectMoney/collectMoney',
+	// 	})
+	// },
+	handleList() {
+        let path
+		if (this.data.title=="周榜") {
+            path = 'Speak/getWeekTopList'
+        } else if (this.data.title == "总榜"){
+            path = 'Speak/getAllTopList'
+        }else{
+            path = 'Speak/getMonthTopList'
+        }
 		Require.ajax({
 			//loading: "1",   //是否开启loading
-			url: "api/getListenBanner",
+            url: path,
 			method: 'GET',
 			param: {},
-			success(res) {
-				_this.setData({
-					imgUrls: res.data
-				})
+			success:res=> {
+                if(res.code==200){
+                    this.setData({
+                        list: res.data
+                    })
+                }
 			}
 		})
 	},
-	//获取分类
-	getListenScategory() {
-		let _this = this;
-		Require.ajax({
-			//loading: "1",   //是否开启loading
-			url: "api/Scategory/getListenScategory",
-			method: 'GET',
-			param: {},
-			success(res) {
-				let icons = res.data
-				const pages = [];
-				icons.forEach((value, index) => {
-					const page = Math.floor(index / 6)
-					if (!pages[page]) {
-						pages[page] = []
-					}
-					pages[page].push(value)
-				})
-				_this.setData({
-					icons: pages
-				}, () => {
-					console.log(_this.data.icons)
-				})
-			}
-		})
-	},
-	//
-	handleOpenWorksPlay() {
+	handleOpenWorksPlay(e) {
 		wx.navigateTo({
-			url: '/pages/speak/worksPlay/worksPlay'
+            url: '/pages/speak/worksPlay/worksPlay?id=' + e.currentTarget.dataset.id
 		})
 	}
 

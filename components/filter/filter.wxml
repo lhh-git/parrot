@@ -43,7 +43,7 @@
 							data-index="{{item.id}}"
 							bindtap='handleToggleClassify' 
 						>
-							{{item.scategory_name}}
+							{{item.name}}
 						</view>
 					</view>
 				</view>

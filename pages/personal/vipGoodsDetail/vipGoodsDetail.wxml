@@ -1,3 +1,5 @@
+<import src="../../../wxParse/wxParse.wxml"/>
+
 <view>
 	<swiper
 		indicator-dots="{{indicatorDots}}"
@@ -11,30 +13,30 @@
 	>
 		<block wx:for="{{imgUrls}}" wx:key="{{index}}">
 			<swiper-item>
-				<image src="{{item.product_images}}" class="slide-image" width="355" height="150" />
+				<image src="{{imgPath+item.imgPath+'&w=750&h=853'}}" class="slide-image" width="355" height="150" />
 			</swiper-item>
 		</block>
 	</swiper>
     <view class="vgd_money">
-        <view class="item">{{detail.product_price}}
-            <view class="no_money">{{detail.product_original_price}}</view>
+        <view class="item">￥{{detail.cost}}
+            <view class="no_money">￥{{detail.price}}</view>
             </view>
         <view class="item">运费：包邮</view>
     </view>
-    <view class="vgd_name">{{detail.product_name}}</view>
-    <view class="vgd_gift">赠品：鹦鹉听书畅听权限{{detail.MemberCard.membercard_days}}日</view>
-    <view class="vgd_discount">优惠：折上反佣金</view>
+    <view class="vgd_name">{{detail.name}}</view>
+    <view class="vgd_gift">赠品：{{detail.giftInfo.name}}</view>
+    <view class="vgd_discount">优惠：{{detail.sale}}</view>
     <view class="vgd_detail">
         <view class="vgd_h1">- 商品详情 -</view>
         <view class="vgd_img">
-            <image src="{{detail.ProductImg[0].product_images}}"></image>
+            <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
         </view>
     </view>
     <view class="vgd_button">
         <form bindsubmit="formSubmit" report-submit='true' >
             <button class="vgd_purchase" 
 				form-type="submit"
-                data-id="{{detail.membercard_id}}"
+                data-id="{{detail.id}}"
 				bindtap='handleOpenVipOrderInfo'
 			>
 				确认购买

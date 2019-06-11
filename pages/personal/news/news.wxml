@@ -1,18 +1,16 @@
 <view class="contain">
-	<view class="list">
-		<view class="head">2019-2-10</view>
+	<view class="list" wx:for="{{list}}" wx:key="{{item.id}}">
+		<view class="head" wx:if="{{index!=0?list[index-1].date!=item.date?list[index-1].date!=item.date:list[index-1].dateType!=item.dateType:index==0}}">{{item.dateType==1?"今天":item.dateType==2?"昨天":item.date}}</view>
 		<view class="item">
 			<view class="title">
-				<view class="new"></view>
-				<view class="words">新年到送好礼！鹦鹉听书祝您新年快乐！ 拷贝</view>
-				<view class="time">15:30:50</view>
+				<!-- <view class="new"></view> -->
+				<view class="words">{{item.title}}</view>
+				<view class="time">{{item.time}}</view>
 			</view>
 			<view class="main">
-				{{txt}}  
-				<view class="show" wx:if="{{txt.length > 39}}">点击阅读全文</view>
+				{{id==item.id?item.con:item.content}}  
+				<view class="show" wx:if="{{item.con.length > 29}}" data-id="{{item.id}}" bindtap='handleOpen'>{{id==item.id?"收起":"点击阅读全文"}}</view>
 			</view>
 		</view>
 	</view>
-
-
 </view>

@@ -5,27 +5,29 @@
 		</view>
 		<view class="main">
 			<view class="title overhide">{{userInfo.nickName}}</view>
-			<view class="update_time">最近登陆：{{userInfo.lastTime}}</view>
+			<view class="update_time">最近登陆：{{userInfo1.lastLoginTime ||""}}</view>
 		</view>
 		<view class="chat">
-			<image src="../../../images/my_chat.png"></image>
+			 <button open-type="contact">
+                <image src="../../../images/my_chat.png"></image>
+            </button>
 		</view>
 	</view>
 
-	<view class="activity">
+	<!-- <view class="activity">
 		<navigator url="/pages/personal/listVip/listVip">
 			<image src='../../../images/my_activity.png'></image>
 		</navigator>
-	</view>
+	</view> -->
 
 	<view class="section">
-		<navigator url="/pages/personal/income/income">
+		<!-- <navigator url="/pages/personal/income/income">
 			<view>
 				<image class="icon" src='../../../images/my_section1.png'></image>
 				<view class="main">我的收入</view>
 				<image class="open" src="../../../images/my_open.png"></image>
 			</view>
-		</navigator>
+		</navigator> -->
 		<navigator url="/pages/personal/listAlbum/listAlbum">
 			<view>
 				<image class="icon" src='../../../images/my_section2.png'></image>
@@ -49,7 +51,7 @@
 		</navigator>
 	</view>
 
-	<view class="section select">
+	<!-- <view class="section select">
 		<navigator url="/pages/personal/vipDetail/vipDetail">
 			<view class="news">
 				<image class="icon" src='../../../images/my_section7.png'></image>
@@ -60,10 +62,10 @@
 			<view class="news .bottom_none">
 				<image class="icon" src='../../../images/my_section6.png'></image>
 				我的消息
-				<view class="new"></view>
+				<view class="{{userInfo1.unMessReadCount!=0?'new':null}}"></view>
 			</view>
 		</navigator>	
-	</view>
+	</view> -->
 
 
 	

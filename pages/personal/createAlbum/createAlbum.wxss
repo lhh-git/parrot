@@ -14,6 +14,7 @@ page{
 }
 .new_title{
     display: flex;
+    flex:1 1;
     margin-left: 32rpx;
     margin-right: 32rpx;
     font-size: 28rpx;
@@ -32,10 +33,11 @@ page{
     color: red;
 }
 .new_title input{
-    width: 584rpx;
+    /* width: 584rpx; */
     margin-top: -9rpx;
-    padding-left: 28rpx;
+    margin-left: 28rpx;
     color:#AEAEAE;
+
 }
 .new_title .classify{
     margin-left: 28rpx;
