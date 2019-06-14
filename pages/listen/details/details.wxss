@@ -331,7 +331,7 @@
 } */
 
 .list_box {
-	margin-bottom: 100rpx;
+	/* margin-bottom: 100rpx; */
 }
 .list_box .list:last-child .main {
 	border-bottom: none;
@@ -392,7 +392,7 @@
 	margin-top: 14rpx;
 	font-size: 25rpx;
 	color: #C9C9C9;
-     justify-content: space-between;
+     /* justify-content: space-between; */
 }
 .list .main .info .tool .status {
 	/* width:154rpx; */
@@ -413,6 +413,7 @@
 	align-items: center;
 	/* margin-left: 44rpx; */
     font-size: 25rpx;
+    padding-left:40rpx;
 }
 .list .main .info .tool .collect1 image {
 	margin-right: 15rpx;

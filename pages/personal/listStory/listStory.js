@@ -20,7 +20,9 @@ Page({
 		startY: 0,
         title:"",
         userinfo:"",
-        imgPath:""
+        imgPath:"",
+        page:1,
+        list:""
 	},
 	onLoad: function (options) {
         console.log(options)
@@ -79,26 +81,42 @@ Page({
             param: {
                 userID: userId,
                 albumID: this.data.id,
+                page:this.data.page
             },
             success:res=> {
                 if (res.code == 200) {
+                    if (res.data == "") {
+                        this.setData({
+                            page: this.data.page - 1
+                        })
+                        Utils.showToast("没有更多数据")
+                        return;
+                    }
                     let arr = res.data
                     for (let i = 0; i < arr.length; i++) {
                         arr[i]["isTouchMove"] = false
 
                     }
-                    if (res.albumInfo&&res.albumInfo.isClose > 0 && this.data.title != '默认专辑' && this.data.title != '草稿箱') {
+                    if (res.albumInfo && res.albumInfo.isClose > 0 && this.data.title !='已上传专辑' && this.data.title != '草稿箱') {
                         this.setData({
                             status:true
                         })
                     }
+                    console.log(arr)
                     this.setData({
-                        list: arr,
-                        detail: res.albumInfo
+                        list: [...this.data.list,...arr],
+                        // detail: res.albumInfo
                     })
                 }
             }
         })
+    },
+    //上拉加载
+    onReachBottom: function () {
+        this.setData({
+            page:this.data.page+1
+        })
+        this.handleList()
     },
 	//菜单切换
 	handleToggleMenu (e) {
@@ -154,7 +172,25 @@ Page({
                         success: res => {
                             if (res.code == 200) {
                                 Utils.showToast('删除成功', "success")
-                                this.handleList()
+                                let arr = this.data.list
+                                if(arr.length>=10) {
+                                    for (let i = 0; i < arr.length; i++) {
+                                        if (arr[i].story_id == e.currentTarget.dataset.id) {
+                                            arr.splice(i, 1)
+                                        }
+                                    }
+                                    this.setData({
+                                        list: arr
+                                    })
+                                }else{
+                                    this.setData({
+                                        page:1,
+                                        list: []
+                                    },()=>{
+                                        this.handleList()
+                                    })
+                                    
+                                }
                             }
                         }
                     })
@@ -233,7 +269,26 @@ Page({
             },
             success: res => {
                 if (res.code == 200) {
-                    this.handleList()
+                    Utils.showToast('移动成功', "success")
+                    let arr = this.data.list
+                    if (arr.length > 9) {
+                        for (let i = 0; i < arr.length; i++) {
+                            if (arr[i].story_id == this.data.storyid) {
+                                arr.splice(i, 1)
+                            }
+                        }
+                        this.setData({
+                            list: arr
+                        })
+                    } else {
+                        this.setData({
+                            page: 1,
+                            list:[]
+                        }, () => {
+                            this.handleList()
+                        })
+
+                    }
                 }
             }
         })

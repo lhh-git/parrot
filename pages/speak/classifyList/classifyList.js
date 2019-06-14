@@ -3,13 +3,15 @@ const APP = getApp()
 import Utils from '../../../utils/util.js'
 import Require from '../../../utils/require.js'
 
+
 Page({
 	data: {
 		footerIndex: '',	//底部菜单下标
         list:"",
         order_type:1,
         imgPath: "",
-        id:""
+        id:"",
+        page: 1
 	},
 	onLoad: function (options) {
         this.getListInfo(options.id)
@@ -38,14 +40,30 @@ Page({
                 order: this.data.order_type,
                 typeID:id,
                 moduleType:2,
+                page : this.data.page
             },
             success: res => {
-                console.log(res)
-                this.setData({
-                    list: res.data
-                })
+                if (res.data == "") {
+                    this.setData({
+                        page: this.data.page - 1
+                    })
+                    Utils.showToast("没有更多数据")
+                    return;
+                }
+               if (res.code == 200 ) {
+                    this.setData({
+                        list: [...this.data.list,...res.data]
+                    })
+                }
             }
         })
+    },
+    //上拉加载
+    onReachBottom: function () {
+        this.setData({
+            page: this.data.page + 1
+        })
+        this.getListInfo(this.data.id)
     },
     //切换最新播放量
     handleToggleOrderType(e) {

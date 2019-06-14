@@ -10,7 +10,7 @@
 			<view class="wrapper" data-id="{{item.story_id}}" bindtap='handleWorksPlay'>
 				<image class="photo" src="../../../images/icon_play.png"></image>
 				<view class="content">
-					<view class="title">《{{item.story_name}}》</view>
+					<view class="title">{{item.story_name}}</view>
 					<view class="tool">
 						<image class="browse" src="../../../images/icon_browse.png"></image>
 						<view>{{item.story_playNum}}</view>

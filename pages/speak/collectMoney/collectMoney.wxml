@@ -12,7 +12,7 @@
 				<view class="info">
 					<view class="title overstep">{{item.storyInfo.title}}</view>
 					<view class="user overstep">{{item.storyInfo.author}}</view>
-					<view class="describe overstep">{{!item.albumInfo?"默认专辑":item.albumInfo.name}}-{{item.storyInfo.desc}}</view>
+					<view class="describe overstep">{{!item.albumInfo?"已上传专辑":item.albumInfo.name}}-{{item.storyInfo.desc}}</view>
 					<view class="tool">
 						<!-- <view class="status">{{item.isClose>0?"已完结":"未完结"}}</view> -->
 						<view class="browse">

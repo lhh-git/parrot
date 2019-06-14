@@ -4,8 +4,9 @@
 
 .header {
 	display: flex;
-	padding: 58rpx 65rpx 0;
+	padding: 58rpx 0 0 65rpx;
 	height: 133rpx;
+    justify-content: space-between;
 	background:rgba(255,255,255,1);
 }
 .header .photo {

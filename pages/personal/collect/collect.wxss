@@ -74,6 +74,10 @@ page {
 	margin-top: 19rpx;
 	font-size: 25rpx;
 	color: #4E4E4E;
+    overflow:hidden;
+    white-space:nowrap;
+    width:328rpx;
+    text-overflow: ellipsis;
 }
 .section .list .item .content .name {
 	margin-top: 40rpx;
@@ -118,7 +122,6 @@ page {
 }
 .section .audio .user_story .story {
 	margin-top: 40rpx;
-	margin-left: 49rpx;
 	font-size: 25rpx;
 	color: #909090;
 }

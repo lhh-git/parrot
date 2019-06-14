@@ -47,6 +47,7 @@
 	font-size: 45rpx;
 	color: #989898;
 	text-indent: 2em;
+    white-space: pre-wrap
 }
 
 

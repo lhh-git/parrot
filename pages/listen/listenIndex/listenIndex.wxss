@@ -68,14 +68,13 @@ page {
 
 .icon-slider {
 	width: 100%;
-	height:300rpx;
-	margin-top: 5rpx;
 	background: #fff;
 }
 .icon-slider .item-box {
 	display: flex;
 	flex-wrap: wrap;
-	margin:25rpx 35rpx 52rpx 40rpx;
+    align-items: center;
+	margin:40rpx 35rpx 0rpx 40rpx;
 }
 .icon-slider .item-box .icons_item {
 	overflow: hidden;

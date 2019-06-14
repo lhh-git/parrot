@@ -1,26 +1,26 @@
 <view class="container">
-	<view class="title_nav">
+	<!-- <view class="title_nav">
 			<view class="new" data-index="3" bindtap='handleToggleOrderType'>最新</view>
 			<view class="play_count" data-index="1" bindtap='handleToggleOrderType'>播放量</view>
-		</view>
+		</view> -->
 
 	<view class="list_box">
 		
 		<view class="list" bindtap='handleOpenDetails' wx:for="{{list}}" wx:key="{{item.id}}" data-id='{{item.id}}'>
 			<view class="sort">
-				 <view>{{index>2?index>9?index+1:"0"+(index+1):""}}</view>
-				<image class="three" src="../../../images/icon_sort{{index+1}}.png"></image>
+				 <view>{{index>2?index+1>9?index+1:"0"+(index+1):""}}</view>
+				<image class="three" src="{{index+1>3?'':'../../../images/icon_sort'+(index+1)+'.png'}}"></image>
 			</view>
 			<view class="main">
 				<view class="photo">
-					<image class="three" src="../../../images/icon_play.png"></image>
+					<image class="three" src="{{imgPath+item.imgPath}}"></image>
 				</view>
 				<view class="info">
 					<view class="title overstep">{{item.title}}</view>
 					<view class="user overstep">{{item.name}}</view>
-					<view class="describe overstep">{{item.albumName || "默认专辑"}}-{{item.desc}}</view>
+					<view class="describe overstep">{{item.jianjie || ""}}</view>
 					<view class="tool">
-						<view class="status">{{item.isClose>0?"已完结":"未完结"}}</view>
+						<!-- <view class="status">{{item.isClose>0?"已完结":"未完结"}}</view> -->
 						<view class="browse">
 							<image src='../../../images/icon_browse.png'></image>
 							{{item.playNum}}

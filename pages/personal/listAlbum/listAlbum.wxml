@@ -91,7 +91,7 @@
 							<view>{{item.collectCount}}</view>
 						</view>
 					</view>
-					<view class="time">{{item.isOpen < 1 ? '公开' : '私密'}}</view>
+					<view class="time">私密</view>
 				</view>
 				<view class="del" 
 					catchtap="handleDeleteAlbum" 

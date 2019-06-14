@@ -7,9 +7,7 @@
 				<view>{{story.original}}</view>
 				<view class="count">{{story.desc.length}}字</view>
 			</view>
-			<view class="words">
-				{{story.desc}}
-			</view>
+			<view class="words">{{story.desc}}</view>
 		</view>
 	</view>
 	<view class="command">

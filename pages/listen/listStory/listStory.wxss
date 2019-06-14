@@ -64,4 +64,159 @@
 	width: 41rpx;
 	height: 35rpx;
 }
+.section {
+	margin-top: 5rpx;
+	background: #fff;
+}
+.section>.title {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 106rpx;
+	font-size: 30rpx;
+	color: #4E4E4E;
+}
+.section>.title view:last-child {
+	text-align: center;
+	line-height: 80rpx;
+	width: 142rpx;
+	height: 80rpx;
+	font-size: 30rpx;
+	color: #F9992C;
+	border: 2rpx solid #F9992C;
+	border-radius: 27rpx;
+}
+.section>.title .new,.play_count {
+	position: relative;
+}
+.section>.title .new::after {
+	position: absolute;
+	left: 65rpx;
+	top: 5rpx;
+	content: "";
+	width: 0;
+	height: 0;
+	border-left: 7rpx solid transparent;
+	border-right: 7rpx solid transparent;
+	border-bottom: 9rpx solid #4E4E4E;
+}
+.section>.title .new::before {
+	position: absolute;
+	left: 65rpx;
+	top: 19rpx;
+	content: "";
+	width: 0;
+	height: 0;
+	border-left: 7rpx solid transparent;
+	border-right: 7rpx solid transparent;
+	border-top: 9rpx solid #4E4E4E;
+}
+.section>.title .play_count::after {
+	position: absolute;
+	left: 95rpx;
+	top: 5rpx;
+	content: "";
+	width: 0;
+	height: 0;
+	border-left: 7rpx solid transparent;
+	border-right: 7rpx solid transparent;
+	border-bottom: 9rpx solid #4E4E4E;
+}
+.section>.title .play_count::before {
+	position: absolute;
+	left: 95rpx;
+	top: 19rpx;
+	content: "";
+	width: 0;
+	height: 0;
+	border-left: 7rpx solid transparent;
+	border-right: 7rpx solid transparent;
+	border-top: 9rpx solid #4E4E4E;
+}
+
+.section .main {
+
+}
+.section .main .alone {
+	display: flex;
+	height: 152rpx;
+	margin: 0 40rpx 0 60rpx;
+	border-bottom: 1rpx solid #F3F3F3;
+}
+.section .main .alone:last-child {
+	border-bottom: none;
+}
+.section .main .alone .left {
+	margin-top: 22rpx;
+}
+.section .main .alone .left image {
+	width: 98rpx;
+	height: 98rpx;
+	border-radius: 10rpx;
+}
+.section .main .alone .right {
+	position: relative;
+	margin-left: 23rpx;
+	width: 529rpx;
+}
+.section .main .alone .right .title {
+	margin-top: 22rpx;
+	line-height: 33rpx;
+	font-size: 30rpx;
+	color: #4E4E4E;
+    width:270rpx;
+    overflow:hidden;
+}
+.section .main .alone .right .tool {
+	position: absolute;
+	bottom: 30rpx;
+	display: flex;
+	align-items: center;
+	margin-top: 17rpx;
+	height: 25rpx;
+	font-size: 25rpx;
+	color: #C9C9C9;
+}
+.section .main .alone .right .tool .browse {
+	margin-right: 18rpx;
+	width: 18rpx;
+	height: 19rpx;
+}
+.section .main .alone .right .tool .collect {
+	margin-left: 44rpx;
+	margin-right: 15rpx;
+	width: 21rpx;
+	height: 19rpx;
+}
+.title_second {
+    font-size: 22rpx;
+    padding-top: 20rpx;
+    color: #C9C9C9;
+}
+.button_collect{
+    width: 200rpx;
+    height: 96rpx;
+    background: #F86442;
+    color: #fff;
+    text-align: center;
+    line-height: 96rpx;
+    border-radius: 50rpx;
+    position: absolute;
+    right: 0;
+    top:50%;
+    transform: translateY(-50%)
+}
+.button_collect1{
+    width: 200rpx;
+    height: 96rpx;
+    background: #D2D2D2;
+    color: #fff;
+    text-align: center;
+    line-height: 96rpx;
+    border-radius: 50rpx;
+    position: absolute;
+    right: 0;
+    top:50%;
+    transform: translateY(-50%)
+}
 

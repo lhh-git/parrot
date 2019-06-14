@@ -191,8 +191,8 @@ Page({
 	handleDeleteAlbum (e) {
 		let index = e.currentTarget.dataset.index;
 		let title = e.currentTarget.dataset.title;
-		if (title == "默认专辑") {
-			Utils.showToast('默认专辑不可删除')
+		if (title == "已上传专辑") {
+            Utils.showToast('已上传专辑不可删除')
 			return;
 		}
         wx.showModal({

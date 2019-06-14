@@ -70,10 +70,10 @@
 						<image src="../../../images/icon_play.png"></image>
 					</view>
 					<view class="content">
-						<view class="user">《{{item.story_name}}》</view>
+						<view class="user">{{item.story_name}}</view>
 						<view class="user_story">
 							<view class="name">{{item.name}}</view>
-							<view class="story">《{{item.story_albumName || "默认专辑"}}》</view>
+							<view class="story">{{item.story_albumName || "已上传专辑"}}</view>
 						</view>
 					</view>
 					<view class="time">
@@ -87,7 +87,7 @@
 						</view>
 					</view>
 				</view>
-				<view class="del"  data-id="{{item.id}}" bindtap='handleCollect'>删除</view>
+				<view class="del"  data-id="{{item.story_id}}" bindtap='handleCollect'>删除</view>
 			</view>
 		</view>
 

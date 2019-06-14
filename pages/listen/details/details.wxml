@@ -70,7 +70,7 @@
 		<view class="complete">
 			<view class="tool">
 				<view class="tool_info">
-					专辑（{{story.albunStoryList.length}}集）
+					专辑（{{albumStoryList.length}}集）
 					<view class="status">{{story.isClose>0?"完":"更"}}</view>
 				</view>
 				<!-- <view class="button" bindtap='handleAlbum'>
@@ -93,28 +93,28 @@
 			</view> -->
 		</view>
 		 <view class="list_box">
-            <view class="list" bindtap='handleOpenDetails' wx:for="{{story}}" wx:key="{{item.id}}" data-id='{{item.id}}'>
+            <view class="list" bindtap='handletab' data-sort="{{index}}" data-path="{{item.audioPath}}" wx:for="{{albumStoryList}}" wx:key="{{item.id}}" data-id='{{item.id}}'>
                 <view class="sort">
-                    <view>{{index>2?index>9?index+1:"0"+(index+1):""}}</view>
-                    <image class="three" src="../../../images/icon_sort{{1}}.png"></image>
+                    <view hidden='{{tabIndex==item.id}}'>{{index>2?index>9?index+1:"0"+(index+1):""}}</view>
+                    <image class="three" src="{{tabIndex!=item.id?'../../../images/icon_sort'+(index+1)+'.png':'../../../images/icon_browse.png'}}"></image>
                 </view>
                 <view class="main">
                     <view class="photo">
                         <image class="three" src="../../../images/icon_play.png"></image>
                     </view>
                     <view class="info">
-                        <view class="title overstep">{{item.title}}啊實打實擴大和大夥傻大姐啊實打實的哈斯</view>
-                        <view class="user overstep">{{item.name}}啊實打實的士大夫撒旦發生發射點發射點發</view>
-                        <view class="describe overstep">{{item.albumName || '默认专辑'}}-{{item.desc}}啊颯颯大蘇打大撒大撒大蘇打</view>
+                        <view class="title overstep">{{item.title}}</view>
+                        <view class="user overstep">{{item.name}}</view>
+                        <view class="describe overstep">{{item.albumName || '已上传专辑'}}-{{item.desc}}</view>
                         <view class="tool">
-                            <view class="status">{{item.isClose>0?"已完结":"未完结"}}</view>
+                            <!-- <view class="status">{{item.isClose>0?"已完结":"未完结"}}</view> -->
                             <view class="browse">
                                 <image src='../../../images/icon_browse.png'></image>
-                                {{item.playNum}}1222
+                                {{item.playNum}}
                             </view>
                             <view class="collect1">
                                 <image src='../../../images/icon_collect.png'></image>
-                                {{item.collectNum}}1223
+                                {{item.collectNum || 0}}
                             </view>
                         </view>
                     </view>

@@ -1,10 +1,30 @@
 <view class="contain">
+    <view class="section">
+		<view class="main">
+			<view class="alone">
+				<view class="left">
+					<image src="{{imgPath+albumInfo.imgPath}}"></image>
+				</view>
+				<view class="right">
+					<view class="title overhide_two">{{albumInfo.name}}</view>
+                    <view class="title_second">{{albumInfo.title || ""}}</view>
+					<view class="tool">
+						<image class="browse" src='../../../images/icon_browse.png'></image>
+						<view>{{item.playCount || 0}}</view>
+						<image class="collect" src='../../../images/icon_collect.png'></image>
+						<view>{{item.collectCount || 0}}</view>
+					</view>
+                    <view bindtap='handleAlbum' class='{{albumInfo.isCollect>0?"button_collect1":"button_collect"}}'>{{albumInfo.isCollect>0?"取消收藏":"收藏"}}</view>
+				</view>
+			</view>	
+		</view>
+	</view>
 	<view class="list" >
 		<view class="item" wx:for="{{list}}" wx:key="{{item.id}}">
 			<view class="wrapper">
 				<image class="photo" src="../../../images/icon_play.png" data-id="{{item.id}}" data-stu="{{item.storyTypeID}}"  bindtap='handleOpenDetails'></image>
 				<view class="content" data-id="{{item.id}}" data-stu="{{item.moduleType}}"  bindtap='handleOpenDetails'>
-					<view class="title">《{{item.title || item.story_name}}》</view>
+					<view class="title">{{item.title || item.story_name}}</view>
 					<view class="tool">
 						<image class="browse" src="../../../images/icon_browse.png"></image>
 						<view>{{item.playNum || item.story_playNum}}</view>
@@ -12,14 +32,11 @@
 						<view>{{item.isCollect || item.collectNum}}</view>
 					</view>
 				</view>
-				<view class="item_collect active" data-id="{{item.id}}"  bindtap="{{title=='听故事'?'handleCollect':'handleCollect1'}}">
+				<!-- <view class="item_collect active" data-id="{{item.id}}"  bindtap="{{title=='听故事'?'handleCollect':'handleCollect1'}}">
 					<image src="{{item.isCollect>0?'../../../images/listen_details_collect_sel.png':'../../../images/listen_details_collect.png'}}"></image>
 					<view>{{item.isCollect>0?"取消收藏":"点击收藏"}}</view>
-				</view>
+				</view> -->
 			</view>
 		</view>
-		
 	</view>
-
-
 </view>

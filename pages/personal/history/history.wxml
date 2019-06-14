@@ -40,7 +40,7 @@
 				bindtouchstart="touchstart" 
 				bindtouchmove="touchmove" 
 			>
-				<view class="wrapper" data-url="/pages/listen/listStory/listStory?id={{item.albumID}}" bindtap='handlePath'>
+				<view class="wrapper" data-url="/pages/listen/listStory/listStory?id={{item.albumID}}&title=听故事" bindtap='handlePath'>
 					<view class="photo">
 						<image src="{{imgPath+item.albumInfo.imgPath}}"></image>
 					</view>
@@ -52,7 +52,7 @@
 						{{item.addTime}}
 					</view>
 				</view>
-				<view class="del" catchtap="del" data-index="{{index}}">删除</view>
+				<view class="del" bindtap='getOrderDetele' data-id="{{item.id}}" data-index="{{index}}">删除</view>
 			</view>
 		</view>
 		<!-- 音频 -->
@@ -69,17 +69,17 @@
 						<image src="../../../images/icon_play.png"></image>
 					</view>
 					<view class="content">
-						<view class="user">《{{item.story_name}}》</view>
+						<view class="user">{{item.story_name}}</view>
 						<view class="user_story">
 							<view class="name">{{item.name}}</view>
-							<view class="story">《{{item.story_albumName || "默认专辑"}}》</view>
+							<view class="story">{{item.story_albumName || "已上传专辑"}}</view>
 						</view>
 					</view>
 					<view class="time">
 						{{item.view_time}}
 					</view>
 				</view>
-				<view class="del" catchtap="del" data-index="{{index}}">删除</view>
+				<view class="del" bindtap='getOrderDetele' data-id="{{item.id}}" data-index="{{index}}">删除</view>
 			</view>
 		</view>
 

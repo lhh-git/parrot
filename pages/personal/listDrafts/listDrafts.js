@@ -15,6 +15,8 @@ Page({
         classify_selid:"",
         name:'',
         storyid:'',
+        page:1,
+        list:"",
 	},
 	onLoad: function (options) {
 		// for (var i = 0; i < 10; i++) {
@@ -41,20 +43,36 @@ Page({
                 userID: userId,
                 albumID: this.data.id,
                 albumType:0,
+                page:this.data.page,
             },
             success: res => {
                 if (res.code == 200) {
+                    if (res.data == "") {
+                        this.setData({
+                            page: this.data.page - 1
+                        })
+                        Utils.showToast("没有更多数据")
+                        return;
+                    }
                     let arr = res.data
                     for (let i = 0; i < arr.length; i++) {
                         arr[i]["isTouchMove"] = false
 
                     }
                     this.setData({
-                        list: arr
+                        list: [...this.data.list, ...arr],
+                        // detail: res.albumInfo
                     })
                 }
             }
         })
+    },
+    //上拉加载
+    onReachBottom: function () {
+        this.setData({
+            page: this.data.page + 1
+        })
+        this.handleList()
     },
     //获取分类数据
     handleGetClassifyInfo() {
@@ -125,7 +143,27 @@ Page({
             },
             success: res => {
                 if (res.code == 200) {
-                    this.handleList()
+                    Utils.showToast('移动成功', "success")
+                    let arr = this.data.list
+                    if (arr.length > 9) {
+                        for (let i = 0; i < arr.length; i++) {
+                            if (arr[i].story_id == this.data.storyid) {
+                                arr.splice(i, 1)
+                            }
+                        }
+                        console.log(arr)
+                        this.setData({
+                            list: arr
+                        })
+                    } else {
+                        this.setData({
+                            page: 1,
+                            list: []
+                        }, () => {
+                            this.handleList()
+                        })
+
+                    }
                 }
             }
         })
@@ -147,7 +185,26 @@ Page({
                         success: res => {
                             if (res.code == 200) {
                                 Utils.showToast('删除成功', "success")
-                                this.handleList()
+                                let arr = this.data.list
+                                if (arr.length > 9) {
+                                    for (let i = 0; i < arr.length; i++) {
+                                        if (arr[i].story_id == e.currentTarget.dataset.id) {
+                                            arr.splice(i, 1)
+
+                                        }
+                                    }
+                                    this.setData({
+                                        list: arr
+                                    })
+                                } else {
+                                    this.setData({
+                                        page: 1,
+                                        list: []
+                                    }, () => {
+                                        this.handleList()
+                                    })
+
+                                }
                             }
                         }
                     })
@@ -173,7 +230,27 @@ Page({
             },
             success: res => {
                 if (res.code == 200) {
-                    this.handleList()
+                    Utils.showToast('上传成功', "success")
+                    let arr = this.data.list
+                    if (arr.length > 9) {
+                        for (let i = 0; i < arr.length; i++) {
+                            if (arr[i].story_id == this.data.storyid) {
+                                arr.splice(i, 1)
+
+                            }
+                        }
+                        this.setData({
+                            list: arr
+                        })
+                    } else {
+                        this.setData({
+                            page: 1,
+                            list: []
+                        }, () => {
+                            this.handleList()
+                        })
+
+                    }
                 }
             }
         })

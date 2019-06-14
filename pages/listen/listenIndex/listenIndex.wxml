@@ -16,9 +16,9 @@
 			indicator-active-color="#fff"
 			circular="{{circular}}"
 		>
-			<block wx:for="{{imgUrls}}" wx:key="{{item.id}}">
+			<block wx:for="{{imgUrls}}"  wx:key="{{item.id}}">
 				<swiper-item>
-					<image src="{{imgPath+item.imgPath+'&w=750&h=300'}}" class="slide-image"/>
+					<image bindtap='handleBannerPath' data-link1='{{item.link}}' data-link='{{item.link_type}}' data-id='{{item.id}}' src="{{imgPath+item.imgPath+'&w=750&h=300'}}" class="slide-image"/>
 				</swiper-item>
 			</block>
 		</swiper>		
@@ -74,16 +74,16 @@
 				bindtap='handleOpenDetails'
 			>
 				<view class="left">
-					<image src="../../../images/icon_play.png"></image>
+					<image src="{{imgPath+item.imgPath}}"></image>
 				</view>
 				<view class="right">
-					<view class="title overhide_two">《{{item.title}}》</view>
-                    <view class="title_second">副标题</view>
+					<view class="title overhide_two">{{item.name}}</view>
+                    <view class="title_second">{{item.title || ""}}</view>
 					<view class="tool">
 						<image class="browse" src='../../../images/icon_browse.png'></image>
-						<view>{{item.playNum}}</view>
+						<view>{{item.playCount || 0}}</view>
 						<image class="collect" src='../../../images/icon_collect.png'></image>
-						<view>{{item.collectNum}}</view>
+						<view>{{item.collectCount}}</view>
 					</view>
 				</view>
 			</view>	

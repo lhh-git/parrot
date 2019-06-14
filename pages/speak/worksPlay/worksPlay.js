@@ -3,7 +3,7 @@ const APP = getApp()
 import Utils from '../../../utils/util.js'
 import Require from '../../../utils/require.js'
 
-let innerAudioContext = wx.createInnerAudioContext()
+let innerAudioContext1 = wx.createInnerAudioContext()
 let bgm = wx.createInnerAudioContext()
 Page({
 	data: {
@@ -39,10 +39,6 @@ Page({
 	formSubmit(e) {
 		Utils.getFormId(e);
 	},
-	// 转发
-	onShareAppMessage() {
-
-	},
     handleList() {
         const userId = wx.getStorageSync("id")
         Require.ajax({
@@ -61,11 +57,11 @@ Page({
                         audioPath: res.data.audioPath,
                         bgm: res.data.musicInfo?res.data.musicInfo.audioPath:""
                     },()=>{
-                        if (res.data.musicInfo){
-                            this.handleBgm()
-                        }else{
+                        // if (res.data.musicInfo){
+                        //     // this.handleBgm()
+                        // }else{
                             this.handlePlayMusic1()
-                        }
+                        // }
                     })
                 }
             }
@@ -80,7 +76,6 @@ Page({
             param: {
                 userStoryID: this.data.id,
                 userID: userId
-
             },
             success: res => {
                 if (res.code == 200) {
@@ -102,59 +97,59 @@ Page({
             control: control
         }, () => {
             if (control) {
-                bgm.play()
-                innerAudioContext.play();
+                // bgm.play()
+                innerAudioContext1.play();
             } else {
-                bgm.pause()
-                innerAudioContext.pause()
+                // bgm.pause()
+                innerAudioContext1.pause()
                 
             }
         })
     },
     onShow() {
-        bgm.play()
-        innerAudioContext.play();
+        // bgm.play()
+        this.handlePlayMusic();
     },
-    handleBgm() {
-        innerAudioContext = wx.createInnerAudioContext()
-        bgm = wx.createInnerAudioContext()
-        bgm.src = this.data.audioPath1 + this.data.bgm;
-        if (this.data.control) {
-            innerAudioContext.play();
-            wx.showLoading({
-                title: '加载中',
-                mask: true
-            })
-        } else {
-            innerAudioContext.pause()
-        } 
-        bgm.play()
-        bgm.onPlay(() => {
-            wx.hideLoading()
-            this.handlePlayMusic()
-        });
+    // handleBgm() {
+    //     innerAudioContext1 = wx.createInnerAudioContext()
+    //     bgm = wx.createInnerAudioContext()
+    //     bgm.src = this.data.audioPath1 + this.data.bgm;
+    //     if (this.data.control) {
+    //         innerAudioContext1.play();
+    //         wx.showLoading({
+    //             title: '加载中',
+    //             mask: true
+    //         })
+    //     } else {
+    //         innerAudioContext1.pause()
+    //     } 
+    //     bgm.play()
+    //     bgm.onPlay(() => {
+    //         wx.hideLoading()
+    //         this.handlePlayMusic()
+    //     });
         
-    },
+    // },
     handlePlayMusic1() {
          this.handlePlayMusic()
     },
     //播放录音
     handlePlayMusic() {
-        innerAudioContext.src = this.data.audioPath1 + this.data.audioPath;
-        innerAudioContext.play()
-        innerAudioContext.onPlay(() => {
+        innerAudioContext1.src = this.data.audioPath1 + this.data.audioPath;
+        innerAudioContext1.play()
+        innerAudioContext1.onPlay(() => {
             wx.hideLoading()
         });
         // 监听播放进度
         var h = 0, m = 0, s = 0
         setTimeout(() => {
             // 按照官方沒用 加断点 加下面这个才会执行
-            innerAudioContext.duration
-            innerAudioContext.onTimeUpdate(() => {
-                let time = Math.floor(innerAudioContext.currentTime);
+            innerAudioContext1.duration
+            innerAudioContext1.onTimeUpdate(() => {
+                let time = Math.floor(innerAudioContext1.currentTime);
                 s = time - (h * 60 * 60) - (m * 60)
-                let duration = Math.floor(innerAudioContext.duration / 60)
-                let duration1 = Math.floor(innerAudioContext.duration % 60)
+                let duration = Math.floor(innerAudioContext1.duration / 60)
+                let duration1 = Math.floor(innerAudioContext1.duration % 60)
                 if (duration.toString().length == 1) {
                     duration = '0' + duration;
                 }
@@ -182,14 +177,14 @@ Page({
                 this.setData({
                     time: time,
                     duration: duration,
-                    minute_play: (Math.ceil(innerAudioContext.currentTime)/Math.ceil(innerAudioContext.duration))
+                    minute_play: (Math.ceil(innerAudioContext1.currentTime)/Math.ceil(innerAudioContext1.duration))
                 })
             })
         },100)
         //自然播放至结束
-        innerAudioContext.onEnded(() => {
+        innerAudioContext1.onEnded(() => {
             h = 0; m = 0; s = 0
-            bgm.pause()
+            // bgm.pause()
             this.setData({
                 control: false,
                 minute_play:1,
@@ -204,14 +199,23 @@ Page({
     // 页面卸载暂停播放&&回到开头
     onUnload() {
         this.setData({
-            control: false
+            control: false,
+            audioPath:""
         })
-        // innerAudioContext.seek(0)
-        innerAudioContext.stop();
-        innerAudioContext.pause()
-        // bgm.seek(0)
-        bgm.stop();
-        bgm.pause()
+        innerAudioContext1.stop();
+        innerAudioContext1.pause()
+        // bgm.stop();
+        // bgm.pause()
+    },
+    onHide() {
+        this.setData({
+            control: false,
+            audioPath: ""
+        })
+        innerAudioContext1.stop();
+        innerAudioContext1.pause()
+        // bgm.stop();
+        // bgm.pause()
     },
     handleUrl(e) {
         const id = e.currentTarget.dataset.id

@@ -2,7 +2,7 @@
 const APP = getApp()
 import Utils from '../../../utils/util.js'
 import Require from '../../../utils/require.js'
-var app = getApp();  
+ 
 Page({
 	data: {
 		imgUrls: [],   //轮播图
@@ -16,14 +16,15 @@ Page({
 		order_type: 1,       //	1：播放量高到低 2：播放量低到高 3：时间正序 4：时间倒序
         imgPath:"",
         audioPath:"",
+        page:1
 	},
 	onLoad () {
-		this.getListenBanner()	//获取轮播图
-		this.getListenScategory()	//获取分类
-		this.getListInfo()          //获取列表数据
+		// this.getListenBanner()	//获取轮播图
+		// this.getListenScategory()	//获取分类
+        this.getListInfo1()          //获取列表数据
         this.setData({
-            imgPath: app.globalData.imgPath,
-            audioPath: app.globalData.audioPath,
+            imgPath: APP.globalData.imgPath,
+            audioPath: APP.globalData.audioPath,
         })
 	},
 	onReady: function () { //获得popup组件
@@ -33,11 +34,27 @@ Page({
 	formSubmit (e) {
 		Utils.getFormId(e);
 	},
+    handleBannerPath(e) {
+        const id = e.currentTarget.dataset.id
+        const link = e.currentTarget.dataset.link
+        const link1 = e.currentTarget.dataset.link1
+        if (link==1) {
+            wx.navigateTo({
+                url: link1,
+            })
+            return;
+        }
+        wx.navigateTo({
+            url: '/pages/common/active/active?id='+id,
+        })
+    },
     onShow(){
+        this.getListenBanner()	//获取轮播图
+        this.getListenScategory()	//获取分类
+        // this.getListInfo1()          //获取列表数据
         let userinfo = JSON.parse(wx.getStorageSync("userInfo"))
-        console.log(userinfo)
         wx.downloadFile({
-            url: userinfo.avatarUrl, //仅为示例，并非真实的资源
+            url: userinfo.avatarUrl, 
             type:"image",
             success: res => {
                 wx.saveFile({
@@ -51,11 +68,13 @@ Page({
                 Utils.showToast(err,"err",10000)
             }
         })
+
     },
+    
 	//分享
-	onShareAppMessage () {
-		return Utils.onShareAppMessage('21', '/pages/personal/history/history', '../../../images/my_section1.png')
-	},
+	// onShareAppMessage () {
+	// 	return Utils.onShareAppMessage('21', '/pages/personal/history/history', '../../../images/my_section1.png')
+	// },
 	//跳转到搜索页
 	hanldOpenSearch () {
 		wx.navigateTo({
@@ -135,6 +154,42 @@ Page({
 			}
 		})
 	},
+    //获取列表数据
+    getListInfo1() {
+        Require.ajax({
+            loading: "1",   //是否开启loading
+            url: "/Index/getAlbumList",
+            method: 'GET',
+            param: {
+                page: this.data.page
+            },
+            success: res => {
+             if(res.data=="") {
+                 this.setData({
+                     page : this.data.page - 1
+                 })
+                    Utils.showToast("没有更多数据")
+                    return;
+                }
+              if (res.code == 200){
+                  const oldData = this.data.list;
+                    this.setData({
+                        list: [...oldData,...res.data]
+                    },()=>{
+                        console.log(this.data.list)
+                    })
+                }
+            }
+        })
+    },
+
+    //上拉加载
+    onReachBottom: function () {
+        this.setData({
+            page: this.data.page + 1
+        })
+        this.getListInfo1()
+    },
 	//切换最新播放量
 	handleToggleOrderType (e) {
 		let type = this.data.order_type;
@@ -147,11 +202,11 @@ Page({
 		}
 		this.getListInfo()	  //获取列表数据
 	},
-	//跳转到播放页
+	//跳转故事页
 	handleOpenDetails (e) {
 		let index = e.currentTarget.dataset.index;
 		wx.navigateTo({
-			url: '/pages/listen/details/details?id=' + index + '&footerIndex=' + '0'
+            url: '/pages/listen/listStory/listStory?id=' + index + '&footerIndex=' + '0&title=' +"听故事"
 		})
 	},
 

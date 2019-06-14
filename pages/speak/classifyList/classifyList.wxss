@@ -96,6 +96,7 @@
 	margin: 7rpx;
 	width: 128rpx;
 	height: 128rpx;
+    border-radius:10rpx; 
 }
 .list .main .info{
 	flex: 1;

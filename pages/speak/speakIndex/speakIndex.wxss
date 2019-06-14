@@ -182,7 +182,7 @@ page {
 .section .main .alone .left {
 	position: relative;
 	width: 391rpx;
-    margin-left:158rpx;
+    margin-left:30rpx;
 }
 .section .main .alone .left image {
 	width: 98rpx;
@@ -238,4 +238,18 @@ page {
 	color: #FF6A1F;
 	border: 1rpx solid #FF6A1F;
 	border-radius: 35rpx;
+}
+
+.afterImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20rpx;
+}
+.afterImg image{
+    width:128rpx;
+    height:128rpx;
+    border-radius:10rpx;
+   
+    
 }

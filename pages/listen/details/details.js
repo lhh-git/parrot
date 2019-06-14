@@ -21,10 +21,12 @@ Page({
         sort:0,         //专辑播放到第几个
         width:"",
         audioPath1:"",  //录音路径补全
+        page:1,
+        albumStoryList:""  //列表项
 	},
 	onLoad: function (options) {
         this.handleGetTellingStoryContent(options.id,0)
-        this.handleAdd(options.id)
+        this.handleGetTellingStoryContent1(options.id)
 		this.setData({
 			footerIndex: options.footerIndex,
             id: options.id,
@@ -35,6 +37,9 @@ Page({
 	},
     //根据上页故事id获取内容
     handleGetTellingStoryContent(id,index=1) {
+        if (index == 0) {
+            this.handleAdd(id)
+        }
         const userid = wx.getStorageSync("id")
         Require.ajax({
             //loading: "1",   //是否开启loading
@@ -43,6 +48,7 @@ Page({
             param: {
                 id: id,
                 userID: userid,
+                page:this.data.page
             },
             success:res=> {
                 if(res.code==200) {
@@ -56,6 +62,42 @@ Page({
                     })
                 }
             }
+        })
+    },
+    //根据上页故事id获取内容
+    handleGetTellingStoryContent1(id) {
+        const userid = wx.getStorageSync("id")
+        Require.ajax({
+            //loading: "1",   //是否开启loading
+            url: "Index/getStoryDetails",
+            method: 'GET',
+            param: {
+                id: id,
+                userID: userid,
+                page: this.data.page
+            },
+            success: res => {
+                if (res.data.albumStoryList == "") {
+                    this.setData({
+                        page: this.data.page - 1
+                    })
+                    Utils.showToast("没有更多数据")
+                    return;
+                }
+                if (res.code == 200) {
+                    this.setData({
+                        albumStoryList: [...this.data.albumStoryList,...res.data.albumStoryList],
+                    })
+                }
+            }
+        })
+    },
+    //上拉加载
+    onReachBottom: function () {
+        this.setData({
+            page: this.data.page + 1
+        }, () => {
+            this.handleGetTellingStoryContent1(this.data.id)
         })
     },
     // 增加播放量
@@ -79,7 +121,7 @@ Page({
     // 上一曲
     handlePrev() {
         let sort = this.data.sort
-        const num = this.data.story.albunStoryList.length
+        const num = this.data.story.albumStoryList.length
         if (!num || num == 1) {
             return;
         }
@@ -89,16 +131,16 @@ Page({
         }
         this.setData({
             sort: sort,
-            audioPath: this.data.story.albunStoryList[sort].audioPath,
-            tabIndex: this.data.story.albunStoryList[sort].id
+            audioPath: this.data.story.albumStoryList[sort].audioPath,
+            tabIndex: this.data.story.albumStoryList[sort].id
         },()=>{
-            this.handlePlayMusic()
+            this.handleGetTellingStoryContent(this.data.story.albumStoryList[sort].id,0)
         })
     },
     // 下一曲
     handleNext() {
         let sort = this.data.sort
-        const num = this.data.story.albunStoryList.length
+        const num = this.data.story.albumStoryList.length
         if (!num || num==1) {
             return;
         }
@@ -108,10 +150,10 @@ Page({
         }
         this.setData({
             sort:sort,
-            audioPath: this.data.story.albunStoryList[sort].audioPath,
-            tabIndex: this.data.story.albunStoryList[sort].id
+            audioPath: this.data.story.albumStoryList[sort].audioPath,
+            tabIndex: this.data.story.albumStoryList[sort].id
         },()=>{
-            this.handlePlayMusic()
+            this.handleGetTellingStoryContent(this.data.story.albumStoryList[sort].id,0)
         })
     },
 	//跳转到人气主播
@@ -164,11 +206,11 @@ Page({
     handlePlayMusic() {
         innerAudioContext.src = this.data.audioPath1 + this.data.audioPath;
         if (this.data.control) {
-            innerAudioContext.play();
             wx.showLoading({
                 title: '加载中',
                 mask: true
             })
+            innerAudioContext.play();
         } else {
             innerAudioContext.pause()
         } 
@@ -241,7 +283,7 @@ Page({
             success: res => {
                 if (res.code==200) {
                     Utils.showToast(res.msg,"success")
-                    this.handleGetTellingStoryContent(this.data.id)
+                    this.handleGetTellingStoryContent(this.data.tabIndex)
                 }else{
                     Utils.showToast(res.msg,"err")
                 }
@@ -296,11 +338,14 @@ Page({
     handletab (e) {
         const id = e.currentTarget.dataset.id;
         const path = e.currentTarget.dataset.path;
+        const sort = e.currentTarget.dataset.sort;
         this.setData({
             tabIndex: id,
-            audioPath:path
+            audioPath:path,
+            sort: sort
         },()=>{
-            this.handlePlayMusic()
+            console.log(path)
+            this.handleGetTellingStoryContent(e.currentTarget.dataset.id,0)
         })
     },
     // 页面卸载暂停播放&&回到开头

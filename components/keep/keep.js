@@ -33,7 +33,40 @@ Component({
         // 生成海报
         handleCreateCanvas () {
             this.hideModal()
-            this.triggerEvent('myevent')
+            this.handleOpenStoredWorks(1)
+        },
+        // 直接绘制二维码
+        getUnlimited(id) {
+            Require.ajax({
+                //loading: "1",   //是否开启loading
+                url: "Speak/getUnlimited",
+                method: 'GET',
+                param: {
+                    page:"pages/speak/worksPlay/worksPlay?id="+id
+            },
+                success: res => {
+                    const path = res.data.split("data:image/png;base64,")[1] 
+                    console.log(path)
+                    /// 临时图片路径
+                    const filePath = `${wx.env.USER_DATA_PATH}/temp_image.jpeg`;
+                    /// 将base64转为二进制数据
+                    const buffer =  wx.base64ToArrayBuffer(path);
+                    /// 绘制成图片
+                    wx.getFileSystemManager().writeFile({
+                        filePath,
+                        data: buffer,
+                        encoding: 'binary',
+                        success:res=> {
+                            wx.setStorageSync("page", filePath)
+                            this.triggerEvent('myevent')
+                        },
+                        fail() {
+                        }
+                    });
+
+                   
+                }
+            })
         },
 		// 显示遮罩层
 		showModal: function () {
@@ -120,7 +153,7 @@ Component({
 		
 		},
 		//上传作品
-		handleOpenStoredWorks() {
+		handleOpenStoredWorks(index=0) {
             // if (!this.data.dbId) {
             //     Utils.showToast('请选择配乐', 'err')
             //     return;
@@ -137,12 +170,16 @@ Component({
                     storyID: this.data.storyId,
                     musicID: this.data.dbId || "",
                 },
-                success(res) {
+                success:res=> {
                     const data = JSON.parse(res)
                     if (data.code == 200) {
                         Utils.showToast('上传成功', 'success')
+                        if(index == 1 ){
+                            this.getUnlimited(res.id)
+                            return;
+                        }
                         wx.navigateTo({
-                            url: '/pages/personal/listStory/listStory?id=0&title=默认专辑',
+                            url: '/pages/personal/listStory/listStory?id=0&title=已上传专辑',
                         })
                     } else {
                         Utils.showToast(data.msg)

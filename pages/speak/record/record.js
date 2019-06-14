@@ -207,9 +207,18 @@ Page({
 		if (system == 'andion') {
 			innerAudioContext.destroy()
 		}
-
 		recorderManager.stop();
-	}
+	},
+    onHide() {
+        let system = wx.getStorageSync("system")
+        if (system == 'ios') {
+            innerAudioContext.stop()
+        }
+        if (system == 'andion') {
+            innerAudioContext.destroy()
+        }
+        recorderManager.stop();
+    }
 	
 
 

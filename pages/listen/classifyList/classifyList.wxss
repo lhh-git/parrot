@@ -60,7 +60,7 @@
 
 
 .list_box {
-	margin-bottom: 100rpx;
+	padding-bottom: 100rpx;
 }
 .list_box .list:last-child .main {
 	border-bottom: none;
@@ -96,6 +96,7 @@
 	margin: 7rpx;
 	width: 128rpx;
 	height: 128rpx;
+    border-radius: 10rpx; 
 }
 .list .main .info{
 	flex: 1;

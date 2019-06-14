@@ -14,7 +14,8 @@ Page({
         // items:[],
         imgPath:"",
 		startX: 0, //开始坐标
-		startY: 0
+		startY: 0,
+        page: 1
 	},
 	onLoad: function (options) {
         this.getOrderInfo()
@@ -36,8 +37,14 @@ Page({
 	//菜单切换
 	handleToggleMenu(e) {
 		const index = e.currentTarget.dataset.index;
+        if (this.data.menu_id == index) {
+            return;
+        }
+        
 		this.setData({
-			menu_id: index
+            detail: [],
+			menu_id: index,
+            page: 1
 		},()=>{
             this.getOrderInfo()
         })
@@ -67,7 +74,7 @@ Page({
         const userid = wx.getStorageSync("id")
         const authorID = e.currentTarget.dataset.id
         Require.ajax({
-            loading: "1",   //是否开启loading
+            // loading: "1",   //是否开启loading
             url: "Index/collectAuthor",
             method: 'POST',
             param: {
@@ -89,7 +96,7 @@ Page({
         const userid = wx.getStorageSync("id")
         const albumID = e.currentTarget.dataset.id
         Require.ajax({
-            loading: "1",   //是否开启loading
+            // loading: "1",   //是否开启loading
             url: "Index/collectAlbum",
             method: 'POST',
             param: {
@@ -97,10 +104,27 @@ Page({
                 userID: userid,
             },
             success: res => {
-                if (res.code == 200) {
+                if (res.code === 200) {
+                    let arr = this.data.detail
                     Utils.showToast(res.msg, "success")
-                    this.getOrderInfo()
-                } else {
+                    if (arr.length > 9) {
+                        for (let i = 0; i < arr.length; i++) {
+                            if (arr[i].albumID == e.currentTarget.dataset.id){
+                                arr.splice(i,1)
+                            }
+                        }
+                        this.setData({
+                            detail: arr,
+                        })
+                    } else {
+                        this.setData({
+                            page: 1,
+                            detail: []
+                        }, () => {
+                            this.getOrderInfo()
+                        })
+                    }
+                }else {
                     Utils.showToast(res.msg, "err")
                 }
             }
@@ -112,7 +136,7 @@ Page({
         const storyID = e.currentTarget.dataset.id
         console.log(storyID)
         Require.ajax({
-            loading: "1",   //是否开启loading
+            // loading: "1",   //是否开启loading
             url: "Index/collectStory",
             method: 'POST',
             param: {
@@ -121,8 +145,26 @@ Page({
             },
             success: res => {
                 if (res.code == 200) {
+                    let arr = this.data.detail
                     Utils.showToast(res.msg, "success")
-                    this.getOrderInfo()
+                    if (arr.length > 9) {
+                        for (let i = 0; i < arr.length; i++) {
+                            if (arr[i].story_id == e.currentTarget.dataset.id) {
+                                arr.splice(i, 1)
+                            }
+                        }
+                        this.setData({
+                            detail: arr,
+                        })
+                    } else {
+                        this.setData({
+                            page: 1,
+                            detail: []
+                        }, () => {
+                            this.getOrderInfo()
+                        })
+                    }
+                    
                 } else {
                     Utils.showToast(res.msg, "err")
                 }
@@ -191,25 +233,41 @@ Page({
         const userId = wx.getStorageSync("id")
         let index = this.data.menu_id
         Require.ajax({
-            loading: "1",   //是否开启loading
+            // loading: "1",   //是否开启loading
             url: "User/myCollect",
             method: 'GET',
             param: {
+                page:this.data.page,
                 id: userId,
                 type: (index == 0 ? 2 : index == 1 ? 1 : index == 2 ? 1 : 3),
             },
             success: res => {
+                if (res.data == "") {
+                    this.setData({
+                        page: this.data.page - 1
+                    })
+                    Utils.showToast("没有更多数据")
+                    return;
+                }
                 let arr = res.data
                 for (let i = 0; i < arr.length; i++) {
                     arr[i]["isTouchMove"] = false
                 }
                 if (res.code === 200) {
                     this.setData({
-                        detail: arr,
+                        detail: [...this.data.detail, ...arr],
                     })
                 }
             }
         })
-    }
+    },
+    //上拉加载
+    onReachBottom: function () {
+        this.setData({
+            page:this.data.page + 1
+        },()=>{
+            this.getOrderInfo()
+        })
+    },
 })
 

@@ -1,18 +1,18 @@
 <view class="contain">
-	<view class="head" hidden="{{title=='默认专辑'}}">
+	<view class="head" hidden="{{title=='已上传专辑'}}">
 		<view class="photo">
-			<image src="{{title!='默认专辑'?imgPath+detail.imgPath+'&w=157&h=157':''}}"></image>
+			<image src="{{title!='已上传专辑'?imgPath+detail.imgPath+'&w=157&h=157':''}}"></image>
 		</view>
-		<view class="content" wx:if="{{title!='默认专辑'}}"> 
+		<view class="content" wx:if="{{title!='已上传专辑'}}"> 
 			<view>{{detail.name}}</view>
 			<view>{{detail.collectNum}}订阅</view>
 			<view wx:if="{{status}}">已完结</view>
 		</view>
-		<switch wx:if="{{title!='默认专辑'}}" checked="{{status}}" color="#F86442" bindchange="switchChange"/>
+		<switch wx:if="{{title!='已上传专辑'}}" checked="{{status}}" color="#F86442" bindchange="switchChange"/>
 	</view>
 
 	<view class="section">
-		<view class="menu" wx:if="{{title!='默认专辑'}}">
+		<view class="menu" wx:if="{{title!='已上传专辑'}}">
 			<view wx:for="{{menu}}"
 				wx:key="{{index}}" 
 				class="{{menu_id == index ? 'item active' : 'item'}}"

@@ -3,6 +3,8 @@ const APP = getApp()
 import Utils from '../../../utils/util.js'
 import Require from '../../../utils/require.js'
 
+ 
+
 Page({
 	data: {
 		imgUrls: [],   //轮播图
@@ -15,15 +17,30 @@ Page({
 		list: [],			//列表页
 		order_type: 1,		//1：播放量高 2：播放量低 3：时间正序 4：时间倒序
         imgPath: "",
+        page: 1
 	},
 	onLoad() {
-		this.getTellingBanner()	//获取轮播图
-		this.getTellingScategory()	//获取分类
+		// this.getTellingBanner()	//获取轮播图
+		// this.getTellingScategory()	//获取分类
 		this.handleGetListInfo()	//获取列表数据
         this.setData({
             imgPath: APP.globalData.imgPath
         })
 	},
+    handleBannerPath(e) {
+        const id = e.currentTarget.dataset.id
+        const link = e.currentTarget.dataset.link
+        const link1 = e.currentTarget.dataset.link1
+        if (link==1) {
+            wx.navigateTo({
+                url: link1,
+            })
+            return;
+        }
+        wx.navigateTo({
+            url: '/pages/common/active/active?id=' + id,
+        })
+    },
 	//获取fromId
 	formSubmit(e) {
 		Utils.getFormId(e);
@@ -40,6 +57,11 @@ Page({
 			url: '/pages/speak/collectMoney/collectMoney?title='+e.currentTarget.dataset.title,
 		})
 	},
+    onShow() {
+        this.getTellingBanner()	//获取轮播图
+        this.getTellingScategory()	//获取分类
+        // this.handleGetListInfo()	//获取列表数据
+    },
     // 故事分类
     handleUrl(e) {
         console.log(e)
@@ -101,15 +123,31 @@ Page({
 			param: {
                 order: this.data.order_type,
                 moduleType:2,
+                page:this.data.page
 			},
 			success:res=> {
-				console.log(res.data)
-				this.setData({
-					list: res.data
-				})
+                if (res.data == "") {
+                    this.setData({
+                        page: this.data.page - 1
+                    })
+                    Utils.showToast("没有更多数据")
+                    return;
+                }
+				if(res.code == 200 ) {
+                    this.setData({
+                        list: [...this.data.list,...res.data]
+                    })
+                }
 			}
 		})
 	},
+    //上拉加载
+    onReachBottom: function () {
+        this.setData({
+            page: this.data.page + 1
+        })
+        this.handleGetListInfo()
+    },
 	//切换最新播放量
 	handleToggleOrderType(e) {
 		let type = this.data.order_type;

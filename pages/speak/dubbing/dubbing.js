@@ -35,7 +35,7 @@ Page({
 			duration: duration,
 			minute: Math.floor(duration / 60)
 		}, () => {
-			this.handlePlayMusic();
+            this.handlePlayMusic();
 		})	
 	},
     //根据上页故事id获取内容
@@ -56,13 +56,20 @@ Page({
             }
         })
     },
-    // 页面卸载暂停播放&&回到开头
+    // // 页面卸载暂停播放&&回到开头
     onUnload() {
-        this.setData({
-            control: false
-        })
-        innerAudioContext.seek(0)
-        innerAudioContext.destroy();
+        // this.setData({
+        //     control: false
+        // })
+        // innerAudioContext.seek(0)
+        // innerAudioContext.destroy();
+        innerAudioContext.stop();
+    },
+    onHide(){
+        innerAudioContext.stop();
+    },
+    onShow() {
+        this.handlePlayMusic();
     },
 	//播放录音
 	handlePlayMusic() {
@@ -70,15 +77,17 @@ Page({
 		// fileSize:28816
 		innerAudioContext.src = this.data.recordInfo.tempFilePath;
 		innerAudioContext.play();
-	
-		//监听播放进度
-		innerAudioContext.onTimeUpdate(() => {
-			let time = Math.ceil(innerAudioContext.currentTime);
-			this.setData({
-				time: time,
-				minute_play: Math.floor(time / 60)
-			})
-		})
+        setTimeout(()=>{
+            innerAudioContext.duration
+            //监听播放进度
+            innerAudioContext.onTimeUpdate(() => {
+                let time = Math.ceil(innerAudioContext.currentTime);
+                this.setData({
+                    time: time,
+                    minute_play: Math.floor(time / 60)
+                })
+            },500)
+        })
 
 		//自然播放至结束
 		innerAudioContext.onEnded(() => {

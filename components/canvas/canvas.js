@@ -57,11 +57,13 @@ Component({
 			let width = this.data.Width;
 			let height = this.data.Height;
             let context = wx.createCanvasContext('mycanvas',this);
+            let page = wx.getStorageSync("page")
+            console.log(page)
 			//绘制背景图片
 			let canvas_bg='/images/canvas_bg.png'
 			context.drawImage(canvas_bg, 0, 0, width * 0.8, height * 0.72);
-            let code = '/images/code.jpg'
-            context.drawImage(code, (width / 2) - 90, (height * 0.72)-120, 100, 100);
+            let code = page
+            context.drawImage(code, (width / 2) - 90, (height * 0.72)-120, 100, 110);
 			// 绘制头像
 			let path1 = this.data.avatarUrl;
             console.log(path1)
@@ -176,8 +178,13 @@ Component({
                                 wx.saveImageToPhotosAlbum({
                                     filePath: res.tempFilePath,
                                     success(result) {
-                                        console.log(result)
                                         Utils.showToast('图片保存成功', 'success')
+                                        setTimeout(() =>{
+                                            wx.navigateTo({
+                                                url: '/pages/personal/listStory/listStory?id=0&title=已上传专辑',
+                                            })
+                                        },500)
+                                       
                                     }
                                 })
                             }
@@ -188,11 +195,11 @@ Component({
 			
 		},
 		// 关闭海报
-		handleHideCanvas() {
-			this.setData({
-				isCanvas: false
-			})
-		}
+		// handleHideCanvas() {
+		// 	this.setData({
+		// 		isCanvas: false
+		// 	})
+		// }
 
 
 
