@@ -135,7 +135,7 @@
 }
 .list_wrapper .item .wrapper {
 	display: flex;
-    width: 100%;
+    width: 101%;
     -webkit-transition: all 0.4s;
     transition: all 0.4s;
     -webkit-transform: translateX(180rpx);

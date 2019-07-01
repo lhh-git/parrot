@@ -1,4 +1,4 @@
 <view class='contain'>
-    <image src="{{imgPath+data.imgPath_details+'&w='+width+'&h='+height}}"></image>
+    <image src="{{imgPath+data.imgPath_details+'&w='+(width*2)+'&h='+(height*2)}}"></image>
     <view class='view' bindtap='handleUrl' style="width:{{data.btn[0]}}rpx;height:{{data.btn[1]}}rpx;left:{{data.btn[2]}}rpx;top:{{data.btn[3]}}rpx"></view>
 </view>

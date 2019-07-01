@@ -12,26 +12,29 @@ Page({
         width: "",
     },
     onLoad(options) {
-        
-        this.setData({
-            height: wx.getSystemInfoSync().windowHeight,
-            width: wx.getSystemInfoSync().windowWidth,
-            imgPath: app.globalData.imgPath,
-        },()=>{
-            Require.ajax({
-                // loading: "1",   //是否开启loading
-                url: "Index/getBannerDetails",
-                method: 'GET',
-                param: {
-                    id: options.id
-                },
-                success: res => {
-                    console.log(res)
-                    this.setData({
-                        data: res.data
+        wx.getSystemInfo({
+            success:res=> {
+                this.setData({
+                    height: res.windowHeight,
+                    width: res.windowWidth,
+                    imgPath: app.globalData.imgPath,
+                },()=>{
+                    Require.ajax({
+                        // loading: "1",   //是否开启loading
+                        url: "Index/getBannerDetails",
+                        method: 'GET',
+                        param: {
+                            id: options.id
+                        },
+                        success: res => {
+                            console.log(res)
+                            this.setData({
+                                data: res.data
+                            })
+                        }
                     })
-                }
-            })
+                })
+            }
         })
     },
     handleUrl(){

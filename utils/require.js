@@ -1,7 +1,7 @@
 import Util from './util.js'
 
-var webUrl = "https://books.icpnt.com/";
-// var webUrl = "http://192.168.0.149/";
+// var webUrl = "https://books.icpnt.com/";
+var webUrl = "https://www.yingwutingshu.com/";
 
 //网络请求方法
 function ajax(model) {

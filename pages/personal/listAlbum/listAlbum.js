@@ -35,6 +35,10 @@ Page({
 	formSubmit (e) {
 		Utils.getFormId(e); //获取formId	
 	},
+    //分享
+    onShareAppMessage() {
+        return Utils.onShareAppMessage()
+    },
 	//菜单切换
 	handleToggleMenu (e) {
 		const index = e.currentTarget.dataset.index;

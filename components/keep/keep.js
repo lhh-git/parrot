@@ -37,6 +37,7 @@ Component({
         },
         // 直接绘制二维码
         getUnlimited(id) {
+            console.log(id)
             Require.ajax({
                 //loading: "1",   //是否开启loading
                 url: "Speak/getUnlimited",
@@ -175,7 +176,7 @@ Component({
                     if (data.code == 200) {
                         Utils.showToast('上传成功', 'success')
                         if(index == 1 ){
-                            this.getUnlimited(res.id)
+                            this.getUnlimited(data.id)
                             return;
                         }
                         wx.navigateTo({

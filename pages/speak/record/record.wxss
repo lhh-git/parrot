@@ -111,3 +111,30 @@
 	width: 150rpx;
 	height: 90rpx;
 }
+.new_bg{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5)
+}
+.img1{
+    width: 366rpx;
+    height: 517rpx;
+    position: absolute;
+    bottom: 58rpx;
+    left: 101rpx;
+}
+.img2{
+    width: 312rpx;
+    height: 422rpx;
+    position: absolute;
+    bottom: 104rpx;
+    left: 69rpx;
+}
+.img3{
+    width: 356rpx;
+    height: 414rpx;
+    position: absolute;
+    bottom: 104rpx;
+    right: 75rpx;
+}

@@ -228,7 +228,7 @@ page {
 	flex: 1;
 }
 .section .main .alone .right button {
-	margin-left: 130rpx;
+	/* margin-left: 130rpx; */
 	margin-top: 79rpx;
 	text-align: center;
 	line-height: 70rpx;

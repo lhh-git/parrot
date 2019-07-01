@@ -37,5 +37,9 @@
 			</image>
 		</view>
 	</view>
+    <!-- 新手引导 -->
+    <view class='new_bg' hidden='{{new==4}}'>
+        <image class='img{{new}}' bindtap='handleNumAdd' src='../../../images/i{{new}}.png'></image>
+    </view>
 </view>
 

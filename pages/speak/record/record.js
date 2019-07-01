@@ -18,6 +18,7 @@ Page({
 		time: 0,            //录制时长
 		minute: 0,          //录制分钟数
         story:"",           //故事
+        new:4
 	},
 	onLoad: function (options) {
         this.handleGetTellingStoryContent(options.id)
@@ -28,7 +29,51 @@ Page({
 		wx.authorize({
 			scope: 'scope.record'
 		})
+        // 新手引导
+        if (wx.getStorageSync("new")) {
+            this.setData({
+                new: 4,
+            })
+        }else{
+            this.setData({
+                new:1,
+            })
+        }
 	},
+    onShow() {
+        this.setData({
+            audition: false
+        })
+        innerAudioContext.seek(0)
+        innerAudioContext.stop();
+        innerAudioContext.pause()
+        recorderManager.stop();
+    },
+    handleNumAdd(){
+        if(this.data.new==1) {
+            this.setData({
+                new:2,
+            })
+            return;
+        } 
+        if (this.data.new == 2) {
+            this.setData({
+                new: 3,
+            })
+            return;
+        } 
+        if (this.data.new == 3) {
+            this.setData({
+                new: 4,
+            })
+            wx.setStorageSync("new","new")
+            return;
+        } 
+    },
+    //分享
+    onShareAppMessage() {
+        return Utils.onShareAppMessage()
+    },
     //根据上页故事id获取内容
     handleGetTellingStoryContent(id) {
         let _this = this;
@@ -108,6 +153,7 @@ Page({
 	handleRecordStart() {
 		const _this = this;
 		innerAudioContext.stop()
+        innerAudioContext.pause()
 		this.setData({
 			recordStart: false
 		})
@@ -180,6 +226,7 @@ Page({
 					innerAudioContext.src = recordInfo.tempFilePath;
 					innerAudioContext.play()
 				}else {
+                    innerAudioContext.stop();
 					innerAudioContext.pause()
 				}
 			}
@@ -198,25 +245,33 @@ Page({
 				+ '&id=' + this.data.id
 			})
 		}
+        innerAudioContext.seek(0)
+        innerAudioContext.stop();
+        innerAudioContext.pause()
 	},
 	onUnload () {
-		let system = wx.getStorageSync("system")
-		if (system == 'ios') {
-			innerAudioContext.stop()
-		}
-		if (system == 'andion') {
-			innerAudioContext.destroy()
-		}
+        this.setData({
+            audition: false
+        })
+		// let system = wx.getStorageSync("system")
+		// if (system == 'ios') {
+		// 	innerAudioContext.stop()
+		// }
+		// if (system == 'andion') {
+        //     innerAudioContext.pause()
+		// }
+        innerAudioContext.seek(0)
+        innerAudioContext.stop();
+        innerAudioContext.pause()
 		recorderManager.stop();
 	},
     onHide() {
-        let system = wx.getStorageSync("system")
-        if (system == 'ios') {
-            innerAudioContext.stop()
-        }
-        if (system == 'andion') {
-            innerAudioContext.destroy()
-        }
+        this.setData({
+            audition: false
+        })
+        innerAudioContext.seek(0)
+        innerAudioContext.stop();
+        innerAudioContext.pause()
         recorderManager.stop();
     }
 	

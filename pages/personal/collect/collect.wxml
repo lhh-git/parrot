@@ -50,7 +50,7 @@
 					</view>
 					<view class="time">
 						<image  class="collect" src='../../../images/icon_collect.png'></image>
-						<view>{{item.collectNum}}万人</view>
+						<view>{{item.collectNum}}人</view>
 					</view>
 				</view>
 				<view class="del" data-id="{{item.albumID}}" bindtap='handleAlbum'>删除</view>
@@ -83,7 +83,7 @@
 						</view>
 						<view class="item">
 							<image class="browse" src='../../../images/icon_browse.png'></image>
-							<view>{{item.story_playNum}}万人</view>
+							<view>{{item.story_playNum}}人</view>
 						</view>
 					</view>
 				</view>

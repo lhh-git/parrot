@@ -41,6 +41,10 @@ Page({
             url: '/pages/common/active/active?id=' + id,
         })
     },
+    //分享
+    onShareAppMessage() {
+        return Utils.onShareAppMessage()
+    },
 	//获取fromId
 	formSubmit(e) {
 		Utils.getFormId(e);
@@ -123,7 +127,8 @@ Page({
 			param: {
                 order: this.data.order_type,
                 moduleType:2,
-                page:this.data.page
+                page:this.data.page,
+                order: 5,//手动排序 
 			},
 			success:res=> {
                 if (res.data == "") {

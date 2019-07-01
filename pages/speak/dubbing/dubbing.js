@@ -34,10 +34,12 @@ Page({
 			recordInfo: recordInfo,
 			duration: duration,
 			minute: Math.floor(duration / 60)
-		}, () => {
-            this.handlePlayMusic();
 		})	
 	},
+    //分享
+    onShareAppMessage() {
+        return Utils.onShareAppMessage()
+    },
     //根据上页故事id获取内容
     handleGetTellingStoryContent(id) {
         let _this = this;
@@ -56,25 +58,24 @@ Page({
             }
         })
     },
-    // // 页面卸载暂停播放&&回到开头
+     // 页面卸载暂停播放&&回到开头
     onUnload() {
         // this.setData({
         //     control: false
         // })
         // innerAudioContext.seek(0)
-        // innerAudioContext.destroy();
+        innerAudioContext.pause();
         innerAudioContext.stop();
     },
     onHide(){
+        innerAudioContext.pause();
         innerAudioContext.stop();
     },
     onShow() {
-        this.handlePlayMusic();
+        this.handlePlayMusic()
     },
 	//播放录音
 	handlePlayMusic() {
-		// duration:1630
-		// fileSize:28816
 		innerAudioContext.src = this.data.recordInfo.tempFilePath;
 		innerAudioContext.play();
         setTimeout(()=>{
@@ -140,10 +141,6 @@ Page({
     // 生成海报
     handleCreateCanvas() {
         this.canvas.handleGetCanvalInfo()
-    }
-
-	
-	
-
+    }	
 
 })

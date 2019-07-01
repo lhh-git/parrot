@@ -33,6 +33,10 @@ Page({
             this.handleGetClassifyInfo()
         });
 	},
+    //分享
+    onShareAppMessage() {
+        return Utils.onShareAppMessage()
+    },
     handleList() {
         const userId = wx.getStorageSync("id")
         Require.ajax({

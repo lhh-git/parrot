@@ -35,6 +35,10 @@ Page({
             audioPath1: APP.globalData.audioPath
 		})
 	},
+    //分享
+    onShareAppMessage() {
+        return Utils.onShareAppMessage()
+    },
     //根据上页故事id获取内容
     handleGetTellingStoryContent(id,index=1) {
         if (index == 0) {

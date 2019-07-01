@@ -20,6 +20,10 @@ Page({
 	onShow(){
         this.handleGetUserInfo()
     },
+    //分享
+    onShareAppMessage() {
+        return Utils.onShareAppMessage()
+    },
 	handleGetUserInfo() {
         const userId = wx.getStorageSync("id")
 		Require.ajax({

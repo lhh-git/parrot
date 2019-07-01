@@ -30,6 +30,10 @@ Page({
             url: '/pages/speak/speakDetail/speakDetail?footerIndex=' + '0'+'&id='+e.currentTarget.dataset.id,
 		})
 	},
+    //分享
+    onShareAppMessage() {
+        return Utils.onShareAppMessage()
+    },
     //获取列表数据
     getListInfo(id) {
         Require.ajax({

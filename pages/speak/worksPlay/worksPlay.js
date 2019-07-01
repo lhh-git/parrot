@@ -23,6 +23,7 @@ Page({
         audioPath1:"",
 	},
 	onLoad: function (options) {
+        console.log(options)
         this.setData({
             id: options.id,
             imgPath: APP.globalData.imgPath,
@@ -35,6 +36,10 @@ Page({
 	onReady: function () { //获得popup组件
 		this.canvas = this.selectComponent("#canvas");
 	},
+    //分享
+    onShareAppMessage() {
+        return Utils.onShareAppMessage()
+    },
 	//获取fromId
 	formSubmit(e) {
 		Utils.getFormId(e);
@@ -47,8 +52,7 @@ Page({
             method: 'GET',
             param: {
                 id:this.data.id,
-                userID: userId
-                
+                userID: userId  
             },
             success: res => {
                 if (res.code == 200) {
@@ -86,9 +90,18 @@ Page({
     },
     //点击朗读
     handleOpenRecord() {
+        const userId = wx.getStorageSync("id")
+        if (userId){
+            wx.navigateTo({
+                url: '/pages/speak/record/record?id=' + this.data.list.storyInfo.id,
+            })
+           
+            return;
+        }
         wx.navigateTo({
-            url: '/pages/speak/record/record?id=' + this.data.list.storyInfo.id,
+            url: '/pages/login/index/index',
         })
+      
     },
     //切换播放状态
     handleTogglePlay() {
@@ -107,6 +120,10 @@ Page({
         })
     },
     onShow() {
+        this.setData({
+            control: true,
+            // audioPath:""
+        })
         // bgm.play()
         this.handlePlayMusic();
     },
@@ -200,7 +217,7 @@ Page({
     onUnload() {
         this.setData({
             control: false,
-            audioPath:""
+            // audioPath:""
         })
         innerAudioContext1.stop();
         innerAudioContext1.pause()
@@ -210,7 +227,7 @@ Page({
     onHide() {
         this.setData({
             control: false,
-            audioPath: ""
+            // audioPath: ""
         })
         innerAudioContext1.stop();
         innerAudioContext1.pause()

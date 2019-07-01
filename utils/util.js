@@ -132,27 +132,28 @@ const loadingData = (status, title) => {
 }
 
 //右上角分享页面
-// const onShareAppMessage = (title, path, url) => {
-	// return {
-	// 	title: title,   //标题
-	// 	path: path,		//路径
-	// 	imageUrl: url,  //图片
-	// 	success: function (res) {
-	// 		wx.showToast({
-	// 			title: '成功',
-	// 			icon: 'success',
-	// 			duration: 2000
-	// 		})
-	// 	},
-	// 	fail: function (res) {
-	// 		wx.showToast({
-	// 			title: '失败',
-	// 			icon: 'success',
-	// 			duration: 2000
-	// 		})
-	// 	}
-	// }
-//  }
+const onShareAppMessage = () => {
+	return {
+		title: "鹦鹉听书",   //标题
+        path: "/pages/login/index/index",		//路径
+        imageUrl: '/images/share.png',  //图片
+		success: function (res) {
+            console.log(res)
+			wx.showToast({
+				title: '成功',
+				icon: 'success',
+				duration: 2000
+			})
+		},
+		fail: function (res) {
+			wx.showToast({
+				title: '失败',
+				icon: 'success',
+				duration: 2000
+			})
+		}
+	}
+ }
 
 		
 
@@ -168,7 +169,7 @@ module.exports = {
 	getFormId,
 	pullUpRefresh,
 	loadingData,
-	// onShareAppMessage,
+	onShareAppMessage,
 	closeMusic
 
 }

@@ -79,7 +79,7 @@
 							<image class="browse" src='../../../images/icon_browse.png'></image>
 							<view>3581</view>
 							<image class="collect" src='../../../images/icon_collect.png'></image>
-							<view>3.5万</view>
+							<view>3.5</view>
 						</view>
 					</view>
 					<view class="time_collect active">

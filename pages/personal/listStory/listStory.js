@@ -45,6 +45,10 @@ Page({
             this.handleGetClassifyInfo()
         });
 	},
+    //分享
+    onShareAppMessage() {
+        return Utils.onShareAppMessage()
+    },
 	//收集formId
 	formSubmit (e) {
 		Utils.getFormId(e); //获取formId	

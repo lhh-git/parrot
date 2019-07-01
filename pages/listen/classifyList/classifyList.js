@@ -23,6 +23,10 @@ Page({
             imgPath: APP.globalData.imgPath
 		})
 	},
+    //分享
+    onShareAppMessage() {
+        return Utils.onShareAppMessage()
+    },
 	//打开听故事详情页
 	handleOpenDetails(e) {
 		wx.navigateTo({

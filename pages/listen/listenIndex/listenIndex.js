@@ -72,9 +72,9 @@ Page({
     },
     
 	//分享
-	// onShareAppMessage () {
-	// 	return Utils.onShareAppMessage('21', '/pages/personal/history/history', '../../../images/my_section1.png')
-	// },
+	onShareAppMessage () {
+		return Utils.onShareAppMessage()
+	},
 	//跳转到搜索页
 	hanldOpenSearch () {
 		wx.navigateTo({
@@ -242,8 +242,5 @@ Page({
 				}
 			}
 		})
-
 	}
-
-
 })

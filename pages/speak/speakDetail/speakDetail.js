@@ -24,6 +24,10 @@ Page({
 			url: '/pages/speak/record/record?id=' + this.data.id,
 		})
 	},
+    //分享
+    onShareAppMessage() {
+        return Utils.onShareAppMessage()
+    },
 	//根据上页故事id获取内容
 	handleGetTellingStoryContent () {
 		let _this = this;

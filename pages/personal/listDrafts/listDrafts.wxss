@@ -10,7 +10,7 @@
 .wrapper {
 	display: flex;
 	margin-top: 47rpx;
-	width: 100%;
+	width: 100.2%;
 	border-bottom: 1rpx solid #D1D1D1;
 
     -webkit-transition: all 0.4s;
@@ -58,7 +58,7 @@
 	display: inline-block;
 	line-height: 160rpx;
 	text-align: center;
-	width: 122rpx;
+	width: 120rpx;
 	height: 160rpx;
 	font-size: 30rpx;
 	color: white;

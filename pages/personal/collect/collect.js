@@ -49,6 +49,10 @@ Page({
             this.getOrderInfo()
         })
 	},
+    //分享
+    onShareAppMessage() {
+        return Utils.onShareAppMessage()
+    },
     //跳转统一处理
     handlePath(e) {
         const url = e.currentTarget.dataset.url
