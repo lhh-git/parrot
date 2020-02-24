@@ -4,7 +4,7 @@ import Utils from '../../../utils/util.js'
 import Require from '../../../utils/require.js'
 
 const recorderManager = wx.getRecorderManager()
-let innerAudioContext = wx.createInnerAudioContext()
+const backgroundAudioManager = wx.getBackgroundAudioManager()
 var timer = null;
 var pageX = 0
 Page({
@@ -28,7 +28,7 @@ Page({
         this.handleGetTellingStoryContent(options.id,0)
         this.handleGetTellingStoryContent1(options.id)
 		this.setData({
-			footerIndex: options.footerIndex,
+			      footerIndex: options.footerIndex,
             id: options.id,
             tabIndex: options.id,
             imgPath: APP.globalData.imgPath,
@@ -91,6 +91,14 @@ Page({
                 if (res.code == 200) {
                     this.setData({
                         albumStoryList: [...this.data.albumStoryList,...res.data.albumStoryList],
+                    },()=>{
+                      for (let i = 1; i < this.data.albumStoryList.length; i++) {
+                        if (id == this.data.albumStoryList[i].id) {
+                          this.setData({
+                            sort: i
+                          })
+                        }
+                      }
                     })
                 }
             }
@@ -125,7 +133,7 @@ Page({
     // 上一曲
     handlePrev() {
         let sort = this.data.sort
-        const num = this.data.story.albumStoryList.length
+        const num = this.data.albumStoryList.length
         if (!num || num == 1) {
             return;
         }
@@ -135,16 +143,16 @@ Page({
         }
         this.setData({
             sort: sort,
-            audioPath: this.data.story.albumStoryList[sort].audioPath,
+            audioPath: this.data.albumStoryList[sort].audioPath,
             tabIndex: this.data.story.albumStoryList[sort].id
         },()=>{
-            this.handleGetTellingStoryContent(this.data.story.albumStoryList[sort].id,0)
+            this.handleGetTellingStoryContent(this.data.albumStoryList[sort].id,0)
         })
     },
     // 下一曲
     handleNext() {
         let sort = this.data.sort
-        const num = this.data.story.albumStoryList.length
+        const num = this.data.albumStoryList.length
         if (!num || num==1) {
             return;
         }
@@ -154,10 +162,10 @@ Page({
         }
         this.setData({
             sort:sort,
-            audioPath: this.data.story.albumStoryList[sort].audioPath,
-            tabIndex: this.data.story.albumStoryList[sort].id
+            audioPath: this.data.albumStoryList[sort].audioPath,
+            tabIndex: this.data.albumStoryList[sort].id
         },()=>{
-            this.handleGetTellingStoryContent(this.data.story.albumStoryList[sort].id,0)
+            this.handleGetTellingStoryContent(this.data.albumStoryList[sort].id,0)
         })
     },
 	//跳转到人气主播
@@ -177,6 +185,7 @@ Page({
 			show: show
 		})
 	},
+  
     //切换播放状态
     handleTogglePlay() {
         let control = !this.data.control;
@@ -188,49 +197,59 @@ Page({
                     title: '加载中',
                     mask: true
                 })
-                innerAudioContext.play(); 
+              backgroundAudioManager.play(); 
             } else {
-                innerAudioContext.pause()
+              backgroundAudioManager.pause()
             }
         })
     },
     onShow () {
-        // innerAudioContext = wx.createInnerAudioContext()
+        // backgroundAudioManager = wx.createbackgroundAudioManager()
         // this.handlePlayMusic()
         this.handleGetTellingStoryContent(this.data.id)
     },
-    onHide() {
-        this.setData({
-            control: false
-        })
-        innerAudioContext.pause();
-        innerAudioContext.stop();
-    },
+    // onHide() {
+    //     this.setData({
+    //         control: false
+    //     })
+    //   backgroundAudioManager.pause();
+    //   backgroundAudioManager.stop();
+    // },
     //播放录音
     handlePlayMusic() {
-        innerAudioContext.src = this.data.audioPath1 + this.data.audioPath;
+      backgroundAudioManager.title = this.data.story.title
+      backgroundAudioManager.epname = this.data.story.albumName
+      backgroundAudioManager.singer = '鹦鹉听书'
+      backgroundAudioManager.coverImgUrl = 'http://www.yingwutingshu.com/Uploads/bg001.png'
+      backgroundAudioManager.src = this.data.audioPath1 + this.data.audioPath;
         if (this.data.control) {
             wx.showLoading({
                 title: '加载中',
                 mask: true
             })
-            innerAudioContext.play();
+          backgroundAudioManager.play();
         } else {
-            innerAudioContext.pause()
+          backgroundAudioManager.pause()
         } 
-        innerAudioContext.onPlay(()=>{
+      backgroundAudioManager.onPlay(()=>{
             wx.hideLoading()
         });
+      backgroundAudioManager.onNext(() => {
+        this.handleNext()
+      })
+      backgroundAudioManager.onPrev(()=>{
+        this.handlePrev()
+      })
         // 监听播放进度
         var h = 0, m = 0, s = 0
         setTimeout(() => {
             // 按照官方沒用 加断点 加下面这个才会执行
-            innerAudioContext.duration
-            innerAudioContext.onTimeUpdate(() => {
-                let time = Math.floor(innerAudioContext.currentTime);
+          backgroundAudioManager.duration
+          backgroundAudioManager.onTimeUpdate(() => {
+                let time = Math.floor(backgroundAudioManager.currentTime);
                 s=time-(h*60*60)-(m*60)
-                let duration = Math.floor(innerAudioContext.duration/60)
-                let duration1 = Math.floor(innerAudioContext.duration % 60)
+                let duration = Math.floor(backgroundAudioManager.duration/60)
+                let duration1 = Math.floor(backgroundAudioManager.duration % 60)
                 if (duration.toString().length == 1) {
                     duration = '0'+duration;
                 }
@@ -258,16 +277,19 @@ Page({
                 this.setData({
                     time: time,
                     duration: duration,
-                    minute_play: (innerAudioContext.currentTime/innerAudioContext.duration)
+                    minute_play: (backgroundAudioManager.currentTime/backgroundAudioManager.duration)
                 })
             })
         }, 500)
         //自然播放至结束
-        innerAudioContext.onEnded(() => {
+        backgroundAudioManager.onEnded(() => {
             h = 0; m = 0;s = 0
-            this.setData({
-                control: false
-            })
+          this.handleNext()
+            // this.setData({
+            //     control: false
+            // },()=>{
+              
+            // })
         })
 
     },
@@ -357,9 +379,9 @@ Page({
         this.setData({
             control: false
         })
-        // innerAudioContext.seek(0)
-        innerAudioContext.stop();
-        innerAudioContext.pause();
+        // backgroundAudioManager.seek(0)
+        backgroundAudioManager.stop();
+        backgroundAudioManager.pause();
     },
 })
 

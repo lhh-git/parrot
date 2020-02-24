@@ -10,9 +10,9 @@
                     <view class="title_second">{{albumInfo.title || ""}}</view>
 					<view class="tool">
 						<image class="browse" src='../../../images/icon_browse.png'></image>
-						<view>{{item.playCount || 0}}</view>
+						<view>{{albumInfo.playCount || 0}}</view>
 						<image class="collect" src='../../../images/icon_collect.png'></image>
-						<view>{{item.collectCount || 0}}</view>
+						<view>{{albumInfo.collectCount || 0}}</view>
 					</view>
                     <view bindtap='handleAlbum' class='{{albumInfo.isCollect>0?"button_collect1":"button_collect"}}'>{{albumInfo.isCollect>0?"取消收藏":"收藏"}}</view>
 				</view>

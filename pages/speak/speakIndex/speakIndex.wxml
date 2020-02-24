@@ -36,7 +36,7 @@
 			interval="{{interval}}"
 			duration="{{duration}}"
 			indicator-color="#EBEBEB"
-			indicator-active-color="#C1C1C1	
+			indicator-active-color="#C1C1C1"
         >
         	<block wx:for="{{icons}}"  wx:key="{{item.id}}">
 				<swiper-item class="swiper-item">

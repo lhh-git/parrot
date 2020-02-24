@@ -42,6 +42,9 @@
         "pages/common/search/search",
         "pages/common/active/active"
     ],
+    "requiredBackgroundModes": [
+      "audio"
+    ],
     "window": {
         "backgroundTextStyle": "dark",
         "navigationBarBackgroundColor": "#fff",

@@ -164,8 +164,9 @@
 	line-height: 33rpx;
 	font-size: 30rpx;
 	color: #4E4E4E;
-    width:270rpx;
-    overflow:hidden;
+  width:270rpx;
+  overflow:hidden;
+  white-space: nowrap;
 }
 .section .main .alone .right .tool {
 	position: absolute;

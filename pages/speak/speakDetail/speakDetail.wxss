@@ -68,7 +68,6 @@ page{
     overflow-y:auto; 
     letter-spacing:140;
     text-align: left;
-    text-indent:2em;
 }
 .detail_story_mark{
     position: absolute;

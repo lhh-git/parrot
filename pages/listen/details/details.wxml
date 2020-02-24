@@ -58,7 +58,7 @@
 		<view class="synopsis">
 			<view class="title">简介</view>
 			<view class="{{show ? 'active' : 'content'}}">
-            {{story.desc}}
+            {{story.albumDesc}}
 			</view>
 			<view class="show" bindtap='handleSunopsisShow'>
 				<view>展示</view>
@@ -95,7 +95,7 @@
 		 <view class="list_box">
             <view class="list" bindtap='handletab' data-sort="{{index}}" data-path="{{item.audioPath}}" wx:for="{{albumStoryList}}" wx:key="{{item.id}}" data-id='{{item.id}}'>
                 <view class="sort">
-                    <view hidden='{{tabIndex==item.id}}'>{{index>2?index>9?index+1:"0"+(index+1):""}}</view>
+                    <view hidden='{{tabIndex==item.id}}'>{{index>2?index>8?index+1:"0"+(index+1):""}}</view>
                     <image class="three" src="{{tabIndex!=item.id?'../../../images/icon_sort'+(index+1)+'.png':'../../../images/icon_browse.png'}}"></image>
                 </view>
                 <view class="main">

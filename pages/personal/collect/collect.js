@@ -5,6 +5,7 @@ import Require from '../../../utils/require.js'
 
 Page({
 	data: {
+    footerIndex:"2",
 		menu: ["专辑", "音频"],
 		menu_id:0,
 		classify: ["exchange_bonus.png", "exchange_commission.png", "exchange_egg.png"],

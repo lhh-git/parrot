@@ -17,6 +17,7 @@ Page({
 		wx.setNavigationBarTitle({
 			title: options.title
 		})
+    console.log(options.footerIndex)
 		this.setData({
 			footerIndex: options.footerIndex,
             id: options.id,

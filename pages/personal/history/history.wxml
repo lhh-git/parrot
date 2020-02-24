@@ -84,5 +84,5 @@
 		</view>
 
 	</view>
-
+<footer id="footer" footerIndex="{{footerIndex}}"></footer>
 </view>

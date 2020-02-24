@@ -3,8 +3,8 @@ const APP = getApp()
 import Utils from '../../../utils/util.js'
 import Require from '../../../utils/require.js'
 
-let innerAudioContext1 = wx.createInnerAudioContext()
-let bgm = wx.createInnerAudioContext()
+let innerAudioContext1 = wx.getBackgroundAudioManager()
+let bgm = wx.getBackgroundAudioManager()
 Page({
 	data: {
 		time: 0,            //录制时长
@@ -152,6 +152,10 @@ Page({
     },
     //播放录音
     handlePlayMusic() {
+      innerAudioContext1.title = this.data.list.storyInfo.title
+      innerAudioContext1.epname = '鹦鹉听书'
+      innerAudioContext1.singer = this.data.list.userInfo.nickName
+      innerAudioContext1.coverImgUrl = 'http://www.yingwutingshu.com/Uploads/bg001.png'
         innerAudioContext1.src = this.data.audioPath1 + this.data.audioPath;
         innerAudioContext1.play()
         innerAudioContext1.onPlay(() => {
@@ -224,16 +228,16 @@ Page({
         // bgm.stop();
         // bgm.pause()
     },
-    onHide() {
-        this.setData({
-            control: false,
-            // audioPath: ""
-        })
-        innerAudioContext1.stop();
-        innerAudioContext1.pause()
-        // bgm.stop();
-        // bgm.pause()
-    },
+    // onHide() {
+    //     this.setData({
+    //         control: false,
+    //         // audioPath: ""
+    //     })
+    //     innerAudioContext1.stop();
+    //     innerAudioContext1.pause()
+    //     // bgm.stop();
+    //     // bgm.pause()
+    // },
     handleUrl(e) {
         const id = e.currentTarget.dataset.id
         if (!id) {

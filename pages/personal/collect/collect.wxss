@@ -29,6 +29,7 @@ page {
 
 
 .section {
+  padding-bottom: 100rpx;
 	margin-top: 41rpx;
 	
 }
